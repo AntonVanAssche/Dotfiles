@@ -1,0 +1,49 @@
+# ==============================================================================
+#  Purify theme for termite
+#  Author:     Kyoz
+#  Repository: https://github.com/kyoz/purify/
+#  License:    The MIT License (MIT)
+#  Copyright:  Kyoz (banminkyoz@gmail.com)
+# ==============================================================================
+
+[options]
+allow_bold = true
+clickable_url = true
+
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 10000
+
+# "off", "left" or "right"
+scrollbar = right
+
+font = DejaVuSansMono Nerd Font Mono 11
+
+[colors]
+# Purify color scheme.
+cursor = #FAFAFA
+
+foreground = #FAFAFA
+foreground_bold = #FAFAFA
+background = #313440
+background = rgba(40, 42, 52, 0.9)
+
+highlight = #252834
+
+color0  = #313440
+color1  = #FF6059
+color2  = #5FFF87
+color3  = #FFFF87
+color4  = #5FAFFF
+color5  = #AF87FF
+color6  = #5FAFFF
+color7  = #FAFAFA
+
+color8  = #313440
+color9  = #FF6059
+color10 = #5FFF87
+color11 = #FFFF87
+color12 = #5FAFFF
+color13 = #AF87FF
+color14 = #5FAFFF
+color15 = #FAFAFA

@@ -1,0 +1,56 @@
+[submodule "Vundle"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim
+
+[submodule "Command-t"]
+	path = .vim/bundle/command-t
+	url = https://github.com/wincent/command-t
+
+[submodule "Lightline"]
+	path = .vim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+
+[submodule "Nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter
+
+[submodule "nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
+
+[submodule "Purify Vim"]
+	path = .vim/bundle/purify/vim
+	url = https://github.com/kyoz/purify/tree/master/vim
+
+[submodule "Python-syntax"]
+	path = .vim/bundle/python-syntax
+	url = https://github.com/hdima/python-syntax
+
+[submodule "sh-vim"]
+	path = .vim/bundle/sh.vim
+	url = https://github.com/vim-scripts/sh.vim
+
+[submodule "vim-rainbow"]
+	path = .vim/bundle/vim-rainbow
+	url = https://github.com/frazrepo/vim-rainbow
+
+[submodule "vim-node"]
+	path = .vim/bundle/vim-node
+	url = https://github.com/moll/vim-node
+
+[submodule "wal.vim"]
+	path = .vim/bundle/wal.vim
+	url = https://github.com/dylanaraps/wal.vim
+
+[submodule "sparkup"]
+	path = .vim/bundle/sparkup
+	url = https://github.com/rstacruz/sparkup
+
+[submodule "Vim"]
+	path = .vim/bundle/vim
+	url = https://github.com/rainglow/vim
+
+[submodule "vim-fugitive"]
+    path = .vim/bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive
+

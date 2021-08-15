@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+
+gitlab_token="---YOUR GITLAB TOKEN---"
+gitlab_name="---YOUR GITLAB NAME---"
+github_token="---YOUR GITHUB TOKEN---"
+github_name="---YOUR GITHUB NAME---"
+hardware_adress="**:**:**:**:**:**"
+broadcast="---YOUR LOCAL BROADCAST---"
+wake_local_ip="---THE LOCAL IP YOU WANT TO WAKE---"
+local_user="$(whoami)"
+
+function extract() {
+if [ -f $1 ] ; then
+   case $1 in
+      *.tar.bz2)   tar xvjf $1     ;;
+      *.tar.gz)    tar xvzf $1     ;;
+      *.tar.xz)    tar xvJf $1     ;;
+      *.bz2)       bunzip2 $1      ;;
+      *.rar)       unrar x $1      ;;
+      *.gz)        gunzip $1       ;;
+      *.tar)       tar xvf $1      ;;
+      *.tbz2)      tar xvjf $1     ;;
+      *.tgz)       tar xvzf $1     ;;
+      *.zip)       unzip $1        ;;
+      *.Z)         uncompress $1   ;;
+      *.7z)        7z x $1         ;;
+      *)           echo "'$1' cannot be extracted via >extract<" ;;
+      esac
+else
+   echo "'$1' is not a valid file"
+fi
+}
+
+function create() {
+echo -e "Do you want to create a new repo on gihub or gitlab?"
+read -p "[github or gitlab]" repo
+   if [[ repo == gitlab ]]; then
+      cd /home/$local_user/git/gitlab/
+      curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token=$gitlab_token -d "{ \"name\": \"$1\" }" &> /dev/null $1
+      mkdir $1 && cd $1
+      git init
+      git remote add origin git@gitlab.com:$gitlab_name/$1.git
+      vim README.md
+      git add README.md
+      git commit -m "Initial commit"
+      git push -u origin master
+      xdg-open https://gitlab.com/$gitlab_name/$1 &> /dev/null
+      vim .
+   elif [[ $repo == github ]]; then
+      cd /home/$local_user/git/github/
+      curl -H "Authorization: token $github_token" https://api.github.com/user/repos -d '{"name": "'"$1"'"}'
+      mkdir $1 && cd $1
+      git init
+      git remote add origin git@github.com:$github_name/$1.git
+      vim README.md
+      git add README.md
+      git commit -m "Initial commit"
+      git push -u origin master
+      xdg-open https://github.com/$github_name/$1 &> /dev/null
+      vim .
+   else
+      echo "$1 is not a valid option"
+   fi
+}
+
+function wake() {
+case $1 in
+   d| desktop) wakeonlan -i ${broadcast} $hardware_adress;;
+   *) echo "$1 is not a valid option!";;
+esac
+}
+
+function radio() {
+   if [[ $1 == radio1 ]]; then
+      local stations=(
+         'http://icecast.vrtcdn.be/radio1-high.mp3'
+      )
+   elif [[ $1 == stubru ]]; then
+      local stations=(
+         'http://icecast.vrtcdn.be/stubru-high.mp3'
+      )
+   fi
+   mpv "${stations[@]}"
+}
+
+function vpn() {
+   if [[ $1 == up ]]; then
+      if [[ $2 == pi ]]; then
+         wg-quick up pi
+      elif [[ $2 == nas ]]; then
+         wg-quick up nas
+      else
+         echo "tunnel not found"
+      fi
+   elif [[ $1 == down ]]; then
+      if [[ $2 == pi ]]; then
+         wg-quick down pi
+      elif [[ $2 == nas ]]; then
+         wg-quick down nas
+            else
+      echo "tunnel not found"
+      fi
+   fi
+}
