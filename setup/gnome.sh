@@ -44,6 +44,13 @@ message info "Installing conky ..."
   conky -q -c $HOME/.custom/conky/np.lua -d &>/dev/null
   conky -q -c $HOME/.custom/conky/npart.lua -d
 
+message info "Installing Gnoti..."
+   git clone https://gitlab.com/sudo_TuX/gnoti.git
+   cd gnoti/
+   source ./gnoti --install topright
+   source ./gnoti --test
+   cd $HOME
+
 # Installing pop-shell
 message info "Installing imagemagick ..."; sudo apt install libglib2.0-dev-bin imagemagick -y
 message info "Installing pop-shell ..."; sudo apt-get install node-typescript -y
@@ -52,4 +59,4 @@ message info "Installing pop-shell ..."; sudo apt-get install node-typescript -y
    make && make local-install
    cd $Home
 
-message info "Now install these gnome-extensions using https://extensions.gnome.org/ \nBlur my Shell \nClipboard Indicator\nDash to Dock \nGnome 40 UI improvements (If using Gnome 40)\nGnoti (gitlab.com/sudo_TuX/gnoti) \nHide Activities Button \nMpris Indicator Button \nNo overview at start-up (If using Gnome 40) \nSound Input & Output Device Chooser \nX11 Gestures (If using X11 and Gnome 40)"
+message info "Now install these gnome-extensions using https://extensions.gnome.org/ \nBlur my Shell \nClipboard Indicator\nDash to Dock \nGnome 40 UI improvements (If using Gnome 40)\nHide Activities Button \nMpris Indicator Button \nNo overview at start-up (If using Gnome 40) \nSound Input & Output Device Chooser \nX11 Gestures (If using X11 and Gnome 40)"
