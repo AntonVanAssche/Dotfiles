@@ -3,11 +3,11 @@
 # This script will setup gnome.
 
 # installing NECESSARY packages.
-message info "Installing gnome-tweaks ..."; sudo apt install gnome-tweaks gnome-shell-extensions -y
-message info "Installing Flat-remix theme ..."; sudo add-apt-repository ppa:daniruiz/flat-remix && sudo apt update && sudo apt install flat-remix-gnome flat-remix-gtk -y
+message info "Installing gnome-tweaks..."; sudo apt install gnome-tweaks gnome-shell-extensions -y
+message info "Installing Flat-remix theme..."; sudo add-apt-repository ppa:daniruiz/flat-remix && sudo apt update && sudo apt install flat-remix-gnome flat-remix-gtk -y
 message info "Installing gnome-shell-extensions" sudo apt install gnome-shell-extensions
-message info "Installing numix-icon-theme-circle ..."; sudo add-apt-repository ppa:numix/ppa && sudo apt update && sudo apt install numix-icon-theme-circle -y
-message info "Installing cursor theme ..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
+message info "Installing numix-icon-theme-circle..."; sudo add-apt-repository ppa:numix/ppa && sudo apt update && sudo apt install numix-icon-theme-circle -y
+message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
 
 # Applying theme + icon pack.
@@ -36,7 +36,7 @@ echo
 	esac
 
 # Installling conky + Now Clocking widget.
-message info "Installing conky ..."
+message info "Installing conky..."
   sudo apt install conky-all ffmpeg playerctl -y
   git clone https://github.com/Rayzr522/now-clocking.git
   source ./now-clocking/scripts/download-fonts.sh
@@ -52,8 +52,8 @@ message info "Installing Gnoti..."
    cd $HOME
 
 # Installing pop-shell
-message info "Installing imagemagick ..."; sudo apt install libglib2.0-dev-bin imagemagick -y
-message info "Installing pop-shell ..."; sudo apt-get install node-typescript -y
+message info "Installing imagemagick..."; sudo apt install libglib2.0-dev-bin imagemagick -y
+message info "Installing pop-shell..."; sudo apt-get install node-typescript -y
    git clone https://github.com/pop-os/shell
    cd shell
    make && make local-install
