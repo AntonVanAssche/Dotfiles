@@ -1,3 +1,5 @@
 [user]
-	email = account@example.com
-	name = Anton Van Assche
+	email = vanasscheanton@gmail.com
+	name = Anton
+[core]
+	editor = vim
