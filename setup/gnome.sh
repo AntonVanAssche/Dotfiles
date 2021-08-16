@@ -4,9 +4,9 @@
 
 # installing NECESSARY packages.
 message info "Installing gnome-tweaks..."; sudo apt install gnome-tweaks gnome-shell-extensions -y
-message info "Installing Flat-remix theme..."; sudo add-apt-repository ppa:daniruiz/flat-remix && sudo apt update && sudo apt install flat-remix-gnome flat-remix-gtk -y
+message info "Installing Flat-remix theme..."; sudo add-apt-repository ppa:daniruiz/flat-remix -y && sudo apt update && sudo apt install flat-remix-gnome flat-remix-gtk -y
 message info "Installing gnome-shell-extensions" sudo apt install gnome-shell-extensions
-message info "Installing numix-icon-theme-circle..."; sudo add-apt-repository ppa:numix/ppa && sudo apt update && sudo apt install numix-icon-theme-circle -y
+message info "Installing numix-icon-theme-circle..."; sudo add-apt-repository ppa:numix/ppa -y && sudo apt update && sudo apt install numix-icon-theme-circle -y
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
 
