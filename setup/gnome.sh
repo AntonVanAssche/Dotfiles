@@ -22,7 +22,7 @@ WALLPAPERS=$HOME/Pictures/wallpapers/
 mkdir $WALLPAPERS
 cp -r dotfiles/wallpapers/* $WALLPAPERS
 message info "select a wallpaper "
-message quest "(1) Big-Sur \n             (2) Keyboards \n               (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Tay Tay \n             (6) Barbara Palvin \n[1/2/3/4/5/6] "
+message quest "(1) Big-Sur \n             (2) Keyboards \n3             (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Tay Tay \n             (6) Barbara Palvin \n[1/2/3/4/5/6] "
 read -p " " WALLPAPER
    case ${WALLPAPER} in
      1) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Big-Sur.jpg;;
@@ -66,7 +66,7 @@ message info "Installing Gnoti..."
    cd $HOME
 
 # Installing pop-shell
-message info "Installing imagemagick..."; sudo apt install libglib2.0-dev-bin imagemagick -y
+message info "Installing imagemagick..."; sudo( apt install libglib2.0-dev-bin imagemagick -y
 message info "Installing pop-shell..."; sudo apt-get install node-typescript -y
    git clone https://github.com/pop-os/shell
    cd shell
