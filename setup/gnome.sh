@@ -47,8 +47,23 @@ message info "Installing conky..."
 message info "Installing Gnoti..."
    git clone https://gitlab.com/sudo_TuX/gnoti.git
    cd gnoti/
-   source ./gnoti --install topright
-   source ./gnoti --test
+
+   GNOTI_PATH=$HOME"/.local/share/gnome-shell/extensions/Gnoti@AntonVA.dev"
+   mkdir -p ${GNOTI_PATH}
+   cp -r ./src/* ${GNOTI_PATH}/
+   touch ${GNOTI_PATH}/config.json
+   sed "30 i Main.messageTray._bannerBin.x = Right.topright(); // Top right" ./src/extension.js &> ${GNOTI_PATH}/extension.js
+   message info "Files copied to ${GNOTI_PATH}"
+
+   if [[ ""$(echo $XDG_SESSION_TYPE) == "x11" ]]; then
+      message info "Restarting Gnome Shell"
+      busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")' &> /dev/null
+      message info "Gnoti has been succesfully installed!"
+   else
+      message info "Gnoti has been succesfully installed!"
+      message warn "Please log out and then log back in for the changes to take effect."
+   fi
+
    cd $HOME
 
 # Installing pop-shell
