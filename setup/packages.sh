@@ -33,7 +33,11 @@ sudo apt install ./nnn*.deb -y
 rm -rf nnn*.deb
 
 message info "Installing Nerdfonts (This can take a while)..."
-git clone https://github.com/ryanoasis/nerd-fonts && source ./nerd-fonts/install.sh
+mkdir fonts && cd fonts
+curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | egrep -o "/ryanoasis/nerd-fonts/releases/download/.+\.zip" | sed 's/^/https:\/\/github.com/' | wget -i/dev/fd/0
+unzip "*.zip" -d ~/.local/share/fonts
+fc-cache -fv
+cd .. && rm -rf fonts
 
 message info "Installing vscode..."
 wget "$VSCODE"
