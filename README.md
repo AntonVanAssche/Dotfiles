@@ -11,7 +11,7 @@ A bunch of files that start with . and makes linux more awesome.
 - OS: [Ubuntu Linux](https://ubuntu.com/)
 - DE : [Gnome](https://gitlab.gnome.org/GNOME/gnome-shell)
 - Editor : [vim](https://github.com/vim/vim)
-- Font : [DejaVuSansMono Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts)
+- Font : [Ubuntu Mono](https://design.ubuntu.com/font/)
 - Terminal : [Termite](https://github.com/thestinger/termite)
 - Shell : [Bash](https://www.gnu.org/software/bash/)
 

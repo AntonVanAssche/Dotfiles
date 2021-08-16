@@ -17,7 +17,7 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 scrollbar = right
 
-font = DejaVuSansMono Nerd Font Mono 11
+font = Ubuntu Mono 12
 
 [colors]
 # Purify color scheme.
