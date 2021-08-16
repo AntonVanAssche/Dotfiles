@@ -66,7 +66,7 @@ message info "Installing Gnoti..."
    cd $HOME
 
 # Installing pop-shell
-message info "Installing imagemagick..."; sudo( apt install libglib2.0-dev-bin imagemagick -y
+message info "Installing imagemagick..."; sudo apt install libglib2.0-dev-bin imagemagick -y
 message info "Installing pop-shell..."; sudo apt-get install node-typescript -y
    git clone https://github.com/pop-os/shell
    cd shell
