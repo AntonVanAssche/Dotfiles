@@ -53,7 +53,7 @@ sudo apt update
 sudo apt install spotify-client -y
 
 message info "installing spicetify..."
-brew install khanhas/tap/spicetify-cli
+/home/linuxbrew/.linuxbrew/bin/brew install khanhas/tap/spicetify-cli
 sudo chmod a+wr /usr/share/spotify
 sudo chmod a+wr /usr/share/spotify/Apps -R
 
