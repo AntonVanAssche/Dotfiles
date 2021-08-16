@@ -39,9 +39,9 @@ message info "Installing conky..."
   sudo apt install conky-all ffmpeg playerctl -y
   git clone https://github.com/Rayzr522/now-clocking.git
   source ./now-clocking/scripts/download-fonts.sh
-  mkdir $HOME/.custom && mv ./now-clocking $HOME/.custom/
-  conky -q -c $HOME/.custom/conky/np.lua -d &>/dev/null
-  conky -q -c $HOME/.custom/conky/npart.lua -d
+  mkdir $HOME/.custom && mv $HOME/now-clocking $HOME/.custom/
+  conky -q -c $HOME/.custom/now-clocking/conky/np.lua -d &> /dev/null
+  conky -q -c $HOME/.custom/now-clocking/conky/npart.lua -d &> /dev/null
 
 message info "Installing Gnoti..."
    git clone https://gitlab.com/sudo_TuX/gnoti.git
