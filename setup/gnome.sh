@@ -22,9 +22,8 @@ WALLPAPERS=$HOME/Pictures/wallpapers/
 mkdir $WALLPAPERS
 cp -r dotfiles/wallpapers/* $WALLPAPERS
 message info "select a wallpaper "
-message quest "(1) Big-Sur \n(2) Keyboards \n(3) Cabin in the woods \n(4) Selena Gomez swimming pool \n (5) Tay Tay \n(6) Barbara Palvin \n"
-read -p "[1/2/3/4/5/6] " WALLPAPER
-echo
+message quest "(1) Big-Sur \n             (2) Keyboards \n               (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Tay Tay \n             (6) Barbara Palvin \n[1/2/3/4/5/6] "
+read -p " " WALLPAPER
    case ${WALLPAPER} in
      1) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Big-Sur.jpg;;
      2) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Keyboards.jpg;;
