@@ -14,3 +14,6 @@ if [[ -d "${HOME}/.bashrc.d" ]]; then
         done
 fi
 
+# Add applications installed using brew to $PATH.
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+

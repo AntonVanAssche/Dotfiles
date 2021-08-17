@@ -17,5 +17,3 @@ export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
 
-# Homebrew.
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
