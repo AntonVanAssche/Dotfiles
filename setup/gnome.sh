@@ -37,7 +37,7 @@ read -p " " WALLPAPER
 # Installling conky + Now Clocking widget.
 message info "Installing conky..."
   sudo apt install conky-all ffmpeg playerctl -y
-  git clone git@github.com:TuX-sudo/now-clocking.git
+  git clone https://github.com/TuX-sudo/now-clocking.git
   source ./now-clocking/scripts/download-fonts.sh
   mkdir $HOME/.custom && mv $HOME/now-clocking $HOME/.custom/
   conky -q -c $HOME/.custom/now-clocking/conky/np.lua -d &> /dev/null
