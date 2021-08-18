@@ -33,8 +33,8 @@ message info "Installing vscode..."
 sudo pacman -Sy code --noconfirm
 
 message info "Installing Transmission & Transgui..."
-sudo pacman -Sy transmission-cli transmission--noconfirmtk --noconfirm
-yay -Sy transgui --noconfirm
+sudo pacman -Sy transmission-cli transmission-gtk --noconfirm
+yay -Sy transgui-gtk --noconfirm
 
 message info "Installing Java..."
 sudo pacman -Sy jre-openjdk --noconfirm
