@@ -4,7 +4,7 @@
 
 
 message info "Installing wget & curl..."
-sudo pacman -Sy wget curl -y
+sudo pacman -Sy wget curl -y --noconfirm
 
 message info "Installing AUR..."
 sudo pacman -Syu --noconfirm
