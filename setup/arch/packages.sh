@@ -6,6 +6,14 @@
 message info "Installing wget & curl..."
 sudo pacman -Sy wget curl -y
 
+message info "Installing AUR..."
+sudo pacman -Syu
+sudo pacman -Sy base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd $HOME
+
 message info "Installing Termite & tools..."
 sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn
 yay -Sy termite
