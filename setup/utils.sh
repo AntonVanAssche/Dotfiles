@@ -88,7 +88,7 @@ function GNOME() {
          if [[ $ARCH == "0" ]]; then
 		    source $DOTFILES/setup/ubuntu/packages.sh
          elif [[ $ARCH == "1" ]]; then
-            source $DOTFILES/setup/arch/packages.sh
+            source $DOTFILES/setup/arch/gnome.sh
          fi
       fi
    fi
