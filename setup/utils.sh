@@ -85,9 +85,9 @@ function GNOME() {
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
-         if [[ $ARCH="0" ]]; then
+         if [[ $ARCH == "0" ]]; then
 		    source $DOTFILES/setup/ubuntu/packages.sh
-         elif [[ $ARCH="1" ]]; then
+         elif [[ $ARCH == "1" ]]; then
             source $DOTFILES/setup/arch/packages.sh
          fi
       fi
