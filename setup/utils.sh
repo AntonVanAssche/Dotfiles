@@ -50,11 +50,12 @@ function message() {
 
 function OS_CHECK() {
    # System checks
+   DETECT_OS="$(hostnamectl | grep "Operating System: ")"
    ARCH="0"
 
-   if [[ $(which apt) ]]; then
+   if [[ $DETECT_OS == "Operating System: Ubuntu 21.04" ]]; then
       message info "Ubuntu-based distro detected, which is supported."
-   elif [[ $(which pacman &> /dev/null) ]]; then
+   elif [[ $DETECT_OS == "Operating System: Arch Linux" ]]; then
 	   message info "Arch-based distro detected, which is supported."
    else
       message error "This system is not supported."
@@ -63,9 +64,9 @@ function OS_CHECK() {
 }
 
 function PACKAGES() {
-   if [[ $ARCH="0" ]]; then
+   if [[ $ARCH == "0" ]]; then
 	  source $DOTFILES/setup/ubuntu/packages.sh
-   elif [[ $ARCH="1" ]]; then
+   elif [[ $ARCH == "1" ]]; then
       source $DOTFILES/setup/arch/packages.sh
    fi
 }
