@@ -50,18 +50,22 @@ function message() {
 
 function OS_CHECK() {
    # System checks
-   DETECT_OS="$(hostnamectl | grep "Operating System: ")"
+   OS="$(hostnamectl | grep "Operating System: " | sed -e "s/Operating System: //")"
    ARCH="0"
 
-   if [[ $DETECT_OS == "Operating System: Ubuntu 21.04" ]]; then
-      message info "Ubuntu-based distro detected, which is supported."
-   elif [[ $DETECT_OS == "Operating System: Arch Linux" ]]; then
-	   message info "Arch-based distro detected, which is supported."
-      ARCH="1"
-   else
-      message error "This system is not supported."
-      exit 1
-   fi
+   case $OS in
+      "  Ubuntu"*)
+         message info "Ubuntu detected, which is supported."
+         ;;
+      "Arch Linux")
+         message info "Arch Linux detected, which is supported."
+         ARCH="1"
+         ;;
+      *)
+         message error "This system is not supported."
+         exit 1
+         ;;
+   esac
 }
 
 function PACKAGES() {
