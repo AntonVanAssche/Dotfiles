@@ -15,7 +15,7 @@ makepkg -si
 cd $HOME
 
 message info "Installing Termite & tools..."
-sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn --noconfirm
+sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn python-pip --noconfirm
 yay -Sy termite --noconfirm
 vim +PluginInstall +qall
 

@@ -7,7 +7,7 @@ message info "Installing gnome-tweaks..."; sudo pacman -Sy gnome-tweaks gnome-sh
 message info "Installing Flat-remix theme..."; yay -Sy flat-remix-gtk flat-remix-gnome --noconfirm
 message info "Installing numix-icon-theme-circle..."; yay -Sy numix-circle-icon-theme --noconfirm
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
-message info "Installing pywal..."; sudo pip3 install pywal
+message info "Installing pywal..."; sudo pip install pywal
 
 # Applying theme + icon pack.
 message info "Applying theme + icon pack..."
