@@ -86,7 +86,7 @@ function GNOME() {
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
          if [[ $ARCH == "0" ]]; then
-		    source $DOTFILES/setup/ubuntu/packages.sh
+		    source $DOTFILES/setup/ubuntu/gnome.sh
          elif [[ $ARCH == "1" ]]; then
             source $DOTFILES/setup/arch/gnome.sh
          fi
