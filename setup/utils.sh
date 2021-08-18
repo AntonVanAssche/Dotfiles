@@ -57,6 +57,7 @@ function OS_CHECK() {
       message info "Ubuntu-based distro detected, which is supported."
    elif [[ $DETECT_OS == "Operating System: Arch Linux" ]]; then
 	   message info "Arch-based distro detected, which is supported."
+      ARCH="1"
    else
       message error "This system is not supported."
       exit 1
