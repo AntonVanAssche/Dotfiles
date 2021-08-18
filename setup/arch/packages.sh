@@ -7,16 +7,16 @@ message info "Installing wget & curl..."
 sudo pacman -Sy wget curl -y
 
 message info "Installing AUR..."
-sudo pacman -Syu
-sudo pacman -Sy base-devel
+sudo pacman -Syu --noconfirm
+sudo pacman -Sy base-devel --noconfirm
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd $HOME
 
 message info "Installing Termite & tools..."
-sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn
-yay -Sy termite
+sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn --noconfirm
+yay -Sy termite -g
 vim +PluginInstall +qall
 
 message info "Installing Homebrew..."
@@ -30,33 +30,33 @@ fc-cache -fv
 cd .. && rm -rf fonts
 
 message info "Installing vscode..."
-sudo pacman -Sy codey
+sudo pacman -Sy code --noconfirm
 
 message info "Installing Transmission & Transgui..."
-sudo pacman -Sy transmission-cli transmission-gtk
-yay -Sy transgui
+sudo pacman -Sy transmission-cli transmission-gtk --noconfirm
+yay -Sy transgui -g
 
 message info "Installing Java..."
-sudo pacman -Sy jre-openjdk
+sudo pacman -Sy jre-openjdk --noconfirm
 
 message info "Installing Spotify..."
-yay -Sy spotify
+yay -Sy spotify -g
 
 message info "installing spicetify..."
-yay -Sy spicetify-cli
+yay -Sy spicetify-cli -g
 sudo chmod a+wr /opt/spotify
 sudo chmod a+wr /opt/spotify/Apps -R
 
 message info "To apply the spicetify theme Log in to spotify using the client. After that run these commands: \nspicetify backup \nspicetify config extensions dribbblish.js \nspicetify config current_theme Dribbblish color_scheme base \nspicetify config inject_css 1 replace_colors 1 overwrite_assets 1 \nspicetify apply \nspicetify config color_scheme dribbblish \nspicetify apply "
 
 message info "Installing Google Chrome..."
-yay -Sy google-chrome
+yay -Sy google-chrome -g
 
 message info "Installing Discord..."
-yay -Sy discord
+yay -Sy discord -g
 
 message info "Installing Virtualbox..."
-sudo pacman -Sy virtualbox
+sudo pacman -Sy virtualbox --noconfirm
 
 message info "Installing Vagrant "
-sudo pacman -Sy vagrant
+sudo pacman -Sy vagrant --noconfirm
