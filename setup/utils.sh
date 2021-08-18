@@ -50,21 +50,23 @@ function message() {
 
 function OS_CHECK() {
    # System checks
-   OS_CODENAME=$(lsb_release --codename --short)
-   OS_ID=$(lsb_release --id --short)
+   ARCH="0"
 
-   if [[ $(which lsb_release) ]] 1>/dev/null; then
-      message info "lsb_release detected."
+   if [[ $(which apt) ]]; then
+      message info "Ubuntu-based distro detected, which is supported."
+   elif [[ $(which pacman &> /dev/null) ]]; then
+	   message info "Arch-based distro detected, which is supported."
    else
-      message error "lsb_release not detected. Quitting."
+      message error "This system is not supported."
       exit 1
    fi
+}
 
-   if [[ "${OS_ID}" == "Ubuntu" || "${OS_ID}" == "Raspbian" ||"${OS_ID}" == "Debian" ]]; then
-      message info "${OS_ID} detected, which is supported."
-   else
-      message error "${OS_ID} detected, which is not supported."
-      exit 1
+function PACKAGES() {
+   if [[ $ARCH="0" ]]; then
+	  source $DOTFILES/setup/ubuntu/packages.sh
+   elif [[ $ARCH="1" ]]; then
+      source $DOTFILES/setup/arch/packages.sh
    fi
 }
 
@@ -81,7 +83,11 @@ function GNOME() {
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
-         source $DOTFILES/setup/gnome.sh
+         if [[ $ARCH="0" ]]; then
+		    source $DOTFILES/setup/ubuntu/packages.sh
+         elif [[ $ARCH="1" ]]; then
+            source $DOTFILES/setup/arch/packages.sh
+         fi
       fi
    fi
 }

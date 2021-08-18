@@ -3,10 +3,9 @@
 # This script will setup gnome.
 
 # installing NECESSARY packages.
-message info "Installing gnome-tweaks..."; sudo apt install gnome-tweaks gnome-shell-extensions -y
-message info "Installing Flat-remix theme..."; sudo add-apt-repository ppa:daniruiz/flat-remix -y && sudo apt update && sudo apt install flat-remix-gnome flat-remix-gtk -y
-message info "Installing gnome-shell-extensions" sudo apt install gnome-shell-extensions
-message info "Installing numix-icon-theme-circle..."; sudo add-apt-repository ppa:numix/ppa -y && sudo apt update && sudo apt install numix-icon-theme-circle -y
+message info "Installing gnome-tweaks..."; sudo pacman -Sy gnome-tweaks gnome-shell-extensions
+message info "Installing Flat-remix theme..."; yay -Sy flat-remix-gtk flat-remix-gnome
+message info "Installing numix-icon-theme-circle..."; yay -Sy numix-circle-icon-theme
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
 
@@ -36,7 +35,7 @@ read -p " " WALLPAPER
 
 # Installling conky + Now Clocking widget.
 message info "Installing conky..."
-  sudo apt install conky-all ffmpeg playerctl -y
+  sudo pacman -Sy conky ffmpeg playerctl
   git clone https://github.com/TuX-sudo/now-clocking.git
   source ./now-clocking/scripts/download-fonts.sh
   mkdir $HOME/.custom && mv $HOME/now-clocking $HOME/.custom/
@@ -66,8 +65,8 @@ message info "Installing Gnoti..."
    cd $HOME
 
 # Installing pop-shell
-message info "Installing imagemagick..."; sudo apt install libglib2.0-dev-bin imagemagick -y
-message info "Installing pop-shell..."; sudo apt-get install node-typescript -y
+message info "Installing imagemagick..."; yay -Sy glib && sudo pacman -Sy imagemagick
+message info "Installing pop-shell..."; sudo pacman -Sy typescript
    git clone https://github.com/pop-os/shell
    cd shell
    make && make local-install
