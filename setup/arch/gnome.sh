@@ -4,8 +4,8 @@
 
 # installing NECESSARY packages.
 message info "Installing gnome-tweaks..."; sudo pacman -Sy gnome-tweaks gnome-shell-extensions --noconfirm
-message info "Installing Flat-remix theme..."; yay -Sy flat-remix-gtk flat-remix-gnome -g
-message info "Installing numix-icon-theme-circle..."; yay -Sy numix-circle-icon-theme -g
+message info "Installing Flat-remix theme..."; yay -Sy flat-remix-gtk flat-remix-gnome --noconfirm
+message info "Installing numix-icon-theme-circle..."; yay -Sy numix-circle-icon-theme --noconfirm
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
 
@@ -65,7 +65,7 @@ message info "Installing Gnoti..."
    cd $HOME
 
 # Installing pop-shell
-message info "Installing imagemagick..."; yay -Sy glib -g && sudo pacman -Sy imagemagick --noconfirm
+message info "Installing imagemagick..."; yay -Sy glib --noconfirm && sudo pacman -Sy imagemagick --noconfirm
 message info "Installing pop-shell..."; sudo pacman -Sy typescript --noconfirm
    git clone https://github.com/pop-os/shell
    cd shell

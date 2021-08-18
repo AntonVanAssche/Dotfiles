@@ -16,7 +16,7 @@ cd $HOME
 
 message info "Installing Termite & tools..."
 sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn --noconfirm
-yay -Sy termite -g
+yay -Sy termite --noconfirm
 vim +PluginInstall +qall
 
 message info "Installing Homebrew..."
@@ -33,27 +33,27 @@ message info "Installing vscode..."
 sudo pacman -Sy code --noconfirm
 
 message info "Installing Transmission & Transgui..."
-sudo pacman -Sy transmission-cli transmission-gtk --noconfirm
-yay -Sy transgui -g
+sudo pacman -Sy transmission-cli transmission--noconfirmtk --noconfirm
+yay -Sy transgui --noconfirm
 
 message info "Installing Java..."
 sudo pacman -Sy jre-openjdk --noconfirm
 
 message info "Installing Spotify..."
-yay -Sy spotify -g
+yay -Sy spotify --noconfirm
 
 message info "installing spicetify..."
-yay -Sy spicetify-cli -g
+yay -Sy spicetify-cli --noconfirm
 sudo chmod a+wr /opt/spotify
 sudo chmod a+wr /opt/spotify/Apps -R
 
 message info "To apply the spicetify theme Log in to spotify using the client. After that run these commands: \nspicetify backup \nspicetify config extensions dribbblish.js \nspicetify config current_theme Dribbblish color_scheme base \nspicetify config inject_css 1 replace_colors 1 overwrite_assets 1 \nspicetify apply \nspicetify config color_scheme dribbblish \nspicetify apply "
 
 message info "Installing Google Chrome..."
-yay -Sy google-chrome -g
+yay -Sy google-chrome --noconfirm
 
 message info "Installing Discord..."
-yay -Sy discord -g
+yay -Sy discord --noconfirm
 
 message info "Installing Virtualbox..."
 sudo pacman -Sy virtualbox --noconfirm
