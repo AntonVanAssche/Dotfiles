@@ -66,7 +66,7 @@ sudo dnf install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoff
 sudo dnf install onlyoffice-desktopeditors -y
 
 message info "Installing Virtualbox..."
-sudo dnf install virtualbox -y
+sudo dnf install VirtualBox -y
 
 message info "Installing Vagrant "
 sudo dnf install vagrant -y
