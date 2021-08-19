@@ -11,6 +11,7 @@ message info "Installing wget & curl..."
 sudo dnf install wget curl -y
 
 message info "Installing Termite & tools..."
+sudo dnf copr enable skidnik/termite
 sudo dnf install -y termite vim lsd nnn htop wol wireguard-tools openresolv mpv mpv-libs python3-pip
 vim +PluginInstall +qall
 
