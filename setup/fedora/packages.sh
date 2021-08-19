@@ -34,7 +34,7 @@ message info "Installing Transmission & Transgui..."
 sudo dnf install transmission transmission-remote-gtk -y
 
 message info "Installing Java..."
-sudo dnf install java-latest-openjdk.x86_64
+sudo dnf install java-latest-openjdk.x86_64 -y
 
 message info "Installing Spotify..."
 sudo dnf install lpf-spotify-client -y
