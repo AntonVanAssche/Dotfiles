@@ -2,11 +2,6 @@
 
 # This script will install all the packages I use on day-to-day use.
 
-LSD="0.20.1"
-NNN="4.0"
-VSCODE="https://az764295.vo.msecnd.net/stable/379476f0e13988d90fab105c5c19e7abc8b1dea8/code_1.59.0-1628120042_amd64.deb"
-DISCORD="0.0.15"
-
 message info "Enabling RPM fusion repo's..."
 sudo dnf install \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
