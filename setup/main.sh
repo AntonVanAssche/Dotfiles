@@ -28,7 +28,7 @@ function main() {
 
    # Install all packages.
    message info "Installing packages..."
-   source $DOTFILES/setup/packages.sh
+   PACKAGES
 
    # Ask to configure a static ip-adress.
    STATIC_IP
