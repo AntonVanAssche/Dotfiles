@@ -21,6 +21,9 @@ message info "Installing Nerdfonts (This can take a while)..."
 mkdir fonts && cd fonts
 curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | egrep -o "/ryanoasis/nerd-fonts/releases/download/.+\.zip" | sed 's/^/https:\/\/github.com/' | wget -i/dev/fd/0
 unzip "*.zip" -d ~/.local/share/fonts
+message info "Installing Ubuntu fonts..."
+wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip (check the newest version)
+unzip fad7939b-ubuntu-font-family-0.83.zip -d ~/.local/share/fonts
 fc-cache -fv
 cd .. && rm -rf fonts
 
