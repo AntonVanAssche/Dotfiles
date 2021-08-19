@@ -47,6 +47,8 @@ sudo chmod a+wr /usr/share/spotify-client/Apps -R
 message info "To apply the spicetify theme Log in to spotify using the client. After that run these commands: \nspicetify backup \nspicetify config extensions dribbblish.js \nspicetify config current_theme Dribbblish color_scheme base \nspicetify config inject_css 1 replace_colors 1 overwrite_assets 1 \nspicetify apply \nspicetify config color_scheme dribbblish \nspicetify apply "
 
 message info "Installing Google Chrome..."
+sudo dnf install fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install google-chrome-stable -y
 
 message info "Installing Discord..."
