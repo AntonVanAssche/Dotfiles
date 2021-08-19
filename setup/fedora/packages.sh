@@ -55,7 +55,7 @@ message info "Installing Discord..."
 sudo dnf install discord -y
 
 message info "Installing Microsoft fonts..."
-sudo dnf install cabextract xorg-x11-font-utils -Y
+sudo dnf install cabextract xorg-x11-font-utils -y
 sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 message info "Installing Onlyoffice-desktop editor..."
