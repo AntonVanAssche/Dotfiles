@@ -41,7 +41,8 @@ message info "Installing Java..."
 sudo dnf install java-latest-openjdk.x86_64 -y
 
 message info "Installing Spotify..."
-sudo dnf install lpf-spotify-client -y
+sudo dnf config-manager --set-add https://negativo17.org/repos/fedora-spotify.repo
+sudo dnf install spotify-client -y
 
 message info "installing spicetify..."
 /home/linuxbrew/.linuxbrew/bin/brew install khanhas/tap/spicetify-cli
