@@ -41,13 +41,13 @@ message info "Installing Java..."
 sudo dnf install java-latest-openjdk.x86_64 -y
 
 message info "Installing Spotify..."
-sudo dnf config-manager --set-add https://negativo17.org/repos/fedora-spotify.repo
+sudo dnf config-manager --add-repo https://negativo17.org/repos/fedora-spotify.repo
 sudo dnf install spotify-client -y
 
 message info "installing spicetify..."
 /home/linuxbrew/.linuxbrew/bin/brew install khanhas/tap/spicetify-cli
-sudo chmod a+wr /usr/share/spotify-client/
-sudo chmod a+wr /usr/share/spotify-client/Apps -R
+sudo chmod a+wr /lib64/spotify-client/
+sudo chmod a+wr /lib64/spotify-client/Apps -R
 
 message info "To apply the spicetify theme Log in to spotify using the client. After that run these commands: \nspicetify backup \nspicetify config extensions dribbblish.js \nspicetify config current_theme Dribbblish color_scheme base \nspicetify config inject_css 1 replace_colors 1 overwrite_assets 1 \nspicetify apply \nspicetify config color_scheme dribbblish \nspicetify apply "
 
