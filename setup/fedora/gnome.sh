@@ -66,6 +66,9 @@ message info "Installing Gnoti..."
 
 # Installing pop-shell
 message info "Installing imagemagick..."; sudo dnf install glib2-devel ImageMagick -y
-message info "Installing pop-shell..."; sudo dnf install gnome-shell-extension-pop-shell -y
-
+message info "Installing pop-shell..."; sudo dnf install gnome-extensions-app nodejs-typescript -y
+   git clone https://github.com/pop-os/shell
+   cd shell
+   make && make local-install
+   cd $Home
 message info "Now install these gnome-extensions using https://extensions.gnome.org/ \nBlur my Shell \nClipboard Indicator\nDash to Dock \nGnome 40 UI improvements (If using Gnome 40)\nHide Activities Button \nMpris Indicator Button \nNo overview at start-up (If using Gnome 40) \nSound Input & Output Device Chooser \nX11 Gestures (If using X11 and Gnome 40)"
