@@ -51,11 +51,18 @@ function message() {
 function OS_CHECK() {
    # System checks
    OS="$(hostnamectl | grep "Operating System: " | sed -e "s/Operating System: //")"
+   UBUNTU="0"
+   FEDORA="0"
    ARCH="0"
 
    case $OS in
       "  Ubuntu"*)
          message info "Ubuntu detected, which is supported."
+         UBUNTU="1"
+         ;;
+      "  Fedora 34"*)
+         message info "Fedora detected, which is supported."
+         FEDORA="1"
          ;;
       "Arch Linux")
          message info "Arch Linux detected, which is supported."
@@ -69,9 +76,15 @@ function OS_CHECK() {
 }
 
 function PACKAGES() {
-   if [[ $ARCH == "0" ]]; then
+   if [[ $UBUNTU == "1" ]]; then
 	  source $DOTFILES/setup/ubuntu/packages.sh
-   elif [[ $ARCH == "1" ]]; then
+   fi
+
+   if [[ $FEDORA == "1" ]]; then
+      source $DOTFILES/setup/fedora/packages.sh
+   fi
+
+   if [[ $ARCH == "1" ]]; then
       source $DOTFILES/setup/arch/packages.sh
    fi
 }
@@ -89,9 +102,15 @@ function GNOME() {
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
-         if [[ $ARCH == "0" ]]; then
-		    source $DOTFILES/setup/ubuntu/gnome.sh
-         elif [[ $ARCH == "1" ]]; then
+         if [[ $ARCH == "1" ]]; then
+		      source $DOTFILES/setup/ubuntu/gnome.sh
+         fi
+
+         if [[ $FEDORA == "1" ]]; then
+            source $DOTFILES/setup/fedora/gnome.sh
+         fi
+
+         if [[ $ARCH == "1" ]]; then
             source $DOTFILES/setup/arch/gnome.sh
          fi
       fi
