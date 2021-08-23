@@ -1,14 +1,16 @@
 #!/bin/bash
 
-# Simple script to creates a local test environment using vagrant and virtual box.
+# Simple script to create a local test (Ubuntu) environment using vagrant and virtual box.
 
 cd $Home
-read -p "[?] How do you want to call the test environment? (no spaces)" name
+read -p "[?] How do you want to call the test environment? (no spaces) " name
 echo
 echo "Creating test environment under $Home/vagrantboxes/$name"
 echo
-cd vagrantboxes/ && mkdir $name
-cp -r /home/anton/code/bash-scripts . && cp -r /home/anton/code/dotfiles .
+mkdir -p vagrantboxes
+cd $HOME/vagrantboxes/
+mkdir $name
+cd $name
 touch Vagrantfile
 cat <<EOF >> Vagrantfile
 Vagrant.configure("2") do |config|
@@ -21,12 +23,11 @@ Vagrant.configure("2") do |config|
                         box1.vm.network "private_network", ip: "10.9.8.5"
 		end
 	end
-end
 EOF
 vagrant up
 read -p "[?] Do you want to ssh in to the test environment? [y/n] " ssh
-	if [[ ssh == y ]] ; then
-		vagrant ssh
-	else
-		echo "[!] You can always ssh in to the test environment using vagrant ssh"
-	fi
+if [[ $ssh == y ]] ; then
+	vagrant ssh
+else
+	echo "[!] You can always ssh in to the test environment using vagrant ssh"
+fi
