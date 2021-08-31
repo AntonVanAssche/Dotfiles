@@ -18,7 +18,7 @@ message info "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 message info "Installing Termite & tools..."
-sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn python-pip --noconfirm
+sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd fff python-pip --noconfirm
 yay -Sy termite --noconfirm
 vim +PluginInstall +qall
 /home/linuxbrew/.linuxbrew/bin/brew install gotop spotify-tui

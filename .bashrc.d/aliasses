@@ -10,9 +10,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # personal aliasses
-# Show hidden files within nnn file manager:
-alias nnn='nnn -H'
-
 # Use LSDelux instead of ls:
 alias ls='lsd'
 

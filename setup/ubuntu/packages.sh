@@ -21,16 +21,12 @@ cd termite-ubuntu-install
 ./termite-ubuntu --I
 cd $HOME
 rm -rf termite-ubuntu-install/
+/home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
 message info "Installing LSDeluxe ..."
 wget https://github.com/Peltoche/lsd/releases/download/"$LSD"/lsd-musl_"$LSD"_amd64.deb
 sudo apt install ./lsd*.deb -y
 rm -rf lsd*.deb
-
-message info "Installing nnn (file manager for terminal) ..."
-wget https://github.com/jarun/nnn/releases/download/v"$NNN"/nnn_"$NNN"-1_ubuntu20.04.amd64.deb
-sudo apt install ./nnn*.deb -y
-rm -rf nnn*.deb
 
 message info "Installing Nerdfonts (This can take a while)..."
 mkdir fonts && cd fonts
