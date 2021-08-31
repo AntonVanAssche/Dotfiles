@@ -14,13 +14,14 @@ cd yay
 makepkg -si
 cd $HOME
 
+message info "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 message info "Installing Termite & tools..."
 sudo pacman -Sy vim htop openresolv mpv wireguard-tools lsd nnn python-pip --noconfirm
 yay -Sy termite --noconfirm
 vim +PluginInstall +qall
-
-message info "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/home/linuxbrew/.linuxbrew/bin/brew install gotop spotify-tui
 
 message info "Installing Nerdfonts (This can take a while)..."
 mkdir fonts && cd fonts

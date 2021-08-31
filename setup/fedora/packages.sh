@@ -7,6 +7,9 @@ sudo dnf install \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
+message info "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 message info "Installing wget & curl..."
 sudo dnf install wget curl -y
 
@@ -14,9 +17,7 @@ message info "Installing Termite & tools..."
 sudo dnf copr enable skidnik/termite -y
 sudo dnf install -y termite vim lsd nnn htop wol wireguard-tools openresolv mpv mpv-libs python3-pip
 vim +PluginInstall +qall
-
-message info "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
 message info "Installing Nerdfonts (This can take a while)..."
 mkdir fonts && cd fonts

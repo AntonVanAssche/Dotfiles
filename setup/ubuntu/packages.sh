@@ -7,6 +7,9 @@ NNN="4.0"
 VSCODE="https://az764295.vo.msecnd.net/stable/379476f0e13988d90fab105c5c19e7abc8b1dea8/code_1.59.0-1628120042_amd64.deb"
 DISCORD="0.0.15"
 
+message info "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 message info "Installing wget & curl..."
 sudo apt install wget curl -y
 
@@ -18,9 +21,6 @@ cd termite-ubuntu-install
 ./termite-ubuntu --I
 cd $HOME
 rm -rf termite-ubuntu-install/
-
-message info "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 message info "Installing LSDeluxe ..."
 wget https://github.com/Peltoche/lsd/releases/download/"$LSD"/lsd-musl_"$LSD"_amd64.deb
