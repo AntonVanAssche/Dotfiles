@@ -29,7 +29,8 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 "Put your non plugin stuff after this line
-set number
+set number relativenumber
+set nu rnu
 set noshowmode
 set splitbelow splitright
 set wildmode=longest,list,full
