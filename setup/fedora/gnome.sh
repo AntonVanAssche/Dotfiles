@@ -21,7 +21,7 @@ WALLPAPERS=$HOME/Pictures/wallpapers/
 mkdir $WALLPAPERS
 cp -r dotfiles/wallpapers/* $WALLPAPERS
 message info "select a wallpaper "
-message quest "(1) Big-Sur \n             (2) Keyboards \n             (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Barbara Palvin \n[1/2/3/4/5/6] "
+message quest "(1) Big-Sur \n             (2) Keyboards \n             (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Barbara Palvin \n             (6) Chad \n[1/2/3/4/5/6] "
 read -p " " WALLPAPER
    case ${WALLPAPER} in
      1) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Big-Sur.jpg;;
@@ -29,6 +29,7 @@ read -p " " WALLPAPER
      3) wal -i $WALLPAPERS/Cabin-in-the-woods.jpeg && gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Cabin-in-the-woods.jpeg;;
      4) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Selena-Gomez-swimming-pool.jpg;;
      5) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/barbara-palvin.jpg;;
+     6) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/barbara-palvin.jpg;;
      *) message error "$WALLPAPER is not a valid option!";;
 	esac
 
