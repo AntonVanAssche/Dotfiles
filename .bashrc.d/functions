@@ -34,7 +34,7 @@ fi
 function create() {
 echo -e "Do you want to create a new repo on gihub or gitlab?"
 read -p "[github or gitlab]" repo
-   if [[ repo == gitlab ]]; then
+   if [[ $repo == gitlab ]]; then
       cd /home/$local_user/git/gitlab/
       curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token=$gitlab_token -d "{ \"name\": \"$1\" }" &> /dev/null $1
       mkdir $1 && cd $1
