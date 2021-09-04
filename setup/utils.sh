@@ -102,7 +102,7 @@ function GNOME() {
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
-         if [[ $ARCH == "1" ]]; then
+         if [[ $UBUNTU == "1" ]]; then
 		      source $DOTFILES/setup/ubuntu/gnome.sh
          fi
 
