@@ -14,7 +14,7 @@ message info "Installing wget & curl..."
 sudo apt install wget curl -y
 
 message info "Installing Termite & tools..."
-sudo apt install -y vim htop wakeonlan wireguard openresolv mpv python3-pip
+sudo apt install -y doas vim htop wakeonlan wireguard openresolv mpv python3-pip
 vim +PluginInstall +qall
 git clone https://github.com/TuX-sudo/termite-ubuntu-install.git
 cd termite-ubuntu-install

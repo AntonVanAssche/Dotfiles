@@ -15,7 +15,7 @@ sudo dnf install wget curl -y
 
 message info "Installing Termite & tools..."
 sudo dnf copr enable skidnik/termite -y
-sudo dnf install -y termite vim lsd nnn htop wol wireguard-tools openresolv mpv mpv-libs python3-pip
+sudo dnf install -y termite doas vim lsd nnn htop wol wireguard-tools openresolv mpv mpv-libs python3-pip
 vim +PluginInstall +qall
 /home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
