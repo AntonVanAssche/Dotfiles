@@ -81,5 +81,7 @@ set softtabstop=4
 set tabstop=4
 " number of visual spaces per tab
 set shiftwidth=4
+" insert space characters whenever the tab key is pressed
+set expandtab
 " Keeps cursor centerd
 set scrolloff=999
