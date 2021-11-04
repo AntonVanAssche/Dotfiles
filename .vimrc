@@ -9,9 +9,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'itchyny/lightline.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'preservim/nerdcommenter'
-Plugin 'frazrepo/vim-rainbow'
+"Plugin 'frazrepo/vim-rainbow'
 Plugin 'rainglow/vim'
-Plugin 'kyoz/purify',
+Plugin 'kyoz/purify'
 Plugin 'sh.vim'
 Plugin 'moll/vim-node'
 Plugin 'hdima/python-syntax'
@@ -71,7 +71,6 @@ syntax on
 set termguicolors
 set background=dark
 colorscheme purify
-"colorscheme gruvbox
 highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
