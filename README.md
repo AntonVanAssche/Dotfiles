@@ -25,7 +25,7 @@ A bunch of files that start with . and makes linux more awesome.
 **⚠️ Warning:** **DO NOT** run the `main.sh` script if you do not fully understand what it does. Seriously, **DON'T**!
 
 ```bash
-$ git clone git@gitlab.com:sudo_TuX/dotfiles.git
+$ git clone https://github.com/TuX-sudo/dotfiles.git
 $ cd dotfiles/
 $ chmod +x setup/main.sh
 $ ./setup/main.sh
