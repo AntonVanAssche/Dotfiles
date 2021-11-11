@@ -53,7 +53,7 @@ message info "Installing Gnoti..."
    sed "30 i Main.messageTray._bannerBin.x = Right.topright(); // Top right" ./src/extension.js &> ${GNOTI_PATH}/extension.js
    message info "Files copied to ${GNOTI_PATH}"
 
-   if [[ ""$(echo $XDG_SESSION_TYPE) == "x11" ]]; then
+   if [[ $XDG_SESSION_TYPE == "x11" ]]; then
       message info "Restarting Gnome Shell"
       busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")' &> /dev/null
       message info "Gnoti has been succesfully installed!"
