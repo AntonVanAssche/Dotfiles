@@ -71,4 +71,4 @@ message info "Installing pop-shell..."; sudo apt-get install node-typescript -y
    make && make local-install
    cd $Home
 
-message info "Now install these gnome-extensions using https://extensions.gnome.org/ \nBlur my Shell \nClipboard Indicator\nDash to Dock \nGnome 40 UI improvements (If using Gnome 40)\nHide Activities Button \nMpris Indicator Button \nNo overview at start-up (If using Gnome 40) \nSound Input & Output Device Chooser \nX11 Gestures (If using X11 and Gnome 40)"
+message info "Now install these gnome-extensions using https://extensions.gnome.org/ \\nBlur my Shell \\nClipboard Indicator \\nGnome 40 UI improvements \\nHide Activities Button \\nMpris Indicator Button \\nNo overview at start-up \\nSound Input & Output Device Chooser \\nX11 Gestures \\nHot Edge"
