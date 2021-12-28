@@ -8,6 +8,7 @@ message info "Installing Flat-remix theme..."; sudo dnf copr enable daniruiz/fla
 message info "Installing numix-icon-theme-circle..."; sudo dnf install numix-icon-theme-circle -y
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
+message info "Installing ulauncher"; sudo dnf install ulauncher -y
 
 # Applying theme + icon pack.
 message info "Applying theme + icon pack..."
@@ -66,10 +67,6 @@ message info "Installing Gnoti..."
 
 # Installing pop-shell
 message info "Installing imagemagick..."; sudo dnf install glib2-devel ImageMagick -y
-message info "Installing pop-shell..."; sudo dnf install gnome-extensions-app nodejs-typescript -y
-   git clone https://github.com/pop-os/shell
-   cd shell
-   make && make local-install
-   cd $Home
+message info "Installing pop-shell..."; sudo dnf install gnome-extensions-app nodejs-typescript dnf install gnome-shell-extension-pop-shell xprop -y
 
 message info "Now install these gnome-extensions using https://extensions.gnome.org/ \\nBlur my Shell \\nClipboard Indicator \\nGnome 40 UI improvements \\nHide Activities Button \\nMpris Indicator Button \\nNo overview at start-up \\nSound Input & Output Device Chooser \\nX11 Gestures \\nHot Edge"

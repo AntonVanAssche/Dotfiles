@@ -8,6 +8,7 @@ message info "Installing Flat-remix theme..."; yay -Sy flat-remix-gtk flat-remix
 message info "Installing numix-icon-theme-circle..."; yay -Sy numix-circle-icon-theme --noconfirm
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip install pywal
+message info "Installing ulauncher"; git clone https://aur.archlinux.org/ulauncher.git && cd ulauncher && makepkg -is && cd ../ && rm -rf ulauncher
 
 # Applying theme + icon pack.
 message info "Applying theme + icon pack..."

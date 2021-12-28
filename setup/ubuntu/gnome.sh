@@ -8,6 +8,7 @@ message info "Installing Flat-remix theme..."; sudo add-apt-repository ppa:danir
 message info "Installing numix-icon-theme-circle..."; sudo add-apt-repository ppa:numix/ppa -y && sudo apt update && sudo apt install numix-icon-theme-circle -y
 message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
+message info "Installing ulauncher"; sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher -y
 
 # Applying theme + icon pack.
 message info "Applying theme + icon pack..."
