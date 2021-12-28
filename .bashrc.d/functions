@@ -84,21 +84,5 @@ function radio() {
 }
 
 function vpn() {
-   if [[ $1 == up ]]; then
-      if [[ $2 == pi ]]; then
-         wg-quick up pi
-      elif [[ $2 == nas ]]; then
-         wg-quick up nas
-      else
-         echo "tunnel not found"
-      fi
-   elif [[ $1 == down ]]; then
-      if [[ $2 == pi ]]; then
-         wg-quick down pi
-      elif [[ $2 == nas ]]; then
-         wg-quick down nas
-            else
-      echo "tunnel not found"
-      fi
-   fi
+   wg-quick $1 $2
 }
