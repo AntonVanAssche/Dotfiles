@@ -23,6 +23,7 @@ mkdir $WALLPAPERS
 cp -r dotfiles/wallpapers/* $WALLPAPERS
 message info "select a wallpaper "
 message quest "(1) Big-Sur \n             (2) Keyboards \n             (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Barbara Palvin \n             (6) Chad \n[1/2/3/4/5/6] "read -p " " WALLPAPER
+read -p " " WALLPAPER
    case ${WALLPAPER} in
      1) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Big-Sur.jpg;;
      2) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Keyboards.jpg;;
@@ -36,7 +37,7 @@ message quest "(1) Big-Sur \n             (2) Keyboards \n             (3) Cabin
 # Installling conky + Now Clocking widget.
 message info "Installing conky..."
   sudo pacman -Sy conky ffmpeg playerctl --noconfirm
-  git clone https://github.com/TuX-sudo/now-clocking.git
+  git clone https://github.com/TuX-sudo/gnoti.git
   source ./now-clocking/scripts/download-fonts.sh
   mkdir $HOME/.custom && mv $HOME/now-clocking $HOME/.custom/
   conky -q -c $HOME/.custom/now-clocking/conky/np.lua -d &> /dev/null

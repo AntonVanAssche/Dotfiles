@@ -98,7 +98,7 @@ function STATIC_IP() {
 }
 
 function GNOME() {
-   if [[ $(which gnome-shell &> /dev/null) ]]; then
+   if [[ $(command -v gnome-shell) ]]; then
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
