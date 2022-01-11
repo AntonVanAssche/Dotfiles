@@ -56,15 +56,15 @@ function OS_CHECK() {
    ARCH="0"
 
    case $OS in
-      "  Ubuntu"*)
+      "Ubuntu"*)
          message info "Ubuntu detected, which is supported."
          UBUNTU="1"
          ;;
-      "  Fedora 34"*)
+      "Fedora"*)
          message info "Fedora detected, which is supported."
          FEDORA="1"
          ;;
-      "Arch Linux")
+      "Arch Linux"*)
          message info "Arch Linux detected, which is supported."
          ARCH="1"
          ;;
