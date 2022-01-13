@@ -6,7 +6,7 @@
 message info "Installing gnome-tweaks..."; sudo dnf install gnome-tweaks -y
 message info "Installing Flat-remix theme..."; sudo dnf copr enable daniruiz/flat-remix -y && sudo dnf install gnome-shell-theme-flat-remix flat-remix-gnome -y
 message info "Installing numix-icon-theme-circle..."; sudo dnf install numix-icon-theme-circle -y
-message info "Installing cursor theme..."; mkdir .icons/ && cp -r $DOTFILES/cursor/* .icons/
+message info "Installing cursor theme..."; mkdir .icons/ && cp -r $dotfilesDir/cursor/* .icons/
 message info "Installing pywal..."; sudo pip3 install pywal
 message info "Installing ulauncher"; sudo dnf install ulauncher -y
 

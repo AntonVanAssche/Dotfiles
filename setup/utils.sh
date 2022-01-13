@@ -72,33 +72,33 @@ function OSCheck() {
 
 function Packages() {
    if [[ $ubuntu == "1" ]]; then
-	  source $DOTFILES/setup/ubuntu/packages.sh
+	  source $dotfilesDir/setup/ubuntu/packages.sh
    fi
 
    if [[ $fedora == "1" ]]; then
-      source $DOTFILES/setup/fedora/packages.sh
+      source $dotfilesDir/setup/fedora/packages.sh
    fi
 }
 
 function StaticIp() {
    message quest "Do you want to setup a static ip address? [y/n]"
-   read -p " " IP
+   read -p " " ipYN
    if [[ $IP == "y" || $IP == "Y" ]]; then
-      source $DOTFILES/setup/ip.sh
+      source $dotfilesDir/setup/ip.sh
    fi
 }
 
 function Gnome() {
    if [[ $(command -v gnome-shell) ]]; then
       message quest "Do you want to setup Gnome-shell? [y/n]"
-      read -p " " GNOME_SHELL
-      if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
+      read -p " " GnomeShell
+      if [[ $GnomeShell == "y" || $GnomeShell == "Y" ]]; then
          if [[ $ubuntu == "1" ]]; then
-		      source $DOTFILES/setup/ubuntu/gnome.sh
+		      source $dotfilesDir/setup/ubuntu/gnome.sh
          fi
 
          if [[ $fedora == "1" ]]; then
-            source $DOTFILES/setup/fedora/gnome.sh
+            source $dotfilesDir/setup/fedora/gnome.sh
          fi
       fi
    fi
@@ -106,8 +106,8 @@ function Gnome() {
 
 function Reboot() {
    message quest "Do you want to reboot the system? [y/n]"
-   read -p " " REBOOT
-   if [[ $REBOOT = "y" || $REBOOT = "Y" ]] ; then
+   read -p " " restart
+   if [[ $restart = "y" || $restart = "Y" ]] ; then
       sudo systemctl reboot
    fi
 }
