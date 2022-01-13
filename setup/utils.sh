@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function ASK_FOR_SUDO() {
+function AskForSudo() {
 
     # Ask for the administrator password upfront.
 
@@ -48,20 +48,20 @@ function message() {
    esac
 }
 
-function OS_CHECK() {
+function OSCheck() {
    # System checks
-   OS="$(hostnamectl | grep "Operating System: " | sed -e "s/Operating System: //")"
-   UBUNTU="0"
-   FEDORA="0"
+   OS="$(. /etc/os-release && echo $NAME)"
+   ubuntu="0"
+   fedora="0"
 
    case $OS in
-      "Ubuntu"*)
+      "Ubuntu"| "Gomez OS")
          message info "Ubuntu detected, which is supported."
-         UBUNTU="1"
+         ubuntu="1"
          ;;
-      "Fedora"*)
+      "Fedora Linux")
          message info "Fedora detected, which is supported."
-         FEDORA="1"
+         fedora="1"
          ;;
       *)
          message error "This system is not supported."
@@ -70,17 +70,17 @@ function OS_CHECK() {
    esac
 }
 
-function PACKAGES() {
-   if [[ $UBUNTU == "1" ]]; then
+function Packages() {
+   if [[ $ubuntu == "1" ]]; then
 	  source $DOTFILES/setup/ubuntu/packages.sh
    fi
 
-   if [[ $FEDORA == "1" ]]; then
+   if [[ $fedora == "1" ]]; then
       source $DOTFILES/setup/fedora/packages.sh
    fi
 }
 
-function STATIC_IP() {
+function StaticIp() {
    message quest "Do you want to setup a static ip address? [y/n]"
    read -p " " IP
    if [[ $IP == "y" || $IP == "Y" ]]; then
@@ -88,23 +88,23 @@ function STATIC_IP() {
    fi
 }
 
-function GNOME() {
+function Gnome() {
    if [[ $(command -v gnome-shell) ]]; then
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GNOME_SHELL
       if [[ $GNOME_SHELL == "y" || $GNOME_SHELL == "Y" ]]; then
-         if [[ $UBUNTU == "1" ]]; then
+         if [[ $ubuntu == "1" ]]; then
 		      source $DOTFILES/setup/ubuntu/gnome.sh
          fi
 
-         if [[ $FEDORA == "1" ]]; then
+         if [[ $fedora == "1" ]]; then
             source $DOTFILES/setup/fedora/gnome.sh
          fi
       fi
    fi
 }
 
-function REBOOT() {
+function Reboot() {
    message quest "Do you want to reboot the system? [y/n]"
    read -p " " REBOOT
    if [[ $REBOOT = "y" || $REBOOT = "Y" ]] ; then

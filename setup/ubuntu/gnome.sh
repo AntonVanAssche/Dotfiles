@@ -18,19 +18,19 @@ gsettings set org.gnome.desktop.interface icon-theme "Numix-Circle"
 gsettings set  org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
 
 # Setting wallpapers.
-WALLPAPERS=$HOME/Pictures/wallpapers/
-mkdir $WALLPAPERS
-cp -r dotfiles/wallpapers/* $WALLPAPERS
+wallpaperDir=$HOME/Pictures/Wallpapers/
+mkdir $wallpaperDir
+cp -r dotfiles/wallpapers/* $wallpaperDir
 message info "select a wallpaper "
 message quest "(1) Big-Sur \n             (2) Keyboards \n             (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Barbara Palvin \n             (6) Chad \n[1/2/3/4/5/6] "read -p " " WALLPAPER
-read -p " " WALLPAPER
-   case ${WALLPAPER} in
-     1) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Big-Sur.jpg;;
-     2) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Keyboards.jpg;;
-     3) wal -i $WALLPAPERS/Cabin-in-the-woods.jpeg && gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Cabin-in-the-woods.jpeg;;
-     4) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/Selena-Gomez-swimming-pool.jpg;;
-     5) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/barbara-palvin.jpg;;
-     6) gsettings set org.gnome.desktop.background picture-uri $WALLPAPERS/barbara-palvin.jpg;;
+read -p " " wallpaper
+   case ${wallpaper} in
+     1) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Big-Sur.jpg;;
+     2) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Keyboards.jpg;;
+     3) wal -i $wallpaperDir/Cabin-in-the-woods.jpeg && gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Cabin-in-the-woods.jpeg;;
+     4) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Selena-Gomez-swimming-pool.jpg;;
+     5) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/barbara-palvin.jpg;;
+     6) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/barbara-palvin.jpg;;
      *) message error "$WALLPAPER is not a valid option!";;
 	esac
 
@@ -47,22 +47,14 @@ message info "Installing Gnoti..."
    git clone https://gitlab.com/sudo_TuX/gnoti.git
    cd gnoti/
 
-   GNOTI_PATH=$HOME"/.local/share/gnome-shell/extensions/Gnoti@AntonVA.dev"
-   mkdir -p ${GNOTI_PATH}
-   cp -r ./src/* ${GNOTI_PATH}/
-   touch ${GNOTI_PATH}/config.json
-   sed "30 i Main.messageTray._bannerBin.x = Right.topright(); // Top right" ./src/extension.js &> ${GNOTI_PATH}/extension.js
-   message info "Files copied to ${GNOTI_PATH}"
-
-   if [[ $XDG_SESSION_TYPE == "x11" ]]; then
-      message info "Restarting Gnome Shell"
-      busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")' &> /dev/null
-      message info "Gnoti has been succesfully installed!"
-   else
-      message info "Gnoti has been succesfully installed!"
-      message warn "Please log out and then log back in for the changes to take effect."
-   fi
-
+   gnotiPath=$HOME"/.local/share/gnome-shell/extensions/Gnoti@AntonVA.dev"
+   mkdir -p ${gnotiPath}
+   cp -r ./src/* ${gnotiPath}/
+   touch ${gnotiPath}/config.json
+   sed "30 i Main.messageTray._bannerBin.x = Right.topright(); // Top right" ./src/extension.js &> ${gnotiPath}/extension.js
+   message info "Files copied to ${gnotiPath}"
+   message info "Gnoti has been succesfully installed!"
+   
    cd $HOME
 
 # Installing pop-shell
@@ -72,5 +64,3 @@ message info "Installing pop-shell..."; sudo apt-get install node-typescript -y
    cd shell
    make && make local-install
    cd $Home
-
-message info "Now install these gnome-extensions using https://extensions.gnome.org/ \\nBlur my Shell \\nClipboard Indicator \\nGnome 40 UI improvements \\nHide Activities Button \\nMpris Indicator Button \\nNo overview at start-up \\nSound Input & Output Device Chooser \\nX11 Gestures \\nHot Edge"

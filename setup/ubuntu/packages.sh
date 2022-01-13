@@ -2,10 +2,9 @@
 
 # This script will install all the packages I use on day-to-day use.
 
-LSD="0.20.1"
-NNN="4.0"
-VSCODE="https://az764295.vo.msecnd.net/stable/379476f0e13988d90fab105c5c19e7abc8b1dea8/code_1.59.0-1628120042_amd64.deb"
-DISCORD="0.0.15"
+lsd="0.20.1"
+vscode="https://az764295.vo.msecnd.net/stable/379476f0e13988d90fab105c5c19e7abc8b1dea8/code_1.59.0-1628120042_amd64.deb"
+discord="0.0.15"
 
 message info "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -24,7 +23,7 @@ rm -rf termite-ubuntu-install/
 /home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
 message info "Installing LSDeluxe ..."
-wget https://github.com/Peltoche/lsd/releases/download/"$LSD"/lsd-musl_"$LSD"_amd64.deb
+wget https://github.com/Peltoche/lsd/releases/download/"$lsd"/lsd-musl_"$lsd"_amd64.deb
 sudo apt install ./lsd*.deb -y
 rm -rf lsd*.deb
 
@@ -36,7 +35,7 @@ fc-cache -fv
 cd .. && rm -rf fonts
 
 message info "Installing vscode..."
-wget "$VSCODE"
+wget "$vscode"
 sudo apt install ./code*.deb -y
 rm -rf code*.deb
 
@@ -65,7 +64,7 @@ sudo apt install ./google-chrome-stable_current_amd64.deb -y
 rm -rf google-chrome-stable_current_amd64.deb
 
 message info "Installing Discord..."
-wget "https://dl.discordapp.net/apps/linux/"$DISCORD"/discord-"$DISCORD".deb"
+wget "https://dl.discordapp.net/apps/linux/"$discord"/discord-"$discord".deb"
 sudo apt install ./discord-*.deb -y
 rm -rf discord-*.deb
 

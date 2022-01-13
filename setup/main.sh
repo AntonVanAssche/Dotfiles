@@ -4,40 +4,40 @@
 set -e
 
 cd $HOME
-DOTFILES="$HOME/dotfiles"
+dotfilesDir="$HOME/dotfiles"
 
-DATE=$(date +"%d-%m-%Y")
-TIME=$(date +"%T")
+date=$(date +"%d-%m-%Y")
+date=$(date +"%T")
 
-LOG_DIR="$DOTFILES/log"
-LOG_FILE="$LOG_DIR/$DATE-$TIME.log"
+LogDir="$dotfilesDir/log"
+LogFile="$logDir/$date-$time.log"
 
-# Create the LOG_DIR if no exists.
-mkdir -p $LOG_DIR
+# Create the logDir if no exists.
+mkdir -p $logDir
 
 
-function main() {
-   source $DOTFILES/setup/utils.sh
+function Main() {
+   source $dotfilesDir/setup/utils.sh
 
-   OS_CHECK
-   ASK_FOR_SUDO
+   OSCheck
+   AskForSudo
 
    # Install dotfiles.
    message info "Setting up dotfiles."
-   source $DOTFILES/setup/dotfiles.sh
+   source $dotfilesDir/setup/dotfiles.sh
 
    # Install all packages.
    message info "Installing packages..."
-   PACKAGES
+   Packages
 
    # Ask to configure a static ip-adress.
-   STATIC_IP
+   StaticIp
 
    # If Gnome-shell is detected ask to setup.
-   GNOME
+   Gnome
 
    # If done ask to reboot.
-   REBOOT
+   Reboot
 }
 
-main | tee -a "$LOG_FILE"
+time Main 2>&1 | tee -a "$logFile"
