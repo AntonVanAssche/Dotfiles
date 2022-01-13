@@ -71,11 +71,11 @@ function OSCheck() {
 }
 
 function Packages() {
-   if [[ $ubuntu == "1" ]]; then
+   if [[ $OS == "Ubuntu" ]]; then
 	  source $dotfilesDir/setup/ubuntu/packages.sh
    fi
 
-   if [[ $fedora == "1" ]]; then
+   if [[ $OS == "Fedora Linux" ]]; then
       source $dotfilesDir/setup/fedora/packages.sh
    fi
 }
@@ -83,7 +83,7 @@ function Packages() {
 function StaticIp() {
    message quest "Do you want to setup a static ip address? [y/n]"
    read -p " " ipYN
-   if [[ $IP == "y" || $IP == "Y" ]]; then
+   if [[ $ipYN == "y" || $ipYN == "Y" ]]; then
       source $dotfilesDir/setup/ip.sh
    fi
 }
@@ -93,11 +93,11 @@ function Gnome() {
       message quest "Do you want to setup Gnome-shell? [y/n]"
       read -p " " GnomeShell
       if [[ $GnomeShell == "y" || $GnomeShell == "Y" ]]; then
-         if [[ $ubuntu == "1" ]]; then
+         if [[ $OS == "Ubuntu" ]]; then
 		      source $dotfilesDir/setup/ubuntu/gnome.sh
          fi
 
-         if [[ $fedora == "1" ]]; then
+         if [[ $OS == "Fedora Linux" ]]; then
             source $dotfilesDir/setup/fedora/gnome.sh
          fi
       fi
