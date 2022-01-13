@@ -53,7 +53,6 @@ function OS_CHECK() {
    OS="$(hostnamectl | grep "Operating System: " | sed -e "s/Operating System: //")"
    UBUNTU="0"
    FEDORA="0"
-   ARCH="0"
 
    case $OS in
       "Ubuntu"*)
@@ -63,10 +62,6 @@ function OS_CHECK() {
       "Fedora"*)
          message info "Fedora detected, which is supported."
          FEDORA="1"
-         ;;
-      "Arch Linux"*)
-         message info "Arch Linux detected, which is supported."
-         ARCH="1"
          ;;
       *)
          message error "This system is not supported."
@@ -82,10 +77,6 @@ function PACKAGES() {
 
    if [[ $FEDORA == "1" ]]; then
       source $DOTFILES/setup/fedora/packages.sh
-   fi
-
-   if [[ $ARCH == "1" ]]; then
-      source $DOTFILES/setup/arch/packages.sh
    fi
 }
 
@@ -108,10 +99,6 @@ function GNOME() {
 
          if [[ $FEDORA == "1" ]]; then
             source $DOTFILES/setup/fedora/gnome.sh
-         fi
-
-         if [[ $ARCH == "1" ]]; then
-            source $DOTFILES/setup/arch/gnome.sh
          fi
       fi
    fi
