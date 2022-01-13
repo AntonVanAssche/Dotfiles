@@ -51,17 +51,13 @@ function message() {
 function OSCheck() {
    # System checks
    OS="$(. /etc/os-release && echo $NAME)"
-   ubuntu="0"
-   fedora="0"
 
    case $OS in
       "Ubuntu"| "Gomez OS")
          message info "Ubuntu detected, which is supported."
-         ubuntu="1"
          ;;
       "Fedora Linux")
          message info "Fedora detected, which is supported."
-         fedora="1"
          ;;
       *)
          message error "This system is not supported."
