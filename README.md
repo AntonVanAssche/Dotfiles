@@ -43,7 +43,7 @@ A bunch of files that start with . and makes linux more awesome.
 ## Supported Linux distributions
 - Ubuntu
 - Fedora
-- Gomez OS: [Website](gomezos.tk) [Gitlab](https://gitlab.com/gomez-os)
+- Gomez OS: [Website](https://www.gomezos.tk) [Gitlab](https://gitlab.com/gomez-os)
 
 ## Installation
 
