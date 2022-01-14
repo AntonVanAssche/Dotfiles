@@ -13,6 +13,7 @@ cp -r $dotfilesDir/.config/ $HOME
 message info "Copying doas configuration..."
 [[ -f /etc/doas.conf ]] && sudo cp -r /etc/doas.conf /etc/doas.conf.backup
 [[ $OS == "Ubuntu" ]] && sudo cp $dotfilesDir/doas/doas-ubuntu.conf /etc/doas.conf
+[[ $OS == "Gomez OS" ]] && sudo cp $dotfilesDir/doas/doas-ubuntu.conf /etc/doas.conf
 [[ $OS == "Fedora Linux" ]] && sudo cp $dotfilesDir/doas/doas-fedora.conf /etc/doas.conf
 
 # Installing Vundle.

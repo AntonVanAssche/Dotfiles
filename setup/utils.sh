@@ -54,56 +54,14 @@ function OSCheck() {
 
    case $OS in
       "Ubuntu"| "Gomez OS")
-         message info "Ubuntu detected, which is supported."
+         message info "$OS detected, which is supported."
          ;;
       "Fedora Linux")
-         message info "Fedora detected, which is supported."
+         message info "$OS detected, which is supported."
          ;;
       *)
          message error "This system is not supported."
          exit 1
          ;;
    esac
-}
-
-function Packages() {
-   if [[ $OS == "Ubuntu" ]]; then
-	  source $dotfilesDir/setup/ubuntu/packages.sh
-   fi
-
-   if [[ $OS == "Fedora Linux" ]]; then
-      source $dotfilesDir/setup/fedora/packages.sh
-   fi
-}
-
-function StaticIp() {
-   message quest "Do you want to setup a static ip address? [y/n]"
-   read -p " " ipYN
-   if [[ $ipYN == "y" || $ipYN == "Y" ]]; then
-      source $dotfilesDir/setup/ip.sh
-   fi
-}
-
-function Gnome() {
-   if [[ $(command -v gnome-shell) ]]; then
-      message quest "Do you want to setup Gnome-shell? [y/n]"
-      read -p " " GnomeShell
-      if [[ $GnomeShell == "y" || $GnomeShell == "Y" ]]; then
-         if [[ $OS == "Ubuntu" ]]; then
-		      source $dotfilesDir/setup/ubuntu/gnome.sh
-         fi
-
-         if [[ $OS == "Fedora Linux" ]]; then
-            source $dotfilesDir/setup/fedora/gnome.sh
-         fi
-      fi
-   fi
-}
-
-function Reboot() {
-   message quest "Do you want to reboot the system? [y/n]"
-   read -p " " restart
-   if [[ $restart = "y" || $restart = "Y" ]] ; then
-      sudo systemctl reboot
-   fi
 }
