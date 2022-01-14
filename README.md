@@ -15,7 +15,7 @@ A bunch of files that start with . and makes linux more awesome.
 - GTK Theme: [Flat Remix GTK](https://github.com/daniruiz/flat-remix-gtk)
 - Shell Theme: [Flat Remix Gnome](https://github.com/daniruiz/flat-remix-gnome)
 - Icon Theme: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
-- Wallpaper: [Barbara Palvin](https://github.com/TuX-sudo/dotfiles/blob/master/wallpapers/barbara-palvin.jpg) (Edited the [original](https://wallpapersden.com/barbara-palvin-photoshoot-for-grazia-italy-2018-wallpaper/) image a little bit to fit the theme)
+- Wallpaper: [Barbara Palvin](https://github.com/TuX-sudo/dotfiles/blob/master/wallpapers/Barbara-Palvin.jpg) (Edited the [original](https://wallpapersden.com/barbara-palvin-photoshoot-for-grazia-italy-2018-wallpaper/) image a little bit to fit the theme)
 - Terminal: Termite with [purify color scheme](https://github.com/kyoz/purify/tree/master/termite) and [Ubuntu Mono font](https://design.ubuntu.com/font/)
 - Editor : [vim](https://github.com/vim/vim)
  with [purify color scheme](https://github.com/kyoz/purify/tree/master/vim)

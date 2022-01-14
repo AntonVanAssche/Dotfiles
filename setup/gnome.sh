@@ -39,16 +39,16 @@ wallpaperDir=$HOME/Pictures/Wallpapers/
 mkdir $wallpaperDir
 cp -r dotfiles/wallpapers/* $wallpaperDir
 message info "select a wallpaper "
-message quest "(1) Big-Sur \n             (2) Keyboards \n             (3) Cabin in the woods \n             (4) Selena Gomez swimming pool \n             (5) Barbara Palvin \n             (6) Chad \n[1/2/3/4/5/6] "
+message quest "(1) Barbara Palvin \n             (2) Big-Sur \n             (3) Cabin in the woods \n             (4) Chad \n             (5) Keyboards \n             (6) Selena Gomez \n[1/2/3/4/5/6] "
 read -p " " wallpaper
 case ${wallpaper} in
-   1) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Big-Sur.jpg;;
-   2) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Keyboards.jpg;;
+   1) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Barbara-Palvin.jpg;;
+   2) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Big-Sur.jpg;;
    3) wal -i $wallpaperDir/Cabin-in-the-woods.jpeg && gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Cabin-in-the-woods.jpeg;;
-   4) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Selena-Gomez-swimming-pool.jpg;;
-   5) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/barbara-palvin.jpg;;
-   6) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/barbara-palvin.jpg;;
-   *) message error "$WALLPAPER is not a valid option!";;
+   4) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Chad.jpg;;
+   5) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Keyboards.jpg;;
+   6) gsettings set org.gnome.desktop.background picture-uri $wallpaperDir/Selena-Gomez.jpg;;
+   *) message error "$wallpaper is not a valid option!";;
 esac
 
 # Installling conky + Now Clocking widget.
