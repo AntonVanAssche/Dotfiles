@@ -53,8 +53,10 @@ esac
 
 # Installling conky + Now Clocking widget.
 message info "Installing conky..."
-sudo dnf install conky ffmpeg playerctl -y
-git clone https://github.com/rayzr522/now-clocking.git
+[[ $OS == "Fedora Linux" ]] && sudo dnf install conky ffmpeg playerctl -y
+[[ $OS == "Ubuntu" ]] && sudo apt install conky ffmpeg playerctl -y
+[[ $OS == "Gomez OS" ]] && sudo apt install conky ffmpeg playerctl -y
+git clone https://github.com/TuX-sudo/now-clocking
 source ./now-clocking/scripts/download-fonts.sh
 mkdir -p $HOME/.config/conky/ && mv $HOME/now-clocking $HOME/.config/conky/
 conky -q -c $HOME/.config/conky/now-clocking/conky/np.lua -d &> /dev/null
