@@ -22,7 +22,7 @@ A bunch of files that start with . and makes linux more awesome.
 - Shell : [Bash](https://www.gnu.org/software/bash/)
 - Launcher: Ulauncher with [Flat Remix theme](https://github.com/TuX-sudo/dotfiles/tree/master/.config/ulauncher/user-themes/flat-remix-darkest)
 - Music: Spotify with [Custom Dribbblish](https://github.com/TuX-sudo/dotfiles/tree/master/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
-- Conky widget: [Now Clocking](https://github.com/rayzr522/now-clocking)
+- Conky widget: [Now Clocking](https://github.com/TuX-sudo/now-clocking)
 
 - Gnome-shell extensions:
   - [Alpabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)
