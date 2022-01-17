@@ -7,19 +7,22 @@ reset="\e[39m"
 
 echo
 echo -e "[i] ${lightCyan}repairing system${reset}"
-sudo apt-get install -f
+[[ $(command -v apt-get) ]] && sudo apt-get install -f
 
 echo
 echo -e "[i] ${lightCyan}update apt cache${reset}"
-sudo  apt-get update
+[[ $(command -v apt-get) ]] && sudo  apt-get update
+[[ $(command -v dnf) ]] && sudo dnf check-update
 
 echo
-echo -e "[i] step 3: ${lightCyan}upgrade packages${reset}"
-sudo apt-get upgrade
+echo -e "[i]${lightCyan}upgrade packages${reset}"
+[[ $(command -v apt-get) ]] && sudo apt-get upgrade
+[[ $(command -v dnf) ]] && sudo dnf upgrade
 
 echo
 echo -e "[i] ${lightCyan}clean up${reset}"
-sudo apt-get autoclean
+[[ $(command -v apt-get) ]] && sudo apt-get autoclean
+[[ $(command -v dnf) ]] && sudo dnf clean all
 
 echo
 echo -e "[?] ${lightCyan}Do you want to restart the system?${reset}"
