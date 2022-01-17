@@ -62,21 +62,10 @@ fi
 ui="$(basename ${ui})"
 
 case $os in
-    *"Ubuntu"*)
-		packages="$(dpkg -l 2> /dev/null | wc -l)"
-		;;
-	*"Raspbian"*)
-		packages="$(dpkg -l 2> /dev/null | wc -l)"
-		;;
-	"Fedora"*)
-		packages="$(dnf list installed 2> /dev/null | sed '1d' | wc -l)"
-		;;
-
-	"Arch"*)
-		packages="$(pacman -Q 2> /dev/null | wc -l)"
-		;;
-	*)
-		packages='unknown'
+    "Ubuntu"*| "Raspbian"*) packages="$(dpkg -l 2> /dev/null | wc -l)";;
+	"Fedora"*) packages="$(dnf list installed 2> /dev/null | sed '1d' | wc -l)";;
+	"Arch"*) packages="$(pacman -Q 2> /dev/null | wc -l)";;
+	*) packages='unknown';;
 esac
 
 # Output
