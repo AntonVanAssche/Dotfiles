@@ -23,9 +23,7 @@ alias gg='sudo systemctl poweroff'
 alias gj='sudo systemctl reboot'
 
 # Aliasses to script that are frequently used:
-alias time='$HOME/scripts/time.sh'
 alias update='$HOME/scripts/update.sh'
-alias vm='$HOME/scripts/vmcreate.sh'
 
 # Reload .bashrc easier:
 alias reload='source ~/.bashrc'
