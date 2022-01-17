@@ -8,7 +8,7 @@ function FedoraGnome() {
    message info "Installing pywal..."; sudo pip3 install pywal
    message info "Installing ulauncher"; sudo dnf install ulauncher -y
    message info "Installing imagemagick..."; sudo dnf install glib2-devel ImageMagick -y
-   message info "Installing pop-shell..."; sudo dnf install gnome-extensions-app nodejs-typescript dnf install gnome-shell-extension-pop-shell xprop -y
+   message info "Installing pop-shell..."; sudo dnf install gnome-extensions-app nodejs-typescript gnome-shell-extension-pop-shell xprop -y
 }
 
 function UbuntuGnome() {
