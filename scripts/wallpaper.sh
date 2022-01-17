@@ -1,16 +1,19 @@
 #!/bin/bash
 
 # Simple script to set a new wallpaper after 2 minutes.
-backgroundsdir="$HOME/Pictures/wallpapers/*"
-piclist="$HOME/Pictures/bgpiclist.txt"
+backgrounds=("$HOME/Pictures/Wallpapers/*" "$HOME/.local/share/backgrounds/*" "/usr/share/backgrounds/*")
+backgroundList="$HOME/Pictures/Wallpapers/wallpapersList.txt"
 
-rm -rf $piclist
-ls -1d $backgroundsdir > $piclist
+rm -rf $backgroundList
+
+for background in ${backgrounds[@]};
+do
+	[[ ! -d $background ]] && ls -1d $background >> $backgroundList
+done
 
 while true
  do
-	 currentpic=$(shuf -n 1 $piclist)
-	 gsettings set org.gnome.desktop.background picture-uri $currentpic
-	 notificationcurrentpic=$(ls $currentpic | xargs -n 1 basename)
+	 currentBackground=$(shuf -n 1 $backgroundList)
+	 gsettings set org.gnome.desktop.background picture-uri $currentBackground
 	 sleep 120
  done
