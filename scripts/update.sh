@@ -15,7 +15,7 @@ echo -e "[i] ${lightCyan}update apt cache${reset}"
 [[ $(command -v dnf) ]] && sudo dnf check-update
 
 echo
-echo -e "[i]${lightCyan}upgrade packages${reset}"
+echo -e "[i] ${lightCyan}upgrade packages${reset}"
 [[ $(command -v apt-get) ]] && sudo apt-get upgrade
 [[ $(command -v dnf) ]] && sudo dnf upgrade
 
