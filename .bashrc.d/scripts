@@ -13,6 +13,6 @@ echo -e "[i] ${light_cyan}Date:  ${red}$date${reset}"
 echo -e "[i] ${light_cyan}Time:  ${red}$time${reset}"
 
 # Load pywal.
-(cat ~/.cache/wal/sequences &)
-cat ~/.cache/wal/sequences
-source ~/.cache/wal/colors-tty.sh
+#(cat ~/.cache/wal/sequences &)
+#cat ~/.cache/wal/sequences
+#source ~/.cache/wal/colors-tty.sh
