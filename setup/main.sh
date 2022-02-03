@@ -1,56 +1,57 @@
 #!/bin/bash
 
 # Abort if error.
-set -e
+set -eu
 
-cd $HOME
+cd "$HOME"
 dotfilesDir="$HOME/dotfiles"
 
 date=$(date +"%d-%m-%Y")
-date=$(date +"%T")
+time=$(date +"%T")
 
-LogDir="$dotfilesDir/log"
-LogFile="$logDir/$date-$time.log"
+logDir="$dotfilesDir/log"
+logFile="$logDir/$date-$time.log"
 
 # Create the logDir if no exists.
-mkdir -p $logDir
+mkdir -p "$logDir"
 
 function Main() {
-   source $dotfilesDir/setup/utils.sh
+   source "$dotfilesDir"/setup/utils.sh
 
    OSCheck
    AskForSudo
 
    # Install dotfiles.
    message info "Setting up dotfiles."
-   source $dotfilesDir/setup/dotfiles.sh
+   source "$dotfilesDir"/setup/dotfiles.sh
 
    # Install all packages.
    message info "Installing packages..."
-   source $dotfilesDir/setup/packages.sh
+   source "$dotfilesDir"/setup/packages.sh
 
    # Ask to configure a static ip-adress.
-   message quest "Do you want to setup a static ip address? [y/N]"
-   read -p " " ipYN
+   message quest "Do you want to setup a static ip address? [y/N] "
+   read -r ipYN
    case $ipYN in
-      "YES"| "yes" | "Y"| "N"| "No"| "nO") source $dotfilesDir/setup/ip.sh;;
-      *) return;;
+      [Yy]) source "$dotfilesDir"/setup/ip.sh;;
+      *) message info "Script won't configure network settings";;
    esac
 
    # If Gnome-shell is detected ask to setup.
    if [[ $(command -v gnome-shell) ]]; then
-      message quest "Do you want to setup Gnome-shell? [Y/n]"
-      read -p " " gnomeShell
+      message info "Gnome-shell detected."
+      message quest "Do you want to setup Gnome-shell? [Y/n] "
+      read -r gnomeShell
       case $gnomeShell in
-         "NO"| "no" | "N"| "n"| "No"| "nO") return;;
-         *) source $dotfilesDir/setup/gnome.sh;;
+         [Nn]) message info "Script won't configure Gnome-shell settings";;
+         *) source "$dotfilesDir"/setup/gnome.sh;;
       esac
    fi
 
    # If done ask to reboot.
-   message quest "Do you want to reboot the system? [y/n]"
-   read -p " " restart
-   if [[ $restart = "y" || $restart = "Y" ]] ; then
+   message quest "Do you want to reboot the system? [y/N] "
+   read -r restart
+   if [[ $restart = [Yy] ]] ; then
       sudo systemctl reboot
    fi
 }

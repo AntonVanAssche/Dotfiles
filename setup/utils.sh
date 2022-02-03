@@ -32,7 +32,6 @@ function message() {
    local RED="\e[31m"
    local GREEN="\e[32m"
    local YELLOW="\e[33m"
-   local MAGENTA="\e[35m"
    local RESET="\e[0m"
    local MESSAGE_TYPE=""
    local MESSAGE=""
@@ -50,7 +49,7 @@ function message() {
 
 function OSCheck() {
    # System checks
-   OS="$(. /etc/os-release && echo $NAME)"
+   OS="$(. /etc/os-release && echo "$NAME")"
 
    case $OS in
       "Ubuntu"| "Gomez OS")

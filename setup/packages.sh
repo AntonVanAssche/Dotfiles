@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Abort if error.
+set -eu
+
 function FedoraPackages() {
    message info "Enabling RPM fusion repo's..."
    sudo dnf install \
-   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm \
+   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm -y
 
    message info "Installing Homebrew..."
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -17,6 +20,10 @@ function FedoraPackages() {
    sudo dnf install -y termite doas vim lsd nnn htop wol wireguard-tools openresolv mpv mpv-libs python3-pip
    vim +PluginInstall +qall
    /home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
+
+   message info "Installing Signal-desktop..."
+   sudo dnf copr enable luminoso/Signal-Desktop -y
+   sudo dnf install signal-desktop -y
 
    message info "Installing vscode..."
    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -75,7 +82,7 @@ function UbuntuPackages() {
    git clone https://github.com/TuX-sudo/termite-ubuntu-install.git
    cd termite-ubuntu-install
    ./termite-ubuntu --I
-   cd $HOME
+   cd "$HOME"
    rm -rf termite-ubuntu-install/
    /home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
@@ -83,13 +90,6 @@ function UbuntuPackages() {
    wget https://github.com/Peltoche/lsd/releases/download/"$lsd"/lsd-musl_"$lsd"_amd64.deb
    sudo apt install ./lsd*.deb -y
    rm -rf lsd*.deb
-
-   message info "Installing Nerdfonts (This can take a while)..."
-   mkdir fonts && cd fonts
-   curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | egrep -o "/ryanoasis/nerd-fonts/releases/download/.+\.zip" | sed 's/^/https:\/\/github.com/' | wget -i/dev/fd/0
-   unzip "*.zip" -d ~/.local/share/fonts
-   fc-cache -fv
-   cd .. && rm -rf fonts
 
    message info "Installing vscode..."
    wget "$vscode"
@@ -121,7 +121,7 @@ function UbuntuPackages() {
    rm -rf google-chrome-stable_current_amd64.deb
 
    message info "Installing Discord..."
-   wget "https://dl.discordapp.net/apps/linux/"$discord"/discord-"$discord".deb"
+   wget "https://dl.discordapp.net/apps/linux/$discord/discord-$discord.deb"
    sudo apt install ./discord-*.deb -y
    rm -rf discord-*.deb
 }
@@ -129,10 +129,10 @@ function UbuntuPackages() {
 function Fonts() {
    message info "Installing Nerdfonts (This can take a while)..."
    mkdir fonts && cd fonts
-   curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | egrep -o "/ryanoasis/nerd-fonts/releases/download/.+\.zip" | sed 's/^/https:\/\/github.com/' | wget -i/dev/fd/0
+   curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | grep -E -o "/ryanoasis/nerd-fonts/releases/download/.+\.zip" | sed 's/^/https:\/\/github.com/' | wget -i/dev/fd/0
    unzip "*.zip" -d ~/.local/share/fonts
    
-   if [[ $OS == "Fedora Linux"]]; then
+   if [[ $OS == "Fedora Linux" ]]; then
       message info "Installing Ubuntu fonts..."
       wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip
       unzip fad7939b-ubuntu-font-family-0.83.zip -d ~/.local/share/fonts
