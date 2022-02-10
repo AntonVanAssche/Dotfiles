@@ -123,14 +123,14 @@ message info "Installing conky..."
 [[ $OS == "Fedora Linux" ]] && sudo dnf install conky ffmpeg playerctl -y
 [[ $OS == "Ubuntu" ]] && sudo apt install conky ffmpeg playerctl -y
 [[ $OS == "Gomez OS" ]] && sudo apt install conky ffmpeg playerctl -y
-git clone https://github.com/TuX-sudo/now-clocking
+git clone https://github.com/AntonVanAssche/now-clocking
 source ./now-clocking/scripts/download-fonts.sh
 mkdir -p "$HOME"/.config/conky/ && mv "$HOME"/now-clocking "$HOME"/.config/conky/
 conky -q -c "$HOME"/.config/conky/now-clocking/conky/np.lua -d &> /dev/null
 conky -q -c "$HOME"/.config/conky/now-clocking/conky/npart.lua -d &> /dev/null
 
 message info "Installing Gnoti..."
-git clone https://github.com/TuX-sudo/gnoti.git
+git clone https://github.com/AntonVanAssche/gnoti.git
 cd gnoti/
 gnotiPath="$HOME""/.local/share/gnome-shell/extensions/Gnoti@AntonVA.dev"
 mkdir -p "$gnotiPath"

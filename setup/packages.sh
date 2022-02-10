@@ -79,7 +79,7 @@ function UbuntuPackages() {
    message info "Installing Termite & tools..."
    sudo apt install -y doas vim htop wakeonlan wireguard openresolv mpv python3-pip
    vim +PluginInstall +qall
-   git clone https://github.com/TuX-sudo/termite-ubuntu-install.git
+   git clone https://github.com/AntonVanAssche/termite-ubuntu-install.git
    cd termite-ubuntu-install
    ./termite-ubuntu --I
    cd "$HOME"

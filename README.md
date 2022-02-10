@@ -15,21 +15,21 @@ A bunch of files that start with . and makes linux more awesome.
 - GTK Theme: [Flat Remix GTK](https://github.com/daniruiz/flat-remix-gtk)
 - Shell Theme: [Flat Remix Gnome](https://github.com/daniruiz/flat-remix-gnome)
 - Icon Theme: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
-- Wallpaper: [Barbara Palvin](https://github.com/TuX-sudo/dotfiles/blob/master/wallpapers/Barbara-Palvin.jpg) (Edited the [original](https://wallpapersden.com/barbara-palvin-photoshoot-for-grazia-italy-2018-wallpaper/) image a little bit to fit the theme)
+- Wallpaper: [Barbara Palvin](https://github.com/AntonVanAssche/dotfiles/blob/master/wallpapers/Barbara-Palvin.jpg) (Edited the [original](https://wallpapersden.com/barbara-palvin-photoshoot-for-grazia-italy-2018-wallpaper/) image a little bit to fit the theme)
 - Terminal: Termite with [purify color scheme](https://github.com/kyoz/purify/tree/master/termite) and [Ubuntu Mono font](https://design.ubuntu.com/font/)
 - Editor : [vim](https://github.com/vim/vim)
  with [purify color scheme](https://github.com/kyoz/purify/tree/master/vim)
 - Shell : [Bash](https://www.gnu.org/software/bash/)
-- Launcher: Ulauncher with [Flat Remix theme](https://github.com/TuX-sudo/dotfiles/tree/master/.config/ulauncher/user-themes/flat-remix-darkest)
-- Music: Spotify with [Custom Dribbblish](https://github.com/TuX-sudo/dotfiles/tree/master/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
-- Conky widget: [Now Clocking](https://github.com/TuX-sudo/now-clocking)
+- Launcher: Ulauncher with [Flat Remix theme](https://github.com/AntonVanAssche/dotfiles/tree/master/.config/ulauncher/user-themes/flat-remix-darkest)
+- Music: Spotify with [Custom Dribbblish](https://github.com/AntonVanAssche/dotfiles/tree/master/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
+- Conky widget: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
 
 - Gnome-shell extensions:
   - [Alpabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)
   - [Bluetooth quick connect](https://github.com/bjarosze/gnome-bluetooth-quick-connect)
   - [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator)
   - [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
-  - [Gnoti](https://github.com/TuX-sudo/gnoti) (Self made)
+  - [Gnoti](https://github.com/AntonVanAssche/gnoti) (Self made)
   - [Hibernate Status Button](https://github.com/arelange/gnome-shell-extension-hibernate-status)
   - [Hide minimized](https://github.com/danigm/hide-minimized)
   - [Hot Edge](https://github.com/jdoda/hotedge)
@@ -51,7 +51,7 @@ A bunch of files that start with . and makes linux more awesome.
 
 ```bash
 $ cd $HOME
-$ git clone https://github.com/TuX-sudo/dotfiles.git
+$ git clone https://github.com/AntonVanAssche/dotfiles.git
 $ cd dotfiles/
 $ chmod +x setup/main.sh
 $ ./setup/main.sh
