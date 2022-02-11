@@ -1,7 +1,6 @@
 # ~/.bashrc
 [ -z "$PS1" ] && return
 
-HISTCONTROL=ignoreboth
 shopt -s histappend
 shopt -s checkwinsize
 

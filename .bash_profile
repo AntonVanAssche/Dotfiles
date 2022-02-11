@@ -11,7 +11,7 @@ fi;
 export EDITOR='vim';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
+export HISTSIZE='500';
 export HISTFILESIZE="${HISTSIZE}";
 
 # Omit duplicates and commands that begin with a space from history.
