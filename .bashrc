@@ -9,11 +9,11 @@ shopt -s checkwinsize
 
 # .bashrc.d/
 if [[ -d "${HOME}/.bashrc.d" ]]; then
-        for each in "${HOME}/.bashrc.d/"* ; do
-                source "${each}"
-        done
+   for each in "${HOME}/.bashrc.d/"* ; do
+      source "${each}"
+   done
 fi
 
-# Add applications installed using brew to $PATH.
+# $PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-
+export PATH="$HOME/.local/bin:$PATH"
