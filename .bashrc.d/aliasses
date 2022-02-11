@@ -19,8 +19,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Reboot and power off the machine easier:
-alias gg='sudo systemctl poweroff'
-alias gj='sudo systemctl reboot'
+alias gg='doas systemctl poweroff'
+alias gj='doas systemctl reboot'
 
 # Aliasses to script that are frequently used:
 alias update='$HOME/scripts/update.sh'
