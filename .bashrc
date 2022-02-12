@@ -14,5 +14,4 @@ if [[ -d "${HOME}/.bashrc.d" ]]; then
 fi
 
 # $PATH
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

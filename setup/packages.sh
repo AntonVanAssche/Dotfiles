@@ -9,9 +9,6 @@ function FedoraPackages() {
    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm \
    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm -y
 
-   message info "Installing Homebrew..."
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
    message info "Installing wget & curl..."
    sudo dnf install wget curl -y
 
@@ -19,7 +16,6 @@ function FedoraPackages() {
    sudo dnf copr enable skidnik/termite -y
    sudo dnf install -y termite doas vim lsd nnn htop wol wireguard-tools openresolv mpv mpv-libs python3-pip
    vim +PluginInstall +qall
-   /home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
    message info "Installing Signal-desktop..."
    sudo dnf copr enable luminoso/Signal-Desktop -y
@@ -41,8 +37,12 @@ function FedoraPackages() {
    sudo dnf config-manager --add-repo https://negativo17.org/repos/fedora-spotify.repo
    sudo dnf install spotify-client -y
 
+   message info "Installing Spotify-tui..."
+   sudo dnf copr enable atim/spotify-tui -y
+   sudo dnf install spotify-tui
+
    message info "installing spicetify..."
-   /home/linuxbrew/.linuxbrew/bin/brew install khanhas/tap/spicetify-cli
+   curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
    sudo chmod a+wr /lib64/spotify-client/
    sudo chmod a+wr /lib64/spotify-client/Apps -R
 
@@ -70,9 +70,6 @@ function UbuntuPackages() {
    vscode="https://az764295.vo.msecnd.net/stable/379476f0e13988d90fab105c5c19e7abc8b1dea8/code_1.59.0-1628120042_amd64.deb"
    discord="0.0.15"
 
-   message info "Installing Homebrew..."
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
    message info "Installing wget & curl..."
    sudo apt install wget curl -y
 
@@ -84,7 +81,6 @@ function UbuntuPackages() {
    ./termite-ubuntu --I
    cd "$HOME"
    rm -rf termite-ubuntu-install/
-   /home/linuxbrew/.linuxbrew/bin/brew install gotop fff spotify-tui
 
    message info "Installing LSDeluxe ..."
    wget https://github.com/Peltoche/lsd/releases/download/"$lsd"/lsd-musl_"$lsd"_amd64.deb
@@ -109,7 +105,7 @@ function UbuntuPackages() {
    sudo apt install spotify-client -y
 
    message info "installing spicetify..."
-   /home/linuxbrew/.linuxbrew/bin/brew install khanhas/tap/spicetify-cli
+   curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
    sudo chmod a+wr /usr/share/spotify
    sudo chmod a+wr /usr/share/spotify/Apps -R
 
