@@ -26,7 +26,7 @@ echo -e "[i] ${lightCyan}clean up${reset}"
 
 echo
 echo -e "[?] ${lightCyan}Do you want to restart the system?${reset}"
-read -p "Reboot? [y/N] " restart
+read -pr "Reboot? [y/N] " restart
 if [[ $restart = "y" || $restart = "Y" ]] ; then
    sudo systemctl reboot
 fi

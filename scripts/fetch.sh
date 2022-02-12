@@ -59,7 +59,7 @@ elif [ -n "${XDG_SESSION_TYPE}" ]; then
 	ui="${XDG_SESSION_TYPE}"
 fi
 
-ui="$(basename ${ui})"
+ui="$(basename "${ui}")"
 
 case $os in
     "Ubuntu"*| "Raspbian"*) packages="$(dpkg -l 2> /dev/null | wc -l)";;

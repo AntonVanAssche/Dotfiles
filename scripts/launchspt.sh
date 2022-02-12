@@ -2,6 +2,6 @@
 
 killall spotifyd
 
-if [ ! $(pgrep "spotifyd") ]; then
-	./custom/spotifyd/target/release/spotifyd --config-path ~/.config/spotifyd/spotifyd.conf --no-daemon &> /dev/null & spt
+if [ ! "$(pgrep "spotifyd")" ]; then
+	"$HOME"/.local/bin/spotifyd --config-path ~/.config/spotifyd/spotifyd.conf --no-daemon &> /dev/null & spt
 fi
