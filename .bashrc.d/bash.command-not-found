@@ -87,7 +87,7 @@ print_message () {
 
 function_exists () {
     # Zsh returns 0 even on non existing functions with -F so use -f
-    declare -f $1 > /dev/null
+    declare -f "${1}" > /dev/null
     return $?
 }
 
