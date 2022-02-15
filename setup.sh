@@ -3,7 +3,7 @@
 # Repo info
 declare -r GITHUB_REPOSITORY="AntonVanAssche/dotfiles"
 
-declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/main"
+declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/master"
 declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/utils.sh"
 
 declare dotfilesDirectory="$HOME/git/github/dotfiles"
@@ -14,6 +14,23 @@ declare red="$(tput setaf 1 2> /dev/null)"
 declare green="$(tput setaf 2 2> /dev/null)"
 declare yellow="$(tput setaf 3 2> /dev/null)"
 declare blue="$(tput setaf 4 2> /dev/null)"
+
+Extract() {
+   local archive="$1"
+   local outputDir="$2"
+
+   if command -v "tar" &> /dev/null; then
+      tar \
+         --extract \
+         --gzip \
+         --file "$archive" \
+         --strip-components 1 \
+         --directory "$outputDir"
+      return $?
+   fi
+
+   return 1
+}
 
 Download() {
    local url="$1"
@@ -40,17 +57,17 @@ DownloadDotfiles() {
    PrintResult $? "Download archive" "true"
    printf "\n"
 
-   mkdir -p "$dotfilesDirectory"
-   PrintResult $? "Create '$dotfilesDirectory'" "true"
+   mkdir -p "${dotfilesDirectory}"
+   PrintResult $? "Create '${dotfilesDirectory}'" "true"
 
    # Extract archive in the `dotfiles` directory.
-   extract "$tmpFile" "$dotfilesDirectory"
+   Extract "$tmpFile" "${dotfilesDirectory}"
    PrintResult $? "Extract archive" "true"
 
    rm -rf "$tmpFile"
    PrintResult $? "Remove archive"
 
-   cd dotfiles/ || exit 1
+   cd "${dotfilesDirectory}/" || exit 1
 }
 
 # Ask for the administrator password upfront.
