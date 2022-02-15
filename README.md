@@ -50,8 +50,6 @@ This is how I set up a new Fedora Linux install.
 
 ## Installation
 
-**NOTE:** I don't test every commit I push to this repo. This means bugs are possible.
-
 **⚠️ Warning:** **DO NOT** run the [`setup.sh`](./setup.sh) script if you do not fully understand what it does. Seriously, **DON'T**!
 
 The setup process will:
@@ -62,6 +60,10 @@ The setup process will:
 - Install [applications](./setup/packages/) / command-line tools for Fedora Linux.
 - Set custom Gnome-Shell [preferences](./setup/gnome/).
 - Install the [Vim](./setup/packages/devel-tools.sh) plugins.
+
+The setup process will not:
+
+- Install all Gnome-Shell extensions (only [Gnoti](https://github.com/AntonVanAssche/gnoti) and [Pop-Shell](https://github.com/pop-os/shell)).
 
 ### One-liner
 
@@ -78,7 +80,5 @@ $ bash setup.sh
 ```
 
 ### Installer preview
-
-**NOTE:** This gif is 15x faster than the real install.
 
 ![Installer preview](./assets/installer-preview.gif)
