@@ -2,9 +2,7 @@
 
 # Repo info
 declare -r GITHUB_REPOSITORY="AntonVanAssche/dotfiles"
-
 declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/master"
-declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/utils.sh"
 
 declare dotfilesDirectory="$HOME/git/github/dotfiles"
 
