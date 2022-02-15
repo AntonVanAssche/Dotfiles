@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# enable color support of ls and grep
+if [ -x /usr/bin/dircolors ]; then
+   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+   alias ls='ls --color=auto'
+   alias grep='grep --color=auto'
+   alias fgrep='fgrep --color=auto'
+   alias egrep='egrep --color=auto'
+fi
+
+# personal aliasses
+# Use LSDelux instead of ls:
+alias ls='lsd'
+
+# Aliasses for ls command:
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Reboot and power off the machine easier:
+alias gg='doas systemctl poweroff'
+alias gj='doas systemctl reboot'
+
+# Aliasses to script that are frequently used:
+alias update='$HOME/scripts/update.sh'
+
+# Reload .bashrc easier:
+alias reload='source ~/.bashrc'
+
+# Easier navigation:
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# git alias:
+alias g='git'
+
+# Other:
+alias vi='vim'
+alias md='mkdir'
+alias rd='rm -rfv'
+alias cp='cp -r'
+alias fetch='$HOME/scripts/fetch.sh'
+alias color='$HOME/scripts/color.sh'

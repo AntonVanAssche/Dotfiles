@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Now-clocking
+GenericName=Now-clocking
+Comment=Some comment
+Exec=sh /home/anton/.config/conky/now-clocking/start.sh
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true

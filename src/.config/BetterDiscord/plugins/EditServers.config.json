@@ -1,0 +1,14 @@
+{
+	"general": {
+		"addOriginalTooltip": true
+	},
+	"places": {
+		"guildList": true,
+		"guildHeader": true,
+		"guildInvites": true,
+		"chat": true,
+		"mutualGuilds": true,
+		"recentMentions": true,
+		"quickSwitcher": true
+	}
+}
