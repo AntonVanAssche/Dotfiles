@@ -74,7 +74,7 @@ $ bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/dotfile
 ```bash
 $ git clone https://github.com/AntonVanAssche/dotfiles.git
 $ cd dotfiles
-$ bash setup
+$ bash setup.sh
 ```
 
 ### Installer preview
