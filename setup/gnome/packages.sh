@@ -11,7 +11,7 @@ InstallPackage "flat-remix-gnome" "Installing Flat-Remix Gnome-Shell theme"
 
 InstallPackage "numix-icon-theme-circle" "Installing Numix icon pack"
 
-Execute "mkdir -p $HOME/.icons/ && cp -r ./src/cursor/ $HOME/.icons/" "Installing cursor theme"
+Execute "mkdir -p $HOME/.icons/ && cp -r ./src/cursor/capitaine-cursors/ $HOME/.icons/" "Installing cursor theme"
 
 Execute "pip3 install pywal" "Installing pywal"
 InstallPackage "ulauncher" "Installing Ulauncher"
