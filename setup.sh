@@ -13,6 +13,20 @@ declare green="$(tput setaf 2 2> /dev/null)"
 declare yellow="$(tput setaf 3 2> /dev/null)"
 declare blue="$(tput setaf 4 2> /dev/null)"
 
+Header() {
+
+cat << "EOF"
+
+                          █▀▀▀ ▀█▀ █   █▀▀ █▀▀
+                          █▀▀   █  █   █▀▀ ▀▀█
+                        ▀ ▀    ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀                                
+
+   Press ENTER or wait 5 seconds to begin the installation (CTRL + C to abort):
+EOF
+   read -r -s -n1 -t5
+}
+
+
 Extract() {
    local archive="$1"
    local outputDir="$2"
@@ -70,7 +84,7 @@ DownloadDotfiles() {
 
 # Ask for the administrator password upfront.
 AskForSudo() {
-   sudo -v &> /dev/null
+   sudo -v -p "   [?] Enter Your password to continue: " 
    while true; do
       sudo -n true
       sleep 60
@@ -240,12 +254,15 @@ VerifyOS() {
    OS="$(. "/etc/os-release" && printf "%s" "$NAME")"
 
    if [[ $OS != "Fedora Linux" ]]; then
-      PrintError "Your operating system '${OS}' is not supported by these scripts."
+      PrintError "Your operating system '${OS}' is not supported."
       exit 1
    fi
 }
 
 Main() {
+   # Show the header.
+   Header
+   
    # Ensure that the following actions
    # are made relative to this file's path.
    cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
