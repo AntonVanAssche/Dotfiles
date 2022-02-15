@@ -12,7 +12,7 @@ This is how I set up a new Fedora Linux install.
 
 - [System info](#system-info)
 - [Installation](#installation)
-  <!--- [One-liner](#one-liner)-->
+  - [One-liner](#one-liner)
   - [Cloning the repo](#cloning-the-repo)
   - [Installer preview](#installer-preview)
 
@@ -63,12 +63,11 @@ The setup process will:
 - Set custom Gnome-Shell [preferences](./setup/gnome/).
 - Install the [Vim](./setup/packages/devel-tools.sh) plugins.
 
-<!--### One-liner
+### One-liner
 
 ```bash
-$ bash -c "$(wget -qO - https://raw.github.com/AntonVanAssche/dotfiles/main/setup.sh)"
+$ bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
 ```
--->
 
 ### Cloning the repo:
 
