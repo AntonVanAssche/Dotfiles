@@ -16,6 +16,10 @@ Plugin 'sh.vim'
 Plugin 'moll/vim-node'
 Plugin 'hdima/python-syntax'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'alvan/vim-closetag'
+Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -97,3 +101,6 @@ nnoremap <Down>  :echoe "Use j"<CR>
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
+
+"Hexokinase
+let g:Hexokinase_highlighters = [ 'backgroundfull' ]
