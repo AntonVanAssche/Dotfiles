@@ -85,3 +85,15 @@ set shiftwidth=4
 set expandtab
 " Keeps cursor centerd
 set scrolloff=999
+
+"Disable arrow keys in insert mode.
+inoremap <Down>  <ESC>:echoe "Use j"<CR>
+inoremap <Left>  <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up>    <ESC>:echoe "Use k"<CR>
+
+"Disable arrow keys in normal mode.
+nnoremap <Down>  :echoe "Use j"<CR>
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
