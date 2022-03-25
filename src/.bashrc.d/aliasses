@@ -22,9 +22,6 @@ alias l='ls -CF'
 alias gg='doas systemctl poweroff'
 alias gj='doas systemctl reboot'
 
-# Aliasses to script that are frequently used:
-alias update='$HOME/scripts/update.sh'
-
 # Reload .bashrc easier:
 alias reload='source ~/.bashrc'
 
@@ -41,5 +38,3 @@ alias vi='vim'
 alias md='mkdir'
 alias rd='rm -rfv'
 alias cp='cp -r'
-alias fetch='$HOME/scripts/fetch.sh'
-alias color='$HOME/scripts/color.sh'
