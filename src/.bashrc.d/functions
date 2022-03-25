@@ -31,32 +31,43 @@ fi
 }
 
 function create() {
-echo -e "Do you want to create a new repo on gihub or gitlab?"
-read -pr "[github or gitlab]: " repo
+   printf "[github or gitlab]: "
+   read -r repo
+
+   cd "$HOME/git/${repo}/"
+
    if [[ ${repo} == gitlab ]]; then
-      cd "$HOME"/git/gitlab/
       curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token="${gitlabToken}" -d "{ \"name\": \"${1}\" }" &> /dev/null "${1}"
+      
       mkdir "${1}" && cd "${1}"
+      
       git init
       git remote add origin git@gitlab.com:"${gitlabName}"/"${1}".git
-      vim README.md
+      
+      touch README.md
+      printf "%s" "${1}" >> README.md
+      
       git add README.md
       git commit -m "Initial commit"
       git push -u origin master
+      
       xdg-open https://gitlab.com/"${gitlabName}"/"${1}" &> /dev/null
-      vim .
    elif [[ ${repo} == github ]]; then
-      cd "$HOME"/git/github/
-      curl -H "Authorization: token $githubToken" https://api.github.com/user/repos -d '{"name": "'"${1}"'"}'
+      curl -H "Authorization: token ${githubToken}" https://api.github.com/user/repos -d '{"name": "'"${1}"'"}'
+      
       mkdir "${1}" && cd "${1}"
+      
       git init
       git remote add origin git@github.com:"${githubName}"/"${1}".git
-      vim README.md
+
+      touch README.md
+      printf "%s" "${1}" >> README.md
+
       git add README.md
       git commit -m "Initial commit"
       git push -u origin master
+
       xdg-open https://github.com/"${githubName}"/"${1}" &> /dev/null
-      vim .
    else
       echo "'${1}' is not a valid option"
    fi
@@ -70,15 +81,18 @@ esac
 }
 
 function radio() {
+   command -v mpv &> /dev/null || printf "mpv is required to run this script\n"
+
    if [[ ${1} == radio1 ]]; then
-      local stations=(
+      stations=(
          'http://icecast.vrtcdn.be/radio1-high.mp3'
       )
    elif [[ ${1} == stubru ]]; then
-      local stations=(
+      stations=(
          'http://icecast.vrtcdn.be/stubru-high.mp3'
       )
    fi
+
    mpv "${stations[@]}"
 }
 
