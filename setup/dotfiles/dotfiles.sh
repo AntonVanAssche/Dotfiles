@@ -14,6 +14,5 @@ Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
 Execute "cp -r ./src/.config/ $HOME" "Copying src/.config/ → $HOME/.config/"
 Execute "cp -r ./src/.local/ $HOME/" "Copying src/.local/ → $HOME/.local/"
 
-
 chmod +x "$HOME"/.bashrc.d/*
-chmod +x "$HOME"/scripts/*
+chmod +x "$HOME"/.local/bin/*
