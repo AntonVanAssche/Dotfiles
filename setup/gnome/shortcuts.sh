@@ -26,7 +26,7 @@ SetKeybindings() {
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" name 'Launch Spotify'
 
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" binding 'F11'
-   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" command 'bash /home/anton/scripts/spotifynotifications.sh'
+   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" command 'bash /home/anton/.local/bin/spotifynotifications'
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" name 'Spotify notification'
 
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" binding '<Super>t'
