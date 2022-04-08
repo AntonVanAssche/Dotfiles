@@ -11,7 +11,7 @@ read -r wallpaper
 
 case ${wallpaper} in
    1) Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Barbara-Palvin.jpg" "Setting wallpaper 'Barbara Palvin'";;
-   2) Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Big-Sur.jpg" "Setting wallpaper 'Big-Sur'}";;
+   2) Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Big-Sur.jpg" "Setting wallpaper 'Big-Sur'";;
    3) Execute "wal -i ${wallpaperDir}/Cabin-in-the-woods.jpeg && gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Cabin-in-the-woods.jpeg" "Setting wallpaper 'Cabin in the woods'";;
    4) Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Chad.jpg" "Setting wallpaper 'Chad'";;
    5) Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Keyboards.jpg" "Setting wallpaper 'Keyboards'";;

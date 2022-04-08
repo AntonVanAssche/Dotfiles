@@ -20,6 +20,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'alvan/vim-closetag'
 Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plugin 'mattn/emmet-vim'
+Plugin 'joshdick/onedark.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -42,7 +43,7 @@ set wildmode=longest,list,full
 "Lightline plugin configuration
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'purify',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -74,7 +75,7 @@ set mouse=a
 syntax on
 set termguicolors
 set background=dark
-colorscheme purify
+colorscheme onedark
 highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE

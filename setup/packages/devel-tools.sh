@@ -22,6 +22,10 @@ packagesToInstall=(
    java-latest-openjdk.x86_64
    wget
    curl
+   VirtualBox
+   ninja-build
+   meson
+   sassc
    )
 
 for packageToInstall in "${packagesToInstall[@]}";

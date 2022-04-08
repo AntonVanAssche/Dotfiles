@@ -247,6 +247,7 @@ Update() {
 CleanUp() {
    Execute "sudo dnf autoremove -y" "DNF (autoremove)"
    Execute "sudo dnf clean all" "DNF (clean)"
+   Execute "rm -rf gnoti/ adw-gtk3/ firefox-gnome-theme/ spotifyd" "Removing temporary files/directories"
 }
 
 VerifyOS() {
