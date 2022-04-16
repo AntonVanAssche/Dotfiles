@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# qs: Quick Share
+# Quickly share a file or folder with another device.
+# This uses python to host a simple http server where you can down load the file.
+# Usage: qs [dir]
+# Example: qs ~/Downloads
+
+# Now go to http://YOUR-LOCAL_IP:8000/ and download the file.
+
+cd "${1}" || exit 1
+
+hostname -I
+
+python3 -m http.server
