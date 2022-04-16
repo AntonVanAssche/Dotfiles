@@ -1,4 +1,7 @@
 # ~/.bashrc
+
+set -o vi
+
 [ -z "$PS1" ] && return
 
 shopt -s histappend
@@ -19,5 +22,11 @@ source "${HOME}/.local/bin/current-time"
 # Load pywal.
 # source "${HOME}/.local/bin/load-pywal"
 
+# Colored man pages.
+if command -v most &> /dev/null; then
+   export PAGER="most"
+fi
+
 # $PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.spicetify"

@@ -26,6 +26,7 @@ packagesToInstall=(
    ninja-build
    meson
    sassc
+   most
    )
 
 for packageToInstall in "${packagesToInstall[@]}";
