@@ -1,101 +1,35 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-gitlabToken="---YOUR GITLAB TOKEN---"
-gitlabName="---YOUR GITLAB NAME---"
-githubToken="---YOUR GITHUB TOKEN---"
-githubName="---YOUR GITHUB NAME---"
-hardwareAdress="**:**:**:**:**:**"
-broadcast="---YOUR LOCAL BROADCAST---"
-wakeLocalIp="---THE LOCAL IP YOU WANT TO WAKE---"
-
-function extract() {
-if [ -f "${1}" ] ; then
-   case "${1}" in
-      *.tar.bz2)   tar xvjf "${1}"     ;;
-      *.tar.gz)    tar xvzf "${1}"     ;;
-      *.tar.xz)    tar xvJf "${1}"     ;;
-      *.bz2)       bunzip2 "${1}"      ;;
-      *.rar)       unrar x "${1}"      ;;
-      *.gz)        gunzip "${1}"       ;;
-      *.tar)       tar xvf "${1}"      ;;
-      *.tbz2)      tar xvjf "${1}"     ;;
-      *.tgz)       tar xvzf "${1}"     ;;
-      *.zip)       unzip "${1}"        ;;
-      *.Z)         uncompress "${1}"   ;;
-      *.7z)        7z x "${1}"         ;;
-      *)           echo "'${1}' cannot be extracted via >extract<" ;;
-      esac
-else
-   echo "'${1}' is not a valid file"
-fi
+Err(){
+	printf '\e[91mErr\e[0m: %s\n' "$1" 1>&2
+	return 1
 }
 
-function create() {
-   printf "[github or gitlab]: "
-   read -r repo
-
-   cd "$HOME/git/${repo}/"
-
-   if [[ ${repo} == gitlab ]]; then
-      curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token="${gitlabToken}" -d "{ \"name\": \"${1}\" }" &> /dev/null "${1}"
-      
-      mkdir "${1}" && cd "${1}"
-      
-      git init
-      git remote add origin git@gitlab.com:"${gitlabName}"/"${1}".git
-      
-      touch README.md
-      printf "%s" "${1}" >> README.md
-      
-      git add README.md
-      git commit -m "Initial commit"
-      git push -u origin master
-      
-      xdg-open https://gitlab.com/"${gitlabName}"/"${1}" &> /dev/null
-   elif [[ ${repo} == github ]]; then
-      curl -H "Authorization: token ${githubToken}" https://api.github.com/user/repos -d '{"name": "'"${1}"'"}'
-      
-      mkdir "${1}" && cd "${1}"
-      
-      git init
-      git remote add origin git@github.com:"${githubName}"/"${1}".git
-
-      touch README.md
-      printf "%s" "${1}" >> README.md
-
-      git add README.md
-      git commit -m "Initial commit"
-      git push -u origin master
-
-      xdg-open https://github.com/"${githubName}"/"${1}" &> /dev/null
-   else
-      echo "'${1}' is not a valid option"
-   fi
-}
-
-function wake() {
-case "${1}" in
-   d| desktop) wakeonlan -i "${broadcast}" "${hardwareAdress}";;
-   *) echo "'${1}' is not a valid option!";;
-esac
-}
-
-function radio() {
-   command -v mpv &> /dev/null || printf "mpv is required to run this script\n"
-
-   if [[ ${1} == radio1 ]]; then
-      stations=(
-         'http://icecast.vrtcdn.be/radio1-high.mp3'
-      )
-   elif [[ ${1} == stubru ]]; then
-      stations=(
-         'http://icecast.vrtcdn.be/stubru-high.mp3'
-      )
-   fi
-
-   mpv "${stations[@]}"
-}
-
-function vpn() {
+vpn() {
    wg-quick "${1}" "${2}"
+}
+
+history() {
+   builtin history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+}
+
+cd() {
+   builtin cd "${1}" && ls -la
+}
+
+mcd() {
+   mkdir -p "${1}" && cd "${1}" || Err "${1}"
+}
+
+hackerman() {
+   < /dev/urandom hexdump -C | grep "ca fe"
+}
+
+remember() {
+	Len=${#1}
+	if (( Len <= 80 )); then
+		printf '%s\n' "$1" > ~/.reminder
+	else
+		Err "String length of $Len exceeds limit of 80."
+	fi
 }
