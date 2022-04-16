@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# ssled: SSL Expire Date
+# Script to check when a SSL certificate will expire.
+# Usage: ssled <domain>
+# Example: ssled ant0n.tk
+
+Usage() {
+   >&2 printf 'Usage: %s domain1.org domain2.org (and so on)' "${0##*/}"
+   exit 1
+}
+
+# Default args
+port=443
+
+if [ "${1}" ] ; then
+   while getopts dp option
+   do
+      case ${1#-} in
+         h)
+            Usage
+            ;;
+         *)
+            printf "Error: Unknown option '%s'" "${1}"
+            exit 1
+            ;;
+      esac
+   done
+fi
+
+for domain in "${@}"; do
+   printf "%s\n" "" | openssl s_client -servername "${domain}" -connect "${domain}":"${port}" 2>/dev/null | openssl x509 -noout -enddate | awk -F= '{print $2}'
+done
