@@ -30,7 +30,7 @@ This is how I set up a new Fedora Linux install.
 -  Editor : [vim](https://github.com/vim/vim)
    with [onedark color scheme](https://github.com/joshdick/onedark.vim)
 -  Shell : [Bash](https://www.gnu.org/software/bash/)
--  Launcher: Ulauncher with Adwaita theme (Build-in)
+-  Launcher: Ulauncher with Adwaita theme (built-in)
 -  Music: Spotify with [Custom Dribbblish](./src/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
 -  Conky widget: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
 
