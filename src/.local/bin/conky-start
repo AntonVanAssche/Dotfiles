@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Script to load my conky configuration.
+
 if [[ ! -x ~/.config/conky/now-clocking/start.sh ]]; then
     exit 0
 fi

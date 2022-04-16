@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Basic script to print the current playng song/video.
+# This script requires playerctl to function properly.
+
 if ! command -v playerctl >/dev/null; then
     exit 1
 fi

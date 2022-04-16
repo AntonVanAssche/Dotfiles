@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Basic script to start spotifyd and spt.
+
 killall spotifyd
 
 if [ ! "$(pgrep "spotifyd")" ]; then

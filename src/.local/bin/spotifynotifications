@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Simple script that shows a notification with the current playing song.
-# Tip keybind this script (example: F11).
+# Tip: keybind this script (example: F11).
 
 song=$(playerctl metadata --player=spotify --format "{{ xesam:title }}")
 artist=$(playerctl metadata --player=spotify --format "{{ xesam:artist }}")

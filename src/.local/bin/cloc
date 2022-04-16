@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# cloc: Count Lines Of Code
+# Count lines of code in a shellscript.
+# Ignores the comments and blank lines.
+# Usage:
+#  cloc [file] or cloc < [file]
+
+Usage() {
+   >&2 printf 'Usage: %s [file] or %s < [file]\n' "${0##*/}" "${0##*/}"
+   exit 1
+}
+
+if [ "${1}" ] ; then
+   case ${1#-} in
+      h)
+         Usage
+         ;;
+      *)
+         [ -f "$1" ] || Usage
+   esac
+
+   printf '%s' 'SLOC: '
+   sed '/^\s*#/d;/^\s*$/d' "${1}" | wc -l | sed 's/ //g'
+else
+   printf '%s' 'SLOC: '
+   sed '/^\s*#/d;/^\s*$/d' | wc -l | sed 's/ //g'
+fi

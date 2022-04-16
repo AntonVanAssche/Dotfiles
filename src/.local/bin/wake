@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Basic script to power on my computer on my home network using a wakeonlan.
+# Usage: wake [computer]
+
+hardwareAdress="**:**:**:**:**:**"
+broadcast="---YOUR LOCAL BROADCAST---"
+
+Usage() {
+   >&2 printf 'Usage: %s [computer]\n' "${0##*/}"
+   exit 1
+}
+
+case "${1#-}" in
+   h)
+      Usage
+      ;;
+   d| desktop)
+      wakeonlan -i "${broadcast}" "${hardwareAdress}"
+      ;;
+   *)
+      printf "Error: '%s' is not a valid option!\n" "${1}"
+      Usage
+      exit 1
+      ;;
+esac

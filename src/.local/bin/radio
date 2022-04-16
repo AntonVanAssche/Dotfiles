@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Simple script to listen to a Belgian radio station from within the terminal.
+# This script requires mpv to function.
+
+# Usage: radio [station]
+# [station] has to be listed in the case-statement below.
+
+command -v mpv &> /dev/null || printf "mpv is required to run this script\n"
+
+case "${1}" in
+   "radio1") stations=('http://icecast.vrtcdn.be/radio1-high.mp3');;
+   "stubru") stations=('http://icecast.vrtcdn.be/stubru-high.mp3');;
+   "mnm") stations=('http://icecast-servers.vrtcdn.be/mnm-high-fallback.mp3');;
+   *) printf "Error: '%s' is not a valid option!\n" "${1}"
+      exit 1
+      ;;
+esac
+
+mpv "${stations[@]}" || exit 1

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Script to print the current time.
+
 light_cyan="$(tput setaf 6)"
 red="$(tput setaf 1)"
 reset="$(tput sgr0)"

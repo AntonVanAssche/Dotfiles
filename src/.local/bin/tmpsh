@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# tmpsh - Temporary Shell
+# Open a shell session in a temporary directory.
+# This does not add the commands executed during the session to your bash history.
+
+# Usage: tmpsh
+
+cd "$(mktemp -d)" || exit
+bash
