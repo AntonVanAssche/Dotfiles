@@ -20,9 +20,9 @@ if [ "${1}" ] ; then
          [ -f "$1" ] || Usage
    esac
 
-   printf '%s' 'SLOC: '
+   printf '%s' 'Lines of code: '
    sed '/^\s*#/d;/^\s*$/d' "${1}" | wc -l | sed 's/ //g'
 else
-   printf '%s' 'SLOC: '
+   printf '%s' 'Lines of code: '
    sed '/^\s*#/d;/^\s*$/d' | wc -l | sed 's/ //g'
 fi
