@@ -129,8 +129,8 @@ noremap <silent> <C-l> :move -2<CR>
 noremap <silent> <C-k> :move +1<CR>
 
 " Jump up or down by 10 lines.
-noremap <silent> K 10j
-noremap <silent> L 10k
+noremap <silent> J 10j
+noremap <silent> K 10k
 
 " Disable arrow keys in insert mode.
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
