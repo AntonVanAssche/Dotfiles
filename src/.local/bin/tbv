@@ -18,11 +18,12 @@ elif [[ ! -r ${file} ]]; then
 else
 	# Verify the shebang is actually pointing to BASH. Reduces the chance of
 	# accidentally trying to run the wrong file a bazillion times.
-	read <<< "$(file "${file}")"
+	read -r <<< "$(file "${file}")"
 	fileType='Bourne-Again shell script, ASCII text executable'
 	if [[ ${REPLY#*: } != "${fileType}" ]]; then
-		Err 'File not a BASH script.'
-		return 1
+		printf 'An error occurred: file '%s' not a BASH script.' "${file}"
+      printf '\n'
+		exit 1
 	fi
 fi
 
