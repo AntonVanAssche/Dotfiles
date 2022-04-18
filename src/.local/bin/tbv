@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# tbv: Test Bash Versions.
+# Script to test other (Bash) scripts in different Bash versions.
+# Usage: tbv [script]
+
+file=$1
+shift
+
+if [[ ! -f ${file} ]]; then
+	printf 'An error occurred: file '%s' not found.' "${file}"
+   printf '\n'
+	exit 1
+elif [[ ! -r ${file} ]]; then
+	printf 'An error occurred: file '%s' unreadable.' "${file}"
+   printf '\n'
+	exit 1
+else
+	# Verify the shebang is actually pointing to BASH. Reduces the chance of
+	# accidentally trying to run the wrong file a bazillion times.
+	read <<< "$(file "${file}")"
+	fileType='Bourne-Again shell script, ASCII text executable'
+	if [[ ${REPLY#*: } != "${fileType}" ]]; then
+		Err 'File not a BASH script.'
+		return 1
+	fi
+fi
+
+for dir in "$HOME/Bash/"*; {
+	[[ -d ${dir} ]] || continue
+
+	printf '\e[1;92m* \e[91m%s:\e[0m\n' "${dir##*/}"
+   env -i HOME="$(mktemp -d)" "${dir}"/bash --noprofile --norc "${file}" "${@}"
+}
