@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Simple script to print out the battery percentage.
+
+file='/sys/class/power_supply/BAT0/capacity'
+
+if [[ ! -f ${file} ]]; then
+   printf 'An error occurred: file '%s' not found.' "${file}"
+   exit 1
+elif [[ ! -f ${file} ]]; then
+   printf 'An error occurred: file '%s' unreadable.' "${file}"
+   exit 1
+fi
+
+read < "${file}"
+printf 'Battery is at %d%% capacity.\n' "${REPLY}"
+
