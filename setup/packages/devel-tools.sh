@@ -27,6 +27,7 @@ packagesToInstall=(
    meson
    sassc
    most
+   bat
    )
 
 for packageToInstall in "${packagesToInstall[@]}";
