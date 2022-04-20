@@ -67,13 +67,10 @@ map <F2> :x<CR>
 " NERDTree
 let NERDTreeShowHidden=1
 
-" Mouse integration
-set ttyfast
-set mouse=a
-
 " Miscellaneous settings.
 set undolevels=3000
 set history=10000
+set ttyfast
 
 " Colorschemes
 syntax on
