@@ -1,0 +1,47 @@
+#!/bin/python3
+
+# Simple cli version of the game Rock Paper Scissors written in python.
+# This is written for Python 3.
+
+import random
+wantToPlay='y'
+while wantToPlay == 'y':
+  print('Hi there, lets play')
+  print('Pick your choice: rock | paper | scissors')
+
+  userChoice = input()
+  options=['rock','paper','scissors']
+  print(f'You chose: {userChoice}')
+
+  computerChoice = random.choice(options)
+  print(f'Computer chose chose: {computerChoice}')
+
+  if userChoice in options:
+    if computerChoice == userChoice:
+      print('draw')
+    elif computerChoice == 'rock':
+      if userChoice=='scissors':
+        print('computer won!')
+      else:
+        print('You won!')
+    elif computerChoice == 'scissors':
+        if userChoice == 'paper':
+          print('computer won!')
+        else:
+          print('You won!')
+    elif computerChoice == 'paper':
+        if userChoice == 'rock':
+          print('computer won!')
+        else:
+          print('You won!')
+  else:
+    print('You made an invalid choice! ')
+
+  print('Do you want to play again? Y/N: ')
+  wantToPlay=input().lower()
+else:
+  if wantToPlay == 'n':
+    print('Thank you for joining')
+  else:
+    print('You made an invalid choice! ')
+
