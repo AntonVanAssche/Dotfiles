@@ -28,6 +28,7 @@ packagesToInstall=(
    sassc
    most
    bat
+   golang
    )
 
 for packageToInstall in "${packagesToInstall[@]}";
