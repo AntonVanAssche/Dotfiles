@@ -76,6 +76,20 @@ case $os in
 		;;
 esac
 
+if playerctl -l 2>&1 | grep -q 'No players were found'; then
+   exit 1
+fi
+
+playerctlPlayer="$(playerctl -l | grep -v plasma-browser-integration | head -n1)"
+
+PlayerctlExec() {
+   playerctl -p "${playerctlPlayer}" "${@}"
+}
+
+PlayerctlMeta() {
+   PlayerctlExec metadata "${@}"
+}
+
 # Output
 
 cat << EOF
@@ -85,6 +99,7 @@ cat << EOF
     ${c1}/${c1}/ \\${c1}\     ${lc}PACKAGES:  ${ic}${packages}${reset} 
    ${c1}/${c1}(   )${c1}\    ${lc}SHELL:     ${ic}${shell}${reset}
     ${c1}^${c1}\`${c2}~${c1}'${c1}^     ${lc}${uitype}:        ${ic}${ui}${reset}
+              ${lc}SONG:      ${ic}$(PlayerctlMeta artist) - $(PlayerctlMeta title)${reset}
 EOF
 
 pcs() { for i in {0..7}; do echo -en "\e[${1}$((30+i))m \u2588\u2588 \e[0m"; done; }
