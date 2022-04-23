@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# A simple script to toggle wifi on and off.
+
+enabled=$(nmcli radio wifi | grep enabled)
+disabled=$(nmcli radio wifi | grep disabled)
+
+if [[ $enabled ]]; then
+   nmcli radio all off
+else [[ $disabled ]]
+   nmcli radio wifi on
+fi
