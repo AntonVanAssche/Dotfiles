@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Tiny system info script for Ubuntu, Raspbian, Fedora and Arch Linux.
+# Tiny system info script for Ubuntu, Raspbian and Fedora Linux.
 
-# Colors
+# Colors.
 if [ -x "$(command -v tput)" ]; then
 	bold="$(tput bold)"
 	black="$(tput setaf 0)"
@@ -11,7 +11,7 @@ if [ -x "$(command -v tput)" ]; then
 	reset="$(tput sgr0)"
 fi
 
-# you can change these
+# You can change these.
 lc="${reset}${bold}${yellow}"       # labels
 nc="${reset}${bold}"                # user and hostname
 ic="${reset}${bold}"                # info
@@ -19,24 +19,23 @@ c0="${reset}${black}"               # first color
 c1="${reset}${white}"               # second color
 c2="${reset}${yellow}"              # third color
 
-# Info
+# Info.
 
-# User is already defined
-host="$(hostnamectl --static)"
+# User and hostname are already defined
 os="$(. /etc/os-release && echo "${PRETTY_NAME}")"
 kernel="$(uname -sr)"
 shell="$(basename "${SHELL}")"
 
-# UI detection
+# UI detection.
 
-parse_rcs() {
+ParseRC() {
 	for f in "${@}"; do
 		wm="$(tail -n 1 "${f}" 2> /dev/null | cut -d ' ' -f 2)"
 		[ -n "${wm}" ] && echo "${wm}" && return
 	done
 }
 
-rcwm="$(parse_rcs "${HOME}/.xinitrc" "${HOME}/.xsession")"
+rcwm="$(ParseRC "${HOME}/.xinitrc" "${HOME}/.xsession")"
 
 ui='unknown'
 uitype='UI'
@@ -76,6 +75,8 @@ case $os in
 		;;
 esac
 
+# Current playing song.
+
 if playerctl -l 2>&1 | grep -q 'No players were found'; then
    exit 1
 fi
@@ -93,7 +94,7 @@ PlayerctlMeta() {
 # Output
 
 cat << EOF
-              ${nc}${USER}${ic}@${nc}${host}${reset}
+              ${nc}${USER}${ic}@${nc}${HOSTNAME}${reset}
      ${c1}.${c2}~${c1}.      ${lc}OS:        ${ic}${os}${reset}
      ${c1}/${c2}V${c1}\      ${lc}KERNEL:    ${ic}${kernel}${reset}
     ${c1}/${c1}/ \\${c1}\     ${lc}PACKAGES:  ${ic}${packages}${reset} 
