@@ -147,6 +147,12 @@ vnoremap <Left>  <ESC>:echoe "Use h"<CR>
 vnoremap <Right> <ESC>:echoe "Use l"<CR>
 vnoremap <Up>    <ESC>:echoe "Use k"<CR>
 
+" Split window navigation
+nmap <silent> <leader>h :wincmd h<CR>
+nmap <silent> <leader>j :wincmd j<CR>
+nmap <silent> <leader>k :wincmd k<CR>
+nmap <silent> <leader>l :wincmd l<CR>
+
 " Hexokinase
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 
