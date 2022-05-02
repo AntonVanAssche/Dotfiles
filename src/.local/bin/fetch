@@ -83,14 +83,14 @@ if playerctl -l 2>&1 | grep -q 'No players were found'; then
    exit 1
 fi
 
-playerctlPlayer="$(playerctl -l | grep -v plasma-browser-integration | head -n1)"
+playerctlPlayer="$(playerctl -l 2> /dev/null | grep -v plasma-browser-integration | head -n1)"
 
 PlayerctlExec() {
-   playerctl -p "${playerctlPlayer}" "${@}"
+   playerctl -p "${playerctlPlayer}" "${@}" 2> /dev/null
 }
 
 PlayerctlMeta() {
-   PlayerctlExec metadata "${@}"
+   PlayerctlExec metadata "${@}" 2> /dev/null
 }
 
 # Output
