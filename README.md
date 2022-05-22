@@ -18,7 +18,7 @@ This is how I set up a new Fedora Linux install.
 
 ## System info
 
-<img src="./assets/BigSurPreview.png" alt="preview" align="right" width="400px">
+<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" width="400px">
 
 -  OS: [Fedora Linux](https://getfedora.org/)
 -  DE : [Gnome](https://gitlab.gnome.org/GNOME/gnome-shell)
