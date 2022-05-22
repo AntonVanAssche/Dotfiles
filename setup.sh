@@ -4,7 +4,7 @@
 declare -r GITHUB_REPOSITORY="AntonVanAssche/dotfiles"
 declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/master"
 
-declare dotfilesDirectory="$HOME/git/github/dotfiles"
+declare dotfilesDirectory="$HOME/Projects/dotfiles"
 
 # Colors
 declare normal="$(tput sgr0 2> /dev/null)"
