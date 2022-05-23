@@ -25,7 +25,7 @@ This is how I set up a new Fedora Linux install.
 -  GTK Theme: [Adw-gtk3-dark](https://github.com/lassekongo83/adw-gtk3)
 -  Shell Theme: Default Gnome
 -  Icon Theme: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
--  Wallpaper: [Big Sur](./src/walls/Big-Sur.jpg)
+-  Wallpaper: [Tate McRae](./src/walls/Tate-McRae.jpg)
 -  Terminal: Termite with [onedark color scheme](./src/.config/termite/config) and [Ubuntu Mono font](https://design.ubuntu.com/font/)
 -  Editor : [vim](https://github.com/vim/vim)
    with [onedark color scheme](https://github.com/joshdick/onedark.vim)
