@@ -11,6 +11,9 @@ mkdir -p "$HOME/.local/share/fonts/"
 
 for font in ./*.zip;
 do
+   font=${font##*/}
+   font=${font%%.*}
+
    Execute "unzip ${font} -d $HOME/.local/share/fonts/" "Installing ${font}"
 done
 
