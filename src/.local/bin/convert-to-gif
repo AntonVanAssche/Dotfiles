@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Utility to convert video files to GIFs using ffmpeg
+#
+# Usage: convert-to-gif.sh <video-file-path>
+# To skip frames: convert-to-gif.sh <video-file-path> <time-in-seconds>
+
+command -v ffmpeg || printf "ffmpeg isn't installed on your system."
+
+if [[ -z "$1" ]]; then
+    printf "No video file specified."
+    printf '\n'
+    exit 1
+fi
+
+# get everything after last /
+video=${1##*/}
+# remove everything after .
+filename=${video%.*}
+
+printf '%b' "$(tput bold)Getting video dimensions $(tput sgr0)"
+printf '\n'
+# Get video dimensions
+dimensions=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "$1")
+
+printf '%b' "$(tput bold)Generating Palette $(tput sgr0)"
+printf '\n'
+# Generate palette
+ffmpeg -i "$1" -vf "fps=22,scale=${dimensions%x*}:-1:flags=lanczos,palettegen" "$filename".png
+
+printf '%b' "$(tput bold)Converting Video to GIF $(tput sgr0)"
+printf '\n'
+
+if [[ "$2" ]]; then
+    ffmpeg -t "$2" -i "$1" -i "$filename".png -filter_complex "fps=22,scale=${dimensions%x*}:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
+else
+    ffmpeg -i "$1" -i "$filename".png -filter_complex "fps=22,scale=${dimensions%x*}:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
+fi
+
+printf '%b' "Removing palette"
+printf '\n'
+
+rm "$filename".png
