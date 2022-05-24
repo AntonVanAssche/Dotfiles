@@ -4,7 +4,7 @@
 ▀ ▀    ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀
 ```
 
-A bunch of files that start with . and makes linux more awesome.
+A bunch of files that start with `.` and makes linux more awesome.
 
 This is how I set up a new Fedora Linux install.
 
@@ -12,7 +12,7 @@ This is how I set up a new Fedora Linux install.
 
 -  [System info](#system-info)
 -  [Installation](#installation)
-   -  [One-liner](#one-liner)
+   -  [One-liners](#one-liners)
    -  [Cloning the repo](#cloning-the-repo)
    -  [Installer preview](#installer-preview)
 
@@ -40,7 +40,7 @@ This is how I set up a new Fedora Linux install.
    -  [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator)
    -  [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
    -  [Gnoti](https://github.com/AntonVanAssche/gnoti) (Self made)
-   -  [Hide minimized](https://github.com/danigm/hide-minimized)
+   -  [GSConnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect)
    -  [Just Perfection](https://gitlab.gnome.org/jrahmatzadeh/just-perfection)
    -  [Sound Input & Output Device Chooser](https://github.com/kgshank/gse-sound-output-device-chooser)
    -  [Workspace Bar](https://github.com/fthx/workspaces-bar)
@@ -49,28 +49,43 @@ This is how I set up a new Fedora Linux install.
 
 ## Installation
 
-**⚠️ Warning:** **DO NOT** run the [`setup.sh`](./setup.sh) script if you do not fully understand what it does. Seriously, **DON'T**!
+Installation can be done by manually copying the files you want to use. Your best bet, however, is to install via the [`setup.sh`](./setup.sh) script. When using the script, **make sure you fully understand what the script does before you run it**.
 
-The setup process will:
+In short, the setup process will:
 
 -  Download the dotfiles on your computer.
 -  Create some additional [directories](./setup/dotfiles/dirs.sh).
 -  [Copy](./setup/dotfiles/dotfiles.sh) the dotfiles.
--  Install [applications](./setup/packages/) / command-line tools for Fedora Linux.
--  Set custom Gnome-Shell [preferences](./setup/gnome/).
--  Install the [Vim](./setup/packages/devel-tools.sh) plugins.
+-  Install the [applications](./setup/packages/) / command-line tools I use.
+-  Apply my Gnome-Shell [preferences](./setup/gnome/).
+-  Install the [Vim](./setup/packages/devel-tools.sh) plugins I use.
 
 The setup process will not:
 
--  Install all Gnome-Shell extensions (only [Gnoti](https://github.com/AntonVanAssche/gnoti) and [Pop-Shell](https://github.com/pop-os/shell)).
+-  Install all Gnome-Shell extensions, only [Gnoti](https://github.com/AntonVanAssche/gnoti) and [Pop-Shell](https://github.com/pop-os/shell) will be installed.
 
-### One-liner
+### One-liners
+
+For a quick terminal one-liner, using the [`setup.sh`](./setup.sh) script, you should be able to execute the following, assuming you have `wget` installed:
 
 ```bash
 $ bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
 ```
 
+If that fails, you probably don't have `wget`, so try `curl`:
+
+```bash
+$ bash -c "$(curl -so - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
+```
+
+If both options fail, you probably have neither `wget` nor `curl`, so try installing one of them and then try running the one-liners again. You can check if you have one of them installed by running `command -v wget` or `command -v curl`, this should return the path where the binary is located.
+
+-  `wget` can be installed with `sudo dnf install wget`.
+-  `curl` can be installed with `sudo dnf install curl`.
+
 ### Cloning the repo:
+
+In case you don't want to use one of the one-liners above, you can just clone the repository and run the [`setup.sh`](./setup.sh) script directly from the directory.
 
 ```bash
 $ git clone https://github.com/AntonVanAssche/dotfiles.git
