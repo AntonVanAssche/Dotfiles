@@ -10,15 +10,16 @@ This is how I set up a new Fedora Linux install.
 
 ## Table of Contents
 
--  [System info](#system-info)
+-  [System Info](#system-info)
 -  [Installation](#installation)
-   -  [One-liners](#one-liners)
+   -  [One-liner](#one-liner)
    -  [Cloning the repo](#cloning-the-repo)
    -  [Installer preview](#installer-preview)
+-  [TODO](#todo)
 
-## System info
+## System Info
 
-<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" width="400px">
+<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" width="400px" style="padding: 30px;">
 
 -  OS: [Fedora Linux](https://getfedora.org/)
 -  DE : [Gnome](https://gitlab.gnome.org/GNOME/gnome-shell)
@@ -29,6 +30,7 @@ This is how I set up a new Fedora Linux install.
 -  Terminal: Termite with [onedark color scheme](./src/.config/termite/config) and [Ubuntu Mono font](https://design.ubuntu.com/font/)
 -  Editor : [vim](https://github.com/vim/vim)
    with [onedark color scheme](https://github.com/joshdick/onedark.vim)
+-  Web Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/) with [Gnome theme](https://github.com/rafaelmardojai/firefox-gnome-theme)
 -  Shell : [Bash](https://www.gnu.org/software/bash/)
 -  Launcher: Ulauncher with Adwaita theme (built-in)
 -  Music: Spotify with [Custom Dribbblish](./src/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
@@ -44,12 +46,12 @@ This is how I set up a new Fedora Linux install.
    -  [Just Perfection](https://gitlab.gnome.org/jrahmatzadeh/just-perfection)
    -  [Sound Input & Output Device Chooser](https://github.com/kgshank/gse-sound-output-device-chooser)
    -  [Workspace Bar](https://github.com/fthx/workspaces-bar)
-      -  Customized using dconf Editor: /org/gnome/desktop/wm/preferences/workspace-names -> ['www', 'code', 'music', 'virt', 'misc'] Fixed number of workspaces needed (5)
+      -  Customized using dconf Editor: `/org/gnome/desktop/wm/preferences/workspace-names` -> `['www', 'code', 'music', 'virt', 'misc']` a fixed amount of workspaces are required (5).
    -  [Pop-Shell](https://github.com/pop-os/shell)
 
 ## Installation
 
-Installation can be done by manually copying the files you want to use. Your best bet, however, is to install via the [`setup.sh`](./setup.sh) script. When using the script, **make sure you fully understand what the script does before you run it**.
+Installation can be done by manually copying the files you want to use. Your best bet, however, is to install via the [`setup.sh`](./setup.sh) script. When using the script, **make sure you fully understand what the script does before you run it**. Also be aware that some data will be **overwritten** automatically with the configurations in this project! So, if you want to keep your data, please make a **backup** of it before running the setup.
 
 In short, the setup process will:
 
@@ -64,7 +66,7 @@ The setup process will not:
 
 -  Install all Gnome-Shell extensions, only [Gnoti](https://github.com/AntonVanAssche/gnoti) and [Pop-Shell](https://github.com/pop-os/shell) will be installed.
 
-### One-liners
+### One-liner
 
 For a quick terminal one-liner, using the [`setup.sh`](./setup.sh) script, you should be able to execute the following, assuming you have `wget` installed:
 
@@ -83,6 +85,12 @@ If both options fail, you probably have neither `wget` nor `curl`, so try instal
 -  `wget` can be installed with `sudo dnf install wget`.
 -  `curl` can be installed with `sudo dnf install curl`.
 
+Once the script is done, simply reboot your system and enable the Gnome-Shell extensions using the extension manager.
+
+```bash
+$ sudo system reboot
+```
+
 ### Cloning the repo:
 
 In case you don't want to use one of the one-liners above, you can just clone the repository and run the [`setup.sh`](./setup.sh) script directly from the directory.
@@ -96,3 +104,8 @@ $ bash setup.sh
 ### Installer preview
 
 ![Installer preview](./assets/installer-preview.gif)
+
+## TODO
+
+-  [ ] Install Gnome-Shell extensions
+-  [ ] To be continued...
