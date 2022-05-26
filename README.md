@@ -32,7 +32,7 @@ This is how I set up a new Fedora Linux install.
    with [onedark color scheme](https://github.com/joshdick/onedark.vim)
 -  Web Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/) with [Gnome theme](https://github.com/rafaelmardojai/firefox-gnome-theme)
 -  Shell : [Bash](https://www.gnu.org/software/bash/)
--  Launcher: Ulauncher with Adwaita theme (built-in)
+-  Launcher: Ulauncher with [Adwaita Darkish](./src/.config/ulauncher/user-themes/ulauncher-adwaita-darkish/)
 -  Music: Spotify with [Custom Dribbblish](./src/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
 -  Conky widget: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
 
