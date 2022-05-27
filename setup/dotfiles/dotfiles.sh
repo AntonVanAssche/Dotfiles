@@ -4,7 +4,7 @@ printf "%b" "\n${blue} • Copying dotfiles${normal}\n"
 
 Execute "cp -r ./src/.bashrc.d/ $HOME" "Copying src/.bashrc.d/ → $HOME/.bashrc.d/"
 Execute "cp -r ./src/.bash_profile $HOME" "Copying src/.bash_profile → $HOME/.bash_profile"
-Execute "cp -r ./src/.bashrc $HOME" "Copying src/.bashrc → $HOME/..bashrc"
+Execute "cp -r ./src/.bashrc $HOME" "Copying src/.bashrc → $HOME/.bashrc"
 
 Execute "cp -r ./src/.gitconfig $HOME" "Copying src/.gitconfig → $HOME/.gitconfig"
 
