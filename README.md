@@ -96,7 +96,7 @@ $ sudo system reboot
 In case you don't want to use one of the one-liners above, you can just clone the repository and run the [`setup.sh`](./setup.sh) script directly from the directory.
 
 ```bash
-$ git clone https://github.com/AntonVanAssche/dotfiles.git
+$ git clone --recursive https://github.com/AntonVanAssche/dotfiles.git
 $ cd dotfiles
 $ bash setup.sh
 ```
