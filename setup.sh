@@ -2,7 +2,7 @@
 
 # Repo info
 declare -r GITHUB_REPOSITORY="AntonVanAssche/dotfiles"
-declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/master"
+declare -r GITHUB_REPOSITORY_URL="https://github.com/$GITHUB_REPOSITORY"
 
 declare dotfilesDirectory="$HOME/Projects/dotfiles"
 
@@ -26,58 +26,11 @@ EOF
    read -r -s -n1 -t5
 }
 
-
-Extract() {
-   local archive="$1"
-   local outputDir="$2"
-
-   if command -v "tar" &> /dev/null; then
-      tar \
-         --extract \
-         --gzip \
-         --file "$archive" \
-         --strip-components 1 \
-         --directory "$outputDir"
-      return $?
-   fi
-
-   return 1
-}
-
-Download() {
-   local url="$1"
-   local output="$2"
-   
-   if command -v "curl" &> /dev/null; then
-      curl --location --silent --show-error --output "$output" "$url" &> /dev/null
-      return $?
-   elif command -v "wget" &> /dev/null; then
-      wget --quiet --output-document="$output" "$url" &> /dev/null
-      return $?
-   fi
-   
-   return 1
-}
-
 DownloadDotfiles() {
-   printf "%b" "\n${blue} • Download and extract archive${normal}\n"
+   printf "%b" "\n${blue} • Download${normal}\n"
 
-   local tmpFile=""
-   tmpFile="$(mktemp /tmp/XXXXX)"
-
-   Download "$DOTFILES_TARBALL_URL" "$tmpFile"
-   PrintResult $? "Download archive" "true"
-   printf "\n"
-
-   mkdir -p "${dotfilesDirectory}"
-   PrintResult $? "Create '${dotfilesDirectory}'" "true"
-
-   # Extract archive in the `dotfiles` directory.
-   Extract "$tmpFile" "${dotfilesDirectory}"
-   PrintResult $? "Extract archive" "true"
-
-   rm -rf "$tmpFile"
-   PrintResult $? "Remove archive"
+   command -v git &> /dev/null || sudo dnf install -y git &> /dev/null
+   Execute "git clone --quiet --recursive $GITHUB_REPOSITORY_URL $dotfilesDirectory" "Cloning dotfiles"
 
    cd "${dotfilesDirectory}/" || exit 1
 }
