@@ -18,9 +18,9 @@ These configurations are designed to work out-of-the-box on Fedora Linux, but ca
 -  [Update](#update)
 -  [TODO](#todo)
 
-<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" style="padding: 30px;">
-
 ## Setup Info
+
+<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" width="400px" style="padding: 30px;">
 
 Here are some details about my setup:
 
