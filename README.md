@@ -1,53 +1,64 @@
-```
-  █▀▀▀ ▀█▀ █   █▀▀ █▀▀
-  █▀▀   █  █   █▀▀ ▀▀█
-▀ ▀    ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀
-```
+<div align="center">
+   <img src="./assets/dotfiles.png" alt="Banner" width="50%">
+   <h5>A bunch of files that start with `.` and makes linux more awesome!</h5>
+</div>
 
-A bunch of files that start with `.` and makes linux more awesome.
+This repository contains the configuration files for the tools I use day-to-day.
 
-This is how I set up a new Fedora Linux install.
+These configurations are designed to work out-of-the-box on Fedora Linux, but can be easily adapted to other distributions.
 
 ## Table of Contents
 
--  [System Info](#system-info)
+-  [Setup Info](#setup-info)
+-  [Repository Structure](#repository-structure)
 -  [Installation](#installation)
    -  [One-liner](#one-liner)
    -  [Cloning the repo](#cloning-the-repo)
    -  [Installer preview](#installer-preview)
+-  [Update](#update)
 -  [TODO](#todo)
 
-## System Info
+<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" style="padding: 30px;">
 
-<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" width="400px" style="padding: 30px;">
+## Setup Info
 
--  OS: [Fedora Linux](https://getfedora.org/)
--  DE : [Gnome](https://gitlab.gnome.org/GNOME/gnome-shell)
--  GTK Theme: [Adw-gtk3-dark](https://github.com/lassekongo83/adw-gtk3)
--  Shell Theme: Default Gnome
--  Icon Theme: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
--  Wallpaper: [Tate McRae](./src/walls/Tate-McRae.jpg)
--  Terminal: Termite with [onedark color scheme](./src/.config/termite/config) and [Ubuntu Mono font](https://design.ubuntu.com/font/)
--  Editor : [vim](https://github.com/vim/vim)
-   with [onedark color scheme](https://github.com/joshdick/onedark.vim)
--  Web Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/) with [Gnome theme](https://github.com/rafaelmardojai/firefox-gnome-theme)
--  Shell : [Bash](https://www.gnu.org/software/bash/)
--  Launcher: Ulauncher with [Adwaita Darkish](./src/.config/ulauncher/user-themes/ulauncher-adwaita-darkish/)
--  Music: Spotify with [Custom Dribbblish](./src/.config/spicetify/Themes/Dribbblish) [Spicetify](https://github.com/khanhas/spicetify-cli) theme
--  Conky widget: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
+Here are some details about my setup:
 
--  Gnome-shell extensions:
+-  **OS**: [Fedora Linux](https://getfedora.org/)
+-  **DE** : [Gnome](https://gitlab.gnome.org/GNOME/gnome-shell)
+-  **Shell Theme**: Default
+-  **GTK Theme**: [Adw-gtk3-dark](https://github.com/lassekongo83/adw-gtk3)
+-  **Icon Theme**: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
+-  **Wallpaper**: [Tate McRae](./src/walls/Tate-McRae.jpg)
+-  **Terminal**: [Termite](https://github.com/thestinger/termite)
+-  **Editors**: [vim](https://github.com/vim/vim) and [VsCode](https://code.visualstudio.com/)
+-  **Shell** : [Bash](https://www.gnu.org/software/bash/)
+-  **Web Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
+-  **Launcher**: [Ulauncher](https://ulauncher.io/)
+-  **Music**: [Spotify](https://www.spotify.com/)
+-  **Conky widget**: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
+
+-  **Gnome-shell extensions**:
    -  [Alpabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)
    -  [Bluetooth quick connect](https://github.com/bjarosze/gnome-bluetooth-quick-connect)
    -  [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator)
    -  [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
-   -  [Gnoti](https://github.com/AntonVanAssche/gnoti) (Self made)
+   -  [Gnoti](https://github.com/AntonVanAssche/gnoti)
    -  [GSConnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect)
    -  [Just Perfection](https://gitlab.gnome.org/jrahmatzadeh/just-perfection)
    -  [Sound Input & Output Device Chooser](https://github.com/kgshank/gse-sound-output-device-chooser)
    -  [Workspace Bar](https://github.com/fthx/workspaces-bar)
-      -  Customized using dconf Editor: `/org/gnome/desktop/wm/preferences/workspace-names` -> `['www', 'code', 'music', 'virt', 'misc']` a fixed amount of workspaces are required (5).
+      -  **Using dconf Editor**: navigate to `/org/gnome/desktop/wm/preferences/workspace-names` and change the custom value to `['www', 'code', 'music', 'virt', 'misc']`.
+      -  Make sure you have a fixed amount (5) of workspaces set.
    -  [Pop-Shell](https://github.com/pop-os/shell)
+
+## Repository Structure
+
+Inside this repository you will find three main directories:
+
+-  `assets`: contains all previews
+-  `setup`: contains all scripts to install the dotfiles (required for the installer)
+-  `src`: contains all dotfiles
 
 ## Installation
 
@@ -64,7 +75,7 @@ In short, the setup process will:
 
 The setup process will not:
 
--  Install all Gnome-Shell extensions, only [Gnoti](https://github.com/AntonVanAssche/gnoti) and [Pop-Shell](https://github.com/pop-os/shell) will be installed.
+-  Install all Gnome-Shell extensions I use, only [Gnoti](https://github.com/AntonVanAssche/gnoti) and [Pop-Shell](https://github.com/pop-os/shell) will be installed.
 
 ### One-liner
 
@@ -105,7 +116,26 @@ $ bash setup.sh
 
 ![Installer preview](./assets/installer-preview.gif)
 
+## Update
+
+Because I add new things quite often, there is a script script [`dot`](./src/.local/bin/dot) that I have written to automate the process of updating all the configurations/scripts to there latest version.
+
+The [`dot`](./src/.local/bin/dot) script simply clones the repository and copies the latest version of the dotfiles to there designated directory. It's nothing special (almost the same as the [`setup.sh`](setup.sh) script) but it gets the job done which is all I need.
+
+**NOTE**: the [`dot`](./src/.local/bin/dot) script will overwrite any file that has a location in the `./src` directory. So, if you want to keep your data, please make a **backup** of it before running the script.
+
+```
+Usage: dot [OPTION]
+
+Options:
+-h, --help                  - Display this help and exit.
+-d, --download              - Download dotfiles without updating your current configurations.
+-u, --update                - Update dotfiles.
+```
+
 ## TODO
 
--  [ ] Install Gnome-Shell extensions
+-  [ ] Let the installer install vscode
+   -  Importing the repository key fails, therefore vscode fails to install.
+-  [ ] Let the installer install all Gnome-Shell extensions
 -  [ ] To be continued...
