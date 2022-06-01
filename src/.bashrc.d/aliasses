@@ -9,32 +9,58 @@ if [ -x /usr/bin/dircolors ]; then
    alias egrep='egrep --color=auto'
 fi
 
-# personal aliasses
-# Use LSDelux instead of ls:
+# LSDelux
 alias ls='lsd'
 
-# Aliasses for ls command:
+# ls
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Reboot and power off the machine easier:
-alias gg='doas systemctl poweroff'
-alias gj='doas systemctl reboot'
-
-# Reload .bashrc easier:
-alias reload='source ~/.bashrc'
-
-# Easier navigation:
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-# git alias:
-alias g='git'
-
-# Other:
-alias vi='vim'
+# utils 
 alias md='mkdir'
 alias rd='rm -rfv'
 alias cp='cp -r'
+
+# reboot and power off
+alias gg='doas systemctl poweroff'
+alias gj='doas systemctl reboot'
+
+# reload .bashrc
+alias reload='source ~/.bashrc'
+
+# navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias projects='cd $HOME/Projects/'
+
+# shorts
+alias c='clear'
+alias q='exit'
+alias h='builtin history | less'
+alias hg='builtin history | grep'
+alias open='xdg-open'
+
+# info
+alias meminfo='free -mlth'
+
+# git
+alias g='git'
+
+# vim
+alias vi=vim
+alias svi="sudo -E vim"
+alias vis='vim "+set si"'
+alias edit=vim
+
+# net
+alias ports='netstat -tulanp'
+alias wget='wget -c'
+alias ping='ping -c 5'
+
+# find
+alias f='find . -iname'
+alias fif='find . -type f -iname'
+alias fid='find . -type d -iname'
+
