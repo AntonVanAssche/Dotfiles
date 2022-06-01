@@ -72,6 +72,10 @@ set undolevels=3000
 set history=10000
 set ttyfast
 
+" Allows to CTRL+C in other programs and put in Vim with p and yanking in Vim with y and CTRL+V in other programs
+" https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
+set clipboard=unnamedplus
+
 " Colorschemes
 syntax on
 set termguicolors
