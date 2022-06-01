@@ -1,13 +1,16 @@
 [user]
 	email = vanasscheanton@gmail.com
 	name = Anton
+   signingKey = XXXXXXXX 
 
 [alias]
    g = log --graph --pretty=custom
+   d = diff
    a = add
    c = commit
    p = push
    s = status
+   cl = clone
 
    # Commit all changes.
    ca = !git add --all && git commit
