@@ -4,32 +4,34 @@
 # Script to test other (Bash) scripts in different Bash versions.
 # Usage: tbv [script]
 
-file=$1
+file=${1}
 shift
 
-if [[ ! -f ${file} ]]; then
+if [[ -f "${file}" ]]; then
+	if [[ -r "${file}" ]]; then
+		# Verify the shebang is actually pointing to Bash.
+		read -r <<< "$(file "${file}")"
+		fileType1='Bourne-Again shell script, ASCII text executable'
+		fileType2='Bourne-Again shell script, Unicode text, UTF-8 text executable'
+		if [[ ${REPLY#*: } == "${fileType1}" || ${REPLY#*: } == "${fileType2}" ]]; then
+			for dir in "$HOME/Bash/"*; do
+				[[ -d ${dir} ]] || continue
+
+				printf '\e[1;92m* \e[91m%s:\e[0m\n' "${dir##*/}"
+				env -i HOME="$(mktemp -d)" "${dir}"/bash --noprofile --norc "${file}" "${@}"
+			done
+		else
+			printf 'An error occurred: file '%s' not a BASH script.' "${file}"
+      	printf '\n'
+			exit 1
+		fi
+	else
+		printf 'An error occurred: file '%s' unreadable.' "${file}"
+		printf '\n'
+		exit 1
+	fi
+else
 	printf 'An error occurred: file '%s' not found.' "${file}"
    printf '\n'
 	exit 1
-elif [[ ! -r ${file} ]]; then
-	printf 'An error occurred: file '%s' unreadable.' "${file}"
-   printf '\n'
-	exit 1
-else
-	# Verify the shebang is actually pointing to BASH. Reduces the chance of
-	# accidentally trying to run the wrong file a bazillion times.
-	read -r <<< "$(file "${file}")"
-	fileType='Bourne-Again shell script, ASCII text executable'
-	if [[ ${REPLY#*: } != "${fileType}" ]]; then
-		printf 'An error occurred: file '%s' not a BASH script.' "${file}"
-      printf '\n'
-		exit 1
-	fi
 fi
-
-for dir in "$HOME/Bash/"*; {
-	[[ -d ${dir} ]] || continue
-
-	printf '\e[1;92m* \e[91m%s:\e[0m\n' "${dir##*/}"
-   env -i HOME="$(mktemp -d)" "${dir}"/bash --noprofile --norc "${file}" "${@}"
-}
