@@ -2,7 +2,9 @@
 
 set -o vi
 
-[ -z "$PS1" ] && return
+# Return if shell is not interactive.
+[[ $- != *i* ]] && return
+[[ -z "${PS1}" ]] && return
 
 shopt -s histappend
 shopt -s checkwinsize
@@ -28,5 +30,5 @@ if command -v most &> /dev/null; then
 fi
 
 # $PATH
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/.spicetify"
+export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="${PATH}:${HOME}/.spicetify"
