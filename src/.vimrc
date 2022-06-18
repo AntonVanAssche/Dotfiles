@@ -21,6 +21,12 @@ Plugin 'alvan/vim-closetag'
 Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plugin 'mattn/emmet-vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'
+Plugin 'prettier/vim-prettier', {
+  \ 'do': 'npm install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -74,7 +80,7 @@ set ttyfast
 
 " Allows to CTRL+C in other programs and put in Vim with p and yanking in Vim with y and CTRL+V in other programs
 " https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " Colorschemes
 syntax on
@@ -162,6 +168,12 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 
 " Place timestamps, be it date (YYYY-MM-DD) or time (HH:MM:SS).
 if (exists("*strftime"))
-	noremap <silent> <leader>date "=strftime("%d/%m/%Y")<CR>p9h
-	noremap <silent> <leader>time "=strftime("%T")<CR>p7h
+   noremap <silent> <leader>date "=strftime("%d/%m/%Y")<CR>p9h
+   noremap <silent> <leader>time "=strftime("%T")<CR>p7h
 endif
+
+" YouCompleteMe
+set encoding=utf-8
+nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
+nmap <leader>yfd <Plug>(YCMFindSymbolInDocument)
+
