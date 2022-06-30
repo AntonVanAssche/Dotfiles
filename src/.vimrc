@@ -1,49 +1,39 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'itchyny/lightline.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'preservim/nerdcommenter'
-"Plugin 'frazrepo/vim-rainbow'
-Plugin 'rainglow/vim'
-Plugin 'kyoz/purify'
-Plugin 'sh.vim'
-Plugin 'moll/vim-node'
-Plugin 'hdima/python-syntax'
-Plugin 'dylanaraps/wal.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'alvan/vim-closetag'
-Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plugin 'mattn/emmet-vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'Yggdroot/indentLine'
-Plugin 'prettier/vim-prettier', {
+set nocompatible
+filetype off
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'git://git.wincent.com/command-t.git'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+"Plug 'frazrepo/vim-rainbow'
+Plug 'rainglow/vim'
+Plug 'kyoz/purify'
+Plug 'moll/vim-node'
+Plug 'hdima/python-syntax'
+Plug 'dylanaraps/wal.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'alvan/vim-closetag'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'mattn/emmet-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'Yggdroot/indentLine'
+Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-Plugin 'airblade/vim-gitgutter',
-Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
-Plugin 'christoomey/vim-system-copy'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter',
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+Plug 'christoomey/vim-system-copy'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" Put your non plugin stuff after this line
+call plug#end()
+
 set number relativenumber
 set nu rnu
 set noshowmode
@@ -82,9 +72,16 @@ map <F1> :setlocal spell! spelllang=en_us<cr>
 let NERDTreeShowHidden=1
 
 " Miscellaneous settings.
-set undolevels=3000
-set history=10000
 set ttyfast
+set nowrap
+
+" History settings
+set history=10000
+set undolevels=3000
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
 
 " Allows to CTRL+C in other programs and put in Vim with p and yanking in Vim with y and CTRL+V in other programs
 " https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
@@ -101,18 +98,19 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 
 " Tab
 set softtabstop=3
-" number of spaces in tab when editing
 set tabstop=3
-" number of visual spaces per tab
 set shiftwidth=3
-" insert space characters whenever the tab key is pressed
 set expandtab
-" Keeps cursor centerd
+set smartindent
 set scrolloff=999
 
 " Cursor
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
+
+" Search
+set nohlsearch
+set incsearch
 
 " map the leader key to <SPACE>
 nnoremap <SPACE> <Nop>
@@ -188,4 +186,8 @@ endif
 set encoding=utf-8
 nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
 nmap <leader>yfd <Plug>(YCMFindSymbolInDocument)
+
+" Emmet
+let g:user_emmet_mode='a'
+let g:user_emmet_leader_key='<C-Z>'
 
