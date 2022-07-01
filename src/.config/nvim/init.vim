@@ -162,6 +162,12 @@ let &t_EI = "\e[2 q"
 set nohlsearch
 set incsearch
 
+" Display a vertical ruler on eightieth column.
+set signcolumn=yes
+set colorcolumn=80
+
+highlight colorcolumn guibg=#E06C75 guifg=#E06C75
+
 " Underline the current line, based on its length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
 
