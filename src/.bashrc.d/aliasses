@@ -49,6 +49,8 @@ alias meminfo='free -mlth'
 alias g='git'
 
 # vim
+alias vim=nvim # Use nvim instead of `vim`
+               # To use regular `vim` you can type `\vim `
 alias vi=vim
 alias svi="sudo -E vim"
 alias vis='vim "+set si"'
