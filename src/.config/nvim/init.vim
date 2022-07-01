@@ -31,6 +31,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'frazrepo/vim-rainbow'
+Plug 'tpope/vim-surround'
 
 " Git integration
 Plug 'airblade/vim-gitgutter',
