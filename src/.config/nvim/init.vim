@@ -64,7 +64,6 @@ call plug#end()
 " | Key mappings |
 " +--------------+
 
-map <C-r> :source $MYVIMRC<CR> " Reload the configuration file.
 map <F8> :vsplit term://bash<CR> " Open a terminal in the right side of the screen.
 map <F7> :set pasteToggle<CR> " Toggle between paste and insert mode.
 map <F6> :!clear && shellcheck %<CR> " Run shellcheck on the current file.
@@ -108,6 +107,9 @@ nmap <silent> <leader>l :wincmd l<CR>
 " Tab navigation
 nmap <silent> <leader>t :tabnext<CR>
 nmap <silent> <leader>T :tabprevious<CR>
+
+" Reload configuration file
+nmap <leader>r :source $MYVIMRC<CR>
 
 " +----------------------------------+
 " | General settings an key mappings |
