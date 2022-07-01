@@ -14,6 +14,7 @@ Plug 'rainglow/vim'
 
 " Statusbar
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 
 " Language packs
 Plug 'moll/vim-node'
@@ -208,12 +209,18 @@ set laststatus=2
 let g:lightline = {
    \ 'colorscheme': 'onedark',
    \ 'active': {
-   \   'left': [ [ 'mode', 'paste' ],
-   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+   \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
    \ },
-   \ 'component_function': {
-   \   'gitbranch': 'FugitiveHead'
+   \ 'tabline': {
+   \   'left': [ ['buffers'] ],
+   \   'right': [ ['close'] ]
    \ },
+   \ 'component_expand': {
+   \   'buffers': 'lightline#bufferline#buffers'
+   \ },
+   \ 'component_type': {
+   \   'buffers': 'tabsel'
+   \ }
    \ }
 
 " NERDTree
