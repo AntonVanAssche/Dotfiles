@@ -45,9 +45,21 @@ command -v vim &> /dev/null && vim +PlugInstall +qall
 
 # Neovim plugins.
 Execute "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'" "Installing vim-plug for neovim"
-# Execute "git clone https://github.com/github/copilot.vim.git ~/.config/nvim/pack/github/start/copilot.vim" "Installing Copilot"
 command -v nvim &> /dev/null && nvim +PlugInstall +qall
 
 # Copy config to '/etc/doas.conf'.
 doasConfigLocation="/etc/doas.conf"
 sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
+
+if command -v npm &> /dev/null; then
+   npmPackagesToInstall=(
+      live-server
+      speed-test
+      )
+
+   for npmPackageToInstall in "${npmPackagesToInstall[@]}";
+   do
+      Execute "npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall}"
+   done
+fi
+
