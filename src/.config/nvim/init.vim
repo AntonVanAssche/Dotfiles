@@ -164,7 +164,7 @@ set incsearch
 
 " Display a vertical ruler on eightieth column.
 set signcolumn=yes
-set colorcolumn=80
+set colorcolumn=100
 
 highlight colorcolumn guibg=#E06C75 guifg=#E06C75
 
