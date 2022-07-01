@@ -152,8 +152,6 @@ set scrolloff=999
 " Cursor
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-set guicursor=
 
 " Search
 set nohlsearch
