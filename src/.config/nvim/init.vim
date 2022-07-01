@@ -167,7 +167,7 @@ set incsearch
 set signcolumn=yes
 set colorcolumn=100
 
-highlight colorcolumn guibg=#E06C75 guifg=#E06C75
+highlight colorcolumn guibg=#E06C75
 
 " Underline the current line, based on its length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
