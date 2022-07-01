@@ -230,3 +230,9 @@ let g:user_emmet_leader_key='<C-Z>'
 imap <silent><script><expr> <C-Space> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+" Telescope settings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
