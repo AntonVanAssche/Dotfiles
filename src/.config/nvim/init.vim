@@ -172,6 +172,9 @@ highlight colorcolumn guibg=#E06C75
 " Underline the current line, based on its length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
 
+" Remeber the last cursor position.
+autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
+
 " Remove double- or single-quotes, or graves wrapped around a string.
 noremap <silent> <leader>rdq mmF"xf"x`m
 noremap <silent> <leader>rsq mmF'xf'x`m
