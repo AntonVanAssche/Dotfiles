@@ -1,3 +1,9 @@
+" I started using Neovim instead of Vim.
+" So this configuration isn't that much uptodate anymore.
+" I used this config as a base for my neovim config, but changed it quite a bit.
+" You can find my neovim config here:
+"    src/.config/nvim/init.vim
+
 set nocompatible
 filetype off
 
