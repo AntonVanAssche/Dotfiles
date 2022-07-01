@@ -52,6 +52,8 @@ Plug 'tabnine/YouCompleteMe', { 'do': 'python3 install.py --all' } " This is a f
 
 " Fuzzy finder
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Better undo
 Plug 'mbbill/undotree'
