@@ -7,14 +7,18 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-" Colorschemes
+" Colorschemes / Apearance
 Plug 'joshdick/onedark.vim'
 Plug 'kyoz/purify'
 Plug 'rainglow/vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Statusbar
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
+
+" Current line highlight
+Plug 'miyakogi/conoline.vim'
 
 " Language packs
 Plug 'moll/vim-node'
@@ -43,7 +47,6 @@ Plug 'christoomey/vim-system-copy'
 " Better file explorer
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
 
 " Coment and uncomment
 Plug 'preservim/nerdcommenter'
@@ -59,6 +62,12 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " Better undo
 Plug 'mbbill/undotree'
+
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+
+" Cheat sheet
+Plug 'sudormrfbin/cheatsheet.nvim'
 
 call plug#end()
 
@@ -256,4 +265,45 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Tabnine
+nmap <C-d> <plug>(YCMHover) " Toggle to manually trigger or hide the popup.
+
+" Markdown preview
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+   \ 'mkit': {},
+   \ 'katex': {},
+   \ 'uml': {},
+   \ 'maid': {},
+   \ 'disable_sync_scroll': 0,
+   \ 'sync_scroll_type': 'middle',
+   \ 'hide_yaml_meta': 1,
+   \ 'sequence_diagrams': {},
+   \ 'flowchart_diagrams': {},
+   \ 'content_editable': v:false,
+   \ 'disable_filename': 0,
+   \ 'toc': {}
+   \ }
+
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_theme = 'dark'
+set updatetime=100
+
+" Conoline
+let g:conoline_auto_enable = 1 " Enable Conoline automatically.
+let g:conoline_use_colorscheme_default_normal=1 " Use the default colorscheme for normal mode.
+let g:conoline_use_colorscheme_default_insert=1 " Use the default colorscheme for insert mode.
 
