@@ -180,9 +180,17 @@ set incsearch
 
 " Display a vertical ruler on eightieth column.
 set signcolumn=yes
-set colorcolumn=100
 
-highlight colorcolumn guibg=#E06C75
+function ToggleColorcolumn()
+	if &colorcolumn == 0
+		set colorcolumn=100
+		highlight colorcolumn guibg=#E06C75
+	else
+		set colorcolumn=0
+	endif
+endfunction
+
+noremap <leader>ccl :call ToggleColorcolumn()<CR> " Toggle the colorcolumn.
 
 " Underline the current line, based on its length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
