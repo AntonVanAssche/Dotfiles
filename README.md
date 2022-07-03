@@ -30,7 +30,7 @@ Here are some details about my setup:
 -  **GTK Theme**: [Adw-gtk3-dark](https://github.com/lassekongo83/adw-gtk3)
 -  **Icon Theme**: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
 -  **Wallpaper**: [Tate McRae](./src/walls/Tate-McRae.jpg)
--  **Terminal**: [Termite](https://github.com/thestinger/termite)
+-  **Terminal**: [Alacritty](https://github.com/alacritty)
 -  **Editors**: ([Neo](https://neovim.io/))[Vim](https://github.com/vim/vim) and [VsCode](https://code.visualstudio.com/)
 -  **Shell** : [Bash](https://www.gnu.org/software/bash/)
 -  **Web Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)

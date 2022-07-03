@@ -3,12 +3,13 @@
 printf "%b" "\n${blue} • Devel tools${normal}\n"
 
 # Add termite repo.
-Execute " sudo dnf copr enable skidnik/termite -y" "Adding termite repo"
+# Execute " sudo dnf copr enable skidnik/termite -y" "Adding termite repo"
 
 # Install packages.
 packagesToInstall=(
    doas
-   termite
+	# termite
+   alacritty
    cargo
    vim-enhanced
    neovim

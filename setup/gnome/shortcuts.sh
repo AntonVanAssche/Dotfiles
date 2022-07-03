@@ -30,8 +30,8 @@ SetKeybindings() {
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" name 'Spotify notification'
 
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" binding '<Super>t'
-   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" command 'termite'
-   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" name 'Launch Termite'
+   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" command 'alacritty'
+   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" name 'Launch Alacritty'
 
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" binding '<Shift><Super>r'
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" command 'killall -HUP gnome-shell'
