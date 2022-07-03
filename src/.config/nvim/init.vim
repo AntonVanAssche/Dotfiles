@@ -66,6 +66,9 @@ Plug 'mbbill/undotree'
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
 
+" Live-server
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+
 " Cheat sheet
 Plug 'sudormrfbin/cheatsheet.nvim'
 
@@ -306,4 +309,13 @@ set updatetime=100
 let g:conoline_auto_enable = 1 " Enable Conoline automatically.
 let g:conoline_use_colorscheme_default_normal=1 " Use the default colorscheme for normal mode.
 let g:conoline_use_colorscheme_default_insert=1 " Use the default colorscheme for insert mode.
+
+" Bracey (live-server)
+let g:bracey_browser_command = 0 " Use the default browser.
+let g:bracey_auto_start_browser = 1 " Start the browser when Bracey is started.
+let g:bracey_refresh_on_save = 1 " Refresh the page when saving.
+let g:bracey_auto_start_server = 1 " Start the server when Bracey is started.
+let g:bracey_server_allow_remote_connections = 1 " Allow remote connections. This is useful when  if you want to view what changes will look like on other platforms at the same time.
+let g:bracey_server_port = 8080 " The port to use for the server.
+let g:bracey_server_host = "http://127.0.0.1" " The host to use for the server.
 
