@@ -276,6 +276,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nmap <C-d> <plug>(YCMHover) " Toggle to manually trigger or hide the popup.
 
 " Markdown preview
+nnoremap <leader>mp <cmd>MarkdownPreview<cr>
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
