@@ -114,6 +114,8 @@ $ bash setup.sh
 
 ### Installer preview
 
+**NOTE**: The installer preview may not be completely up to date.
+
 ![Installer preview](./assets/installer-preview.gif)
 
 ## Update
