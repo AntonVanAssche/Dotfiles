@@ -59,7 +59,7 @@ if command -v npm &> /dev/null; then
 
    for npmPackageToInstall in "${npmPackagesToInstall[@]}";
    do
-      Execute "npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall}"
+      Execute "sudo npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall}"
    done
 fi
 
