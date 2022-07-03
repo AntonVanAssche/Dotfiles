@@ -138,6 +138,7 @@ set wildmode=longest,list,full
 " Miscellaneous settings.
 set ttyfast
 set nowrap
+set cmdheight=2 " Give more space for displaying messages.
 
 " History settings
 set history=10000
