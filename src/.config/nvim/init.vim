@@ -1,4 +1,5 @@
-set nocompatible
+set nocompatible " Use vim defaults for options.
+set encoding=utf-8 " The character encoding used inside vim.
 filetype off
 
 " +-----------------------------------+
@@ -164,19 +165,23 @@ highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
 
 " Tab
-set softtabstop=3 " Yes I know I'm weird. DEAL WITH IT!
-set tabstop=3
-set shiftwidth=3
-set smartindent
-set scrolloff=999
+" Yes I know I'm weird. DEAL WITH IT!
+set softtabstop=3 " Number of spaces in a tab when editing.
+set tabstop=3 " Number visual spaces per tab.
+set shiftwidth=3 " Number of spaces to use when auto-indenting.
+set expandtab " Use spaces instead of tabs.
+set smartindent " Smart indentation.
+set scrolloff=999 " Keep de cursor in the middle of the screen.
 
 " Cursor
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
 " Search
-set nohlsearch
-set incsearch
+set ignorecase " Ignore the case of normal letters while searching.
+set smartcase " Override the 'ignorecase' option if the search pattern contains uppercase characters.
+set incsearch " Show where the pattern matches while typing.
+set nohlsearch " Disable highlighting when done searching.
 
 " Display a vertical ruler on eightieth column.
 set signcolumn=yes
