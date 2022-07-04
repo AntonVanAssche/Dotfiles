@@ -13,6 +13,7 @@ packagesToInstall=(
    cargo
    vim-enhanced
    neovim
+   tmux
    lsd
    htop
    wol

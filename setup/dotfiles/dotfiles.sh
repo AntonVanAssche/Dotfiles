@@ -11,6 +11,8 @@ Execute "cp -r ./src/.gitconfig $HOME" "Copying src/.gitconfig → $HOME/.gitcon
 Execute "cp -r ./src/.vim/ $HOME" "Copying src/.vim/ → $HOME/.vim/"
 Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
 
+Execute "cp -r ./src/.tmux.conf $HOME" "Copying src/.tmux.conf → $HOME/.tmux.conf"
+
 Execute "cp -r ./src/.config/ $HOME" "Copying src/.config/ → $HOME/.config/"
 Execute "cp -r ./src/.local/ $HOME/" "Copying src/.local/ → $HOME/.local/"
 
