@@ -61,3 +61,12 @@
 [submodule "now-clocking"]
 	path = src/.config/conky/now-clocking
 	url = https://github.com/AntonVanAssche/now-clocking
+
+[submodule "tmux-resurrect"]
+   path = src/.config/tmux/tmux-resurrect
+   url = https://github.com/tmux-plugins/tmux-resurrect
+
+[submodule "tmux-continuum"]
+   path = src/.config/tmux/tmux-continuum
+   url = https://github.com/tmux-plugins/tmux-continuum
+
