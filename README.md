@@ -31,7 +31,7 @@ Here are some details about my setup:
 -  **Icon Theme**: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
 -  **Wallpaper**: [Tate McRae](./src/walls/Tate-McRae.jpg)
 -  **Terminal**: [Alacritty](https://github.com/alacritty)
--  **Editors**: [Neovim](https://github.com/neovim/neovim)
+-  **Editor**: [Neovim](https://github.com/neovim/neovim)
 -  **Shell** : [Bash](https://www.gnu.org/software/bash/)
 -  **Web Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 -  **Launcher**: [Ulauncher](https://ulauncher.io/)
