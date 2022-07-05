@@ -53,6 +53,7 @@ command -v nvim &> /dev/null && nvim +PlugInstall +qall
 doasConfigLocation="/etc/doas.conf"
 sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
 
+# When npm is installed, install the following packages.
 if command -v npm &> /dev/null; then
    npmPackagesToInstall=(
       live-server
@@ -63,5 +64,11 @@ if command -v npm &> /dev/null; then
    do
       Execute "sudo npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall}"
    done
+fi
+
+# When the tmux plugins aren't installed when cloning the repo, install them.
+if [[ ! -d "${HOME}/.config/tmux/plugins/tmux-continuum/" ]] || [[ ! -d "${HOME}/.config/tmux/plugins/tmux-resurrect" ]]; then
+   Execute "git clone --quiet https://github.com/tmux-plugins/tmux-continuum ~/.config/tmux/plugins/tmux-continuum/" "Installing tmux-continuum"
+   Execute "git clone --quiet https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux/plugins/tmux-resurrect/" "Installing tmux-resurrect"
 fi
 
