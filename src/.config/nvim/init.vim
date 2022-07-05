@@ -50,7 +50,7 @@ Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Coment and uncomment
-Plug 'preservim/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 
 " Code completion
 Plug 'github/copilot.vim' " THIS IS A BEAST!
@@ -337,4 +337,18 @@ let g:bracey_auto_start_server = 1 " Start the server when Bracey is started.
 let g:bracey_server_allow_remote_connections = 1 " Allow remote connections. This is useful when  if you want to view what changes will look like on other platforms at the same time.
 let g:bracey_server_port = 8080 " The port to use for the server.
 let g:bracey_server_host = "http://127.0.0.1" " The host to use for the server.
+
+" Commenter.nvim
+" Normal mode
+" `gcc` - Toggles the current line using linewise comment
+" `gbc` - Toggles the current line using blockwise comment
+" `[count]gcc` - Toggles the number of line given as a prefix-count using linewise
+" `[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
+" `gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
+" `gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
+"
+" Visual mode
+" `gc` - Toggles the region using linewise comment
+" `gb` - Toggles the region using blockwise comment
+autocmd BufEnter * lua require('Comment').setup()
 
