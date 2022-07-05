@@ -153,7 +153,7 @@ set undofile
 " https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
 set clipboard=unnamed
 noremap <C-c> "+y e " Use CTRL+c to copy to system clipboard.
-noremap <C-v> "+p e " Use CTRL+v to paste from system clipboard.
+" noremap <C-v> "+p e " Use CTRL+v to paste from system clipboard.
 
 " Colorscheme
 syntax on
