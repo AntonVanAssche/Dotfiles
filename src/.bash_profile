@@ -7,7 +7,7 @@ if type _git &> /dev/null; then
 	complete -o default -o nospace -F _git g;
 fi;
 
-# Make vim the default editor.
+# Make nvim the default editor.
 export EDITOR='nvim';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
