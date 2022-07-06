@@ -47,6 +47,7 @@ done
 
 # Neovim plugins.
 Execute "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'" "Installing vim-plug for neovim"
+command -v pip3 &> /dev/null && Execute "pip3 install pynvim" "Fixing neovim 'Failed to load python3 host' error" # See https://github.com/fsharp/vim-fsharp/issues/96 for more info.
 command -v nvim &> /dev/null && nvim +PlugInstall +qall
 
 # Copy config to '/etc/doas.conf'.
