@@ -71,7 +71,7 @@ In short, the setup process will:
 -  [Copy](./setup/dotfiles/dotfiles.sh) the dotfiles.
 -  Install the [applications](./setup/packages/) / command-line tools I use.
 -  Apply my Gnome-Shell [preferences](./setup/gnome/).
--  Install the [Vim](./setup/packages/devel-tools.sh#L39) plugins I use.
+-  Install the [Neovim](./setup/packages/devel-tools.sh#L48) plugins I use.
 
 The setup process will not:
 
