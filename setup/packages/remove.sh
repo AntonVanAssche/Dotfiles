@@ -34,6 +34,8 @@ packagesToRemove=(
    gnome-boxes
    gnome-photos
    gnome-connections
+   gnome-terminal
+   gedit
 
    # Fedora stuff I don't use.
    mediawriter
