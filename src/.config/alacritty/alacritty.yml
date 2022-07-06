@@ -50,6 +50,7 @@ colors:
    cursor:
       background: "0xFAFAFA"
       foreground: "0xFAFAFA"
+      style: Beam
 
    normal:
       black: "0x282c34"
@@ -85,6 +86,10 @@ key_bindings:
    - { key: PageDown, mode: ~Alt, action: ScrollPageDown }
    - { key: Home, mods: Shift, mode: ~Alt, action: ScrollToTop }
    - { key: End, mods: Shift, mode: ~Alt, action: ScrollToBottom }
+   - { key: Key0,     mods: Control, action: ResetFontSize }
+   - { key: Plus,   mods: Control, action: IncreaseFontSize }
+   - { key: Minus, mods: Control, action: DecreaseFontSize }
+
 
 shell:
    program: /bin/bash
