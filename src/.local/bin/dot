@@ -203,11 +203,13 @@ Update() {
 
    Execute "cp -r ./src/.gitconfig $HOME" "Copying src/.gitconfig → $HOME/.gitconfig"
 
-   Execute "cp -r ./src/.vim/ $HOME" "Copying src/.vim/ → $HOME/.vim/"
-   Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
+   # Execute "cp -r ./src/.vim/ $HOME" "Copying src/.vim/ → $HOME/.vim/"
+   # Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
 
    Execute "cp -r ./src/.config/ $HOME" "Copying src/.config/ → $HOME/.config/"
    Execute "cp -r ./src/.local/ $HOME/" "Copying src/.local/ → $HOME/.local/"
+
+   command -v nvim &> /dev/null && nvim +PlugClean +PlugUpdate +qall
 
    printf "%b" "\n${blue} • Wallpapers${normal}\n"
    for wallpaper in ./src/walls/*.{jpg,jpeg,png};
