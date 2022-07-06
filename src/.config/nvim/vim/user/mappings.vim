@@ -111,8 +111,3 @@ if (exists("*strftime"))
    noremap <silent> <leader>time "=strftime("%T")<CR>p7h
 endif
 
-" +---------------------+
-" | Plugin key mappings |
-" +---------------------+
-
-
