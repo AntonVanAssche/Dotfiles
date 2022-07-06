@@ -8,8 +8,8 @@ Execute "cp -r ./src/.bashrc $HOME" "Copying src/.bashrc → $HOME/.bashrc"
 
 Execute "cp -r ./src/.gitconfig $HOME" "Copying src/.gitconfig → $HOME/.gitconfig"
 
-Execute "cp -r ./src/.vim/ $HOME" "Copying src/.vim/ → $HOME/.vim/"
-Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
+# Execute "cp -r ./src/.vim/ $HOME" "Copying src/.vim/ → $HOME/.vim/"
+# Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
 
 Execute "cp -r ./src/.tmux.conf $HOME" "Copying src/.tmux.conf → $HOME/.tmux.conf"
 

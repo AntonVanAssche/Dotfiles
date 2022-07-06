@@ -11,7 +11,7 @@ packagesToInstall=(
 	# termite
    alacritty
    cargo
-   vim-enhanced
+   # vim-enhanced
    neovim
    tmux
    lsd
@@ -40,10 +40,10 @@ do
    InstallPackage "${packageToInstall}" "Installing ${packageToInstall}"
 done
 
-# Vim plugins.
-rm -rf "$HOME"/.vim/autoload/plug.vim
-Execute "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" "Installing vim-plug for vim"
-command -v vim &> /dev/null && vim +PlugInstall +qall
+# Vim plugins. (Uncomment if you want to install vim plugins)
+# rm -rf "$HOME"/.vim/autoload/plug.vim
+# Execute "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" "Installing vim-plug for vim"
+# command -v vim &> /dev/null && vim +PlugInstall +qall
 
 # Neovim plugins.
 Execute "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'" "Installing vim-plug for neovim"
