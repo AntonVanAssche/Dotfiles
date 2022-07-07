@@ -74,12 +74,10 @@ nnoremap <Leader>O O<Esc>^Da
 
 map <F1> :setlocal spell! spelllang=en_us<cr>        " Toggle spell checking.
 map <F2> :x<CR>                                      " Close the current tab.
-map <F3> :RainbowLoad<CR>                            " Load the rainbow color scheme.
-map <F4> :RainbowToggle<CR>                          " Toggle the rainbow color scheme.
-map <F5> :NERDTreeToggle<CR>                         " Toggle the file explorer.
-map <F6> :!clear && shellcheck %<CR>                 " Run shellcheck on the current file.
-map <F7> :set pasteToggle<CR>                        " Toggle between paste and insert mode.
-map <F8> :vsplit term://bash<CR>                     " Open a terminal in the right side of the screen.
+map <F3> :NERDTreeToggle<CR>                         " Toggle the file explorer.
+map <F4> :!clear && shellcheck %<CR>                 " Run shellcheck on the current file.
+set pastetoggle=<F5>                                 " Toggle between paste and insert mode.
+map <F6> :vsplit tjrm://bash<CR>                     " Open a terminal in the right side of the screen.
 
 noremap <leader>ccl :call ToggleColorcolumn()<CR>    " Toggle the colorcolumn. (See: ~/.config/nvim/general/settings.vim)
 
