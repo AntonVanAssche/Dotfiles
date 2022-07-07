@@ -1,0 +1,122 @@
+/* CSS  */
+
+configuration {
+   dpi: 0;
+   me-select-entry: "Control+MousePrimary";
+   me-accept-entry: "MousePrimary";
+
+   /* Vim like navigation */
+   kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+   kb-row-down: "Down,Control+j";
+   kb-accept-entry: "Control+m,Return,KP_Enter";
+   terminal: "mate-terminal";
+   kb-remove-to-eol: "Control+Shift+e";
+   /*kb-mode-next: "Shift+Right,Control+Tab,Control+l";*/
+   kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
+   kb-remove-char-back: "BackSpace";
+}
+
+* {
+   red:                         #E06C75;
+   blue:                        #61AFEF;
+   purple:                      #C678DD;
+   foreground:                  #FAFAFA;
+   background:                  #202020DD;
+   lightbg:                     #61AFEF;
+   lightfg:                     #ABB2BF;
+   normal-background:           transparent;
+   normal-foreground:           var(lightfg);
+   active-background:           transparent;
+   active-foreground:           var(foreground);
+   urgent-background:           transparent;
+   urgent-foreground:           var(red);
+   selected-active-background:  var(lightbg);
+   selected-active-foreground:  var(lightfg);
+   selected-normal-background:  var(lightbg);
+   selected-normal-foreground:  var(foreground);
+   selected-urgent-background:  var(red);
+   selected-urgent-foreground:  var(foreground);
+   alternate-active-background: var(active-background);
+   alternate-active-foreground: var(active-foreground);
+   alternate-normal-background: var(normal-background);
+   alternate-normal-foreground: var(normal-foreground);
+   alternate-urgent-background: var(urgent-background);
+   alternate-urgent-foreground: var(urgent-foreground);
+
+   spacing: 15px;
+   background-color: transparent;
+   font: "Ubuntu Mono Nerd 12";
+
+   border-radius: 15px;
+}
+
+window {
+   transparency: "real";
+   background-color: transparent;
+   border: 0;
+   width: 600px;
+   height: 300px;
+}
+
+inputbar {
+   margin: 0 0 0.6em 0;
+   padding: 1%;
+   children: [prompt, textbox-prompt-colon, entry, case-indicator];
+   background-color: var(background);
+}
+
+prompt {
+   text-color: var(blue);
+}
+
+textbox-prompt-colon {
+   expand: false;
+   str: ":";
+}
+
+entry {
+   margin: 0 0.3em;
+}
+
+listview {
+   padding: 0.5em;
+   spacing: 0.2em;
+   dynamic: true;
+   border: 0;
+   scrollbar: false;
+   background-color: var(background);
+}
+
+element {
+   padding: 0.2em;
+   border-radius: 5px;
+}
+element-icon {
+   size: 1em;
+   padding: 0 0.6em 0 0;
+}
+
+message, error-message {
+   margin: 0 0 0.6em;
+   padding: 1%;
+   border: 0;
+   border-radius: 5px;
+   background-color: var(background);
+}
+
+error-message {
+   margin: 0;
+   padding: 0.6em;
+   border-color: var(red);
+   border: 3px;
+}
+
+mode-switcher {
+   margin: 0.6em 0 0 0;
+}
+
+button selected {
+   padding: 0.3em;
+   border-radius: 5px;
+}
+
