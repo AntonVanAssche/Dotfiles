@@ -34,7 +34,7 @@ Here are some details about my setup:
 -  **Editor**: [Neovim](https://github.com/neovim/neovim)
 -  **Shell** : [Bash](https://www.gnu.org/software/bash/)
 -  **Web Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
--  **Launcher**: [Ulauncher](https://ulauncher.io/)
+-  **Launcher**: [Rofi](https://github.com/davatorium/rofi)
 -  **Music**: [Spotify](https://www.spotify.com/)
 -  **Conky widget**: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
 
