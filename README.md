@@ -137,7 +137,5 @@ Options:
 
 ## TODO
 
--  [ ] Let the installer install vscode
-   -  Importing the repository key fails, therefore vscode fails to install.
 -  [ ] Let the installer install all Gnome-Shell extensions
 -  [ ] To be continued...
