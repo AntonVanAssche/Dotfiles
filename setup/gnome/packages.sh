@@ -20,7 +20,8 @@ cd ..
 Execute "mkdir -p $HOME/.icons/ && cp -r ./src/cursor/capitaine-cursors/ $HOME/.icons/" "Installing cursor theme"
 
 Execute "pip3 install pywal" "Installing pywal"
-InstallPackage "ulauncher" "Installing Ulauncher"
+# InstallPackage "ulauncher" "Installing Ulauncher" # If you want to use Ulauncher instead of Rofi (Uncomment this line and comment the next one).
+InstallPackage "rofi" "Installing Rofi"
 InstallPackage "glib2-devel ImageMagick" "Installing imagemagick"
 InstallPackage "nodejs-typescript" "Installing typescript"
 InstallPackage "gnome-shell-extension-pop-shell" "Installing pop-shell"

@@ -10,6 +10,7 @@ SetKeybindings() {
       "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
       "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
    )
 
    stringKeybinds="["
@@ -37,9 +38,13 @@ SetKeybindings() {
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" command 'killall -HUP gnome-shell'
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" name 'Reload gnome-shell'
 
+   # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" binding '<Super>slash'
+   # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" command 'ulauncher'
+   # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" name 'Launch Ulauncher'
+
    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" binding '<Super>slash'
-   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" command 'ulauncher'
-   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" name 'Launch Ulauncher'
+   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" command 'rofi -show run'
+   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" name 'Launch Rofi in run mode'
 }
 
 Execute "SetKeybindings" "Setting custom keybindings"
