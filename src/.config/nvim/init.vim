@@ -19,6 +19,7 @@ source $HOME/.config/nvim/vim/plugins/copilot.vim " Copilot.
 source $HOME/.config/nvim/vim/plugins/bracey.vim " Bracey.
 source $HOME/.config/nvim/vim/plugins/conoline.vim " Conoline.
 source $HOME/.config/nvim/vim/plugins/emmet.vim " Emmet.
+source $HOME/.config/nvim/vim/plugins/lightline.vim " Lightline.
 source $HOME/.config/nvim/vim/plugins/markdown.vim " Markdown.
 source $HOME/.config/nvim/vim/plugins/nerdtree.vim " NerdTree.
 source $HOME/.config/nvim/vim/plugins/rainbow_parentheses.vim " RainbowParentheses.
@@ -31,6 +32,6 @@ source $HOME/.config/nvim/vim/plugins/telescope.vim " Telescope.
 " +--------------------+
 
 autocmd VimEnter * lua require("user/plug-colorizer")
-autocmd VimEnter * lua require("user/lualine")
+" autocmd VimEnter * lua require("user/lualine")
 autocmd vimEnter * lua require("user/commenter")
 

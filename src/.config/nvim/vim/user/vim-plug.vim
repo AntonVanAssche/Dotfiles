@@ -10,10 +10,10 @@ Plug 'kyoz/purify'
 Plug 'ryanoasis/vim-devicons'
 
 " Statusbar
-" Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'nvim-lualine/lualine.nvim'
+" Plug 'kyazdani42/nvim-web-devicons'
 
 " Current line highlight
 Plug 'miyakogi/conoline.vim'
