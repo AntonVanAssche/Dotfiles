@@ -77,7 +77,7 @@ map <F2> :x<CR>                                      " Close the current tab.
 map <F3> :NERDTreeToggle<CR>                         " Toggle the file explorer.
 map <F4> :!clear && shellcheck %<CR>                 " Run shellcheck on the current file.
 set pastetoggle=<F5>                                 " Toggle between paste and insert mode.
-map <F6> :vsplit tjrm://bash<CR>                     " Open a terminal in the right side of the screen.
+map <F6> :vsplit + term<CR>                          " Open a terminal in the right side of the screen.
 
 noremap <leader>ccl :call ToggleColorcolumn()<CR>    " Toggle the colorcolumn. (See: ~/.config/nvim/general/settings.vim)
 
