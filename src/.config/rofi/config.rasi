@@ -61,6 +61,8 @@ window {
 inputbar {
    margin: 0 0 0.6em 0;
    padding: 1%;
+   border: 2px;
+   border-color: var(blue);
    children: [prompt, textbox-prompt-colon, entry, case-indicator];
    background-color: var(background);
 }
@@ -82,7 +84,8 @@ listview {
    padding: 0.5em;
    spacing: 0.2em;
    dynamic: true;
-   border: 0;
+   border: 2px;
+   border-color: var(blue);
    scrollbar: false;
    background-color: var(background);
 }
