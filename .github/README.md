@@ -1,5 +1,5 @@
 <div align="center">
-   <img src="./assets/dotfiles.png" alt="Banner" width="50%">
+   <img src="/assets/dotfiles.png" alt="Banner" width="50%">
    <h5>A bunch of files that start with `.` and makes linux more awesome!</h5>
 </div>
 
@@ -20,7 +20,7 @@ These configurations are designed to work out-of-the-box on Fedora Linux, but ca
 
 ## Setup Info
 
-<img src="./assets/TateMcRaePreview.png" alt="preview" align="right" width="400px" style="padding: 30px;">
+<img src="/assets/TateMcRaePreview.png" alt="preview" align="right" width="400px" style="padding: 30px;">
 
 Here are some details about my setup:
 
@@ -67,11 +67,11 @@ Installation can be done by manually copying the files you want to use. Your bes
 In short, the setup process will:
 
 -  Download the dotfiles on your computer.
--  Create some additional [directories](./setup/dotfiles/dirs.sh).
--  [Copy](./setup/dotfiles/dotfiles.sh) the dotfiles.
--  Install the [applications](./setup/packages/) / command-line tools I use.
--  Apply my Gnome-Shell [preferences](./setup/gnome/).
--  Install the [Neovim](./setup/packages/devel-tools.sh#L48) plugins I use.
+-  Create some additional [directories](/setup/dotfiles/dirs.sh).
+-  [Copy](/setup/dotfiles/dotfiles.sh) the dotfiles.
+-  Install the [applications](/setup/packages/) / command-line tools I use.
+-  Apply my Gnome-Shell [preferences](/setup/gnome/).
+-  Install the [Neovim](/setup/packages/devel-tools.sh#L48) plugins I use.
 
 The setup process will not:
 
@@ -79,7 +79,7 @@ The setup process will not:
 
 ### One-liner
 
-For a quick terminal one-liner, using the [`setup.sh`](./setup.sh) script, you should be able to execute the following, assuming you have `wget` installed:
+For a quick terminal one-liner, using the [`setup.sh`](/setup.sh) script, you should be able to execute the following, assuming you have `wget` installed:
 
 ```bash
 $ bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
@@ -104,7 +104,7 @@ $ sudo system reboot
 
 ### Cloning the repo:
 
-In case you don't want to use one of the one-liners above, you can just clone the repository and run the [`setup.sh`](./setup.sh) script directly from the directory.
+In case you don't want to use one of the one-liners above, you can just clone the repository and run the [`setup.sh`](/setup.sh) script directly from the directory.
 
 ```bash
 $ git clone --recursive https://github.com/AntonVanAssche/dotfiles.git
@@ -116,15 +116,15 @@ $ bash setup.sh
 
 **NOTE**: The installer preview may not be completely up to date.
 
-![Installer preview](./assets/installer-preview.gif)
+![Installer preview](/assets/installer-preview.gif)
 
 ## Update
 
-Because I add new things quite often, there is a script script [`dot`](./src/.local/bin/dot) that I have written to automate the process of updating all the configurations/scripts to there latest version.
+Because I add new things quite often, there is a script script [`dot`](/src/.local/bin/dot) that I have written to automate the process of updating all the configurations/scripts to there latest version.
 
-The [`dot`](./src/.local/bin/dot) script simply clones the repository and copies the latest version of the dotfiles to there designated directory. It's nothing special (almost the same as the [`setup.sh`](setup.sh) script) but it gets the job done which is all I need.
+The [`dot`](/src/.local/bin/dot) script simply clones the repository and copies the latest version of the dotfiles to there designated directory. It's nothing special (almost the same as the [`setup.sh`](/setup.sh) script) but it gets the job done which is all I need.
 
-**NOTE**: the [`dot`](./src/.local/bin/dot) script will overwrite any file that has a location in the `./src` directory. So, if you want to keep your data, please make a **backup** of it before running the script.
+**NOTE**: the [`dot`](/src/.local/bin/dot) script will overwrite any file that has a location in the `src` directory. So, if you want to keep your data, please make a **backup** of it before running the script.
 
 ```
 Usage: dot [OPTION]
