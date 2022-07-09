@@ -1,7 +1,3 @@
-" +-----------+
-" | Lightline |
-" +-----------+
-
 set laststatus=2
 let g:lightline = {
    \ 'colorscheme': 'onedark',
@@ -23,5 +19,3 @@ let g:lightline = {
    \   'gitbranch': 'FugitiveHead'
    \ },
    \ }
-
-
