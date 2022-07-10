@@ -24,10 +24,7 @@ vim.cmd [[
 ]]
 
 -- Use a protected call so we don't error out on first use.
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-   return
-end
+packer = require "packer"
 
 -- Have packer use a popup window
 packer.init {
@@ -41,6 +38,7 @@ packer.init {
 -- Install your plugins here.
 return packer.startup(function(use)
   -- General
+   use { 'wbthomason/packer.nvim' }
    use { 'windwp/nvim-autopairs' }
    use { 'numToStr/Comment.nvim' }
    use { 'kyazdani42/nvim-web-devicons' }
@@ -73,7 +71,7 @@ return packer.startup(function(use)
    use { 'joshdick/onedark.vim' }
    use { 'kyoz/purify' }
 
-   -- cmp plugins.
+   -- CMP plugins.
    use { 'hrsh7th/nvim-cmp' }
    use { 'hrsh7th/cmp-buffer' }
    use { 'hrsh7th/cmp-path' }
@@ -81,7 +79,7 @@ return packer.startup(function(use)
    use { 'hrsh7th/cmp-nvim-lsp' }
    use { 'hrsh7th/cmp-nvim-lua' }
 
-   -- snippets.
+   -- Snippets.
    use { 'L3MON4D3/LuaSnip' }
    use { 'rafamadriz/friendly-snippets' }
 
@@ -90,7 +88,10 @@ return packer.startup(function(use)
    use { 'tabnine/YouCompleteMe', run = 'python3 install.py --all' }
 
    -- Telescope.
-   use { 'nvim-telescope/telescope.nvim' }
+   use {
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} }
+   }
 
    -- Treesitter.
    use { 'nvim-treesitter/nvim-treesitter' }
@@ -104,7 +105,7 @@ return packer.startup(function(use)
    use { 'ravenxrz/DAPInstall.nvim' }
 
    -- Markdown preview.
-   use { 'iamcco/markdown-preview.nvim' }
+   use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }
 
    -- Live-server.
    use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
@@ -112,11 +113,11 @@ return packer.startup(function(use)
    -- Cheat sheet.
    use { 'sudormrfbin/cheatsheet.nvim' }
 
-      -- Cursor hold fix
+   -- Cursor hold fix.
    use { 'antoinemadec/FixCursorHold.nvim' }
 
-   -- Automatically set up your configuration after cloning packer.nvim.
-   -- Put this at the end after all plugins.
+   -- Automatically set up your configuration after cloning packer.nvim
+   -- Put this at the end after all plugins
    if PACKER_BOOTSTRAP then
       require("packer").sync()
    end
