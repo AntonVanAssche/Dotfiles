@@ -112,9 +112,12 @@ return packer.startup(function(use)
    -- Cheat sheet.
    use { 'sudormrfbin/cheatsheet.nvim' }
 
-  -- Automatically set up your configuration after cloning packer.nvim.
-  -- Put this at the end after all plugins.
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+      -- Cursor hold fix
+   use { 'antoinemadec/FixCursorHold.nvim' }
+
+   -- Automatically set up your configuration after cloning packer.nvim.
+   -- Put this at the end after all plugins.
+   if PACKER_BOOTSTRAP then
+      require("packer").sync()
+   end
 end)
