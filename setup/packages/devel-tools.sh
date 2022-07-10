@@ -46,7 +46,7 @@ done
 # command -v vim &> /dev/null && vim +PlugInstall +qall
 
 # Neovim plugins.
-Execute "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim" "Installing vim-plug for neovim"
+Execute "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim" "Installing packer.nvim"
 command -v pip3 &> /dev/null && Execute "pip3 install pynvim" "Fixing neovim 'Failed to load python3 host' error" # See https://github.com/fsharp/vim-fsharp/issues/96 for more info.
 
 # Copy config to '/etc/doas.conf'.
@@ -58,11 +58,12 @@ if command -v npm &> /dev/null; then
    npmPackagesToInstall=(
       live-server
       speed-test
+      neovim
       )
 
    for npmPackageToInstall in "${npmPackagesToInstall[@]}";
    do
-      Execute "sudo npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall}"
+      Execute "sudo npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall} (npm)"
    done
 fi
 
