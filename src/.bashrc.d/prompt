@@ -67,19 +67,30 @@ else
 	hostStyle="${light_cyan}";
 fi;
 
+# Double line prompt.
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${bold}\]\n"; # newline
-PS1+="\[${light_cyan}\][\A] "; # clock
-PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] at ";
-PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${white}\] in ";
-PS1+="\[${light_red}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${light_magenta}\]\" \"\[${blue}\]\")"; # Git repository details
-PS1+="\n";
-PS1+="\[${light_cyan}\]➜  \[${reset}\]"; # `➜ ` (and reset color)
+# PS1="\[\033]0;\W\007\]"; # working directory base name
+# PS1+="\[${bold}\]\n"; # newline
+# PS1+="\[${light_cyan}\][\A] "; # clock
+# PS1+="\[${userStyle}\]\u"; # username
+# PS1+="\[${white}\] at ";
+# PS1+="\[${hostStyle}\]\h"; # host
+# PS1+="\[${white}\] in ";
+# PS1+="\[${light_red}\]\w"; # working directory full path
+# PS1+="\$(prompt_git \"\[${white}\] on \[${light_magenta}\]\" \"\[${blue}\]\")"; # Git repository details
+# PS1+="\n";
+# PS1+="\[${light_cyan}\]➜  \[${reset}\]"; # `➜ ` (and reset color)
+#
+# PS2="\[${yellow}\]→ \[${reset}\]";
+# export PS2;
+
+# Single line prompt (Inspired by https://www.reddit.com/r/unixporn/comments/vyqwtq/bspwm_im_in_love_with_decay/).
+PS1="\n"; # Inserts a blank line between shell prompts.
+PS1+="\e[95m  "; # Pacman symbol.
+PS1+="\W"; # Display current working directory (Directory name only).
+PS1+="\$(prompt_git \"\[${white}\] on \[${light_magenta}\]\" \"\[${blue}\]\")"; # Git repository details.
+PS1+=" \e[92m❯\e[94m❯\e[93m❯\e[39m  "; # Prompt symbols.
 export PS1;
 
-PS2="\[${yellow}\]→ \[${reset}\]";
+PS2="\e[92m❯\e[94m❯\e[93m❯\e[39m  "; # Prompt symbols for PS2.
 export PS2;

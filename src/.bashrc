@@ -19,7 +19,7 @@ if [[ -d "${HOME}/.bashrc.d" ]]; then
 fi
 
 # Show current time.
-source "${HOME}/.local/bin/current-time"
+# source "${HOME}/.local/bin/current-time"
 
 # Load pywal.
 # source "${HOME}/.local/bin/load-pywal"
