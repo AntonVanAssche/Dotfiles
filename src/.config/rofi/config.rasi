@@ -21,7 +21,7 @@ configuration {
    blue:                        #61AFEF;
    purple:                      #C678DD;
    foreground:                  #FAFAFA;
-   background:                  #202020DD;
+   background:                  #202020;
    lightbg:                     #61AFEF;
    lightfg:                     #ABB2BF;
    normal-background:           transparent;
@@ -44,7 +44,6 @@ configuration {
    alternate-urgent-foreground: var(urgent-foreground);
 
    spacing: 15px;
-   background-color: transparent;
    font: "Ubuntu Mono Nerd 12";
 
    border-radius: 15px;
@@ -122,4 +121,3 @@ button selected {
    padding: 0.3em;
    border-radius: 5px;
 }
-
