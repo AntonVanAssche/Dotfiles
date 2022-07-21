@@ -78,7 +78,7 @@ keymap("n", "<leader>time", ":=strftime('%H:%M:%S')<CR>", opts)
 vim.cmd('set pastetoggle=<leader>p')
 
 -- Open a terminal on the right side of the screen
-keymap("n", "<leader>t", ":vsplit tjrm://bash<CR>", opts)
+-- keymap("n", "<leader>t", ":vsplit tjrm://bash<CR>", opts)
 
 -- Toggle colorcolumn
 keymap("n", "<leader>cc", ":call ToggleColorcolumn()", opts)

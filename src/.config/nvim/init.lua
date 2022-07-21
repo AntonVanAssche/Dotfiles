@@ -19,6 +19,7 @@ require "user/plugins/impatient"
 require "user/plugins/indentline"
 require "user/plugins/nvim-tree"
 require "user/plugins/telescope"
+require "user/plugins/lualine"
 
 -- Load the plugin settings. (Configured using vimscript)
 require "user/plugins/vimscript"

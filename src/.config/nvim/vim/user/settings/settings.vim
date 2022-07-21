@@ -109,3 +109,4 @@ endfunction
 autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
 
 set listchars=tab:»→,trail:␣                        " The characters shown when `<leader>list` (`set list`) is used.
+

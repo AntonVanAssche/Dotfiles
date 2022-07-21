@@ -1,6 +1,6 @@
 local fn = vim.fn
 
--- Automatically install packer.
+-- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
    PACKER_BOOTSTRAP = fn.system {
@@ -15,7 +15,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
    vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file.
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
    augroup packer_user_config
       autocmd!
@@ -23,8 +23,11 @@ vim.cmd [[
    augroup end
 ]]
 
--- Use a protected call so we don't error out on first use.
-packer = require "packer"
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+   return
+end
 
 -- Have packer use a popup window
 packer.init {
@@ -35,7 +38,7 @@ packer.init {
    },
 }
 
--- Install your plugins here.
+-- Install your plugins here
 return packer.startup(function(use)
   -- General
    use { 'wbthomason/packer.nvim' }
@@ -54,24 +57,25 @@ return packer.startup(function(use)
    use { 'tpope/vim-surround' }
    use { 'mattn/emmet-vim' }
 
-   -- Better copy and paste interaction.
+   -- Better copy and paste interaction
    use { 'christoomey/vim-system-copy' }
 
-   -- Better undo.
+   -- Better undo
    use { 'mbbill/undotree' }
 
-   -- Appearance.
-   use { 'itchyny/lightline.vim' }
+   -- Appearance
+   -- use { 'itchyny/lightline.vim' }
+   use { 'nvim-lualine/lualine.nvim' }
    use { 'miyakogi/conoline.vim' }
 
-   -- Display colors.
+   -- Display colors
    use { 'norcalli/nvim-colorizer.lua' }
 
-   -- Colorschemes.
+   -- Colorschemes
    use { 'joshdick/onedark.vim' }
    use { 'kyoz/purify' }
 
-   -- CMP plugins.
+   -- cmp plugins
    use { 'hrsh7th/nvim-cmp' }
    use { 'hrsh7th/cmp-buffer' }
    use { 'hrsh7th/cmp-path' }
@@ -79,41 +83,41 @@ return packer.startup(function(use)
    use { 'hrsh7th/cmp-nvim-lsp' }
    use { 'hrsh7th/cmp-nvim-lua' }
 
-   -- Snippets.
+   -- snippets
    use { 'L3MON4D3/LuaSnip' }
    use { 'rafamadriz/friendly-snippets' }
 
-   -- Code completion.
+   -- Code completion
    use { 'github/copilot.vim' }
    use { 'tabnine/YouCompleteMe', run = 'python3 install.py --all' }
 
-   -- Telescope.
+   -- Telescope
    use {
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} }
    }
 
-   -- Treesitter.
+   -- Treesitter
    use { 'nvim-treesitter/nvim-treesitter' }
 
-   -- Git.
+   -- Git
    use { 'lewis6991/gitsigns.nvim' }
 
-   -- DAP.
+   -- DAP
    use { 'mfussenegger/nvim-dap' }
    use { 'rcarriga/nvim-dap-ui' }
    use { 'ravenxrz/DAPInstall.nvim' }
 
-   -- Markdown preview.
+   -- Markdown preview
    use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }
 
-   -- Live-server.
+   -- Live-server
    use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
 
-   -- Cheat sheet.
+   -- Cheat sheet
    use { 'sudormrfbin/cheatsheet.nvim' }
 
-   -- Cursor hold fix.
+   -- Cursor hold fix
    use { 'antoinemadec/FixCursorHold.nvim' }
 
    -- Automatically set up your configuration after cloning packer.nvim

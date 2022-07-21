@@ -1,3 +1,7 @@
+" +---------+
+" | Tabnine |
+" +---------+
+
 " Toggle YouCompleteMe on and off with <C-d>.
 function Toggle_ycm()
    if g:ycm_show_diagnostics_ui == 0
