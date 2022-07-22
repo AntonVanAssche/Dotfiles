@@ -164,3 +164,6 @@ Print
 super + Print
 	flameshot gui -p /home/anton/Pictures/Screenshots
 
+# Forecast script
+super + shift + f
+   notify-send "Forecast" "$($HOME/.local/bin/forecast)"
