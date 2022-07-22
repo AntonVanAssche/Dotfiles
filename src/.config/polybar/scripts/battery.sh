@@ -5,13 +5,13 @@ ICON=""
 CAP=$(cat /sys/class/power_supply/$BATTERY/capacity)
 
 if [[ "$CAP" -lt 25 ]]; then
-    ICON=""
+    ICON=" "
 elif [[ "$CAP" -lt 50 ]]; then
-    ICON=""
+    ICON=" "
 elif [[ "$CAP" -lt 90 ]]; then
-    ICON=""
+    ICON=" "
 else
-    ICON=""
+    ICON=" "
 fi
 
 case "$(cat /sys/class/power_supply/$BATTERY/status)" in
@@ -19,6 +19,10 @@ case "$(cat /sys/class/power_supply/$BATTERY/status)" in
 		ICON=""
 		;;
 esac
+
+if [[ "$CAP" -eq 10 ]]; then
+   notify-send -u critical "Battery" "Low battery capacity ($CAP%)"
+fi
 
 printf '%s  %d%%' "$ICON" "$CAP"
 
