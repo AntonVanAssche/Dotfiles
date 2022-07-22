@@ -13,6 +13,10 @@ else
    feh --bg-fill ~/Pictures/Wallpapers/Tate-McRae.jpg
 fi &
 
+# Xorg stuff
+xsetroot -cursor_name left_ptr
+xrdb -merge ~/.Xresources
+
 pgrep bspswallow || bspswallow &
 
 # Make sure sxhkd is always running
