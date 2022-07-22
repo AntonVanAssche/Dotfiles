@@ -16,9 +16,9 @@ elif [[ $VOLUME -gt 75 ]]; then
 fi
 
 if [[ $IS_MUTED == "yes" ]]; then
-   ICON=""
+   ICON=""
    VOLUME="Muted"
 fi
 
-printf '%s %s' "$ICON" "$VOLUME"
+printf '%s  %s' "$ICON" "$VOLUME"
 
