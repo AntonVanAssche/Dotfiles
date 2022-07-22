@@ -1,0 +1,20 @@
+#!/bin/bash
+TARGET="/sys/class/backlight/intel_backlight"              # The file to write to.
+CURRENT="$(cat "${TARGET}/brightness")"                    # The current brightness value.
+MAX="$(cat "${TARGET}/max_brightness")"                    # The ABSOLUTE MAXIMUM value.
+MIN=5                                                      # This can be any value you want.
+
+if [[ "$1" == "inc" ]]; then
+      BRIGHTNESS="$(echo "(${CURRENT} + 25)/1" | bc)"
+elif [[ "$1" == "dec" ]]; then
+      BRIGHTNESS="$(echo "(${CURRENT} - 25)/1" | bc)"
+fi
+
+if [[ ${BRIGHTNESS} -gt ${MAX} ]]; then
+   BRIGHTNESS="${MAX}"
+elif [[ ${BRIGHTNESS} -lt 5 ]]; then
+   BRIGHTNESS=5
+fi
+
+printf '%d' "${BRIGHTNESS}" > "${TARGET}/brightness"
+
