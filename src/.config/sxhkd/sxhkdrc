@@ -144,7 +144,7 @@ XF86AudioMute
 
 # Media control
 XF86AudioPrev
-   playerctl previos
+   playerctl previous
 XF86AudioNext
    playerctl next
 XF86AudioPlay
