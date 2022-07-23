@@ -89,8 +89,8 @@ PS1="\n"; # Inserts a blank line between shell prompts.
 PS1+="\e[95m  "; # Pacman symbol.
 PS1+="\W"; # Display current working directory (Directory name only).
 PS1+="\$(prompt_git \"\[${white}\] on \[${light_magenta}\]\" \"\[${blue}\]\")"; # Git repository details.
-PS1+=" \e[92m❯\e[94m❯\e[93m❯\e[39m  "; # Prompt symbols.
+PS1+=" \[\e[92m❯\e[94m❯\e[93m❯\e[39m\]  "; # Prompt symbols.
 export PS1;
 
-PS2="\e[92m❯\e[94m❯\e[93m❯\e[39m  "; # Prompt symbols for PS2.
+PS2="\[\e[92m❯\e[94m❯\e[93m❯\e[39m\]  "; # Prompt symbols for PS2.
 export PS2;
