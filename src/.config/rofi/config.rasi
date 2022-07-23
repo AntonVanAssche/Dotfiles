@@ -44,7 +44,7 @@ configuration {
    alternate-urgent-foreground: var(urgent-foreground);
 
    spacing: 15px;
-   font: "Ubuntu Mono Nerd 12";
+   font: "Ubuntu Mono Nerd Font 12";
 
    border-radius: 15px;
 }
