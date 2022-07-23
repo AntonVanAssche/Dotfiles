@@ -1,0 +1,25 @@
+#!/bin/bash
+
+uptime=$(uptime -p | sed -e 's/up //g')
+menu=$(printf '  Shutdown\n  Reboot\n  Lock\n  Suspend\n  Logout\n\nUptime: %s' "${uptime}" | rofi -dmenu -i -p "Powermenu")
+
+case ${menu} in
+   "  Shutdown")
+      systemctl poweroff
+      ;;
+   "  Reboot")
+      systemctl reboot
+      ;;
+   "  Lock")
+      slock
+      ;;
+   "  Suspend")
+      pactl set-sink-mute @DEFAULT_SINK@ toggle
+      slock && sleep 3
+		systemctl suspend
+      ;;
+   "  Logout")
+      bspc quit
+      ;;
+esac
+
