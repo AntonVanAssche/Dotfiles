@@ -1,0 +1,22 @@
+#!/bin/bash
+
+ReturnHistory() {
+   while read -r item; do
+      printf '%s\n' "${item#* }"
+   done <<< $(gpaste-client --oneline history)
+}
+
+CopyItem() {
+   gpaste-client --use-index select "${1}"
+}
+
+clipboard=$(ReturnHistory | rofi -format 'i:s' -dmenu -i -p "  History" -selected-row "${index:-0}")
+
+index=${clipboard%%:*}
+
+if [[ ${index} -lt 0 ]]; then
+   printf '%s' "${clipboard#*:}" | gpaste-client
+else
+   CopyItem "${index}"
+fi
+
