@@ -22,9 +22,6 @@ super + shift + Escape
 super + b
 	firefox
 
-super + s
-   spotify
-
 super + e 
    thunar
 
