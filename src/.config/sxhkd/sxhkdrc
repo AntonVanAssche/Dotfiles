@@ -143,14 +143,8 @@ XF86AudioMute
    pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Media control
-XF86AudioPrev
-   playerctl previous
-XF86AudioNext
-   playerctl next
-XF86AudioPlay
-   playerctl play
-XF86AudioStop
-   playerctl pause
+{XF86AudioStop,XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
+	playerctl {stop,play-pause,previous,next}
 
 # Backlight control
 XF86MonBrightnessDown
