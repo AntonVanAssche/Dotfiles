@@ -1,3 +1,4 @@
 #!/bin/bash
 
-printf '  %(%H:%M)T'
+printf '  %(%a %_d %b, %I:%M %p)T'
+

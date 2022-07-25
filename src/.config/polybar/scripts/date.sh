@@ -1,3 +1,4 @@
 #!/bin/bash
 
-printf '  %(%d/%m/%Y)T'
+printf '  %(%d %b)T'
+

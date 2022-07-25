@@ -1,21 +1,19 @@
 #!/bin/bash
 
-WIFI_ICON=""
-ETHERNET_ICON="🌐"
-STATS_ICON=""
+COUNT=0
+DISCONECTED_ICON="睊"
+WIRELESS_CONNECTED_ICON="直"
+ETHERNET_CONNECTED_ICON="泌"
 
-[[ "$(cat /sys/class/net/w*/operstate)" == 'down' ]] && wifi_stats="down"
-[[ "$(cat /sys/class/net/e*/operstate)" == 'down' ]] && ethernet_stats="down"
+ID="$(ip link | awk '/state UP/ {print $2}')"
 
-if [[ "$wifi_stats" == "down" ]]; then
-   echo -n "%{F#E06C75}$WIFI_ICON   "
+if (ping -c 1 ping -c 1 duckduckgo.com || ping -c 1 github.com || ping -c 1 google.com || ping -c 1 1.1.1) &>/dev/null; then
+   if [[ $ID == e* ]]; then
+       echo "%{F#98C379}$ETHERNET_CONNECTED_ICON"
+   else
+       echo "%{F#98C379}$WIRELESS_CONNECTED_ICON"
+    fi
 else
-   echo -n "%{F#98C379}$WIFI_ICON   "
-fi
-
-if [[ "$ethernet_stats" == "down" ]]; then
-   echo -n "%{F#E06C75}$ETHERNET_ICON"
-else
-   echo -n "%{F#98C379}$ETHERNET_ICON"
+    echo "%{F#E06C75}$DISCONNECTED_ICON"
 fi
 
