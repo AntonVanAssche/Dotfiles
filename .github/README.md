@@ -137,5 +137,5 @@ Options:
 
 ## TODO
 
--  [ ] Let the installer install all Gnome-Shell extensions
+-  [ ] Let the installer install/configure bspwm, picom, rofi, ...
 -  [ ] To be continued...
