@@ -14,6 +14,6 @@ if (ping -c 1 ping -c 1 duckduckgo.com || ping -c 1 github.com || ping -c 1 goog
        echo "%{F#98C379}$WIRELESS_CONNECTED_ICON"
     fi
 else
-    echo "%{F#E06C75}$DISCONNECTED_ICON"
+    echo "%{F#E06C75}$DISCONECTED_ICON"
 fi
 
