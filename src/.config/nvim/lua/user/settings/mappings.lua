@@ -67,8 +67,8 @@ keymap("n", "<leader>rsq", ":mmF'xf'x`m")
 keymap("n", "<leader>rg", ":mmF`xf`x`m")
 
 -- Move the current line up or down
-keymap("n", "<C-k>", ":move +1<CR>", opts)
-keymap("n", "<C-j>", ":move -2<CR>", opts)
+keymap("n", "<A-k>", ":move +1<CR>", opts)
+keymap("n", "<A-j>", ":move -2<CR>", opts)
 
 -- Place timestamps, be it date (DD-MM-YYYY) or time (HH:MM:SS)
 keymap("n", "<leader>date", ":=strftime('%d-%m-%Y')<CR>", opts)
@@ -81,7 +81,7 @@ vim.cmd('set pastetoggle=<leader>p')
 -- keymap("n", "<leader>t", ":vsplit tjrm://bash<CR>", opts)
 
 -- Toggle colorcolumn
-keymap("n", "<leader>cc", ":call ToggleColorcolumn()", opts)
+keymap("n", "<leader>cc", ":call ToggleColorcolumn()<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
