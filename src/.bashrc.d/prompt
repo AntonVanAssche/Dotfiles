@@ -7,7 +7,7 @@ light_magenta="\e[95m"
 white="\e[37m"
 blue="\e[34m"
 yellow="\e[93m"
-reset="\e[39m"
+reset="\e[0m"
 
 prompt_git() {
 	local s='';
@@ -86,11 +86,11 @@ fi;
 
 # Single line prompt (Inspired by https://www.reddit.com/r/unixporn/comments/vyqwtq/bspwm_im_in_love_with_decay/).
 PS1="\n"; # Inserts a blank line between shell prompts.
-PS1+="\e[95m  "; # Pacman symbol.
+PS1+="\[\e[95m\]  "; # Pacman symbol.
 PS1+="\W"; # Display current working directory (Directory name only).
-PS1+="\$(prompt_git \"\[${white}\] on \[${light_magenta}\]\" \"\[${blue}\]\")"; # Git repository details.
-PS1+=" \[\e[92m❯\e[94m❯\e[93m❯\e[39m\]  "; # Prompt symbols.
+PS1+="\$(prompt_git \"\[\e[37m\] on \[\e[95m\]\" \"\[\e[94m\]\")"; # Git repository details.
+PS1+=" \[\e[92m\]❯\[\e[94m\]❯\[\e[93m\]❯\[\e[0m\]  "; # Prompt symbols.
 export PS1;
 
-PS2="\[\e[92m❯\e[94m❯\e[93m❯\e[39m\]  "; # Prompt symbols for PS2.
+PS2+=" \[\e[92m\]❯\[\e[94m\]❯\[\e[93m\]❯\[\e[0m\]  "; # Prompt symbols for PS2.
 export PS2;
