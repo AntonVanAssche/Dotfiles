@@ -17,10 +17,10 @@ vim.g.mapleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-K>", ":resize -2<CR>", opts)
@@ -33,10 +33,6 @@ keymap("n", "H", "10h", opts)
 keymap("n", "J", "10j", opts)
 keymap("n", "K", "10k", opts)
 keymap("n", "L", "10l", opts)
-keymap("v", "H", "10h", opts)
-keymap("v", "J", "10j", opts)
-keymap("v", "K", "10k", opts)
-keymap("v", "L", "10l", opts)
 
 -- Split window navigation
 keymap("n", "<leader>h", ":wincmd h<CR>", opts)

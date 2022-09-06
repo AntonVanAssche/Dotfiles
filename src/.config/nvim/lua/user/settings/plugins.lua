@@ -75,13 +75,17 @@ return packer.startup(function(use)
    use { 'joshdick/onedark.vim' }
    use { 'kyoz/purify' }
 
+   -- LSP
+   use { 'neovim/nvim-lspconfig' }
+   use { 'williamboman/nvim-lsp-installer' }
+   use { 'HallerPatrick/py_lsp.nvim' }
+
    -- cmp plugins
    use { 'hrsh7th/nvim-cmp' }
    use { 'hrsh7th/cmp-buffer' }
    use { 'hrsh7th/cmp-path' }
    use { 'saadparwaiz1/cmp_luasnip' }
    use { 'hrsh7th/cmp-nvim-lsp' }
-   use { 'hrsh7th/cmp-nvim-lua' }
 
    -- snippets
    use { 'L3MON4D3/LuaSnip' }
@@ -89,7 +93,7 @@ return packer.startup(function(use)
 
    -- Code completion
    use { 'github/copilot.vim' }
-   use { 'tabnine/YouCompleteMe', run = 'python3 install.py --all' }
+   -- use { 'tabnine/YouCompleteMe', run = 'python3 install.py --all' }
 
    -- Telescope
    use {
@@ -98,10 +102,12 @@ return packer.startup(function(use)
    }
 
    -- Treesitter
-   use { 'nvim-treesitter/nvim-treesitter' }
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use { 'nvim-treesitter/playground' }
 
    -- Git
    use { 'lewis6991/gitsigns.nvim' }
+   use { 'tpope/vim-fugitive' }
 
    -- DAP
    use { 'mfussenegger/nvim-dap' }
@@ -119,6 +125,9 @@ return packer.startup(function(use)
 
    -- Cursor hold fix
    use { 'antoinemadec/FixCursorHold.nvim' }
+
+   -- Cyclist
+   use { 'tjdevries/cyclist.vim' }
 
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins
