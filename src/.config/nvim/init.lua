@@ -20,6 +20,7 @@ require "user.plugins.indentline"
 require "user.plugins.nvim-cmp"
 require "user.plugins.nvim-tree"
 require "user.plugins.telescope"
+require "user.plugins.toggleterm"
 require "user.plugins.lualine"
 require "user.plugins.treesitter"
 

@@ -129,6 +129,12 @@ return packer.startup(function(use)
    -- Cyclist
    use { 'tjdevries/cyclist.vim' }
 
+   -- ASCII Bocks
+   use { 'superhawk610/ascii-blocks.nvim' }
+
+   -- Toggle terminal
+   use { 'akinsho/toggleterm.nvim' }
+
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins
    if PACKER_BOOTSTRAP then
