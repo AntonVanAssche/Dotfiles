@@ -64,10 +64,10 @@ highlight Normal     ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
 
-set softtabstop=3                       " Number of spaces in a tab when editing..
-set tabstop=3                           " Insert 3 spaces for a tab.
-set shiftwidth=3                        " Change the number of space characters inserted for indentation.
-" set showtabline=3                       " Always show tabs
+set softtabstop=4                       " Number of spaces in a tab when editing..
+set tabstop=4                           " Insert 4 spaces for a tab.
+set shiftwidth=4                        " Change the number of space characters inserted for indentation.
+" set showtabline=4                     " Always show tabs
 set expandtab                           " Converts tabs to spaces.
 set smartindent                         " Makes indenting smart.
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
