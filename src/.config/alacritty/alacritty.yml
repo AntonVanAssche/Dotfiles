@@ -15,7 +15,7 @@ window:
       faux_multiplier: 3
       auto_scroll: true
 
-   opacity: 0.9
+   opacity: 1
 
 font:
    normal:
