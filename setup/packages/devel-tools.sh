@@ -40,6 +40,12 @@ do
    InstallPackage "${packageToInstall}" "Installing ${packageToInstall}"
 done
 
+# Install Development tools.
+Execute "sudo dnf groupinstall 'Development Tools'" "Installing development tools"
+
+# Install Development libraries.
+Execute "sudo dnf groupinstall 'Development Libraries'" "Installing development libraries"
+
 # Vim plugins. (Uncomment if you want to install vim plugins)
 # rm -rf "$HOME"/.vim/autoload/plug.vim
 # Execute "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" "Installing vim-plug for vim"
