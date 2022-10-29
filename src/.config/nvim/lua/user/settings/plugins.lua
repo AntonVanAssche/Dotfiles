@@ -56,6 +56,7 @@ return packer.startup(function(use)
    }
    use { 'tpope/vim-surround' }
    use { 'mattn/emmet-vim' }
+   use { 'kylechui/nvim-surround' }
 
    -- Better copy and paste interaction
    use { 'christoomey/vim-system-copy' }
@@ -94,6 +95,7 @@ return packer.startup(function(use)
    -- Code completion
    use { 'github/copilot.vim' }
    -- use { 'tabnine/YouCompleteMe', run = 'python3 install.py --all' }
+   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
    -- Telescope
    use {

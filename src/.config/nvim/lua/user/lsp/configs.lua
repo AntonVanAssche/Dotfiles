@@ -5,7 +5,7 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "jsonls", "html", "clangd", "tsserver", "golangci_lint_ls", "pyright" , "bashls"}
+local servers = { "sumneko_lua", "jsonls", "html", "clangd", "tsserver", "golangci_lint_ls", "pyright" , "bashls" }
 
 lsp_installer.setup({
 	ensure_installed = servers,
@@ -13,8 +13,8 @@ lsp_installer.setup({
 
 for _, server in pairs(servers) do
 	local opts = {
-		on_attach = require("user/lsp/handlers").on_attach,
-		capabilities = require("user/lsp/handlers").capabilities,
+		on_attach = require("user.lsp.handlers").on_attach,
+		capabilities = require("user.lsp.handlers").capabilities,
 	}
 	local has_custom_opts, server_custom_opts = pcall(require, "user.lsp.settings." .. server)
 	if has_custom_opts then
