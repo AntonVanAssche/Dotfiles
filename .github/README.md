@@ -51,6 +51,7 @@ Here are some details about my setup:
       -  **Using dconf Editor**: navigate to `/org/gnome/desktop/wm/preferences/workspace-names` and change the custom value to `['www', 'code', 'music', 'virt', 'misc']`.
       -  Make sure you have a fixed amount (5) of workspaces set.
    -  [Pop-Shell](https://github.com/pop-os/shell)
+   -  [Rounded Window Corners](https://github.com/yilozt/rounded-window-corners)
 
 ## Repository Structure
 
