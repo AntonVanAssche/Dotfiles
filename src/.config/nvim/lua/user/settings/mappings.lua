@@ -71,8 +71,8 @@ keymap("n", "<A-k>", ":move +1<CR>", opts)
 keymap("n", "<A-j>", ":move -2<CR>", opts)
 
 -- Place timestamps, be it date (DD-MM-YYYY) or time (HH:MM:SS)
-keymap("n", "<leader>date", ":=strftime('%d-%m-%Y')<CR>", opts)
-keymap("n", "<leader>time", ":=strftime('%H:%M:%S')<CR>", opts)
+keymap("n", "<leader>date", ':r! date "+\\%d-\\%m-\\%Y" <CR>', opts)
+keymap("n", "<leader>time", ':r! date "+\\%H:\\%M:\\%S" <CR>', opts)
 
 -- Toggle between paste and insert mode
 vim.cmd('set pastetoggle=<leader>p')
