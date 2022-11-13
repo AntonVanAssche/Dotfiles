@@ -5,6 +5,9 @@ printf "%b" "\n${blue} • Devel tools${normal}\n"
 # Add termite repo.
 # Execute " sudo dnf copr enable skidnik/termite -y" "Adding termite repo"
 
+# Add vagrant repo.
+Execute "sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo" "Adding vagrant RPM repository"
+
 # Install packages.
 packagesToInstall=(
    doas
@@ -26,6 +29,7 @@ packagesToInstall=(
    wget
    curl
    VirtualBox
+   vagrant
    ninja-build
    meson
    sassc
