@@ -9,14 +9,14 @@
 command -v mpv &> /dev/null || printf "mpv is required to run this script\n"
 
 case "${1}" in
-   "radio1") stations=('http://icecast.vrtcdn.be/radio1-high.mp3');;
-   "stubru") stations=('http://icecast.vrtcdn.be/stubru-high.mp3');;
-   "stubru-tijdloze") stations=('http://icecast.vrtcdn.be/stubru_tijdloze-high-fallback.mp3');;
-   "mnm") stations=('http://icecast-servers.vrtcdn.be/mnm-high-fallback.mp3');;
-   "mnm-hits") stations=('http://icecast.vrtcdn.be/mnm_hits-high.mp3');;
-   *) printf "Error: '%s' is not a valid option!\n" "${1}"
-      exit 1
-      ;;
+    "radio1") stations=('http://icecast.vrtcdn.be/radio1-high.mp3');;
+    "stubru") stations=('http://icecast.vrtcdn.be/stubru-high.mp3');;
+    "stubru-tijdloze") stations=('http://icecast.vrtcdn.be/stubru_tijdloze-high-fallback.mp3');;
+    "mnm") stations=('http://icecast-servers.vrtcdn.be/mnm-high-fallback.mp3');;
+    "mnm-hits") stations=('http://icecast.vrtcdn.be/mnm_hits-high.mp3');;
+    *) printf "Error: '%s' is not a valid option!\n" "${1}"
+        exit 1
+        ;;
 esac
 
 mpv "${stations[@]}" || exit 1

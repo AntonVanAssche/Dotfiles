@@ -8,9 +8,9 @@
 command -v ffmpeg || printf "ffmpeg isn't installed on your system."
 
 if [[ -z "$1" ]]; then
-    printf "No video file specified."
-    printf '\n'
-    exit 1
+     printf "No video file specified."
+     printf '\n'
+     exit 1
 fi
 
 # get everything after last /
@@ -32,9 +32,9 @@ printf '%b' "$(tput bold)Converting Video to GIF $(tput sgr0)"
 printf '\n'
 
 if [[ "$2" ]]; then
-    ffmpeg -t "$2" -i "$1" -i "$filename".png -filter_complex "fps=22,scale=${dimensions%x*}:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
+     ffmpeg -t "$2" -i "$1" -i "$filename".png -filter_complex "fps=22,scale=${dimensions%x*}:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
 else
-    ffmpeg -i "$1" -i "$filename".png -filter_complex "fps=22,scale=${dimensions%x*}:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
+     ffmpeg -i "$1" -i "$filename".png -filter_complex "fps=22,scale=${dimensions%x*}:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
 fi
 
 printf '%b' "Removing palette"

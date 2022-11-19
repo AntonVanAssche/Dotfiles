@@ -4,8 +4,8 @@
 # Usage: create [repository]
 
 Usage() {
-   >&2 printf 'Usage: %s [repository]\n' "${0##*/}"
-   exit 1
+    >&2 printf 'Usage: %s [repository]\n' "${0##*/}"
+    exit 1
 }
 
 gitlabToken="---YOUR GITLAB TOKEN---"
@@ -13,48 +13,48 @@ githubToken="---YOUR GITHUB TOKEN---"
 username="---YOUR USERNAME---"
 
 CreateRepository() {
-   printf "Which platform do you want to create a new repository on?\n"
-   printf "[github or gitlab]: "
-   read -r platform
+    printf "Which platform do you want to create a new repository on?\n"
+    printf "[github or gitlab]: "
+    read -r platform
 
-   case "${platform}" in
-      "gitlab")
-         curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token="${gitlabToken}" -d "{ \"name\": \"${1}\" }" &> /dev/null "${1}"
-         ;;
-      "github")
-         curl -H "Authorization: token ${githubToken}" https://api.github.com/user/repos -d '{"name": "'"${1}"'"}' &> /dev/null "${1}"
-         ;;
-      *)
-         printf "Error: '%s' is not a valid option.\n" "${1}"
-         exit 1
-         ;;
-   esac
+    case "${platform}" in
+        "gitlab")
+            curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token="${gitlabToken}" -d "{ \"name\": \"${1}\" }" &> /dev/null "${1}"
+            ;;
+        "github")
+            curl -H "Authorization: token ${githubToken}" https://api.github.com/user/repos -d '{"name": "'"${1}"'"}' &> /dev/null "${1}"
+            ;;
+        *)
+            printf "Error: '%s' is not a valid option.\n" "${1}"
+            exit 1
+            ;;
+    esac
 
-   cd "${HOME}/git/${platform}/" || exit 1
+    cd "${HOME}/git/${platform}/" || exit 1
 
-   mkdir "${1}" && cd "${1}" || exit 1
+    mkdir "${1}" && cd "${1}" || exit 1
 
-   xdg-open "https://${platform}.com/${username}/${1}" &> /dev/null
+    xdg-open "https://${platform}.com/${username}/${1}" &> /dev/null
 
-   git init
-   git remote add origin git@"${platform}".com:"${username}"/"${1}".git
-         
-   touch README.md
-   printf "%s" "${1}" >> README.md
-         
-   git add README.md
-   git commit -m "Initial commit"
-   git push -u origin master
+    git init
+    git remote add origin git@"${platform}".com:"${username}"/"${1}".git
+            
+    touch README.md
+    printf "%s" "${1}" >> README.md
+            
+    git add README.md
+    git commit -m "Initial commit"
+    git push -u origin master
 }
 
 if [[ "${1}" ]]; then
-   case "${1#-}" in
-      h)
-         Usage
-         ;;
-      *)
-         [[ -f "${1}" ]] || Usage
-   esac
+    case "${1#-}" in
+        h)
+            Usage
+            ;;
+        *)
+            [[ -f "${1}" ]] || Usage
+    esac
 else
-   CreateRepository "${1}"
+    CreateRepository "${1}"
 fi

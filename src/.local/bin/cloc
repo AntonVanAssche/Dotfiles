@@ -7,22 +7,22 @@
 #  cloc [file] or cloc < [file]
 
 Usage() {
-   >&2 printf 'Usage: %s [file] or %s < [file]\n' "${0##*/}" "${0##*/}"
-   exit 1
+    >&2 printf 'Usage: %s [file] or %s < [file]\n' "${0##*/}" "${0##*/}"
+    exit 1
 }
 
 if [ "${1}" ] ; then
-   case ${1#-} in
-      h)
-         Usage
-         ;;
-      *)
-         [ -f "$1" ] || Usage
-   esac
+    case ${1#-} in
+        h)
+            Usage
+            ;;
+        *)
+            [ -f "$1" ] || Usage
+    esac
 
-   printf '%s' 'Lines of code: '
-   sed '/^\s*#/d;/^\s*$/d' "${1}" | wc -l | sed 's/ //g'
+    printf '%s' 'Lines of code: '
+    sed '/^\s*#/d;/^\s*$/d' "${1}" | wc -l | sed 's/ //g'
 else
-   printf '%s' 'Lines of code: '
-   sed '/^\s*#/d;/^\s*$/d' | wc -l | sed 's/ //g'
+    printf '%s' 'Lines of code: '
+    sed '/^\s*#/d;/^\s*$/d' | wc -l | sed 's/ //g'
 fi

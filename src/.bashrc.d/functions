@@ -6,23 +6,23 @@ Err(){
 }
 
 vpn() {
-   wg-quick "${1}" "${2}"
+    wg-quick "${1}" "${2}"
 }
 
 history() {
-   builtin history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+    builtin history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
 }
 
 cd() {
-   builtin cd "${1}" && ls -a
+    builtin cd "${1}" && ls -a
 }
 
 mcd() {
-   mkdir -p "${1}" && cd "${1}" || Err "${1}"
+    mkdir -p "${1}" && cd "${1}" || Err "${1}"
 }
 
 hackerman() {
-   < /dev/urandom hexdump -C | grep "ca fe"
+    < /dev/urandom hexdump -C | grep "ca fe"
 }
 
 remember() {
@@ -35,25 +35,25 @@ remember() {
 }
 
 maketar() {
-   tar cvzf "${1%%/}.tar.gz" "${1%%/}/"
+    tar cvzf "${1%%/}.tar.gz" "${1%%/}/"
 }
 
 makezip() {
-   zipt -r "${1%%/}.zip" "${1}"
+    zipt -r "${1%%/}.zip" "${1}"
 }
 
 swap() {
-    local TMPFILE=tmp.$$
+     local TMPFILE=tmp.$$
 
-    [[ $# -ne 2 ]] && printf 'swap: 2 arguments needed\n' && return 1
-    [[ ! -e "${1}" ]] && printf 'swap: ${1} does not exist\n' && return 1
-    [[ ! -e "${2}" ]] && printf 'swap: ${2} does not exist\n' && return 1
+     [[ $# -ne 2 ]] && printf 'swap: 2 arguments needed\n' && return 1
+     [[ ! -e "${1}" ]] && printf 'swap: ${1} does not exist\n' && return 1
+     [[ ! -e "${2}" ]] && printf 'swap: ${2} does not exist\n' && return 1
 
-    mv "${1}" "${TMPFILE}"
-    mv "${2}" "${1}"
-    mv "${TMPFILE}" "${2}"
+     mv "${1}" "${TMPFILE}"
+     mv "${2}" "${1}"
+     mv "${TMPFILE}" "${2}"
 }
 
 path() {
-    printf "${PATH//:/\\n}"
+     printf "${PATH//:/\\n}"
 }

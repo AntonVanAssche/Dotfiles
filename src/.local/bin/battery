@@ -7,7 +7,7 @@ capacityFile="${batDir}/capacity"
 statusFile="${batDir}/status"
 
 [[ -f ${capacityFile} ]] && read capacity < "${capacityFile}"
-[[ -f ${statusFile} ]] && read status   < "${statusFile}"
+[[ -f ${statusFile} ]] && read status    < "${statusFile}"
 
 printf 'Capacity: %d%%\nStatus: %s\n' "${capacity}" "${status}"
 

@@ -6,7 +6,7 @@ light_cyan="$(tput setaf 6)"
 red="$(tput setaf 1)"
 reset="$(tput sgr0)"
 
-printf "[i] ${light_cyan}Day:   ${red}%(%A)T${reset}"
+printf "[i] ${light_cyan}Day:    ${red}%(%A)T${reset}"
 printf "\n"
 
 printf "[i] ${light_cyan}Date:  ${red}%(%d/%m/%Y)T${reset}"

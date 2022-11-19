@@ -28,13 +28,13 @@ if userChoice in [1,2,3,4]:
   n2=float(input('Enter 2nd num: '))
   
   if userChoice == 1:
-    print(add(n1,n2))
+     print(add(n1,n2))
   elif userChoice == 2:
-    print(sub(n1,n2))
+     print(sub(n1,n2))
   elif userChoice == 3:
-    print(mul(n1,n2))
+     print(mul(n1,n2))
   else:
-    print(div(n1,n2))
+     print(div(n1,n2))
 else:
   print('Invalid choice!')
 

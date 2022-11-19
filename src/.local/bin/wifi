@@ -6,7 +6,7 @@ enabled=$(nmcli radio wifi | grep enabled)
 disabled=$(nmcli radio wifi | grep disabled)
 
 if [[ $enabled ]]; then
-   nmcli radio all off
+    nmcli radio all off
 else [[ $disabled ]]
-   nmcli radio wifi on
+    nmcli radio wifi on
 fi

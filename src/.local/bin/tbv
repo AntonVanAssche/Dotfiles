@@ -22,7 +22,7 @@ if [[ -f "${file}" ]]; then
 			done
 		else
 			printf 'An error occurred: file '%s' not a BASH script.' "${file}"
-      	printf '\n'
+        	printf '\n'
 			exit 1
 		fi
 	else
@@ -32,6 +32,6 @@ if [[ -f "${file}" ]]; then
 	fi
 else
 	printf 'An error occurred: file '%s' not found.' "${file}"
-   printf '\n'
+    printf '\n'
 	exit 1
 fi

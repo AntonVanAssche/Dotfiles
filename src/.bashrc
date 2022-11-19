@@ -13,9 +13,9 @@ shopt -s checkwinsize
 
 # Load files located at .bashrc.d/
 if [[ -d "${HOME}/.bashrc.d" ]]; then
-   for each in "${HOME}/.bashrc.d/"* ; do
-      source "${each}"
-   done
+    for each in "${HOME}/.bashrc.d/"* ; do
+        source "${each}"
+    done
 fi
 
 # Show current time.
@@ -26,7 +26,7 @@ fi
 
 # Colored man pages.
 if command -v most &> /dev/null; then
-   export PAGER="most"
+    export PAGER="most"
 fi
 
 # $PATH

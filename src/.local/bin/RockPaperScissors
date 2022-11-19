@@ -17,31 +17,31 @@ while wantToPlay == 'y':
   print(f'Computer chose chose: {computerChoice}')
 
   if userChoice in options:
-    if computerChoice == userChoice:
-      print('draw')
-    elif computerChoice == 'rock':
-      if userChoice=='scissors':
-        print('computer won!')
-      else:
-        print('You won!')
-    elif computerChoice == 'scissors':
-        if userChoice == 'paper':
+     if computerChoice == userChoice:
+        print('draw')
+     elif computerChoice == 'rock':
+        if userChoice=='scissors':
           print('computer won!')
         else:
           print('You won!')
-    elif computerChoice == 'paper':
-        if userChoice == 'rock':
-          print('computer won!')
-        else:
-          print('You won!')
+     elif computerChoice == 'scissors':
+          if userChoice == 'paper':
+             print('computer won!')
+          else:
+             print('You won!')
+     elif computerChoice == 'paper':
+          if userChoice == 'rock':
+             print('computer won!')
+          else:
+             print('You won!')
   else:
-    print('You made an invalid choice! ')
+     print('You made an invalid choice! ')
 
   print('Do you want to play again? Y/N: ')
   wantToPlay=input().lower()
 else:
   if wantToPlay == 'n':
-    print('Thank you for joining')
+     print('Thank you for joining')
   else:
-    print('You made an invalid choice! ')
+     print('You made an invalid choice! ')
 

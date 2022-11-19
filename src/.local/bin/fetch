@@ -12,12 +12,12 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # You can change these.
-lc="${reset}${bold}${yellow}"       # labels
-nc="${reset}${bold}"                # user and hostname
-ic="${reset}${bold}"                # info
-c0="${reset}${black}"               # first color
-c1="${reset}${white}"               # second color
-c2="${reset}${yellow}"              # third color
+lc="${reset}${bold}${yellow}"         # labels
+nc="${reset}${bold}"                     # user and hostname
+ic="${reset}${bold}"                     # info
+c0="${reset}${black}"                    # first color
+c1="${reset}${white}"                    # second color
+c2="${reset}${yellow}"                  # third color
 
 # Info.
 
@@ -63,7 +63,7 @@ ui="$(basename "${ui}")"
 # Amount of installed packages.
 
 case $os in
-   "Ubuntu"*| "Raspbian"*)
+    "Ubuntu"*| "Raspbian"*)
 		packages="$(dpkg -l 2> /dev/null | wc -l)"
 		;;
 	"Fedora"*)
@@ -80,29 +80,29 @@ esac
 # Current playing song.
 
 if playerctl -l 2>&1 | grep -q 'No players were found'; then
-   exit 1
+    exit 1
 fi
 
 playerctlPlayer="$(playerctl -l 2> /dev/null | grep -v plasma-browser-integration | head -n1)"
 
 PlayerctlExec() {
-   playerctl -p "${playerctlPlayer}" "${@}" 2> /dev/null
+    playerctl -p "${playerctlPlayer}" "${@}" 2> /dev/null
 }
 
 PlayerctlMeta() {
-   PlayerctlExec metadata "${@}" 2> /dev/null
+    PlayerctlExec metadata "${@}" 2> /dev/null
 }
 
 # Output
 
 cat << EOF
-              ${nc}${USER}${ic}@${nc}${HOSTNAME}${reset}
-     ${c1}.${c2}~${c1}.      ${lc}OS:        ${ic}${os}${reset}
-     ${c1}/${c2}V${c1}\      ${lc}KERNEL:    ${ic}${kernel}${reset}
-    ${c1}/${c1}/ \\${c1}\     ${lc}PACKAGES:  ${ic}${packages}${reset} 
-   ${c1}/${c1}(   )${c1}\    ${lc}SHELL:     ${ic}${shell}${reset}
-    ${c1}^${c1}\`${c2}~${c1}'${c1}^     ${lc}${uitype}:        ${ic}${ui}${reset}
-              ${lc}SONG:      ${ic}$(PlayerctlMeta artist) - $(PlayerctlMeta title)${reset}
+                  ${nc}${USER}${ic}@${nc}${HOSTNAME}${reset}
+      ${c1}.${c2}~${c1}.        ${lc}OS:          ${ic}${os}${reset}
+      ${c1}/${c2}V${c1}\        ${lc}KERNEL:     ${ic}${kernel}${reset}
+     ${c1}/${c1}/ \\${c1}\      ${lc}PACKAGES:  ${ic}${packages}${reset} 
+    ${c1}/${c1}(    )${c1}\     ${lc}SHELL:      ${ic}${shell}${reset}
+     ${c1}^${c1}\`${c2}~${c1}'${c1}^      ${lc}${uitype}:          ${ic}${ui}${reset}
+                  ${lc}SONG:        ${ic}$(PlayerctlMeta artist) - $(PlayerctlMeta title)${reset}
 EOF
 
 # pcs() { for i in {0..7}; do echo -en "\e[${1}$((30+i))m \u2588\u2588 \e[0m"; done; }
