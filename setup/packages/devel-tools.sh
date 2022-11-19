@@ -63,6 +63,11 @@ command -v pip3 &> /dev/null && Execute "pip3 install pynvim" "Fixing neovim 'Fa
 # doasConfigLocation="/etc/doas.conf"
 # sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
 
+# Update `sudoers` file.
+sudo cp -r "${dotfilesDirectory}/src/sudoers.d/anton" "/etc/sudoers.d/"
+sudo chown root:root "/etc/sudoers.d/anton"
+sudo chmod 640 "/etc/sudoers.d/anton"
+
 # When npm is installed, install the following packages.
 if command -v npm &> /dev/null; then
     npmPackagesToInstall=(
