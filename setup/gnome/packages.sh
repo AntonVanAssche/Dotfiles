@@ -14,7 +14,8 @@ meson build &> /dev/null
 Execute "sudo ninja -C build install" "Installing GTK theme"
 )
 
-Execute "mkdir -p $HOME/.icons/ && cp -r ./src/cursor/capitaine-cursors/ $HOME/.icons/" "Installing cursor theme"
+Execute "sudo dnf copr enable tcg/themes" "Enabling capitaine-cursors copr repository"
+InstallPackage "la-capitaine-cursor-theme" "Installing capitaine-cursors theme"
 
 Execute "pip3 install pywal" "Installing pywal"
 InstallPackage "rofi" "Installing Rofi"
