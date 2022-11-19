@@ -1,55 +1,55 @@
 [user]
 	email = vanasscheanton@gmail.com
 	name = Anton
-   signingKey = XXXXXXXX 
+    signingKey = XXXXXXXX
 
 [alias]
-   g = log --graph --pretty=custom
-   d = diff
-   a = add
-   c = commit
-   p = push
-   s = status
-   cl = clone
+    g = log --graph --pretty=custom
+    d = diff
+    a = add
+    c = commit
+    p = push
+    s = status
+    cl = clone
 
-   # Commit all changes.
-   ca = !git add --all && git commit
+    # Commit all changes.
+    ca = !git add --all && git commit
 
-   # Show custom text-based graphical log of the commit history.
-   l = log --pretty=custom
+    # Show custom text-based graphical log of the commit history.
+    l = log --pretty=custom
 
-   # Show custom log of the commit history.
-   l = log --pretty=custom
+    # Show custom log of the commit history.
+    l = log --pretty=custom
 
-   # List contributors.
-   lc = shortlog --email --numbered --summary
+    # List contributors.
+    lc = shortlog --email --numbered --summary
 
 [color "status"]
-   added = green reverse
-   changed = yellow reverse
-   untracked = red reverse
+    added = green reverse
+    changed = yellow reverse
+    untracked = red reverse
 
 [core]
 	editor = vim
 
 [help]
-   # If a command is mistyped, make Git automatically
-   # run the command it thinks the user wanted to type.
-   autoCorrect = immediate
+    # If a command is mistyped, make Git automatically
+    # run the command it thinks the user wanted to type.
+    autoCorrect = immediate
 
 [pretty]
-   custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
-   #                     │        │            │            │             └─ author name
-   #                     │        │            │            └─ message
-   #                     │        │            └─ date (relative)
-   #                     │        └─ decorations (branch, heads or tags)
-   #                     └─ hash (abbreviated)
+    custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+    #                            │          │                │                │                 └─ author name
+    #                            │          │                │                └─ message
+    #                            │          │                └─ date (relative)
+    #                            │          └─ decorations (branch, heads or tags)
+    #                            └─ hash (abbreviated)
 
 [include]
-   # Load local configs.
-   # https://git-scm.com/docs/git-config#_includes
-   #
-   # [!] The following needs to remain at the end of this file in
-   #     order to allow any of the above configs to be overwritten
-   #     by the local ones
-   path = ~/.gitconfig.local
+    # Load local configs.
+    # https://git-scm.com/docs/git-config#_includes
+    #
+    # [!] The following needs to remain at the end of this file in
+    #      order to allow any of the above configs to be overwritten
+    #      by the local ones
+    path = ~/.gitconfig.local
