@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 printf "%b" "\n${blue} • Devel tools${normal}\n"
 
@@ -10,38 +10,38 @@ Execute "sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/f
 
 # Install packages.
 packagesToInstall=(
-   doas
+    doas
 	# termite
-   alacritty
-   cargo
-   # vim-enhanced
-   neovim
-   tmux
-   lsd
-   htop
-   wol
-   wireguard-tools
-   openresolv
-   mpv
-   mpv-libs
-   python3-pip
-   java-latest-openjdk.x86_64
-   wget
-   curl
-   VirtualBox
-   vagrant
-   ninja-build
-   meson
-   sassc
-   most
-   bat
-   golang
-   nodejs
-   )
+    alacritty
+    cargo
+    # vim-enhanced
+    neovim
+    tmux
+    lsd
+    htop
+    wol
+    wireguard-tools
+    openresolv
+    mpv
+    mpv-libs
+    python3-pip
+    java-latest-openjdk.x86_64
+    wget
+    curl
+    VirtualBox
+    vagrant
+    ninja-build
+    meson
+    sassc
+    most
+    bat
+    golang
+    nodejs
+    )
 
 for packageToInstall in "${packagesToInstall[@]}";
 do
-   InstallPackage "${packageToInstall}" "Installing ${packageToInstall}"
+    InstallPackage "${packageToInstall}" "Installing ${packageToInstall}"
 done
 
 # Install Development tools.
@@ -65,21 +65,21 @@ sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
 
 # When npm is installed, install the following packages.
 if command -v npm &> /dev/null; then
-   npmPackagesToInstall=(
-      live-server
-      speed-test
-      neovim
-      )
+    npmPackagesToInstall=(
+        live-server
+        speed-test
+        neovim
+        )
 
-   for npmPackageToInstall in "${npmPackagesToInstall[@]}";
-   do
-      Execute "sudo npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall} (npm)"
-   done
+    for npmPackageToInstall in "${npmPackagesToInstall[@]}";
+    do
+        Execute "sudo npm install -g ${npmPackageToInstall}" "Installing ${npmPackageToInstall} (npm)"
+    done
 fi
 
 # When the tmux plugins aren't installed when cloning the repo, install them.
 if [[ ! -d "${HOME}/.config/tmux/plugins/tmux-continuum/" ]] || [[ ! -d "${HOME}/.config/tmux/plugins/tmux-resurrect" ]]; then
-   Execute "git clone --quiet https://github.com/tmux-plugins/tmux-continuum ~/.config/tmux/plugins/tmux-continuum/" "Installing tmux-continuum"
-   Execute "git clone --quiet https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux/plugins/tmux-resurrect/" "Installing tmux-resurrect"
+    Execute "git clone --quiet https://github.com/tmux-plugins/tmux-continuum ~/.config/tmux/plugins/tmux-continuum/" "Installing tmux-continuum"
+    Execute "git clone --quiet https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux/plugins/tmux-resurrect/" "Installing tmux-resurrect"
 fi
 

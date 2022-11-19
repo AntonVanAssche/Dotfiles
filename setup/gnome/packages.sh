@@ -28,7 +28,7 @@ InstallPackage "gnome-shell-extension-pop-shell" "Installing pop-shell"
 InstallPackage "xprop" "Installing xprop"
 InstallPackage "dconf-editor" "Installing dconf editor"
 
-git clone -q https://github.com/AntonVanAssche/waterfall.git 
+git clone -q https://github.com/AntonVanAssche/waterfall.git
 mkdir -p ~/.mozilla/firefox/*.default-release/chrome/
 Execute "cp -r waterfall/userChrome.css $HOME/.mozilla/firefox/*.default-release/chrome/" "Installing waterfall Firefox theme"
 
