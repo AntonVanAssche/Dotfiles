@@ -10,14 +10,11 @@ Execute "sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/f
 
 # Install packages.
 packagesToInstall=(
-    # doas
-	# termite
     alacritty
     cargo
-    # vim-enhanced
+    vim
     neovim
     tmux
-    # lsd
     htop
     wol
     wireguard-tools
@@ -30,12 +27,7 @@ packagesToInstall=(
     curl
     VirtualBox
     vagrant
-    # ninja-build
-    # meson
-    # sassc
-    # most
     bat
-    # golang
     nodejs
     )
 
@@ -50,18 +42,9 @@ Execute "sudo dnf groupinstall 'Development Tools'" "Installing development tool
 # Install Development libraries.
 Execute "sudo dnf groupinstall 'Development Libraries'" "Installing development libraries"
 
-# Vim plugins. (Uncomment if you want to install vim plugins)
-# rm -rf "$HOME"/.vim/autoload/plug.vim
-# Execute "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" "Installing vim-plug for vim"
-# command -v vim &> /dev/null && vim +PlugInstall +qall
-
 # Neovim plugins.
 Execute "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim" "Installing packer.nvim"
 command -v pip3 &> /dev/null && Execute "pip3 install pynvim" "Fixing neovim 'Failed to load python3 host' error" # See https://github.com/fsharp/vim-fsharp/issues/96 for more info.
-
-# Copy config to '/etc/doas.conf'.
-# doasConfigLocation="/etc/doas.conf"
-# sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
 
 # Update `sudoers` file.
 sudo cp -r "${dotfilesDirectory}/src/sudoers.d/anton" "/etc/sudoers.d/"
@@ -72,7 +55,6 @@ sudo chmod 640 "/etc/sudoers.d/anton"
 if command -v npm &> /dev/null; then
     npmPackagesToInstall=(
         live-server
-        # speed-test
         neovim
         )
 
