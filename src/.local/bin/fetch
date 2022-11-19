@@ -72,7 +72,7 @@ case $os in
 	"Arch"*)
 		packages="$(pacman -Q 2> /dev/null | wc -l)"
 		;;
-	*) 
+	*)
 		packages='unknown'
 		;;
 esac
@@ -99,7 +99,7 @@ cat << EOF
                   ${nc}${USER}${ic}@${nc}${HOSTNAME}${reset}
       ${c1}.${c2}~${c1}.        ${lc}OS:          ${ic}${os}${reset}
       ${c1}/${c2}V${c1}\        ${lc}KERNEL:     ${ic}${kernel}${reset}
-     ${c1}/${c1}/ \\${c1}\      ${lc}PACKAGES:  ${ic}${packages}${reset} 
+     ${c1}/${c1}/ \\${c1}\      ${lc}PACKAGES:  ${ic}${packages}${reset}
     ${c1}/${c1}(    )${c1}\     ${lc}SHELL:      ${ic}${shell}${reset}
      ${c1}^${c1}\`${c2}~${c1}'${c1}^      ${lc}${uitype}:          ${ic}${ui}${reset}
                   ${lc}SONG:        ${ic}$(PlayerctlMeta artist) - $(PlayerctlMeta title)${reset}

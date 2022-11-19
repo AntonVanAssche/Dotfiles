@@ -19,7 +19,7 @@ if [[ -f "${groupsFile}" ]] && [[ -r "${groupsFile}" ]]; then
                         break 2
                     fi
                 done
-                
+
                 hasOrNot="does not have"
                 break
                 ;;

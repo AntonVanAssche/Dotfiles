@@ -4,7 +4,7 @@
 # It can be used to scan a single host.
 # Usage: portscanner <network> <startPort> <endPort>
 # Network wide example: portscanner 192.168.0 1 1024 -n
-# Single host example: portscanner 192.168.0.100 1 1024 
+# Single host example: portscanner 192.168.0.100 1 1024
 
 import socket
 import sys
@@ -38,12 +38,12 @@ def tcp_scan(ip, startPort, endPort):
         try:
             # Create a new socket
             tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-              
+
             # Print if the port is open
             if not tcp.connect_ex((ip, port)):
                 print('[+] %s:%d/TCP Open' % (ip, port))
                 tcp.close()
-                     
+
         except Exception:
             pass
 

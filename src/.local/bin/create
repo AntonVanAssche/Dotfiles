@@ -38,10 +38,10 @@ CreateRepository() {
 
     git init
     git remote add origin git@"${platform}".com:"${username}"/"${1}".git
-            
+
     touch README.md
     printf "%s" "${1}" >> README.md
-            
+
     git add README.md
     git commit -m "Initial commit"
     git push -u origin master

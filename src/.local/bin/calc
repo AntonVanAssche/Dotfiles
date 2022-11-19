@@ -26,7 +26,7 @@ userChoice=int(input())
 if userChoice in [1,2,3,4]:
   n1=float(input('Enter 1st num: '))
   n2=float(input('Enter 2nd num: '))
-  
+
   if userChoice == 1:
      print(add(n1,n2))
   elif userChoice == 2:

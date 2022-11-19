@@ -17,7 +17,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# utils 
+# utils
 alias md='mkdir'
 alias rd='rm -rfv'
 alias cp='cp -r'

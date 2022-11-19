@@ -19,13 +19,13 @@ cat << "EOF"
 
                                   █▀▀▀ ▀█▀ █    █▀▀ █▀▀
                                   █▀▀    █  █    █▀▀ ▀▀█
-                                ▀ ▀     ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀                                          
+                                ▀ ▀     ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀
 EOF
 }
 
 # Ask for the administrator password upfront.
 AskForSudo() {
-    sudo -v -p "    [?] Enter Your password to continue: " 
+    sudo -v -p "    [?] Enter Your password to continue: "
     while true; do
         sudo -n true
         sleep 60
@@ -89,7 +89,7 @@ Execute() {
     # require more time to complete.
 
     Spinner "$cmdsPID" "$CMDS" "$MSG"
-    
+
     # Wait for the commands to no longer be executing
     # in the background, and then get their exit code.
 
@@ -232,7 +232,7 @@ Update() {
 Main() {
     # Show the header.
     Header
-    
+
     # Ensure that the following actions
     # are made relative to this file's path.
     cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
