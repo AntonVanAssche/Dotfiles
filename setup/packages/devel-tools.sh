@@ -10,14 +10,14 @@ Execute "sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/f
 
 # Install packages.
 packagesToInstall=(
-    doas
+    # doas
 	# termite
     alacritty
     cargo
     # vim-enhanced
     neovim
     tmux
-    lsd
+    # lsd
     htop
     wol
     wireguard-tools
@@ -25,17 +25,17 @@ packagesToInstall=(
     mpv
     mpv-libs
     python3-pip
-    java-latest-openjdk.x86_64
+    java-latest-openjdk
     wget
     curl
     VirtualBox
     vagrant
-    ninja-build
-    meson
-    sassc
-    most
+    # ninja-build
+    # meson
+    # sassc
+    # most
     bat
-    golang
+    # golang
     nodejs
     )
 
@@ -60,14 +60,14 @@ Execute "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/
 command -v pip3 &> /dev/null && Execute "pip3 install pynvim" "Fixing neovim 'Failed to load python3 host' error" # See https://github.com/fsharp/vim-fsharp/issues/96 for more info.
 
 # Copy config to '/etc/doas.conf'.
-doasConfigLocation="/etc/doas.conf"
-sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
+# doasConfigLocation="/etc/doas.conf"
+# sudo cp -r "${dotfilesDirectory}/src/doas/doas.conf" "${doasConfigLocation}"
 
 # When npm is installed, install the following packages.
 if command -v npm &> /dev/null; then
     npmPackagesToInstall=(
         live-server
-        speed-test
+        # speed-test
         neovim
         )
 
