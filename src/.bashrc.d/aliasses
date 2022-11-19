@@ -9,9 +9,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# LSDelux
-alias ls='lsd'
-
 # ls
 alias ll='ls -alF'
 alias la='ls -A'
@@ -50,7 +47,7 @@ alias g='git'
 
 # vim
 alias vim=nvim # Use nvim instead of `vim`
-                    # To use regular `vim` you can type `\vim `
+               # To use regular `vim` you can type `\vim `
 alias vi=vim
 alias svi="sudo -E vim"
 alias vis='vim "+set si"'
