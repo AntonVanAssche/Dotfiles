@@ -1,18 +1,50 @@
 #!/bin/bash
 
-weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
+weatherreport="${XDG_CACHE_HOME:-${HOME}/.cache}/weatherreport"
+
+Usage() {
+    printf "%s [option]\t- Basic command structure.
+
+Options:
+    --help    or -h\t- Show this information.
+    --brief   or -b\t- Show a brief summary of today's weather.
+    --full    or -f\t- Show the full forecast.
+    --refresh or -r\t- Download the latest forecast.
+" "${0##*/}"
+}
 
 GetForecast() {
-    curl -sf "wttr.in/$LOCATION" > "$weatherreport" || exit 1
+    curl -sf "wttr.in/${LOCATION}" > "${weatherreport}" || exit 1
 }
 
-ShowWeather() {
-    printf "%s" "$(sed '16q;d' "$weatherreport" |
+ShowWeatherBrief() {
+    printf "%s" "$(sed '16q;d' "${weatherreport}" |
 	grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')"
-    sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "  " $1 "°"," " $2 "°"}'
+    sed '13q;d' "${weatherreport}" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "  " $1 "°"," " $2 "°"}'
 }
 
-[[ "$(stat -c %y "$weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]] || GetForecast
+ShowWeatherFull() {
+    while read -r; do
+        printf "%s\n" "${REPLY}"
+    done < "${weatherreport}"
+}
 
-ShowWeather
+[[ "$(stat -c %y "${weatherreport}" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]] || GetForecast
 
+case ${1} in
+    -h| --help)
+        Usage
+        ;;
+    -b| --brief)
+        ShowWeatherBrief
+        ;;
+    -f| --full)
+        ShowWeatherFull
+        ;;
+    -r| --refresh)
+        GetForecast
+        ;;
+    *)
+        ShowWeatherBrief
+        ;;
+esac
