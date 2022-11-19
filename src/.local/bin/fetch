@@ -96,13 +96,13 @@ PlayerctlMeta() {
 # Output
 
 cat << EOF
-                  ${nc}${USER}${ic}@${nc}${HOSTNAME}${reset}
-      ${c1}.${c2}~${c1}.        ${lc}OS:          ${ic}${os}${reset}
+                 ${nc}${USER}${ic}@${nc}${HOSTNAME}${reset}
+      ${c1}.${c2}~${c1}.        ${lc}OS:         ${ic}${os}${reset}
       ${c1}/${c2}V${c1}\        ${lc}KERNEL:     ${ic}${kernel}${reset}
-     ${c1}/${c1}/ \\${c1}\      ${lc}PACKAGES:  ${ic}${packages}${reset}
-    ${c1}/${c1}(    )${c1}\     ${lc}SHELL:      ${ic}${shell}${reset}
-     ${c1}^${c1}\`${c2}~${c1}'${c1}^      ${lc}${uitype}:          ${ic}${ui}${reset}
-                  ${lc}SONG:        ${ic}$(PlayerctlMeta artist) - $(PlayerctlMeta title)${reset}
+     ${c1}/${c1}/ \\${c1}\       ${lc}PACKAGES:   ${ic}${packages}${reset}
+    ${c1}/${c1}(   )${c1}\      ${lc}SHELL:      ${ic}${shell}${reset}
+     ${c1}^${c1}\`${c2}~${c1}'${c1}^       ${lc}${uitype}:         ${ic}${ui}${reset}
+                 ${lc}SONG:       ${ic}$(PlayerctlMeta artist) - $(PlayerctlMeta title)${reset}
 EOF
 
 # pcs() { for i in {0..7}; do echo -en "\e[${1}$((30+i))m \u2588\u2588 \e[0m"; done; }
