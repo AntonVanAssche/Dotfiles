@@ -14,16 +14,19 @@ Execute "wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip"
 # Extract Nerd fonts.
 mkdir -p "$HOME/.local/share/fonts/"
 
-for font in ./*.zip;
-do
-    fontName=${font##*/}
-    fontName=${fontName%%.zip}
+InstallFonts() {
+    for font in ./*.zip;
+    do
+        fontName=${font##*/}
+        fontName=${fontName%%.zip}
 
-    Execute "unzip ${font} -d $HOME/.local/share/fonts/" "Installing ${fontName}"
-done
+        unzip "${font}" -d "$HOME/.local/share/fonts/"
+    done
 
+    fc-cache -fv
+}
 # Reload fonts cache.
-Execute "fc-cache -fv" "Reloading font cache"
+Execute "InstallFonts" "Installing fonts"
 
 # Install Microsoft fonts.
 Execute "sudo dnf install cabextract xorg-x11-font-utils https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm -y" "Installing Microsoft fonts"
