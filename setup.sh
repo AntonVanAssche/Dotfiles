@@ -181,7 +181,7 @@ InstallPackage() {
     if ! PackageIsInstalled "${1}"; then
         Execute "sudo dnf install ${1} -y" "${2}"
     else
-        PrintSuccess "Already installed ${1}"
+        PrintSuccess "${1} already installed"
     fi
 }
 
@@ -189,7 +189,7 @@ RemovePackage() {
     if PackageIsInstalled "${1}"; then
         Execute "sudo dnf remove ${1} -y" "${2}"
     else
-        PrintSuccess "Isn't installed ${1}"
+        PrintSuccess "${1} isn't installed"
     fi
 }
 
