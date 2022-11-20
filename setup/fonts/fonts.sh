@@ -3,10 +3,13 @@
 printf "%b" "\n${blue} • Fonts${normal}\n"
 
 # Download fonts.
-Execute "curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq '.assets[] | select(.name|match("zip$")) | .browser_download_url' | cut -d\" -f2 > 'fonts.tmp'" "Downloading list of Nerd Fonts to download"
-Execute "while read -r; do wget ${REPLY}; done < 'fonts.tmp'" "Downloading Nerd Fonts (This can take a while)"
+DownloadNerdFont() {
+    curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq '.assets[] | select(.name|match("zip$")) | .browser_download_url' | cut -d\" -f2 > 'fonts.tmp'
+    while read -r; do wget "${REPLY}"; done < 'fonts.tmp'
+}
+
+Execute "DownloadNerdFont" "Downloading Nerd Fonts (This can take a while)"
 Execute "wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip" "Downloading Ubuntu fonts"
-rm -rf "fonts.tmp"
 
 # Extract Nerd fonts.
 mkdir -p "$HOME/.local/share/fonts/"
@@ -26,4 +29,4 @@ Execute "fc-cache -fv" "Reloading font cache"
 Execute "sudo dnf install cabextract xorg-x11-font-utils https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm -y" "Installing Microsoft fonts"
 
 # Clean up.
-rm -rf ./*.zip
+rm -rf ./*.zip fonts.tmp
