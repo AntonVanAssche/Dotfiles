@@ -59,7 +59,6 @@ Her you'll find a list of the repository structure, so you can easily access a c
 
 ```
 .
-├── a
 ├── assets                                  # Previews.
 ├── .github                                 # GitHub Repository stuff.
 ├── .gitignore                              # Files to ignore by GIT.
