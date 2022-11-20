@@ -3,8 +3,10 @@
 printf "%b" "\n${blue} • Fonts${normal}\n"
 
 # Download fonts.
-Execute "curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | grep -E -o "/ryanoasis/nerd-fonts/releases/download/.+\.zip" | sed 's/^/https:\/\/github.com/' | wget -i/dev/fd/0" "Downloading Nerd Fonts (This can take a while)"
+Execute "curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq '.assets[] | select(.name|match("zip$")) | .browser_download_url' | cut -d\" -f2 > 'fonts.tmp'" "Downloading list of Nerd Fonts to download"
+Execute "while read -r; do wget ${REPLY}; done < 'fonts.tmp'" "Downloading Nerd Fonts (This can take a while)"
 Execute "wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip" "Downloading Ubuntu fonts"
+rm -rf "fonts.tmp"
 
 # Extract Nerd fonts.
 mkdir -p "$HOME/.local/share/fonts/"
