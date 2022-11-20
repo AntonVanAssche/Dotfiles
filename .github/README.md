@@ -55,11 +55,67 @@ Here are some details about my setup:
 
 ## Repository Structure
 
-Inside this repository you will find three main directories:
+Her you'll find a list of the repository structure, so you can easily access a configuration/script you want to copy.
 
--  `assets`: contains all previews
--  `setup`: contains all scripts to install the dotfiles (required for the installer)
--  `src`: contains all dotfiles
+```
+.
+├── a
+├── assets                                  # Previews.
+├── .github                                 # GitHub Repository stuff.
+├── .gitignore                              # Files to ignore by GIT.
+├── .gitmodules                             # List of dependencies.
+├── setup
+│   ├── dotfiles
+│   │   ├── dirs.sh                         # Create all directories I need.
+│   │   └── dotfiles.sh                     # Install all dotfiles.
+│   ├── fonts
+│   │   └── fonts.sh                        # Install all fonts my configurations need.
+│   ├── gnome
+│   │   ├── conky.sh                        # Install and configure Conky.
+│   │   ├── defaults.sh                     # Configure my Gnome-Shell defaults.
+│   │   ├── favorites.sh                    # Configure my dash.
+│   │   ├── gnoti.sh                        # Install Gnoti (a Gnome-Shell extension).
+│   │   ├── packages.sh                     # Install all dependencies my Gnome-Shell configuration needs.
+│   │   ├── privacy.sh                      # Make Gnome-Shell a bit more privacy friendly.
+│   │   ├── shortcuts.sh                    # Configure my keyboardbindings.
+│   │   ├── theme.sh                        # Set system theme.
+│   │   └── wallpaper.sh                    # Set the wallpaper.
+│   └── packages
+│       ├── chat.sh                         # Install all chat applications I use on a daily basis.
+│       ├── develop.sh                      # Install the development tools I use.
+│       ├── misc.sh                         # Install miscellaneous applications.
+│       ├── music.sh                        # Install music players like Spotify and Lollypop.
+│       ├── office.sh                       # Install Office tools I use.
+│       ├── remove.sh                       # Remove unused applications from the default Fedora install.
+│       └── torrent.sh                      # Install some torrenting tools.
+├── setup.sh                                # Main installation script.
+└── src
+    ├── .bash_profile                       # Bash configuration to load when logging into my system.
+    ├── .bashrc                             # Bash configuration to load when opening a new SHELL.
+    ├── .bashrc.d
+    │   ├── aliasses                        # Personal Bash Aliasses.
+    │   ├── bash.command-not-found          # Bash script to insult me when I typed a command wrong.
+    │   ├── functions                       # Personal Bash functions.
+    │   └── prompt                          # Personal Bash prompt.
+    ├── .config
+    │   ├── alacritty                       # Alacritty configuration.
+    │   ├── autostart                       # Applications to start automatically when I log in.
+    │   ├── bat                             # Bat configuration.
+    │   ├── conky                           # Conky configuration.
+    │   ├── htop                            # htop configuration.
+    │   ├── nvim                            # Neovim configuration.
+    │   ├── rofi                            # Rofi configuration.
+    │   ├── spicetify                       # Spicetify configuration to customize Spotify client.
+    │   ├── tmux                            # Tmux plugins.
+    │   └── wget                            # Wget configuration.
+    ├── dnf                                 # DNF configuration mainly to speed up DNF.
+    ├── .gitconfig                          # Personal Git configuration.
+    ├── .local
+    │   └── bin                             # Scripts/binaries I regularly use.
+    ├── sudoers.d                           # Sudo configuration.
+    ├── .tmux.conf                          # Tmux configuration.
+    └── walls                               # Wallpapers.
+```
 
 ## Installation
 
