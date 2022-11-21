@@ -3,13 +3,18 @@
 weatherreport="${XDG_CACHE_HOME:-${HOME}/.cache}/weatherreport"
 
 Usage() {
-    printf "%s [option]\t- Basic command structure.
+    printf "%s [option] [location]\t- Basic command structure.
 
 Options:
-    --help    or -h\t- Show this information.
-    --brief   or -b\t- Show a brief summary of today's weather.
-    --full    or -f\t- Show the full forecast.
-    --refresh or -r\t- Download the latest forecast.
+    --help    or -h\t\t- Show this information.
+    --brief   or -b\t\t- Show a brief summary of today's weather.
+    --full    or -f\t\t- Show the full forecast.
+    --refresh or -r\t\t- Download the latest forecast.
+
+Note:
+    When specifying a location, you'll have to refresh (\`-r\`) the downloaded forecast
+    in case you want to view the one of your default (\`see \${LOCATION}\`) loaction.
+    Otherwise, the forecast will remain the same when the command is run again until the next day.
 " "${0##*/}"
 }
 
@@ -28,6 +33,11 @@ ShowWeatherFull() {
         printf "%s\n" "${REPLY}"
     done < "${weatherreport}"
 }
+
+if [[ -n ${2} ]]; then
+    LOCATION="${2}"
+    GetForecast
+fi
 
 [[ "$(stat -c %y "${weatherreport}" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]] || GetForecast
 
