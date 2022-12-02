@@ -29,7 +29,7 @@ Here are some details about my setup:
 -  **Shell Theme**: Default
 -  **GTK Theme**: [Adw-gtk3-dark](https://github.com/lassekongo83/adw-gtk3)
 -  **Icon Theme**: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
--  **Wallpaper**: [Tate McRae](./src/walls/Tate-McRae.jpg)
+-  **Wallpaper**: [Tate McRae](/src/walls/Tate-McRae.jpg)
 -  **Terminal**: [Alacritty](https://github.com/alacritty)
 -  **Editor**: [Neovim](https://github.com/neovim/neovim)
 -  **Shell** : [Bash](https://www.gnu.org/software/bash/)
