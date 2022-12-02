@@ -499,13 +499,19 @@ img.playlist-picture {
     border-radius: 50%;
 }
 
+img.playlist-picture[src$=".svg"] {
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+}
+
 .main-rootlist-rootlistItem a span {
     margin-left: 24px;
 }
 
 .main-rootlist-rootlistItem {
-    padding-left: calc(var(--indentation)*var(--left-sidebar-item-indentation-width));
-    padding-right: 0;
+    padding-left: calc(var(--indentation)*var(--left-sidebar-item-indentation-width)) !important;
+    padding-right: 0 !important;
     transition: padding-left .5s ease;
 }
 
@@ -583,12 +589,10 @@ li.GlueDropTarget {
     padding-bottom: 56px;
 }
 #dribbblish-back-shadow {
-    position: fixed;
-    width: var(--main-view-width);
-    height: calc(var(--main-view-height) + var(--bar-height));
+    z-index: 2;
+    grid-area: main-view / main-view / now-playing-bar / main-view;
     box-shadow: 0 0 10px 3px #0000003b;
     border-radius: var(--main-corner-radius);
-    z-index: 2;
     pointer-events: none;
 }
 
@@ -702,19 +706,29 @@ li.GlueDropTarget {
 }
 
 /** Grid */
+
 .Root__top-container {
-    grid-template-areas:
-        "nav-bar main-view buddy-feed"
-        "nav-bar now-playing-bar buddy-feed";
     padding: var(--main-gap) 0;
 }
 
+.spotify__container--is-desktop.buddyfeed-visible .Root__top-container {
+    grid-template-areas:
+        "top-bar top-bar top-bar"
+        "nav-bar main-view buddy-feed"
+        "nav-bar now-playing-bar buddy-feed";
+}
+
 html:not(.buddyfeed-visible) .Root__top-container {
+    grid-template-areas:
+        "top-bar top-bar"
+        "nav-bar main-view"
+        "nav-bar now-playing-bar";
     padding-right: var(--main-gap);
 }
 
 /** Minimal profile button */
 span.main-userWidget-displayName,
+.main-userWidget-box > div:last-child,
 .main-userWidget-box svg {
     display: none;
 }
@@ -879,4 +893,12 @@ html.right-expanded-cover.buddyfeed-visible .main-coverSlotExpanded-container {
 }
 .main-buddyFeed-buddyFeed.main-buddyFeed-buddyFeed-expanded {
     z-index: 4;
+}
+.main-view-container {
+    min-height: 90vh !important;
+}
+@media (max-height: 768px) {
+    .main-view-container {
+        min-height: 85vh !important;
+    }
 }
