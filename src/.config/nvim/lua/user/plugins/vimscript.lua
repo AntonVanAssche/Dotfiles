@@ -1,5 +1,0 @@
-vim.cmd('source /home/anton/.config/nvim/vim/user/plugins/bracey.vim')
-vim.cmd('source /home/anton/.config/nvim/vim/user/plugins/conoline.vim')
-vim.cmd('source /home/anton/.config/nvim/vim/user/plugins/emmet.vim')
--- vim.cmd('source /home/anton/.config/nvim/vim/user/plugins/lightline.vim')
--- vim.cmd('source /home/anton/.config/nvim/vim/user/plugins/tabnine.vim')
