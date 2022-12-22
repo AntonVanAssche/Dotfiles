@@ -237,7 +237,7 @@ Main() {
     source ./setup/dotfiles/dirs.sh
 
     # Check if installing via one-liner.
-    [[ $(pwd) != "$HOME/git/github/dotfiles/" ]] && cp -r ../dotfiles/ "$HOME"/Projects/dotfiles/ &> /dev/null
+    [[ $(pwd) != "${dotfilesDirectory}" ]] && cp -r ../dotfiles/ "${dotfilesDirectory}" &> /dev/null
 
     # Install the dotfiles by creating a symlink.
     source ./setup/dotfiles/dotfiles.sh
