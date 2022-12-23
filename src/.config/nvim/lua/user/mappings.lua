@@ -7,6 +7,11 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
+-- Don't show help when pressing F1
+keymap("n", "<F1>", "<Nop>", opts)
+keymap("i", "<F1>", "<Nop>", opts)
+keymap("v", "<F1>", "<Nop>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-K>", ":resize -2<CR>", opts)
 keymap("n", "<C-J>", ":resize +2<CR>", opts)
