@@ -60,9 +60,6 @@ noremap <C-c> "+y e " Use CTRL+c to copy to system clipboard.
 syntax enable                           " Enables syntax highlighing.
 set termguicolors                       " Enables colors in terminal.
 set background=dark                     " tell vim what the background color looks like.
-highlight Normal     ctermbg=NONE guibg=NONE
-highlight LineNr     ctermbg=NONE guibg=NONE
-highlight SignColumn ctermbg=NONE guibg=NONE
 
 set softtabstop=4                       " Number of spaces in a tab when editing..
 set tabstop=4                           " Insert 4 spaces for a tab.

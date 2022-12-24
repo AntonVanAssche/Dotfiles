@@ -3,6 +3,16 @@ if not lsp_status_ok then
     return
 end
 
+local cmp_status_ok, cmp = pcall(require, 'cmp')
+if not cmp_status_ok then
+    return
+end
+
+local lspkind_status_ok, lspkind = pcall(require, 'lspkind')
+if not lspkind_status_ok then
+    return
+end
+
 lsp.preset('recommended')
 
 lsp.ensure_installed({
@@ -18,7 +28,7 @@ lsp.ensure_installed({
     'vimls',
 })
 
--- Fix Undefined global 'vim'
+-- Fix Undefined global 'vim'.
 lsp.configure('sumneko_lua', {
     settings = {
         Lua = {
@@ -28,12 +38,6 @@ lsp.configure('sumneko_lua', {
         }
     }
 })
-
-
-local cmp_status_ok, cmp = pcall(require, 'cmp')
-if not cmp_status_ok then
-    return
-end
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
@@ -53,15 +57,60 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
--- disable completion with tab
--- this helps with copilot setup
+-- Disable completion with tab
+-- this helps with copilot setup.
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
+-- Disable completion with enter.
+cmp_mappings['<CR>'] = nil
+
 lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
+    mapping = cmp_mappings,
+    window = {
+        documentation = {
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+        },
+        completion = {
+            -- Use border for the completion window.
+            -- Doesn't seems to work.
+            -- Don't really know why.
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+            side_padding = 0,
+
+            -- Because of the border, move the completion window 3 columns to the left
+            -- so that text in the editor and on completion item can be aligned properly.
+            col_offset = -3,
+        },
+    },
+    formatting = {
+		fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. strings[1] .. " "
+            kind.menu = "    (" .. string.lower(strings[2]) .. ")"
+
+            return kind
+        end,
+    },
 })
 
+-- Enable command-line completion.
+-- Not sure if I kept it enabled.
+-- I like it, but sometimes a bit annoying.
+cmp.setup.cmdline(':', {
+    sources = {
+        { name = 'cmdline' },
+    },
+    formatting = {
+        fields = { "abbr" },
+    }
+})
+
+-- Set linting icons.
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
@@ -95,5 +144,33 @@ end)
 vim.diagnostic.config({
     virtual_text = true,
 })
+
+-- Configure Pmenu highlights for cmp completion menu.
+-- I know it's not the best way to do it! ;)
+-- For some reason I can't get it to work when customizing it by configuring floating windows.
+do
+    vim.cmd [[
+        " Dark background, and white-ish foreground
+        highlight! Pmenu         guibg=#202020
+        highlight! PmenuBorder   guibg=#abb2bf
+        highlight! ItemAbbr      guifg=#FAFAFA
+        highlight! CmpItemAbbrDeprecated    guibg=NONE gui=strikethrough guifg=#abb2bf
+        highlight! CmpItemAbbrMatch         guibg=NONE guifg=#e06c75 gui=bold
+        highlight! CmpItemAbbrMatchFuzzy    guibg=NONE guifg=#61afef gui=bold
+        highlight!      CmpItemKindModule        guibg=NONE guifg=#61afef
+        highlight!      CmpItemKindClass         guibg=NONE guifg=#e5c07b
+        highlight! link CmpItemKindStruct        CmpItemKindClass
+        highlight!      CmpItemKindVariable      guibg=NONE guifg=#56b6c2
+        highlight!      CmpItemKindProperty      guibg=NONE guifg=#56b6c2
+        highlight!      CmpItemKindFunction      guibg=NONE guifg=#C586C0
+        highlight! link CmpItemKindConstructor   CmpItemKindFunction
+        highlight! link CmpItemKindMethod        CmpItemKindFunction
+        highlight!      CmpItemKindKeyword       guibg=NONE guifg=#C586C0
+        highlight!      CmpItemKindText          guibg=NONE guifg=#FAFAFA
+        highlight!      CmpItemKindUnit          guibg=NONE guifg=#D4D4D4
+        highlight!      CmpItemKindConstant      guibg=NONE guifg=#98c379
+        highlight!      CmpItemKindSnippet       guibg=NONE guifg=#e5c07b
+    ]]
+end
 
 lsp.setup()
