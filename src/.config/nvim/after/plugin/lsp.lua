@@ -122,7 +122,11 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, noremap = true, silent = true}
+    local opts = {
+        buffer = bufnr,
+        noremap = true,
+        silent = true
+    }
 
     if client.name == 'eslint' then
         vim.cmd.LspStop('eslint')
@@ -130,7 +134,8 @@ lsp.on_attach(function(client, bufnr)
     end
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
+	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts) -- Update (comment out): ~/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim/lua/lsp-zero/server.lua:150
     vim.keymap.set('n', '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_next, opts)
@@ -139,6 +144,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', '<leader>vrr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, opts)
     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('x', '<F4>', vim.lsp.buf.range_code_action, opts)
 end)
 
 vim.diagnostic.config({
