@@ -69,12 +69,26 @@ keymap("n", "<leader>date", ':r! date "+\\%d-\\%m-\\%Y" <CR>', opts)
 keymap("n", "<leader>time", ':r! date "+\\%H:\\%M:\\%S" <CR>', opts)
 
 -- Toggle colorcolumn
-keymap("n", "<leader>cc", ":call ToggleColorcolumn()<CR>", opts)
+-- keymap("n", "<leader>cc", ":call ToggleColorcolumn()<CR>", opts)
+keymap("n",
+    "<leader>cc",
+    function()
+        local value = vim.api.nvim_get_option_value("colorcolumn", {})
+        if value == "0" then
+            vim.api.nvim_set_option_value("colorcolumn", "80", {})
+            vim.cmd [[highlight colorcolumn guibg=#E06C75]]
+        else
+            vim.api.nvim_set_option_value("colorcolumn", "0", {})
+        end
+    end,
+    { silent = true }
+)
 
 -- Disable Q it's the worst place in the universe ;)
 keymap("n", "Q", "<nop>")
 
 -- Replace the current word
+-- Ref: https://github.com/Allaman/nvim/commit/78e32885972947240b0907df6a8a1cceea9fce19
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make current file executable
