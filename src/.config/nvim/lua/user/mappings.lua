@@ -67,9 +67,6 @@ keymap("n", "<leader>rsq", ":mmF'xf'x`m")
 keymap("n", "<leader>rg", ":mmF`xf`x`m")
 
 -- Place timestamps, be it date (DD-MM-YYYY) or time (HH:MM:SS).
-keymap("n", "<A-k>", ":move +1<CR>", opts)
-keymap("n", "<A-j>", ":move -2<CR>", opts)
-
 keymap("n", "<leader>date", ':r! date "+\\%d-\\%m-\\%Y" <CR>', opts)
 keymap("n", "<leader>time", ':r! date "+\\%H:\\%M:\\%S" <CR>', opts)
 
