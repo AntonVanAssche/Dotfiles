@@ -35,7 +35,7 @@ opt.undofile = true                         -- Enable persistent undo.
 
 -- Allows to CTRL+C in other programs and put in Vim with p and yanking in Vim with y and CTRL+V in other programs.
 -- https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
-opt.clipboard = 'unnamedplus'
+-- opt.clipboard = 'unnamedplus'
 
 opt.softtabstop = 4                         -- Number of spaces in a tab when editing.
 opt.tabstop = 4                             -- Insert 4 spaces for a tab.
