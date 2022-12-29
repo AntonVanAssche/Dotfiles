@@ -65,6 +65,7 @@ return packer.startup(function(use)
     -- Appearance
     use { 'nvim-lualine/lualine.nvim' }
     use { 'miyakogi/conoline.vim' }
+    use { 'folke/zen-mode.nvim' }
 
     -- Display colors
     use { 'norcalli/nvim-colorizer.lua' }
