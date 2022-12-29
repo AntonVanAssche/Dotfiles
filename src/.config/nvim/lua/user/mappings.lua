@@ -7,6 +7,10 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
+-- I do this doesn't makes much sense.
+-- But hey it's my config, so I can do whatever I want. ;)
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
 -- Don't show help when pressing F1
 -- Disables the default F1 key mapping in normal, visual and insert mode.
 keymap({"n", "v", "i"}, "<F1>", "<Nop>", opts)
