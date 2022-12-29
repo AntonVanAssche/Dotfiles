@@ -50,6 +50,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Delete everything behind the cursor until the end of the line.
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
 keymap("n", "<leader>r", ":source $MYVIMRC<CR>", opts)
 
 -- Toggle spellchecker
