@@ -46,7 +46,10 @@ keymap("n", "N", "Nzzzv")
 -- Better paste
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- Reload Configuration
+-- Copy to systemclipboard : asbjornHaland.
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
 keymap("n", "<leader>r", ":source $MYVIMRC<CR>", opts)
 
 -- Toggle spellchecker
