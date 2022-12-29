@@ -8,25 +8,20 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- Don't show help when pressing F1
-keymap("n", "<F1>", "<Nop>", opts)
-keymap("i", "<F1>", "<Nop>", opts)
-keymap("v", "<F1>", "<Nop>", opts)
+-- Disables the default F1 key mapping in normal, visual and insert mode.
+keymap({"n", "v", "i"}, "<F1>", "<Nop>", opts)
 
--- Resize with arrows
+-- Resize with h, j, k, l.
 keymap("n", "<C-K>", ":resize -2<CR>", opts)
 keymap("n", "<C-J>", ":resize +2<CR>", opts)
 keymap("n", "<C-H>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-L>", ":vertical resize +2<CR>", opts)
 
--- Faster navigation
-keymap("n", "H", "10h", opts)
-keymap("n", "J", "10j", opts)
-keymap("n", "K", "10k", opts)
-keymap("n", "L", "10l", opts)
-keymap("v", "H", "10h", opts)
-keymap("v", "J", "10j", opts)
-keymap("v", "K", "10k", opts)
-keymap("v", "L", "10l", opts)
+-- Faster navigation.
+keymap({"n", "v"}, "H", "10h", opts)
+keymap({"n", "v"}, "J", "10j", opts)
+keymap({"n", "v"}, "K", "10k", opts)
+keymap({"n", "v"}, "L", "10l", opts)
 
 -- Keep cursor in the middle of the screen when moving
 -- half a page up or down
