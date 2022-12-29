@@ -135,7 +135,7 @@ lsp.on_attach(function(client, bufnr)
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts) -- Update (comment out): ~/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim/lua/lsp-zero/server.lua:150
+    vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts) -- Update (comment out): ~/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim/lua/lsp-zero/server.lua:150
     vim.keymap.set('n', '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_next, opts)
