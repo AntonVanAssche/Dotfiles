@@ -30,7 +30,12 @@ opt.history = 10000                         -- More history.
 opt.undolevels = 3000                       -- Higher undo level.
 opt.swapfile = false                        -- Don't use a swapfile. I don't like to have them in a project directory.
 opt.backup = false                          -- Don't create a backup file.
-opt.undodir = '~/.config/nvim/undos'        -- Set the undo directory.
+
+local home_dir = os.getenv( "HOME" )
+if home_dir then
+    opt.undodir = home_dir .. '/.config/nvim/undos' -- Set the undo directory.
+end
+
 opt.undofile = true                         -- Enable persistent undo.
 
 -- Allows to CTRL+C in other programs and put in Vim with p and yanking in Vim with y and CTRL+V in other programs.
