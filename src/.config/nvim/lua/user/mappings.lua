@@ -82,7 +82,7 @@ keymap("n",
             vim.api.nvim_set_option_value("colorcolumn", "0", {})
         end
     end,
-    { silent = true }
+    opts
 )
 
 -- Disable Q it's the worst place in the universe! ;)
