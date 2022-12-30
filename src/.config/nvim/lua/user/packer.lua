@@ -1,17 +1,17 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system {
-        "git",
-        "clone",
-        "--depth",
-        "1",
-        "https://github.com/wbthomason/packer.nvim",
+        'git',
+        'clone',
+        '--depth',
+        '1',
+        'https://github.com/wbthomason/packer.nvim',
         install_path,
     }
-    print "Installing packer close and reopen Neovim..."
+    print 'Installing packer close and reopen Neovim...'
     vim.cmd [[packadd packer.nvim]]
 end
 
@@ -24,7 +24,7 @@ vim.cmd [[
 ]]
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
     return
 end
@@ -33,7 +33,7 @@ end
 packer.init {
     display = {
         open_fn = function()
-            return require("packer.util").float { border = "rounded" }
+            return require('packer.util').float { border = 'rounded' }
         end,
     },
 }
@@ -50,7 +50,7 @@ return packer.startup(function(use)
     use { 'lukas-reineke/indent-blankline.nvim' }
     use { 'prettier/vim-prettier',
         run = 'npm install --frozen-lockfile --production',
-        ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html'}
+        ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html' }
     }
     use { 'tpope/vim-surround' }
     use { 'mattn/emmet-vim' }
@@ -76,41 +76,40 @@ return packer.startup(function(use)
 
     -- LSP
     use {
-        'VonHeikemen/lsp-zero.nvim',
+        'neovim/nvim-lspconfig',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+            { 'jose-elias-alvarez/null-ls.nvim' },
+            { 'RRethy/vim-illuminate' },
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
-            {'hrsh7th/cmp-cmdline'},
-            {'onsails/lspkind.nvim'},
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-cmdline' },
+            { 'onsails/lspkind.nvim' },
+            { 'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp' },
+            { 'github/copilot.vim' },
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
         }
     }
 
     -- Harpoon
-    use {'nvim-lua/plenary.nvim'}
-    use {'ThePrimeagen/harpoon'}
-
-    -- Code completion
-    use { 'github/copilot.vim' }
-    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+    use { 'nvim-lua/plenary.nvim' }
+    use { 'ThePrimeagen/harpoon' }
 
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { 'nvim-lua/plenary.nvim' }
     }
 
     -- Treesitter
@@ -136,6 +135,6 @@ return packer.startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
-        require("packer").sync()
+        require('packer').sync()
     end
 end)
