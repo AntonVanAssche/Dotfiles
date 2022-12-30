@@ -56,7 +56,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 keymap("n", "<leader>r", ":source $MYVIMRC<CR>", opts)
 
 -- Toggle spellchecker.
-keymap("n", "<leader>cs", ":setlocal spell! spelllang=en_us<CR>", opts)
+keymap("n", "<leader>cs", ":setlocal spell! spelllang=en_us,nl<CR>", opts)
 
 -- Run shellcheck on the current file.
 keymap("n", "<leader>sc", ":!clear && shellcheck %s<CR>", opts)
