@@ -72,7 +72,7 @@ return packer.startup(function(use)
 
     -- Colorschemes
     use { 'joshdick/onedark.vim' }
-    use { 'kyoz/purify' }
+    use { 'Metallum19/purify-vim' }
 
     -- LSP
     use {
@@ -131,6 +131,8 @@ return packer.startup(function(use)
 
     -- Toggle terminal
     use { 'akinsho/toggleterm.nvim' }
+
+    use { 'AntonVanAssche/date-time-inserter.nvim'}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
