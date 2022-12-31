@@ -67,4 +67,4 @@ lualine.setup {
   	},
   	tabline = {},
   	extensions = {},
-}	
+}

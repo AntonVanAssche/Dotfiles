@@ -265,8 +265,8 @@ do
         highlight!      CmpItemKindVariable      guibg=NONE guifg=#56B6C2
         highlight!      CmpItemKindProperty      guibg=NONE guifg=#56B6C2
         highlight!      CmpItemKindFunction      guibg=NONE guifg=#C586C0
-        highlight! link CmpItemKindConstructor   CmpItemKindFunctioN
-        highlight! link CmpItemKindMethod        CmpItemKindFunctioN
+        highlight! link CmpItemKindConstructor   CmpItemKindFunction
+        highlight! link CmpItemKindMethod        CmpItemKindFunction
         highlight!      CmpItemKindKeyword       guibg=NONE guifg=#C586C0
         highlight!      CmpItemKindText          guibg=NONE guifg=#FAFAFA
         highlight!      CmpItemKindUnit          guibg=NONE guifg=#D4D4D4
