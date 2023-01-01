@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 
 -- I do this doesn't makes much sense.
 -- But hey it's my config, so I can do whatever I want. ;)
-vim.keymap.set("i", "<C-c>", "<Esc>")
+keymap("i", "<C-c>", "<Esc>")
 
 -- Don't show help when pressing F1
 -- Disables the default F1 key mapping in normal, visual and insert mode.
@@ -43,14 +43,14 @@ keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
 -- Better paste
-vim.keymap.set("x", "<leader>p", [["_dP]])
+keymap("x", "<leader>p", [["_dP]])
 
 -- Copy to systemclipboard : asbjornHaland.
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+keymap({"n", "v"}, "<leader>y", [["+y]])
+keymap("n", "<leader>Y", [["+Y]])
 
 -- Delete everything behind the cursor until the end of the line.
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+keymap({"n", "v"}, "<leader>d", [["_d]])
 
 -- Reload Configuration.
 keymap("n", "<leader>r", ":source $MYVIMRC<CR>", opts)
@@ -80,6 +80,14 @@ keymap("n",
     end,
     opts
 )
+
+-- Source current file.
+-- This is useful when editing nvim config files and when developing plugins.
+keymap("n", "<leader><leader>x", function()
+    vim.api.nvim_command('write')
+    local current_file = vim.fn.expand('%')
+    vim.api.nvim_command('source ' .. current_file)
+end, opts)
 
 -- Disable Q it's the worst place in the universe! ;)
 keymap("n", "Q", "<nop>")
