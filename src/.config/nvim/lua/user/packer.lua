@@ -38,6 +38,11 @@ packer.init {
     },
 }
 
+-- Packer specific keybindings.
+vim.keymap.set('n', '<leader>pC', ':PackerCompile<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>pS', ':PackerSync<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ps', ':PackerStatus<CR>', { noremap = true, silent = true })
+
 -- Install your plugins here
 return packer.startup(function(use)
   -- General
@@ -132,6 +137,7 @@ return packer.startup(function(use)
     -- Toggle terminal
     use { 'akinsho/toggleterm.nvim' }
 
+    -- Self written plugins, GO CHECK THEM OUT!
     use { 'AntonVanAssche/date-time-inserter.nvim'}
 
     -- Automatically set up your configuration after cloning packer.nvim
