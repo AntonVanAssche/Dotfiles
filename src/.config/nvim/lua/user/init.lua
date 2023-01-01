@@ -1,6 +1,7 @@
-require("user.settings")
+require("user.functions")
 require("user.mappings")
 require("user.packer")
+require("user.settings")
 
 local augroup = vim.api.nvim_create_augroup
 local antonGroup = augroup('Anton', {})

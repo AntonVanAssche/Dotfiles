@@ -82,11 +82,3 @@ opt.listchars = {
   precedes = '«',
   nbsp = '␣',
 }
-
--- Print the human-readable representation of the given object.
--- e.g. :lua P(require("date-time-inserter"))
--- @param obj The object to print.
-P = function(obj)
-    print(vim.inspect(obj))
-    return obj
-end
