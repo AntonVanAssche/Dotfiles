@@ -6,7 +6,7 @@ end
 date_time_inserter.setup {
     date_format = 'DDMMYYYY',               -- Arange the letter in the order you want the date to appear.
     time_format = 24,                       -- 12 or 24.
-    show_seconds = true,                    -- true or false.
+    show_seconds = false,                    -- true or false.
 
     date_separator = '-',                   -- Character to separate the date.
 
