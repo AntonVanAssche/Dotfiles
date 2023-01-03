@@ -132,13 +132,21 @@ return packer.startup(function(use)
     use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
 
     -- Cyclist
-    use { 'tjdevries/cyclist.vim' }
+    -- use { 'tjdevries/cyclist.vim' } -- ORIGINAL REPO
+    use { 'shebang-nvim/cyclist.vim' }
 
     -- Toggle terminal
     use { 'akinsho/toggleterm.nvim' }
 
     -- Self written plugins, GO CHECK THEM OUT!
     use { 'AntonVanAssche/date-time-inserter.nvim'}
+    use {
+        'AntonVanAssche/md-headers.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
+    }
+    -- use { '/home/anton/Projects/cyclist.nvim' }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
