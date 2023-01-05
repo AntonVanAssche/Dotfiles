@@ -57,12 +57,7 @@ return packer.startup(function(use)
         run = 'npm install --frozen-lockfile --production',
         ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html' }
     }
-    use { 'tpope/vim-surround' }
-    use { 'mattn/emmet-vim' }
     use { 'kylechui/nvim-surround' }
-
-    -- Better copy and paste interaction
-    use { 'christoomey/vim-system-copy' }
 
     -- Better undo
     use { 'mbbill/undotree' }
@@ -132,7 +127,6 @@ return packer.startup(function(use)
     use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
 
     -- Cyclist
-    -- use { 'tjdevries/cyclist.vim' } -- ORIGINAL REPO
     use { 'shebang-nvim/cyclist.vim' }
 
     -- Toggle terminal
@@ -146,7 +140,6 @@ return packer.startup(function(use)
             'nvim-lua/plenary.nvim'
         }
     }
-    -- use { '/home/anton/Projects/cyclist.nvim' }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
