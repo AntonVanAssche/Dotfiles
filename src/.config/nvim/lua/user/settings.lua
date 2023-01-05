@@ -13,6 +13,7 @@ opt.pumheight = 10                          -- Makes popup menu smaller.
 opt.cmdheight = 2                           -- More space for displaying messages.
 
 opt.mouse = 'a'                             -- Enables mouse support.
+opt.mousemodel = 'extend'                   -- No popup-menu but right mouse extends selection.
 
 opt.updatetime = 300                        -- Faster completion.
 
@@ -75,10 +76,10 @@ opt.hlsearch = true                         -- Highlight all matches on previous
 vim.cmd [[ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
 
 -- The characters shown when `<leader>list` (`set list`) is used.
-opt.listchars = {
-  tab = '»·',
-  trail = '·',
-  extends = '»',
-  precedes = '«',
-  nbsp = '␣',
-}
+-- opt.listchars = {
+--   tab = '»·',
+--   trail = '·',
+--   extends = '»',
+--   precedes = '«',
+--   nbsp = '␣',
+-- }
