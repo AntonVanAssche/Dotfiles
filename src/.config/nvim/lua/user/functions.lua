@@ -31,3 +31,23 @@ SL = function()
         vim.api.nvim_buf_set_lines(buffer, start_line, end_line, false, lines)
     end
 end
+
+-- Toggle the colorcolumn on the 80th column.
+-- SCC: Show ColorColumn
+SCC = function()
+    local value = vim.api.nvim_get_option_value("colorcolumn", {})
+    if value == "0" then
+        vim.api.nvim_set_option_value("colorcolumn", "80", {})
+        vim.cmd [[highlight colorcolumn guibg=#E06C75]]
+    else
+        vim.api.nvim_set_option_value("colorcolumn", "0", {})
+    end
+end
+
+-- Write and source the current file.
+-- WSC: Write Source Current
+WSC = function()
+    vim.api.nvim_command('write')
+    local current_file = vim.fn.expand('%')
+    vim.api.nvim_command('source ' .. current_file)
+end
