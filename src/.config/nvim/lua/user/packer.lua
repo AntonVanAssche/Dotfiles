@@ -140,6 +140,12 @@ return packer.startup(function(use)
             'nvim-lua/plenary.nvim'
         }
     }
+    use {
+        'AntonVanAssche/music-controls.nvim',
+        requires = {
+            'rcarriga/nvim-notify'
+        }
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
