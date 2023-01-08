@@ -1,7 +1,8 @@
-require("user.functions")
-require("user.mappings")
-require("user.packer")
-require("user.settings")
+require('user.autocmds')
+require('user.functions')
+require('user.mappings')
+require('user.packer')
+require('user.settings')
 
 local augroup = vim.api.nvim_create_augroup
 local antonGroup = augroup('Anton', {})
@@ -10,7 +11,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
 function R(name)
-    require("plenary.reload").reload_module(name)
+    require('plenary.reload').reload_module(name)
 end
 
 autocmd('TextYankPost', {
@@ -24,9 +25,9 @@ autocmd('TextYankPost', {
     end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({'BufWritePre'}, {
     group = antonGroup,
-    pattern = "*",
+    pattern = '*',
     command = [[%s/\s\+$//e]],
 })
 
