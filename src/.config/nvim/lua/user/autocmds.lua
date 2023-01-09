@@ -1,13 +1,14 @@
 -- Skeleton files.
-local skelGrp = vim.api.nvim_create_augroup('SkeletonWrites', { clear = true })
+-- TOTALLY NOT STOLEN FROM https://github.com/lars-vc/dotfiles
+local skel_group = vim.api.nvim_create_augroup('SkeletonWrites', { clear = true })
 vim.api.nvim_create_autocmd('BufNewFile', {
 	command = '0r ~/.config/nvim/skeletons/skel.sh',
 	pattern = { '*.sh' },
-	group = skelGrp,
+	group = skel_group,
 })
 
 vim.api.nvim_create_autocmd('BufNewFile', {
 	command = '0r ~/.config/nvim/skeletons/skel.py',
 	pattern = { '*.py' },
-	group = skelGrp,
+	group = skel_group,
 })
