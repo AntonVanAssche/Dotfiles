@@ -122,6 +122,7 @@ return packer.startup(function(use)
 
     -- Markdown preview
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }
+    use { 'aca/marp.nvim' }
 
     -- Live-server
     use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
