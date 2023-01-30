@@ -56,6 +56,7 @@ if command -v npm &> /dev/null; then
     npmPackagesToInstall=(
         live-server
         neovim
+        @marp-team/marp-cli # Write you presentations in Markdown and convert to pptx afterwards.
         )
 
     for npmPackageToInstall in "${npmPackagesToInstall[@]}";
