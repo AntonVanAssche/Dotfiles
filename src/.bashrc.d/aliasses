@@ -20,8 +20,8 @@ alias rd='rm -rfv'
 alias cp='cp -r'
 
 # reboot and power off
-alias gg='doas systemctl poweroff'
-alias gj='doas systemctl reboot'
+alias gg='sudo systemctl poweroff'
+alias gj='sudo systemctl reboot'
 
 # reload .bashrc
 alias reload='source ~/.bashrc'
@@ -63,3 +63,30 @@ alias f='find . -iname'
 alias fif='find . -type f -iname'
 alias fid='find . -type d -iname'
 
+# Vagrant
+alias v='vagrant'
+alias vD='vagrant destroy --force'
+alias vd='vagrant destroy'
+alias vdu='vagrant destroy --force && vagrant up'
+alias vh='vagrant halt'
+alias vp='vagrant provision'
+alias vr='vagrant reload'
+alias vS='vagrant ssh'
+alias vs='vagrant status'
+alias vu='vagrant up'
+
+# DNF
+alias i='sudo dnf install'
+alias u='sudo dnf upgrade'
+
+# SSH without adding the target host to ~/.ssh/known_hosts
+alias sshh='ssh -o UserKnownHostsFile=/dev/null '
+
+# Source: Luciano Quercia
+# https://dev.to/djviolin/what-are-your-unix-pipeline-commands-that-saved-you-from-lot-of-codingtime-7ok/comments/185j
+# Usage examples:
+#   some_command | ctrlc
+#   ctrlv | some_other_command
+#   ctrlv >> some_file
+alias ctrlc='xclip -selection clipboard -i'
+alias ctrlv='xclip -selection clipboard -o'
