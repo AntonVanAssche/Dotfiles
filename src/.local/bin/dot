@@ -17,9 +17,9 @@ declare blue="$(tput setaf 4 2> /dev/null)"
 Header() {
 cat << "EOF"
 
-                                  █▀▀▀ ▀█▀ █    █▀▀ █▀▀
-                                  █▀▀    █  █    █▀▀ ▀▀█
-                                ▀ ▀     ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀
+                              █▀▀▀ ▀█▀ █    █▀▀ █▀▀
+                              █▀▀   █  █    █▀▀ ▀▀█
+                            ▀ ▀    ▀▀▀ ▀▀▀  ▀▀▀ ▀▀▀
 EOF
 }
 
@@ -202,9 +202,6 @@ Update() {
     Execute "cp -r ./src/.bashrc $HOME" "Copying src/.bashrc → $HOME/.bashrc"
 
     Execute "cp -r ./src/.gitconfig $HOME" "Copying src/.gitconfig → $HOME/.gitconfig"
-
-    # Execute "cp -r ./src/.vim/ $HOME" "Copying src/.vim/ → $HOME/.vim/"
-    # Execute "cp -r ./src/.vimrc $HOME" "Copying src/.vimrc → $HOME/.vimrc"
 
     Execute "cp -r ./src/.config/ $HOME" "Copying src/.config/ → $HOME/.config/"
     Execute "cp -r ./src/.local/ $HOME/" "Copying src/.local/ → $HOME/.local/"
