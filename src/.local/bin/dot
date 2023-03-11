@@ -23,16 +23,6 @@ cat << "EOF"
 EOF
 }
 
-# Ask for the administrator password upfront.
-AskForSudo() {
-    sudo -v -p "    [?] Enter Your password to continue: "
-    while true; do
-        sudo -n true
-        sleep 60
-        kill -0 "$$" || exit
-    done &> /dev/null &
-}
-
 # Colors
 PrintResult() {
     if [ "$1" -eq 0 ]; then
