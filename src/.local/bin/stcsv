@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+# stcsv: Spotify To CSV
+# Description: Extracts track and artist information from a Spotify playlist and saves it to a CSV file.
+# Disclaimer: The script currently only works for playlists with a maximum of 100 tracks.
+# Usage: stcsv
+
+import csv, re, spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+
+CLIENT_ID = "<YOUR-CLIENT-ID>"
+CLIENT_SECRET = "<YOUR-CLIENT-SECRET>"
+
+# Ask user to enter output file name.
+OUTPUT_FILE_NAME = input("Enter output file name: ")
+
+# Ask user to enter playlist link.
+PLAYLIST_LINK = input("Enter playlist link: ")
+
+# Authenticate with Spotify API.
+client_credentials_manager = SpotifyClientCredentials(
+    client_id=CLIENT_ID, client_secret=CLIENT_SECRET
+)
+
+# Create Spotify session object.
+session = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+# Extract playlist URI from link.
+if match := re.match(r"https://open.spotify.com/playlist/(.*)\?", PLAYLIST_LINK):
+    playlist_uri = match.groups()[0]
+else:
+    raise ValueError("Expected format: https://open.spotify.com/playlist/...")
+
+# Get playlist tracks (maximum 100).
+tracks = session.playlist_tracks(playlist_uri)["items"]
+
+# Write tracks to CSV file.
+with open(OUTPUT_FILE_NAME, "w", encoding="utf-8") as file:
+    writer = csv.writer(file)
+
+    # Write header row.
+    # Format: track, artist
+    writer.writerow(["track", "artist"])
+
+    # Extract track and artist information.
+    for track in tracks:
+        name = track["track"]["name"]
+        artists = ", ".join(
+            [artist["name"] for artist in track["track"]["artists"]]
+        )
+
+        # Write track and artist information to CSV file.
+        writer.writerow([name, artists])
