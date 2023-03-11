@@ -174,9 +174,9 @@ Help() {
     Usage: $SCRIPT_NAME [OPTION]
 
     Options:
-    -h, --help                        - Display this help and exit.
-    -d, --download                  - Download dotfiles without updating your current configurations.
-    -u, --update                     - Update dotfiles.
+    -h, --help                 - Display this helpful information ;).
+    -d, --download             - Download dotfiles without updating your current configurations.
+    -u, --update               - Update dotfiles.
     "
 }
 
