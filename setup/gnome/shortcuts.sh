@@ -22,25 +22,19 @@ SetKeybindings() {
 
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "${stringKeybinds}"
 
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" binding 'F10'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" command 'spotify'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" name 'Launch Spotify'
+    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" binding '<Super>t'
+    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" command 'env -u WAYLAND_DISPLAY alacritty'
+    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[0]}" name 'Launch Alacritty'
 
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" binding 'F11'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" command 'bash /home/anton/.local/bin/spotifynotifications'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[1]}" name 'Spotify notification'
+    # Doesn't work on Wayland:
+    # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" binding '<Shift><Super>r'
+    # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" command 'killall -HUP gnome-shell'
+    # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" name 'Reload gnome-shell'
 
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" binding '<Super>t'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" command 'alacritty'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[2]}" name 'Launch Alacritty'
-
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" binding '<Shift><Super>r'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" command 'killall -HUP gnome-shell'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[3]}" name 'Reload gnome-shell'
-
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" binding '<Super>slash'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" command 'rofi -show drun'
-    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" name 'Launch Rofi in run mode'
+    # Doesn't work on Wayland:
+    # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" binding '<Super>slash'
+    # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" command 'rofi -show drun'
+    # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${keybinds[4]}" name 'Launch Rofi in run mode'
 }
 
 Execute "SetKeybindings" "Setting custom keybindings"
