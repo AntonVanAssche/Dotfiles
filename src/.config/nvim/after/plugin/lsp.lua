@@ -173,7 +173,7 @@ end
 
 local servers = {
     'eslint',
-    'sumneko_lua',
+    'lua_ls',
     'clangd',
     'bashls',
     'pyright',
@@ -214,7 +214,7 @@ end
 
 for _, server in pairs(servers) do
 
-    if server == 'sumneko_lua' then
+    if server == 'lua_ls' then
         lspconfig[server].setup({
             on_attach = M.on_attach,
             capabilities = M.capabilities,
