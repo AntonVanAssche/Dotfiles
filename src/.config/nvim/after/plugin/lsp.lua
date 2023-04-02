@@ -41,7 +41,7 @@ local cmp_format = {
     fields = { 'kind', 'abbr', 'menu' },
     format = function(entry, vim_item)
         local kind = lspkind.cmp_format({ mode = 'symbol_text', maxwidth = 50 })(entry, vim_item)
-        local strings = vim.split(kind.kind, '%s', { trimempty = true })
+        local strings = vim.split(kind.kind, '%s')
         kind.kind = ' ' .. strings[1] .. ' '
         kind.menu = "    (" .. string.lower(strings[2]) .. ")"
 
