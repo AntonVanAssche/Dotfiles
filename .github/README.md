@@ -80,7 +80,7 @@ Below is a directory outline that will assist you in locating the configuration 
 │       ├── chat.sh                         # Script to install all chat applications I use on a daily basis.
 │       ├── develop.sh                      # Script to install the development tools I use.
 │       ├── misc.sh                         # Script to install miscellaneous applications.
-│       ├── music.sh                        # Script to install music players like Spotify and Lollypop.
+│       ├── music.sh                        # Script to install music players like Spotify.
 │       ├── office.sh                       # Script to install Office tools I use.
 │       ├── remove.sh                       # Script to remove unused applications from the default Fedora install.
 │       └── torrent.sh                      # Script to install some torrenting tools.
@@ -127,7 +127,7 @@ In summary, the setup process will:
 -   Install the applications / command-line tools used by me.
 -   Apply my Gnome-Shell preferences.
 
-However, the setup process will **NOT** install all of the Gnome-Shell extensions I use; only Gnoti and Pop-Shell will be installed.
+However, the setup process will **NOT** install all of the Gnome-Shell extensions I use; only Pop-Shell will be installed.
 
 ### One-liner
 
