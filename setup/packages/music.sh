@@ -15,6 +15,3 @@ InstallPackage "spotify-client" "Installing Spotify"
 Execute "curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh" "Installing spicetify"
 sudo chmod a+wr /lib64/spotify-client/
 sudo chmod a+wr /lib64/spotify-client/Apps -R
-
-# Install Lollypop
-InstallPackage "lollypop" "Installing Lollypop"
