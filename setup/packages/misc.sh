@@ -3,4 +3,8 @@
 printf "%b" "\n${blue} • Miscellaneous applications${normal}\n"
 
 # Install BashPass
-Execute 'bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/BashPass/master/scripts/install.sh)"' "Installing BashPass"
+(
+git clone https://github.com/AntonVanAssche/BashPass.git
+cd BashPass
+Execute "make install" "Installing BashPass"
+)
