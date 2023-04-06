@@ -17,8 +17,6 @@ Execute "sudo ninja -C build install" "Installing GTK theme"
 Execute "sudo dnf copr enable tcg/themes" "Enabling capitaine-cursors copr repository"
 InstallPackage "la-capitaine-cursor-theme" "Installing capitaine-cursors theme"
 
-Execute "pip3 install pywal" "Installing pywal"
-InstallPackage "rofi" "Installing Rofi"
 InstallPackage "glib2-devel ImageMagick" "Installing imagemagick"
 InstallPackage "nodejs-typescript" "Installing typescript"
 InstallPackage "gnome-shell-extension-pop-shell" "Installing pop-shell"
