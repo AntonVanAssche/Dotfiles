@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -o errexit # Abort on nonzero exit code.
+set -o nounset # Abort on unbound variable.
+set -o pipefail # Don't hide errors within pipes.
+
+[[ ! -d "${HOME}/Notes" ]] && \
+    mkdir -p "${HOME}/Notes/"
+
+noteFilename="${HOME}/Notes/Note-$(date +%Y-%m-%d).md"
+
+[[ ! -f ${noteFilename} ]] && { printf "# Notes for %(%d/%m/%Y)T" > "${noteFilename}"; }
+
+nvim -c "norm Go" \
+   -c "norm Go## $(date +%H:%M)" \
+   -c "norm G2o" \
+   -c "norm zz" \
+   -c "startinsert" "${noteFilename}"
