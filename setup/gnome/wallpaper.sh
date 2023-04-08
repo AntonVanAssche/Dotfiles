@@ -13,6 +13,6 @@ case ${wallpaper} in
     1| "Barbara Palvin") Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Barbara-Palvin.jpg" "Setting wallpaper 'Barbara Palvin'";;
     2| "Big-Sur") Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Big-Sur.jpg" "Setting wallpaper 'Big-Sur'";;
     3| "Cabin in the woods") Execute "wal -i ${wallpaperDir}/Cabin-in-the-woods.jpeg && gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Cabin-in-the-woods.jpeg" "Setting wallpaper 'Cabin in the woods'";;
-    4| "Fencng") Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Fencing.png" "Setting wallpaper 'Fencing'";;
+    4| "Fencing") Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Fencing.png" "Setting wallpaper 'Fencing'";;
     5| "Tate McRae") Execute "gsettings set org.gnome.desktop.background picture-uri ${wallpaperDir}/Tate-McRae.jpg" "Setting wallpaper 'Tate McRae'";;
 esac
