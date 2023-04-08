@@ -1,5 +1,0 @@
-#!/bin/bash
-
-(cat ~/.cache/wal/sequences &)
-cat ~/.cache/wal/sequences
-source "${HOME}/.cache/wal/colors-tty.sh"
