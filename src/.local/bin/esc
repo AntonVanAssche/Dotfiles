@@ -13,4 +13,9 @@ if [[ -z "${filePath}" ]]; then
     exit 1
 fi
 
+if [[ -z "${EDITOR}" ]]; then
+    printf "Error: \${EDITOR} not set." >&2
+    printf "\n"
+    exit 1
+fi
 ${EDITOR} "${filePath}"
