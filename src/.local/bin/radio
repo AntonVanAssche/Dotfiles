@@ -16,6 +16,9 @@ usage() {
     printf "\tstubru-tijdloze\n"
     printf "\tmnm\n"
     printf "\tmnm-hits\n"
+    printf "\tstubru-bruut\n"
+    printf "\twilly\n"
+    printf "\twilly-class-x\n"
 }
 
 if [[ -z "${1}" ]] || \
@@ -29,8 +32,9 @@ case "${1}" in
     "radio1") stations=('http://icecast.vrtcdn.be/radio1-high.mp3');;
     "stubru") stations=('http://icecast.vrtcdn.be/stubru-high.mp3');;
     "stubru-tijdloze") stations=('http://icecast.vrtcdn.be/stubru_tijdloze-high-fallback.mp3');;
-    "mnm") stations=('http://icecast-servers.vrtcdn.be/mnm-high-fallback.mp3');;
-    "mnm-hits") stations=('http://icecast.vrtcdn.be/mnm_hits-high.mp3');;
+    "stubru-bruut") stations=('http://icecast.vrtcdn.be/stubru_bruut-high.mp3');;
+    "willy") stations=('https://icecast-qmusicbe-cdp.triple-it.nl/willy.aac');;
+    "willy-class-x") stations=('https://icecast-qmusicbe-cdp.triple-it.nl/willy-class-x.aac');;
     *) printf "Error: '%s' is not a valid option!\n" "${1}"
         usage
         exit 1
