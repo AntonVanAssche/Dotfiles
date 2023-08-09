@@ -8,6 +8,23 @@
 
 command -v mpv &> /dev/null || printf "mpv is required to run this script\n"
 
+usage() {
+    printf "%s [station]\n" "${0##*/}"
+    printf "Available stations:\n"
+    printf "\tradio1\n"
+    printf "\tstubru\n"
+    printf "\tstubru-tijdloze\n"
+    printf "\tmnm\n"
+    printf "\tmnm-hits\n"
+}
+
+if [[ -z "${1}" ]] || \
+    [[ "${1}" == "-h" ]] || \
+    [[ "${1}" == "--help" ]]; then
+    usage
+    exit 1
+fi
+
 case "${1}" in
     "radio1") stations=('http://icecast.vrtcdn.be/radio1-high.mp3');;
     "stubru") stations=('http://icecast.vrtcdn.be/stubru-high.mp3');;
@@ -15,6 +32,7 @@ case "${1}" in
     "mnm") stations=('http://icecast-servers.vrtcdn.be/mnm-high-fallback.mp3');;
     "mnm-hits") stations=('http://icecast.vrtcdn.be/mnm_hits-high.mp3');;
     *) printf "Error: '%s' is not a valid option!\n" "${1}"
+        usage
         exit 1
         ;;
 esac
