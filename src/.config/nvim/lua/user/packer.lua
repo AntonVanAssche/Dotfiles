@@ -128,7 +128,7 @@ return packer.startup(function(use)
     use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
 
     -- Cyclist
-    use { 'shebang-nvim/cyclist.vim' }
+    use { 'AntonVanAssche/cyclist.vim' }
 
     -- Toggle terminal
     use { 'akinsho/toggleterm.nvim' }
