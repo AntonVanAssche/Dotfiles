@@ -4,4 +4,3 @@ if not impatient_status_ok then
 end
 
 impatient.enable_profile()
-

@@ -114,7 +114,7 @@ local function lsp_keymaps(client, bufnr)
     keymap('i', '<C-h>', vim.lsp.buf.signature_help, opts)
     keymap('n', '<F2>', vim.lsp.buf.rename, opts)
     keymap('n', '<F4>', vim.lsp.buf.code_action, opts)
-    keymap('x', '<F4>', vim.lsp.buf.range_code_action, opts)
+    -- keymap('x', '<F4>', vim.lsp.buf.range_code_action, opts)
 end
 
 local M = {}

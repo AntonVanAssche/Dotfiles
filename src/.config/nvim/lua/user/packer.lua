@@ -124,6 +124,12 @@ return packer.startup(function(use)
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }
     use { 'aca/marp.nvim' }
 
+    -- LaTeX
+	use({
+		'lervag/vimtex',
+		ft = { 'tex', 'vimtex' },
+		opt = true,
+	})
     -- Live-server
     use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
 
@@ -136,7 +142,7 @@ return packer.startup(function(use)
     -- Self written plugins, GO CHECK THEM OUT!
     use { 'AntonVanAssche/date-time-inserter.nvim'}
     use {
-        'AntonVanAssche/md-headers.nvim',
+    'AntonVanAssche/md-headers.nvim',
         requires = {
             'nvim-lua/plenary.nvim'
         }

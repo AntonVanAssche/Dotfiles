@@ -3,7 +3,7 @@ if not marp_status_ok then
     return
 end
 
-vim .api.nvim_create_autocmd(
+vim.api.nvim_create_autocmd(
     'BufWinEnter', {
     pattern = '*.md',
     callback = function()
@@ -13,7 +13,7 @@ vim .api.nvim_create_autocmd(
     end
 })
 
-vim .api.nvim_create_autocmd(
+vim.api.nvim_create_autocmd(
     'BufWinEnter', {
     pattern = '*.md',
     callback = function()
