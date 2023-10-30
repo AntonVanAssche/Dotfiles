@@ -15,7 +15,6 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
     -   [Cloning the repo](#cloning-the-repo)
     -   [Installer preview](#installer-preview)
 -   [Update](#update)
--   [TODO](#todo)
 
 ## Setup Info
 
@@ -38,17 +37,13 @@ Here are some details about my setup:
 
 -   **Gnome-shell extensions**:
     -   [Alpabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)
-    -   [Bluetooth quick connect](https://github.com/bjarosze/gnome-bluetooth-quick-connect)
     -   [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator)
     -   [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
-    -   [GSConnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect)
     -   [Just Perfection](https://gitlab.gnome.org/jrahmatzadeh/just-perfection)
-    -   [Sound Input & Output Device Chooser](https://github.com/kgshank/gse-sound-output-device-chooser)
-    -   [Workspace Bar](https://github.com/fthx/workspaces-bar)
-        -   **Using dconf Editor**: navigate to `/org/gnome/desktop/wm/preferences/workspace-names` and change the custom value to `['www', 'code', 'music', 'virt', 'misc']`.
-        -   Make sure you have a fixed amount of 5 workspaces set.
     -   [Pop-Shell](https://github.com/pop-os/shell)
     -   [Rounded Window Corners](https://github.com/yilozt/rounded-window-corners)
+    -   [Space Bar](https://github.com/christopher-l/space-bar)
+        -   Make sure you have a fixed amount of 5 workspaces set.
 
 ## Repository Structure
 
@@ -144,7 +139,7 @@ If `wget` is not installed, try using `curl` instead:
 $ bash -c "$(curl -so - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
 ```
 
-f both options fail, you need to install either wget or `curl`.
+If both options fail, you need to install either wget or `curl`.
 Check if you have one of them installed with `command -v wget` or `command -v curl` and install the missing one with `sudo dnf install wget` or `sudo dnf install curl`.
 
 After the script is finished, reboot your system and activate the Gnome-Shell extensions through the extension manager with this command:
@@ -192,8 +187,3 @@ Options:
 -d, --download              - Download dotfiles without updating your current configurations.
 -u, --update                - Update dotfiles.
 ```
-
-## TODO
-
--   [ ] Automatically install all Gnome-Shell extensions
--   [ ] To be continued...
