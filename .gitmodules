@@ -16,4 +16,4 @@
 
 [submodule "ansible/roles/ansible-role-dotfiles"]
 	path = ansible/roles/ansible-role-dotfiles
-	url = https://github.com/AntonVanAssche/ansible-role-dotfiles/tree/master
+	url = https://github.com/AntonVanAssche/ansible-role-dotfiles
