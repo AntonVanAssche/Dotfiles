@@ -1,0 +1,6 @@
+---
+
+- name: Main playbook
+  hosts: localhost
+  roles:
+    - ansible-role-dotfiles

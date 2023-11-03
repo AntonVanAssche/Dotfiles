@@ -14,3 +14,6 @@
    path = src/.config/tmux/plugins/tmux-continuum
    url = https://github.com/tmux-plugins/tmux-continuum
 
+[submodule "ansible/roles/ansible-role-dotfiles"]
+	path = ansible/roles/ansible-role-dotfiles
+	url = https://github.com/AntonVanAssche/ansible-role-dotfiles/tree/master
