@@ -11,10 +11,6 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
 -   [Setup Info](#setup-info)
 -   [Repository Structure](#repository-structure)
 -   [Install](#install)
-    -   [One-liner](#one-liner)
-    -   [Cloning the repo](#cloning-the-repo)
-    -   [Installer preview](#installer-preview)
--   [Update](#update)
 
 ## Setup Info
 
@@ -45,145 +41,30 @@ Here are some details about my setup:
     -   [Space Bar](https://github.com/christopher-l/space-bar)
         -   Make sure you have a fixed amount of 5 workspaces set.
 
-## Repository Structure
-
-Below is a directory outline that will assist you in locating the configuration or script you wish to duplicate with ease.
-
-```
-.
-├── assets                                  # Directory containing desktop previews.
-├── .github                                 # Directory containing GitHub repository-related files.
-├── .gitignore                              # File containing list of files/folders to ignore by Git.
-├── .gitmodules                             # File containing list of dependencies.
-├── setup
-│   ├── dotfiles
-│   │   ├── dirs.sh                         # Script to create necessary directories.
-│   │   └── dotfiles.sh                     # Script to install dotfiles.
-│   ├── fonts
-│   │   └── fonts.sh                        # Script to install fonts required by my configurations.
-│   ├── gnome
-│   │   ├── conky.sh                        # Script to install and configure Conky.
-│   │   ├── defaults.sh                     # # Script to configure my Gnome-Shell defaults.
-│   │   ├── favorites.sh                    # Script to configure my dash.
-│   │   ├── gnoti.sh                        # Script to install Gnoti (a Gnome-Shell extension).
-│   │   ├── packages.sh                     # Script to install all dependencies required by my Gnome-Shell configuration.
-│   │   ├── privacy.sh                      # Script to make Gnome-Shell more privacy friendly.
-│   │   ├── shortcuts.sh                    # Script to configure my keyboard bindings.
-│   │   ├── theme.sh                        # Script to set system theme.
-│   │   └── wallpaper.sh                    # Script to set wallpaper.
-│   └── packages
-│       ├── chat.sh                         # Script to install all chat applications I use on a daily basis.
-│       ├── develop.sh                      # Script to install the development tools I use.
-│       ├── misc.sh                         # Script to install miscellaneous applications.
-│       ├── music.sh                        # Script to install music players like Spotify.
-│       ├── office.sh                       # Script to install Office tools I use.
-│       ├── remove.sh                       # Script to remove unused applications from the default Fedora install.
-│       └── torrent.sh                      # Script to install some torrenting tools.
-├── setup.sh                                # Main installation script.
-└── src
-    ├── .bash_profile                       # Bash configuration to load when logging into my system.
-    ├── .bashrc                             # Bash configuration to load when opening a new shell.
-    ├── .bashrc.d
-    │   ├── aliasses                        # Personal Bash aliases.
-    │   ├── bash.command-not-found          # Bash script to insult me when I type a command wrong.
-    │   ├── functions                       # Personal Bash functions.
-    │   └── prompt                          # Personal Bash prompt.
-    ├── .config
-    │   ├── alacritty                       # Alacritty configurations.
-    │   ├── autostart                       # Directory containing applications to start automatically when I log in.
-    │   ├── bat                             # Bat configuration.
-    │   ├── conky                           # Conky configuration.
-    │   ├── htop                            # htop configuration.
-    │   ├── nvim                            # Neovim configuration.
-    │   ├── rofi                            # Rofi configuration.
-    │   ├── spicetify                       # Spicetify configuration to customize Spotify client.
-    │   ├── tmux                            # Tmux plugins.
-    │   └── wget                            # Wget configuration.
-    ├── dnf                                 # DNF configuration mainly to speed up DNF.
-    ├── .gitconfig                          # Personal Git configuration.
-    ├── .local
-    │   └── bin                             # Directory containing scripts/binaries I regularly use.
-    ├── sudoers.d                           # Sudo configuration.
-    ├── .tmux.conf                          # Tmux configuration.
-    └── walls                               # Directory containing wallpapers I enjoy looking at! ;)
-```
-
 ## Install
 
-You have two options to install the dotfiles: manual copying or using the setup.sh script.
-Nonetheless, it is highly recommended that you comprehend the script's functionality before executing it, as some data will be overwritten automatically by the configurations in this project.
-So, be sure to backup your data beforehand if you wish to retain it.
+To install and configure my systen, I use a self written Ansible role.
+This role is designed to setup my system as I like it, but it can be easily customized to suit your needs.
 
-In summary, the setup process will:
+Some of the things this role does:
 
--   Download the dotfiles to your device.
--   Create additional directories.
--   Copy the dotfiles.
--   Install the applications / command-line tools used by me.
--   Apply my Gnome-Shell preferences.
+-   Install the tools I use regularly.
+-   Remove unwanted packages.
+-   Copy my dotfiles to their designated directory.
+-   Install my preferred fonts (Nerd Fonts, Ubuntu Mono and MS Fonts).
+-   Configure Gnome to my liking.
 
-However, the setup process will **NOT** install all of the Gnome-Shell extensions I use; only Pop-Shell will be installed.
-
-### One-liner
-
-If you need a quick way to install the dotfiles, you can use the one-liner command with the `setup.sh` script.
-Make sure you have `wget` installed and execute the following command in your terminal:
+To run the playbook, located in the `ansible` directory, you need to have Ansible installed.
 
 ```console
-$ bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
+$ sudo dnf install ansible
 ```
 
-If `wget` is not installed, try using `curl` instead:
+Once Ansible is installed, you can run the playbook with the following command:
+
+**NOTE**: This will overwrite any existing configuration files!
 
 ```console
-$ bash -c "$(curl -so - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
-```
-
-If both options fail, you need to install either wget or `curl`.
-Check if you have one of them installed with `command -v wget` or `command -v curl` and install the missing one with `sudo dnf install wget` or `sudo dnf install curl`.
-
-After the script is finished, reboot your system and activate the Gnome-Shell extensions through the extension manager with this command:
-
-```consle
-$ sudo system reboot
-```
-
-### Cloning the repo:
-
-Alternatively, you can clone the repository and directly run the `setup.sh` script from the directory.
-Execute these commands in your terminal:
-
-```console
-$ git clone --recursive https://github.com/AntonVanAssche/dotfiles.git
-$ cd dotfiles
-$ bash setup.sh
-```
-
-The `--recursive` option is needed because the repository contains Git submodules, which are repositories within a repository.
-Without the `--recursive` option, the submodules won't be cloned, and some functionalities won't work correctly.
-Therefore, including the `--recursive` option ensures that all necessary submodules are cloned along with the main repository.
-
-
-### Installer preview
-
-**NOTE**: The installer preview may not be completely up-to-date.
-
-![Installer preview](/assets/installer-preview.gif)
-
-## Update
-
-To ensure that all my configurations and scripts are up-to-date with the latest changes, I frequently add new things to the repository.
-To automate this process, I created a script called `dot` that simply clones the repository and copies the latest version of the dotfiles to their designated directory.
-While it's not particularly fancy (it's almost the same as the `setup.sh` script), it does the job efficiently and effectively.
-
-It's important to note that the dot script will **OVERWRITE** any file that has a location in the `src` directory.
-Therefore, if you want to keep your data, it's recommended to make a **BACKUP** of it before running the script.
-
-```
-Usage: dot [OPTION]
-
-Options:
--h, --help                  - Display this help and exit.
--d, --download              - Download dotfiles without updating your current configurations.
--u, --update                - Update dotfiles.
+$ cd ansible
+$ ansible-playbook playbook.yml
 ```
