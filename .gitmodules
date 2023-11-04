@@ -1,19 +1,24 @@
 [submodule "ulauncher-adwaita-darkish"]
-   path = src/.config/ulauncher/user-themes/ulauncher-adwaita-darkish
-   url = https://github.com/shepda/ulauncher-adwaita-darkish
+    path = src/.config/ulauncher/user-themes/ulauncher-adwaita-darkish
+    url = https://github.com/shepda/ulauncher-adwaita-darkish
+    branch = main
 
 [submodule "now-clocking"]
-	path = src/.config/conky/now-clocking
-	url = https://github.com/AntonVanAssche/now-clocking
+     path = src/.config/conky/now-clocking
+     url = https://github.com/AntonVanAssche/now-clocking
+     branch = master
 
 [submodule "tmux-resurrect"]
-   path = src/.config/tmux/plugins/tmux-resurrect
-   url = https://github.com/tmux-plugins/tmux-resurrect
+    path = src/.config/tmux/plugins/tmux-resurrect
+    url = https://github.com/tmux-plugins/tmux-resurrect
+    branch = master
 
 [submodule "tmux-continuum"]
    path = src/.config/tmux/plugins/tmux-continuum
    url = https://github.com/tmux-plugins/tmux-continuum
+   branch = master
 
 [submodule "ansible/roles/ansible-role-dotfiles"]
-	path = ansible/roles/ansible-role-dotfiles
-	url = https://github.com/AntonVanAssche/ansible-role-dotfiles
+    path = ansible/roles/ansible-role-dotfiles
+    url = https://github.com/AntonVanAssche/ansible-role-dotfiles
+    branch = master
