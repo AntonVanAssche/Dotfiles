@@ -1,0 +1,10 @@
+Xft.dpi: 120
+Xcursor.theme: "Capitaine Cursors"
+
+Xft.antialias:                  1
+Xft.autohint:                   1
+Xft.hinting:                    true
+Xft.hintstyle:                  hintslight
+Xft.rgba:                       rgb
+Xft.lcdfilter:                  lcddefault
+
