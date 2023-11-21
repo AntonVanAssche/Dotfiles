@@ -14,8 +14,6 @@ usage() {
     printf "\tradio1\n"
     printf "\tstubru\n"
     printf "\tstubru-tijdloze\n"
-    printf "\tmnm\n"
-    printf "\tmnm-hits\n"
     printf "\tstubru-bruut\n"
     printf "\twilly\n"
     printf "\twilly-class-x\n"
@@ -41,4 +39,7 @@ case "${1}" in
         ;;
 esac
 
-mpv "${stations[@]}" || exit 1
+printf "\033c"
+mpv --term-status-msg="" "${stations[@]}" |\
+    sed -e 's/(+).*//g' -e 's/icy-title://g' -e "s/File tags:/${1}/g" -e 's/AO:.*//g' -e 's/\[.*\]//g' || \
+    exit 1
