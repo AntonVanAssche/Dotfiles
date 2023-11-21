@@ -1,15 +1,24 @@
--- `:%s/onedark/purify/g` in case you want purify as your default colorscheme.
-
-function SetColorscheme(color)
-    color = color or "onedark"
-    vim.cmd.colorscheme(color)
-
-    -- Set the background to none so that the background color is transparent
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
-    -- Set the comments to 'bold', 'italic' and 'grey'.
-    vim.api.nvim_set_hl(0, "Comment", { fg = '#545A65', bold = true, italic = true })
+local onedark_status_ok, onedark = pcall(require, 'onedark')
+if not onedark_status_ok then
+    return
 end
 
-SetColorscheme()
+onedark.setup {
+    style = "dark",
+    transparent = true,
+    term_colors = true,
+
+    lualine = {
+        transparent = true,
+    },
+}
+
+local color = color or "onedark"
+vim.cmd.colorscheme(color)
+
+local colorizer_status_ok, colorizer = pcall(require, 'colorizer')
+if not colorizer_status_ok then
+    return
+end
+
+colorizer.setup()

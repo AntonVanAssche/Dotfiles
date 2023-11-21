@@ -47,17 +47,14 @@ vim.keymap.set('n', '<leader>ps', ':PackerStatus<CR>', { noremap = true, silent 
 return packer.startup(function(use)
   -- General
     use { 'wbthomason/packer.nvim' }
-    use { 'windwp/nvim-autopairs' }
     use { 'numToStr/Comment.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
-    use { 'kyazdani42/nvim-tree.lua' }
-    use { 'lewis6991/impatient.nvim' }
+    use { 'nvim-tree/nvim-tree.lua' }
     use { 'lukas-reineke/indent-blankline.nvim' }
     use { 'prettier/vim-prettier',
         run = 'npm install --frozen-lockfile --production',
         ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html' }
     }
-    use { 'kylechui/nvim-surround' }
 
     -- Better undo
     use { 'mbbill/undotree' }
@@ -71,8 +68,7 @@ return packer.startup(function(use)
     use { 'norcalli/nvim-colorizer.lua' }
 
     -- Colorschemes
-    use { 'joshdick/onedark.vim' }
-    use { 'Metallum19/purify-vim' }
+    use { 'navarasu/onedark.nvim' }
 
     -- LSP
     use {
@@ -102,10 +98,6 @@ return packer.startup(function(use)
         }
     }
 
-    -- Harpoon
-    use { 'nvim-lua/plenary.nvim' }
-    use { 'ThePrimeagen/harpoon' }
-
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim',
@@ -118,31 +110,19 @@ return packer.startup(function(use)
 
     -- Git
     use { 'lewis6991/gitsigns.nvim' }
-    use { 'tpope/vim-fugitive' }
 
     -- Markdown preview
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }
-    use { 'aca/marp.nvim' }
-
-    -- LaTeX
-	use({
-		'lervag/vimtex',
-		ft = { 'tex', 'vimtex' },
-		opt = true,
-	})
-    -- Live-server
-    use { 'turbio/bracey.vim',  run = 'npm install --prefix server' }
 
     -- Cyclist
     use { 'AntonVanAssche/cyclist.vim' }
 
-    -- Toggle terminal
-    use { 'akinsho/toggleterm.nvim' }
-
     -- Self written plugins, GO CHECK THEM OUT!
     use { 'AntonVanAssche/date-time-inserter.nvim'}
+    -- use { '/home/anton/Projects/date-time-inserter.nvim'}
     use {
     'AntonVanAssche/md-headers.nvim',
+    -- '/home/anton/Projects/md-headers.nvim',
         requires = {
             'nvim-lua/plenary.nvim'
         }

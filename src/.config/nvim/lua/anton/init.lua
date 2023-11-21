@@ -1,8 +1,8 @@
-require('user.autocmds')
-require('user.functions')
-require('user.mappings')
-require('user.packer')
-require('user.settings')
+require('anton.autocmds')
+require('anton.functions')
+require('anton.mappings')
+require('anton.packer')
+require('anton.settings')
 
 local augroup = vim.api.nvim_create_augroup
 local antonGroup = augroup('Anton', {})

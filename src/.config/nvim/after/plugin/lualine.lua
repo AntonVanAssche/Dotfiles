@@ -39,7 +39,7 @@ local bubbles_theme = {
 
 lualine.setup {
     options = {
-        theme = bubbles_theme,
+        theme = "onedark",
         component_separators = '|',
         section_separators = { left = '', right = '' },
     },

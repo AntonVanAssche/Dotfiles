@@ -32,12 +32,12 @@ SL = function()
     end
 end
 
--- Toggle the colorcolumn on the 80th column.
+-- Toggle the colorcolumn on the 100th column.
 -- SCC: Show ColorColumn
 SCC = function()
     local value = vim.api.nvim_get_option_value("colorcolumn", {})
     if value == "0" then
-        vim.api.nvim_set_option_value("colorcolumn", "80", {})
+        vim.api.nvim_set_option_value("colorcolumn", "100", {})
         vim.cmd [[highlight colorcolumn guibg=#E06C75]]
     else
         vim.api.nvim_set_option_value("colorcolumn", "0", {})
