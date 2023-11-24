@@ -3,24 +3,63 @@ if not lspkind_status_ok then
   return
 end
 
-lspkind.init()
+local luasnip_status_ok, luasnip = pcall(require, 'luasnip')
+if not luasnip_status_ok then
+  return
+end
+
+lspkind.init({
+    symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+        Copilot = "",
+        TabNine = "",
+    },
+})
 
 local cmp_status_ok, cmp = pcall(require, 'cmp')
 if not cmp_status_ok then
   return
 end
 
+local copilot_cmp_ok, copilot_cmp = pcall(require, 'copilot_cmp')
+if not copilot_cmp_ok then
+    return
+end
+
+copilot_cmp.setup()
+
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+end
+
 local cmp_mappings = {
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-e>'] = cmp.mapping(function(fallback)
-        cmp.mapping.abort()
-        local copilot_keys = vim.fn['copilot#Accept']()
-        if copilot_keys ~= '' then
-            vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-        else
-            fallback()
-        end
-    end),
     ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -29,9 +68,10 @@ local cmp_mappings = {
 }
 
 local cmp_sources = {
+    { name = 'copilot', group_index = 1, priority = 100 },
+    { name = 'nvim_lsp', group_index = 1 },
+    { name = 'cmp_tabnine', group_index = 1 },
     { name = "buffer", keyword_length = 4 },
-    { name = 'nvim_lsp' },
-    { name = 'cmp_tabnine' },
     { name = 'luasnip' },
     { name = 'treesitter' },
     { name = 'path' },
@@ -114,7 +154,6 @@ local function lsp_keymaps(client, bufnr)
     keymap('i', '<C-h>', vim.lsp.buf.signature_help, opts)
     keymap('n', '<F2>', vim.lsp.buf.rename, opts)
     keymap('n', '<F4>', vim.lsp.buf.code_action, opts)
-    -- keymap('x', '<F4>', vim.lsp.buf.range_code_action, opts)
 end
 
 local M = {}

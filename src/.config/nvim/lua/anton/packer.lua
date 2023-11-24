@@ -82,6 +82,7 @@ return packer.startup(function(use)
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
+            { 'zbirenbaum/copilot-cmp', requires = 'zbirenbaum/copilot.lua' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'saadparwaiz1/cmp_luasnip' },
@@ -90,7 +91,7 @@ return packer.startup(function(use)
             { 'hrsh7th/cmp-cmdline' },
             { 'onsails/lspkind.nvim' },
             { 'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp' },
-            { 'github/copilot.vim' },
+            -- { 'github/copilot.vim' },
 
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
