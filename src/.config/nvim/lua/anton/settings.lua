@@ -68,3 +68,31 @@ opt.hlsearch = true
 -- Remeber the last cursor position. Neovim doesn't remember the cursor
 -- position when you close a buffer. This is a workaround.
 vim.cmd [[ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
+
+-- Clipboard support on Wayland
+vim.g.clipboard = {
+    name = 'myClipboard',
+    copy = {
+        ['+'] = 'wl-copy',
+        ['*'] = 'wl-copy',
+    },
+    paste = {
+        ['+'] = 'wl-paste',
+        ['*'] = 'wl-paste',
+    },
+    cache_enabled = 1,
+}
+
+-- Clipboard support on X11
+-- vim.g.clipboard = {
+--     name = 'myClipboard',
+--     copy = {
+--         ['+'] = 'xsel',
+--         ['*'] = 'xsel',
+--     },
+--     paste = {
+--         ['+'] = 'xsel',
+--         ['*'] = 'xsel',
+--     },
+--     cache_enabled = 1,
+-- }
