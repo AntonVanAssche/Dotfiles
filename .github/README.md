@@ -11,9 +11,7 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
 -   [Setup Info](#setup-info)
 -   [Repository Structure](#repository-structure)
 -   [Install](#install)
-    -   [One-liner](#one-liner)
-    -   [Cloning the repo](#cloning-the-repo)
-    -   [Installer preview](#installer-preview)
+    -   [Ansible](#ansible)
 -   [Update](#update)
 
 ## Setup Info
@@ -55,30 +53,6 @@ Below is a directory outline that will assist you in locating the configuration 
 ├── .github                                 # Directory containing GitHub repository-related files.
 ├── .gitignore                              # File containing list of files/folders to ignore by Git.
 ├── .gitmodules                             # File containing list of dependencies.
-├── setup
-│   ├── dotfiles
-│   │   ├── dirs.sh                         # Script to create necessary directories.
-│   │   └── dotfiles.sh                     # Script to install dotfiles.
-│   ├── fonts
-│   │   └── fonts.sh                        # Script to install fonts required by my configurations.
-│   ├── gnome
-│   │   ├── conky.sh                        # Script to install and configure Conky.
-│   │   ├── defaults.sh                     # # Script to configure my Gnome-Shell defaults.
-│   │   ├── favorites.sh                    # Script to configure my dash.
-│   │   ├── gnoti.sh                        # Script to install Gnoti (a Gnome-Shell extension).
-│   │   ├── packages.sh                     # Script to install all dependencies required by my Gnome-Shell configuration.
-│   │   ├── privacy.sh                      # Script to make Gnome-Shell more privacy friendly.
-│   │   ├── shortcuts.sh                    # Script to configure my keyboard bindings.
-│   │   ├── theme.sh                        # Script to set system theme.
-│   │   └── wallpaper.sh                    # Script to set wallpaper.
-│   └── packages
-│       ├── chat.sh                         # Script to install all chat applications I use on a daily basis.
-│       ├── develop.sh                      # Script to install the development tools I use.
-│       ├── misc.sh                         # Script to install miscellaneous applications.
-│       ├── music.sh                        # Script to install music players like Spotify.
-│       ├── office.sh                       # Script to install Office tools I use.
-│       ├── remove.sh                       # Script to remove unused applications from the default Fedora install.
-│       └── torrent.sh                      # Script to install some torrenting tools.
 ├── setup.sh                                # Main installation script.
 └── src
     ├── .bash_profile                       # Bash configuration to load when logging into my system.
@@ -110,80 +84,52 @@ Below is a directory outline that will assist you in locating the configuration 
 
 ## Install
 
-You have two options to install the dotfiles: manual copying or using the setup.sh script.
-Nonetheless, it is highly recommended that you comprehend the script's functionality before executing it, as some data will be overwritten automatically by the configurations in this project.
-So, be sure to backup your data beforehand if you wish to retain it.
+### What will be configured
 
-In summary, the setup process will:
+This dotfiles repository automates the configuration of my system using Ansible. The configuration is divided into three custom roles:
 
--   Download the dotfiles to your device.
--   Create additional directories.
--   Copy the dotfiles.
--   Install the applications / command-line tools used by me.
--   Apply my Gnome-Shell preferences.
+#### Base
 
-However, the setup process will **NOT** install all of the Gnome-Shell extensions I use; only Pop-Shell will be installed.
+The "base" role will set up your system with all the essentials for your daily workflow.
+This includes installing Alacritty, Neovim, and other necessary packages.
+Additionally, it will symlink all dotfiles from this repository to their respective locations.
 
-### One-liner
+#### Gnome
 
-If you need a quick way to install the dotfiles, you can use the one-liner command with the `setup.sh` script.
-Make sure you have `wget` installed and execute the following command in your terminal:
+The "gnome" role focuses on configuring the Gnome Desktop Environment.
+It takes care of the visual aspects, setting the theme and wallpaper, installing Conky and the widget.
+Furthermore, it customizes the applications in the dock based on your preferences.
 
-```console
-$ bash -c "$(wget -qO - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
-```
+#### Bspwm
 
-If `wget` is not installed, try using `curl` instead:
+The "bspwm" role is designed for configuring the bspwm window manager.
+This role is not executed by default; you can switch between Gnome and bspwm by uncommenting/commenting the relevant lines in the `ansible/init.yml` playbook.
+The "bspwm" role installs necessary packages like sxhkd and rofi, and it symlinks the configuration files to their appropriate locations.
 
-```console
-$ bash -c "$(curl -so - https://raw.githubusercontent.com/AntonVanAssche/dotfiles/master/setup.sh)"
-```
+### Ansible
 
-If both options fail, you need to install either wget or `curl`.
-Check if you have one of them installed with `command -v wget` or `command -v curl` and install the missing one with `sudo dnf install wget` or `sudo dnf install curl`.
-
-After the script is finished, reboot your system and activate the Gnome-Shell extensions through the extension manager with this command:
-
-```consle
-$ sudo system reboot
-```
-
-### Cloning the repo:
-
-Alternatively, you can clone the repository and directly run the `setup.sh` script from the directory.
-Execute these commands in your terminal:
+To initiate the configuration process, ensure you have Ansible installed on your home server, which serves as the control node.
+Alternatively, you can also use your `localhost` as the control node.
+This can be done by changing the `ansible/inventory.yml` file.
+Specify the inventory file when running Ansible commands. For example:
 
 ```console
-$ git clone --recursive https://github.com/AntonVanAssche/dotfiles.git
-$ cd dotfiles
-$ bash setup.sh
+$ ansible-playbook -i ansible/inventory.yml ansible/init.yml
 ```
 
-The `--recursive` option is needed because the repository contains Git submodules, which are repositories within a repository.
-Without the `--recursive` option, the submodules won't be cloned, and some functionalities won't work correctly.
-Therefore, including the `--recursive` option ensures that all necessary submodules are cloned along with the main repository.
+#### Configuration
 
+Ensure to customize each role by creating host-specific configuration files.
+For instance, if your host is called: `fedorable`, create a file named `ansible/host_vars/fedorable.yml` with the necessary configurations.
+Use this file as a starting point, and remember to replicate the filename for each host (e.g., `bob.yml` for a host named `bob`).
 
-### Installer preview
-
-**NOTE**: The installer preview may not be completely up-to-date.
-
-![Installer preview](/assets/installer-preview.gif)
+If you're using the `localhost` as the control node, and want to configure this instance, use `localhost.yml` instead.
 
 ## Update
 
-To ensure that all my configurations and scripts are up-to-date with the latest changes, I frequently add new things to the repository.
-To automate this process, I created a script called `dot` that simply clones the repository and copies the latest version of the dotfiles to their designated directory.
-While it's not particularly fancy (it's almost the same as the `setup.sh` script), it does the job efficiently and effectively.
+Keep your system up to date by regularly pulling the latest changes from this repository and rerunning the Ansible playbook:
 
-It's important to note that the dot script will **OVERWRITE** any file that has a location in the `src` directory.
-Therefore, if you want to keep your data, it's recommended to make a **BACKUP** of it before running the script.
-
-```
-Usage: dot [OPTION]
-
-Options:
--h, --help                  - Display this help and exit.
--d, --download              - Download dotfiles without updating your current configurations.
--u, --update                - Update dotfiles.
+```console
+$ git pull origin main
+$ ansible-playbook -i ansible/inventory.yml ansible/init.yml
 ```
