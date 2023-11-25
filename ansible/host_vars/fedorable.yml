@@ -69,9 +69,16 @@ base_dotfiles_repo: git@github.com:AntonVanAssche/ansible-role-system-config.git
 base_dotfiles_dest: "{{ ansible_env.HOME }}/Projects/Dotfiles"
 
 base_dirs:
-  - "{{ ansible_env.HOME }}/isos"
+  - "{{ ansible_env.HOME }}/Documents/"
+  - "{{ ansible_env.HOME }}/Downloads/"
+  - "{{ ansible_env.HOME }}/Downloads/Torrents/"
+  - "{{ ansible_env.HOME }}/Music/"
+  - "{{ ansible_env.HOME }}/Pictures/"
+  - "{{ ansible_env.HOME }}/Pictures/Screenshots/"
   - "{{ ansible_env.HOME }}/Projects"
-  - "{{ ansible_env.HOME }}/Downloads/Torrents"
+  - "{{ ansible_env.HOME }}/Videos/"
+  - "{{ ansible_env.HOME }}/Videos/Screencasts/"
+  - "{{ ansible_env.HOME }}/isos"
 
 base_tmux_plugins:
   - "https://github.com/tmux-plugins/tmux-resurrect.git"
