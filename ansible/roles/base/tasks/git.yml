@@ -1,0 +1,9 @@
+# roles/base/tasks/git.yml
+---
+- name: Git | Symlinking .gitconfig
+  file:
+    src: "{{ base_dotfiles_dest }}/src/.gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    state: link
+    recursive: yes
+    force: yes

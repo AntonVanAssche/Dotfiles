@@ -1,0 +1,28 @@
+# roles/base/tasks/fonts.yml
+---
+- name: Fonts | Download specified fonts
+  get_url:
+    url: "{{ item }}"
+    mode: 644
+  loop:
+    - "{{ base_fonts }}"
+
+- name: Fonts | Extract specified fonts
+  shell: |
+    unzip '*.zip' -d '{{ ansible_env.HOME }}/.local/share/fonts/'
+
+- name: Fonts | Installing Microsoft fonts
+  dnf:
+    name:
+      - cabextract
+      - xorg-x11-font-utils
+      - https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    state: present
+
+- name: Fonts | Updating font cache
+  shell: fc-cache -fv
+
+- name: Fonts | Cleaning up downloaded ZIP files
+  file:
+    path: "*.zip"
+    state: absent

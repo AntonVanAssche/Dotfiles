@@ -1,0 +1,6 @@
+---
+base_repositories_rpm: []
+base_repositories_repo: []
+base_install_packages: []
+base_remove_packages: []
+base_tmux_plugins: []

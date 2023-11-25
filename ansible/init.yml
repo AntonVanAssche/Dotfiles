@@ -1,0 +1,12 @@
+---
+- name: Basic Configuration
+  hosts: all
+  roles:
+    - base
+
+- name: Desktop Configuration
+  hosts:
+    - fedorable
+    - pisa
+  roles:
+    - desktop
