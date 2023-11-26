@@ -49,7 +49,7 @@
     name: "{{ item }}"
     state: installed
   with_items:
-    - "{{ base_remove_packages }}"
+    - "{{ base_install_packages }}"
   become: true
 
 - name: Install | Ensure all updates are installed
