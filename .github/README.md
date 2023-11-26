@@ -10,9 +10,13 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
 
 -   [Setup Info](#setup-info)
 -   [Repository Structure](#repository-structure)
--   [Install](#install)
-    -   [Ansible](#ansible)
--   [Update](#update)
+-   [Installation](#installation)
+    -   [Prerequisites](#prerequisites)
+    -   [Inventory](#inventory)
+    -   [Configuration](#configuration)
+    -   [Ansible Vault (Sensitive Vars)](#ansible-vault-(sensitive-vars))
+    -   [Usage](#usage)
+-   [Updating](#updating)
 
 ## Setup Info
 
@@ -53,7 +57,6 @@ Below is a directory outline that will assist you in locating the configuration 
 ├── .github                                 # Directory containing GitHub repository-related files.
 ├── .gitignore                              # File containing list of files/folders to ignore by Git.
 ├── .gitmodules                             # File containing list of dependencies.
-├── setup.sh                                # Main installation script.
 └── src
     ├── .bash_profile                       # Bash configuration to load when logging into my system.
     ├── .bashrc                             # Bash configuration to load when opening a new shell.
@@ -82,54 +85,68 @@ Below is a directory outline that will assist you in locating the configuration 
     └── walls                               # Directory containing wallpapers I enjoy looking at! ;)
 ```
 
-## Install
+## Installation
 
-### What will be configured
+### Prerequisites
 
-This dotfiles repository automates the configuration of my system using Ansible. The configuration is divided into three custom roles:
-
-#### Base
-
-The "base" role will set up your system with all the essentials for your daily workflow.
-This includes installing Alacritty, Neovim, and other necessary packages.
-Additionally, it will symlink all dotfiles from this repository to their respective locations.
-
-#### Gnome
-
-The "gnome" role focuses on configuring the Gnome Desktop Environment.
-It takes care of the visual aspects, setting the theme and wallpaper, installing Conky and the widget.
-Furthermore, it customizes the applications in the dock based on your preferences.
-
-#### Bspwm
-
-The "bspwm" role is designed for configuring the bspwm window manager.
-This role is not executed by default; you can switch between Gnome and bspwm by uncommenting/commenting the relevant lines in the `ansible/init.yml` playbook.
-The "bspwm" role installs necessary packages like sxhkd and rofi, and it symlinks the configuration files to their appropriate locations.
-
-### Ansible
-
-To initiate the configuration process, ensure you have Ansible installed on your home server, which serves as the control node.
-Alternatively, you can also use your `localhost` as the control node.
-This can be done by changing the `ansible/inventory.yml` file.
-Specify the inventory file when running Ansible commands. For example:
+Ensure that you have Ansible installed on a server/desktop, which serves as the control node.
+This may also be `localhost`, but I prefer to use a separate server/desktop to manage my dotfiles.
 
 ```console
-$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-become-pass
+$ sudo dnf install ansible
 ```
 
-#### Configuration
+### Inventory
+
+Create an inventory file (e.g. `ansible/inventory.yml`) with the following contents:
+
+```yml
+servers:
+  vars:
+    ansible_user: <username>
+    ansible_become: true
+  hosts:
+    fedorable:
+      ansible_host: <ip_address>
+      ansible_become_pass: "{{ fedorable_become_pass }}" # Variable will be defined in vaulted_vars.yml
+      ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/<ssh_private_key>/"
+```
+
+### Configuration
 
 Ensure to customize each role by creating host-specific configuration files.
-For instance, if your host is called: `fedorable`, create a file named `ansible/host_vars/fedorable.yml` with the necessary configurations.
-Use this file as a starting point, and remember to replicate the filename for each host (e.g., `bob.yml` for a host named `bob`).
+Use `ansible/host_vars/fedorable.yml` as a starting point, and replicate the filename for each host (e.g., `bob.yml` for a host named `bob`).
 
-If you're using the `localhost` as the control node, and want to configure this instance, use `localhost.yml` instead.
+When configuring `local` hosts, ensure the configuration file is called `localhost.yml`.
 
-## Update
+### Ansible Vault (Sensitive Vars)
 
-Keep your system up to date by regularly pulling the latest changes from this repository and rerunning the Ansible playbook:
+Create an Ansible vault to securely store the `ansible_become_pass` variable.
+This makes it easier to configure multiple instances, without having to remember the password for each host.
 
 ```console
-$ git pull origin main
-$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-become-pass
+$ ansible-vault create ansible/vaulted_vars.yml
+```
+
+Add sensitive information to the vault, and save the file.
+
+```yml
+<hostname>_become_pass: "<password>"
+```
+
+### Usage
+
+Run the Ansible playbook to apply the configurations:
+
+```console
+$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-vault-pass
+```
+
+## Updating
+
+Keep your system up to date by pulling the latest changes from this repository and rerunning the Ansible playbook:
+
+```console
+$ git pull origin master
+$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-vault-pass
 ```
