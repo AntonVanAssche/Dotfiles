@@ -12,6 +12,14 @@
     mode: 0644
   become: true
 
+- name: Install | Ensure specified RPM keys are imported
+  rpm_key:
+    key: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ base_repositories_rpm_keys }}"
+  become: true
+
 - name: Install | Ensure specified external repositories are installed from .rpm files
   package:
     name: "{{ item }}"
