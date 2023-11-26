@@ -114,7 +114,7 @@ This can be done by changing the `ansible/inventory.yml` file.
 Specify the inventory file when running Ansible commands. For example:
 
 ```console
-$ ansible-playbook -i ansible/inventory.yml ansible/init.yml
+$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-become-pass
 ```
 
 #### Configuration
@@ -131,5 +131,5 @@ Keep your system up to date by regularly pulling the latest changes from this re
 
 ```console
 $ git pull origin main
-$ ansible-playbook -i ansible/inventory.yml ansible/init.yml
+$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-become-pass
 ```
