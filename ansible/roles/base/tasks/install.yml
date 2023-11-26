@@ -3,51 +3,49 @@
 # Configure the package manager.
 # Add repositories, install/remove packages
 ---
-- name: Install | Package management configuration ({{ base_package_manager }})
-  template:
-    src: "{{ base_dotfiles_dest }}/src/dnf/dnf.conf }}"
+- name: Install | Package management configuration ({{ base_package_manager_configuration }})
+  copy:
+    src: "{{ base_dotfiles_dest }}/src/dnf/dnf.conf"
     dest: "{{ base_package_manager_configuration }}"
     owner: root
     group: root
     mode: 0644
+  become: true
 
 - name: Install | Ensure specified external repositories are installed from .rpm files
   package:
-    name: "{{ base_repositories_rpm }}"
+    name: "{{ item }}"
     state: installed
-  tags:
-    - base
-    - install
+  with_items:
+    - "{{ base_repositories_rpm }}"
+  become: true
 
 - name: Install | Ensure specified external repositories are installed from .repo files
-  package:
-    name: "{{ base_repositories_repo }}"
-    state: installed
-  tags:
-    - base
-    - install
+  get_url:
+    url: "{{ item }}"
+    dest: /etc/yum.repos.d/
+  with_items:
+    - "{{ base_repositories_repo }}"
+  become: true
 
 - name: Install | Ensure specified packages are NOT installed
   package:
-    name: "{{ base_remove_packages }}"
+    name: "{{ item }}"
     state: absent
-  tags:
-    - base
-    - install
+  with_items:
+    - "{{ base_remove_packages }}"
+  become: true
 
 - name: Install | Ensure specified packages are installed
   package:
-    name: "{{ base_install_packages }}"
+    name: "{{ item }}"
     state: installed
-  tags:
-    - base
-    - install
+  with_items:
+    - "{{ base_remove_packages }}"
+  become: true
 
 - name: Install | Ensure all updates are installed
   package:
     name: '*'
     state: latest
-  when: base_update
-  tags:
-    - base
-    - install
+  become: true
