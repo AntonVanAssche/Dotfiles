@@ -5,7 +5,6 @@
     src: "{{ base_dotfiles_dest }}/src/.bashrc"
     dest: "{{ ansible_env.HOME }}/.bashrc"
     state: link
-    recursive: yes
     force: yes
 
 - name: Bash | Symlinking .bash_profile
@@ -13,7 +12,6 @@
     src: "{{ base_dotfiles_dest }}/src/.bash_profile"
     dest: "{{ ansible_env.HOME }}/.bash_profile"
     state: link
-    recursive: yes
     force: yes
 
 - name: Bash | Symlinking .bashrc.d
@@ -21,5 +19,11 @@
     src: "{{ base_dotfiles_dest }}/src/.bashrc.d"
     dest: "{{ ansible_env.HOME }}/.bashrc.d"
     state: link
-    recursive: yes
     force: yes
+
+- name: Bash | Make scripts located ad ".bashrc.d/" executable
+  file:
+    path: "{{ item }}"
+    mode: +x
+  with_fileglob:
+    - "{{ ansible_env.HOME }}/.bashrc.d/*"
