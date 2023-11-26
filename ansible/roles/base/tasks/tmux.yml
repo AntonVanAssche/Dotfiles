@@ -22,6 +22,6 @@
 - name: Tmux | Installing plugins
   git:
     repo: "{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.config/tmux/plugins/{{ base_tmux_plugins | basename | regex_replace('\\.git$', '') }}"
+    dest: "{{ ansible_env.HOME }}/.config/tmux/plugins/{{ item | basename | regex_replace('\\.git$', '') }}"
   with_items:
     - "{{ base_tmux_plugins }}"
