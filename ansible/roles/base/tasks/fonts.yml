@@ -1,15 +1,15 @@
 # roles/base/tasks/fonts.yml
 ---
-- name: Fonts | Ensure "{{ ansible_env.HOME }}/.local/share/fonts" exists
+- name: Fonts | Ensure fonts directory exists ({{ base_fonts_install_dir }})
   file:
-    path: "{{ ansible_env.HOME }}/.local/share/fonts"
+    path: "{{ base_fonts_install_dir }}"
     state: directory
     mode: 0755
 
 - name: Fonts | Extract specified fonts from remote source
   unarchive:
     src: "{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.local/share/fonts"
+    dest: "{{ base_fonts_install_dir }}"
     remote_src: yes
   with_items:
     - "{{ base_fonts }}"
