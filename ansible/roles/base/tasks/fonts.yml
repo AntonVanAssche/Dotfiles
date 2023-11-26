@@ -4,7 +4,7 @@
   file:
     path: "{{ ansible_env.HOME }}/.local/share/fonts"
     state: directory
-  mode: "0755"
+    mode: 0755
 
 - name: Fonts | Extract specified fonts from remote source
   unarchive:
