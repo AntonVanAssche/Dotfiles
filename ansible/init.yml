@@ -1,12 +1,16 @@
 ---
+- name: Include vaulted variables
+  include_vars: "{{ playbook_dir }}/vaulted_vars.yml"
+
 - name: Basic Configuration
-  hosts: all
+  hosts:
+    - fedorable
   roles:
     - base
 
 - name: Desktop Configuration
   hosts:
     - fedorable
-    - pisa
   roles:
-    - desktop
+    - gnome
+    # - bspwm
