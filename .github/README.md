@@ -122,7 +122,6 @@ When configuring `local` hosts, ensure the configuration file is called `localho
 ### Ansible Vault (Sensitive Vars)
 
 Create an Ansible vault to securely store the `ansible_become_pass` variable.
-This makes it easier to configure multiple instances, without having to remember the password for each host.
 
 ```console
 $ ansible-vault create ansible/vaulted_vars.yml
@@ -131,7 +130,7 @@ $ ansible-vault create ansible/vaulted_vars.yml
 Add sensitive information to the vault, and save the file.
 
 ```yml
-<hostname>_become_pass: "<password>"
+ansible_become_pass: "<password>"
 ```
 
 ### Usage

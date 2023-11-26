@@ -1,6 +1,10 @@
 ---
-- name: Include vaulted variables
-  include_vars: "{{ playbook_dir }}/vaulted_vars.yml"
+- name: Variables
+  host:
+    - fedorable
+  tasks:
+    - name: Variables | Read vaulted variables
+      include_vars: "{{ playbook_dir }}/vaulted_vars.yml"
 
 - name: Basic Configuration
   hosts:
