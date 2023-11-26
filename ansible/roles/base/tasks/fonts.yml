@@ -1,15 +1,18 @@
 # roles/base/tasks/fonts.yml
 ---
-- name: Fonts | Download specified fonts
-  get_url:
-    url: "{{ item }}"
-    mode: 644
-  loop:
-    - "{{ base_fonts }}"
+- name: Fonts | Ensure "{{ ansible_env.HOME }}/.local/share/fonts" exists
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/fonts"
+    state: directory
+  mode: "0755"
 
-- name: Fonts | Extract specified fonts
-  shell: |
-    unzip '*.zip' -d '{{ ansible_env.HOME }}/.local/share/fonts/'
+- name: Fonts | Extract specified fonts from remote source
+  unarchive:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.local/share/fonts"
+    remote_src: yes
+  with_items:
+    - "{{ base_fonts }}"
 
 - name: Fonts | Installing Microsoft fonts
   dnf:
@@ -17,12 +20,9 @@
       - cabextract
       - xorg-x11-font-utils
       - https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    disable_gpg_check: true
     state: present
+  become: true
 
 - name: Fonts | Updating font cache
   shell: fc-cache -fv
-
-- name: Fonts | Cleaning up downloaded ZIP files
-  file:
-    path: "*.zip"
-    state: absent
