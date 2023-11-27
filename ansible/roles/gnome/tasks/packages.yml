@@ -1,0 +1,9 @@
+# roles/gnome/tasks/packages.yml
+---
+- name: Packages | Ensure all specified packages are installed
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - "{{ gnome_install_packages }}"
+  become: true

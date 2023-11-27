@@ -1,0 +1,20 @@
+# roles/gnome/tasks/conky.yml
+---
+- name: Conky | Clone widget from GitHub (Now Clocking)
+  git:
+    repo: "{{ gnome_now_clocking_repo }}"
+    dest: "{{ gnome_now_clocking_dest }}"
+    recursive: yes
+
+- name: Run download-fonts.sh script
+  shell: "{{ gnome_now_clocking_dest }}scripts/download-fonts.sh"
+
+- name: Start Conky with np.lua
+  shell: "conky -q -c '{{ gnome_now_clocking_dest }}conky/np.lua' -d"
+  async: 0
+  poll: 0
+
+- name: Start Conky with npart.lua
+  shell: "conky -q -c '{{ gnome_now_clocking_dest }}conky/npart.lua' -d"
+  async: 0
+  poll: 0

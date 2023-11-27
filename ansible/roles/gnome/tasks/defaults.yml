@@ -1,0 +1,6 @@
+# roles/gnome/tasks/defaults.yml
+---
+- name: Defaults | Setting specified default terminal
+  dconf:
+    key: "/org/gnome/desktop/default-applications/terminal"
+    value: "'{{ gnome_default_terminal }}'"

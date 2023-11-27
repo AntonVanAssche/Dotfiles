@@ -1,0 +1,6 @@
+# roles/gnome/tasks/firefox.yml
+---
+- name: Firefox | Apply custom theme
+  copy:
+    src: "{{ gnome_firefox_theme_src }}"
+    dest: "{{ gnome_firefox_theme_path }}"
