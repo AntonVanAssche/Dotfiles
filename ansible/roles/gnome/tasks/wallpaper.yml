@@ -6,10 +6,12 @@
     state: directory
     mode: 0755
 
-- name: Wallpaper | Copy wallpapers to {{ gnome_wallpaper_dir }}
-  copy:
+- name: Wallpaper | Symlinking wallpaper directory ({{ gnome_wallpaper_dir }})
+  file:
     src: "{{ gnome_wallpaper_src }}"
     dest: "{{ gnome_wallpaper_dir }}"
+    state: link
+    force: yes
 
 - name: Wallpaper | Set the specified wallpaper ({{ gnome_specified_wallpaper }}) (light)
   dconf:
