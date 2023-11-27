@@ -29,6 +29,8 @@ base_install_packages:
   - vagrant
   - bat
   - nodejs
+  - meson
+    sassc
   - transmission
   - transmission-remote-gtk
   - signal-desktop
@@ -90,69 +92,116 @@ base_tmux_plugins:
 
 # Update version to the latest: :%s/v3.1.0/<latest>/g
 base_fonts:
-- https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/0xProto.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/3270.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Agave.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/AnonymousPro.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Arimo.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/AurulentSansMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/BigBlueTerminal.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/BitstreamVeraSansMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CascadiaCode.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CascadiaMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CodeNewRoman.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ComicShannsMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CommitMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Cousine.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/D2Coding.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DaddyTimeMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DejaVuSansMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DroidSansMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/EnvyCodeR.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FantasqueSansMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FiraCode.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FiraMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FontPatcher.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/GeistMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Go-Mono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Gohu.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hasklig.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/HeavyData.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hermit.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/iA-Writer.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IBMPlexMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Inconsolata.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/InconsolataGo.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/InconsolataLGC.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IntelOneMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Iosevka.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IosevkaTerm.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IosevkaTermSlab.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/JetBrainsMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Lekton.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/LiberationMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Lilex.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/MartianMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Meslo.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monaspace.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monofur.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monoid.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Mononoki.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/MPlus.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/NerdFontsSymbolsOnly.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Noto.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/OpenDyslexic.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Overpass.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ProFont.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ProggyClean.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/RobotoMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ShareTechMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/SourceCodePro.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/SpaceMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Terminus.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Tinos.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Ubuntu.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/UbuntuMono.zip
-- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/VictorMono.zip
+  - https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/0xProto.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/3270.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Agave.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/AnonymousPro.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Arimo.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/AurulentSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/BigBlueTerminal.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/BitstreamVeraSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CascadiaCode.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CascadiaMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CodeNewRoman.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ComicShannsMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CommitMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Cousine.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/D2Coding.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DaddyTimeMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DejaVuSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DroidSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/EnvyCodeR.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FantasqueSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FiraCode.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FiraMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FontPatcher.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/GeistMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Go-Mono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Gohu.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hasklig.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/HeavyData.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hermit.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/iA-Writer.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IBMPlexMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Inconsolata.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/InconsolataGo.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/InconsolataLGC.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IntelOneMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Iosevka.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IosevkaTerm.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IosevkaTermSlab.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/JetBrainsMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Lekton.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/LiberationMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Lilex.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/MartianMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Meslo.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monaspace.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monofur.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monoid.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Mononoki.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/MPlus.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/NerdFontsSymbolsOnly.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Noto.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/OpenDyslexic.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Overpass.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ProFont.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ProggyClean.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/RobotoMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ShareTechMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/SourceCodePro.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/SpaceMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Terminus.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Tinos.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Ubuntu.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/UbuntuMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/VictorMono.zip
+
+gnome_wallpaper_dir: /home/anton/Pictures/Wallpapers/
+gnome_wallpaper_src: /home/anton/Projects/Dotfiles/src/walls/
+gnome_specified_wallpaper: /home/anton/Pictures/Wallpapers/Tate-McRae.jpg
+
+gnome_copr_repos:
+  - tcg/themes
+
+gnome_install_packages:
+  - gnome-tweaks
+  - gnome-extensions-app
+  - numix-icon-theme-circle
+  - la-capitaine-cursor-theme
+  - glib2-devel
+  - ImageMagick
+  - nodejs-typescript
+  - gnome-shell-extension-pop-shell
+  - xprop
+  - dconf-editor
+  - conky
+
+gnome_default_terminal: alacritty
+
+gnome_gtk_theme: adw-gtk3-dark
+gnome_icon_theme: Numix-Circle
+gnome_cursor_theme: capitaine-cursors
+gnome_button_layout: ":minimize,maximize,close"
+
+gnome_firefox_theme_src: /home/anton/Projects/Dotfiles/src/firefox/userChrome.css
+gnome_firefox_theme_path: /home/anton/.mozilla/firefox/vp8fl0st.default/UserChrome.css
+
+gnome_favorite_apps:
+  - "org.gnome.Nautilus.desktop"
+  - "firefox.desktop"
+  - "spotify.desktop"
+  - "signal-desktop.desktop"
+  - "discord.desktop"
+  - "transmission-gtk.desktop"
+  - "io.github.TransmissionRemoteGtk.desktop"
+
+gnome_custom_keybindings:
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
