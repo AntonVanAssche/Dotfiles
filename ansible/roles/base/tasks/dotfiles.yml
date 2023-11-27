@@ -9,7 +9,7 @@
 
 - name: Dotfiles | Ensure specified directories exist
   file:
-    path: "{{ items }}"
+    path: "{{ item }}"
     state: directory
   with_items:
     - "{{ base_dirs }}"
