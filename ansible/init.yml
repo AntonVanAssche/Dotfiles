@@ -1,6 +1,6 @@
 ---
 - name: Variables
-  host:
+  hosts:
     - fedorable
   tasks:
     - name: Variables | Read vaulted variables
