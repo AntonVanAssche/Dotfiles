@@ -159,7 +159,7 @@ base_fonts:
   # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/UbuntuMono.zip
   # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/VictorMono.zip
 
-gnome_wallpaper_dir: /home/anton/Pictures/Wallpapers/
+gnome_wallpaper_dir: /home/anton/Pictures/Wallpapers
 gnome_wallpaper_src: /home/anton/Projects/Dotfiles/src/walls/
 gnome_specified_wallpaper: /home/anton/Pictures/Wallpapers/Tate-McRae.jpg
 
