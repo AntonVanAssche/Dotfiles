@@ -14,11 +14,11 @@
   when: git_clone.changed
 
 - name: Theme | Install ADW GTK3 theme
-  become_user: root
   command: "ninja -C build install"
   args:
     chdir: "{{ ansible_env.HOME }}/adw-gtk3"
   when: git_clone.changed
+  become: true
 
 - name: Theme | Apply specified GTK theme ({{ gnome_gtk_theme }})
   dconf:
