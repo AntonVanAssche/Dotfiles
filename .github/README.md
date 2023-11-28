@@ -75,7 +75,6 @@ servers:
   hosts:
     fedorable:
       ansible_host: <ip_address>
-      ansible_become_pass: "{{ fedorable_become_pass }}" # Variable will be defined in vaulted_vars.yml
       ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/<ssh_private_key>/"
 ```
 
