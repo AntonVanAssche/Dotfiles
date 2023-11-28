@@ -30,7 +30,7 @@ base_install_packages:
   - bat
   - nodejs
   - meson
-    sassc
+  - sassc
   - transmission
   - transmission-remote-gtk
   - signal-desktop
