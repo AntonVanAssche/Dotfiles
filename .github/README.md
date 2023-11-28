@@ -9,7 +9,6 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
 ## Table of Contents
 
 -   [Setup Info](#setup-info)
--   [Repository Structure](#repository-structure)
 -   [Installation](#installation)
     -   [Prerequisites](#prerequisites)
     -   [Inventory](#inventory)
@@ -47,44 +46,6 @@ Here are some details about my setup:
     -   [Space Bar](https://github.com/christopher-l/space-bar)
         -   Make sure you have a fixed amount of 5 workspaces set.
 
-## Repository Structure
-
-Below is a directory outline that will assist you in locating the configuration or script you wish to duplicate with ease.
-
-```
-.
-├── assets                                  # Directory containing desktop previews.
-├── .github                                 # Directory containing GitHub repository-related files.
-├── .gitignore                              # File containing list of files/folders to ignore by Git.
-├── .gitmodules                             # File containing list of dependencies.
-└── src
-    ├── .bash_profile                       # Bash configuration to load when logging into my system.
-    ├── .bashrc                             # Bash configuration to load when opening a new shell.
-    ├── .bashrc.d
-    │   ├── aliasses                        # Personal Bash aliases.
-    │   ├── bash.command-not-found          # Bash script to insult me when I type a command wrong.
-    │   ├── functions                       # Personal Bash functions.
-    │   └── prompt                          # Personal Bash prompt.
-    ├── .config
-    │   ├── alacritty                       # Alacritty configurations.
-    │   ├── autostart                       # Directory containing applications to start automatically when I log in.
-    │   ├── bat                             # Bat configuration.
-    │   ├── conky                           # Conky configuration.
-    │   ├── htop                            # htop configuration.
-    │   ├── nvim                            # Neovim configuration.
-    │   ├── rofi                            # Rofi configuration.
-    │   ├── spicetify                       # Spicetify configuration to customize Spotify client.
-    │   ├── tmux                            # Tmux plugins.
-    │   └── wget                            # Wget configuration.
-    ├── dnf                                 # DNF configuration mainly to speed up DNF.
-    ├── .gitconfig                          # Personal Git configuration.
-    ├── .local
-    │   └── bin                             # Directory containing scripts/binaries I regularly use.
-    ├── sudoers.d                           # Sudo configuration.
-    ├── .tmux.conf                          # Tmux configuration.
-    └── walls                               # Directory containing wallpapers I enjoy looking at! ;)
-```
-
 ## Installation
 
 ### Prerequisites
@@ -94,6 +55,12 @@ This may also be `localhost`, but I prefer to use a separate server/desktop to m
 
 ```console
 $ sudo dnf install ansible
+```
+
+Once Ansible is installed, it's time to install all roles this playbook relies on.
+
+```console
+$ ansible-galaxy install -r ansible/requirements.yml
 ```
 
 ### Inventory
@@ -119,6 +86,12 @@ Use `ansible/host_vars/fedorable.yml` as a starting point, and replicate the fil
 
 When configuring `local` hosts, ensure the configuration file is called `localhost.yml`.
 
+Currently, the following custom roles used:
+
+-   **Base:** This role installs a bunch of packages and configures some basic settings, and installs a bunch of packages.
+-   **Gnome:** This role installs and configures the desktop experience, by applying themes, conky widgets, and more.
+-   **(WIP) Bspwm:** THis role is disabled by default, simply uncomment it within the `init.yml` playbook. Ths role installs all required packages, installs the configuration files, and more.
+
 ### Ansible Vault (Sensitive Vars)
 
 Create an Ansible vault to securely store the `ansible_become_pass` variable.
@@ -143,9 +116,13 @@ $ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-vault-pass
 
 ## Updating
 
-Keep your system up to date by pulling the latest changes from this repository and rerunning the Ansible playbook:
+Since most configuration files are installed by using symbolic links to the original files, updating the dotfiles is as easy as pulling the latest changes from this repository.
 
 ```console
 $ git pull origin master
-$ ansible-playbook -i ansible/inventory.yml ansible/init.yml --ask-vault-pass
+```
+However, some configuration files are not installed by using symbolic links, but by rerunning the Ansible playbook theses files will be updated as well.
+
+```console
+$ git pull origin master
 ```
