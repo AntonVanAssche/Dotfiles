@@ -5,6 +5,7 @@ gnome_specified_wallpaper: ""
 gnome_copr_repos: []
 gnome_install_packages: []
 gnome_default_terminal: ""
+gnome_color_scheme: ""
 gnome_gtk_theme: ""
 gnome_icon_theme: ""
 gnome_cursor_theme: ""

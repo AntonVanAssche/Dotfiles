@@ -178,6 +178,7 @@ gnome_install_packages:
 
 gnome_default_terminal: alacritty
 
+gnome_color_scheme: "prefer-dark" # Light mode: "default"
 gnome_gtk_theme: adw-gtk3-dark
 gnome_icon_theme: Numix-Circle
 gnome_cursor_theme: capitaine-cursors

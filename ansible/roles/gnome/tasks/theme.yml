@@ -6,6 +6,11 @@
     dest: "{{ ansible_env.HOME }}/adw-gtk3"
   register: git_clone
 
+- name: Theme | Apply specified color scheme ({{ gnome_color_scheme }}
+  dconf:
+    key: /org/gnome/desktop/interface/ color-scheme
+    value: "'{{ gnome_color_scheme }}'"
+
 - name: Theme | Build ADW GTK3 theme with Meson
   become_user: "{{ ansible_env.USER }}"
   command: "meson build"
