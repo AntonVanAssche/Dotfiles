@@ -1,0 +1,6 @@
+# roles/gnome/tasks/privacy.yml
+---
+- name: Privacy | Disable remember-recent-files option
+  dconf:
+    key: /org/gnome/desktop/privacy/remember-recent-files
+    value: "'false'"

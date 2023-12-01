@@ -1,0 +1,20 @@
+---
+- name: Variables
+  hosts:
+    - fedorable
+  tasks:
+    - name: Variables | Read vaulted variables
+      include_vars: "{{ playbook_dir }}/vaulted_vars.yml"
+
+- name: Basic Configuration
+  hosts:
+    - fedorable
+  roles:
+    - base
+
+- name: Desktop Configuration
+  hosts:
+    - fedorable
+  roles:
+    - gnome
+    # - bspwm

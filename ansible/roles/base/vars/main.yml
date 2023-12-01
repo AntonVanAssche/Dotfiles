@@ -1,0 +1,4 @@
+---
+base_package_manager_configuration: /etc/dnf/dnf.conf
+packer_repo: "https://github.com/wbthomason/packer.nvim.git"
+base_fonts_install_dir: "{{ ansible_env.HOME }}/.local/share/fonts"

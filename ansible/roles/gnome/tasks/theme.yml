@@ -1,0 +1,46 @@
+# roles/gnome/tasks/theme.yml
+---
+- name: Theme | Clone ADW GTK3 repository
+  git:
+    repo: "{{ gnome_adw_gtk3_repo }}"
+    dest: "{{ ansible_env.HOME }}/adw-gtk3"
+  register: git_clone
+
+- name: Theme | Apply specified color scheme ({{ gnome_color_scheme }}
+  dconf:
+    key: /org/gnome/desktop/interface/ color-scheme
+    value: "'{{ gnome_color_scheme }}'"
+
+- name: Theme | Build ADW GTK3 theme with Meson
+  become_user: "{{ ansible_env.USER }}"
+  command: "meson build"
+  args:
+    chdir: "{{ ansible_env.HOME }}/adw-gtk3"
+  when: git_clone.changed
+
+- name: Theme | Install ADW GTK3 theme
+  command: "ninja -C build install"
+  args:
+    chdir: "{{ ansible_env.HOME }}/adw-gtk3"
+  when: git_clone.changed
+  become: true
+
+- name: Theme | Apply specified GTK theme ({{ gnome_gtk_theme }})
+  dconf:
+    key: /org/gnome/desktop/interface/gtk-theme
+    value: "'{{ gnome_gtk_theme }}'"
+
+- name: Theme | Apply specified icon theme ({{ gnome_icon_theme }})
+  dconf:
+    key: /org/gnome/desktop/interface/icon-theme
+    value: "'{{ gnome_icon_theme }}'"
+
+- name: Theme | Apply specified Cursor theme ({{ gnome_cursor_theme }})
+  dconf:
+    key: /org/gnome/desktop/interface/cursor-theme
+    value: "'{{ gnome_cursor_theme }}'"
+
+- name: Theme | Apply specified button layout ({{ gnome_button_layout }})
+  dconf:
+    key: /org/gnome/desktop/wm/preferences/button-layout
+    value: "'{{ gnome_button_layout }}'"

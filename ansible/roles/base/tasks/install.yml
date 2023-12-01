@@ -1,0 +1,59 @@
+# roles/rhbase/tasks/install.yml
+#
+# Configure the package manager.
+# Add repositories, install/remove packages
+---
+- name: Install | Package management configuration ({{ base_package_manager_configuration }})
+  copy:
+    src: "{{ base_dotfiles_dest }}/src/dnf/dnf.conf"
+    dest: "{{ base_package_manager_configuration }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Install | Ensure specified RPM keys are imported
+  rpm_key:
+    key: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ base_repositories_rpm_keys }}"
+  become: true
+
+- name: Install | Ensure specified external repositories are installed from .rpm files
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - "{{ base_repositories_rpm }}"
+  become: true
+
+- name: Install | Ensure specified external repositories are installed from .repo files
+  get_url:
+    url: "{{ item }}"
+    dest: /etc/yum.repos.d/
+  with_items:
+    - "{{ base_repositories_repo }}"
+  become: true
+
+- name: Install | Ensure specified packages are NOT installed
+  package:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ base_remove_packages }}"
+  become: true
+
+- name: Install | Ensure specified packages are installed
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - "{{ base_install_packages }}"
+  become: true
+
+- name: Install | Ensure all updates are installed
+  package:
+    name: '*'
+    state: latest
+  become: true

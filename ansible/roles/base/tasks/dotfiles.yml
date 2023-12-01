@@ -1,0 +1,36 @@
+# roles/base/tasks/dotfiles.yml
+---
+- name: Dotfiles | Cloning repository
+  git:
+    repo: "{{ base_dotfiles_repo }}"
+    dest: "{{ base_dotfiles_dest }}"
+    recursive: yes
+  tags: dotfiles
+
+- name: Dotfiles | Ensure specified directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ base_dirs }}"
+
+- name: Dotfiles | Symlinking .local/bin/
+  file:
+    src: "{{ base_dotfiles_dest }}/src/.local/bin/"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    state: link
+    force: yes
+
+- name: Dotfiles | Symlinking .config/autostart/
+  file:
+    src: "{{ base_dotfiles_dest }}/src/.config/autostart/"
+    dest: "{{ ansible_env.HOME }}/.config/autostart"
+    state: link
+    force: yes
+
+- name: Dotfiles | Make scripts located ad ".local/bin/" executable
+  file:
+    path: "{{ item }}"
+    mode: +x
+  with_fileglob:
+    - "{{ ansible_env.HOME }}/.local/bin/*"

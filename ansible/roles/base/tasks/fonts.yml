@@ -1,0 +1,28 @@
+# roles/base/tasks/fonts.yml
+---
+- name: Fonts | Ensure fonts directory exists ({{ base_fonts_install_dir }})
+  file:
+    path: "{{ base_fonts_install_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Fonts | Extract specified fonts from remote source
+  unarchive:
+    src: "{{ item }}"
+    dest: "{{ base_fonts_install_dir }}"
+    remote_src: yes
+  with_items:
+    - "{{ base_fonts }}"
+
+- name: Fonts | Installing Microsoft fonts
+  dnf:
+    name:
+      - cabextract
+      - xorg-x11-font-utils
+      - https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    disable_gpg_check: true
+    state: present
+  become: true
+
+- name: Fonts | Updating font cache
+  shell: fc-cache -fv
