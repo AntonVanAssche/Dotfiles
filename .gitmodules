@@ -1,16 +1,11 @@
-[submodule "ulauncher-adwaita-darkish"]
-   path = src/.config/ulauncher/user-themes/ulauncher-adwaita-darkish
-   url = https://github.com/shepda/ulauncher-adwaita-darkish
-
 [submodule "now-clocking"]
-	path = src/.config/conky/now-clocking
-	url = https://github.com/AntonVanAssche/now-clocking
+    path = src/.config/conky/now-clocking
+    url = https://github.com/AntonVanAssche/now-clocking
 
 [submodule "tmux-resurrect"]
-   path = src/.config/tmux/plugins/tmux-resurrect
-   url = https://github.com/tmux-plugins/tmux-resurrect
+    path = src/.config/tmux/plugins/tmux-resurrect
+    url = https://github.com/tmux-plugins/tmux-resurrect
 
 [submodule "tmux-continuum"]
-   path = src/.config/tmux/plugins/tmux-continuum
-   url = https://github.com/tmux-plugins/tmux-continuum
-
+    path = src/.config/tmux/plugins/tmux-continuum
+    url = https://github.com/tmux-plugins/tmux-continuum
