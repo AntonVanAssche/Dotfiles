@@ -233,7 +233,28 @@ local settings = {
         }
     },
     log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 4
+    max_concurrent_installers = 4,
+    ensure_installed = {
+        "ansiblels",
+        "arduino_language_server",
+        "bashls",
+        "clangd",
+        "cssls",
+        "dockerls",
+        "eslint",
+        "html",
+        "jsonls",
+        "tsserver",
+        "ltex",
+        "lua_ls",
+        "marksman",
+        "powershell_es",
+        "pyright",
+        "sqlls",
+        "lemminx",
+        "yamlls",
+    },
+    automatic_installation = false,
 }
 
 local mason_status_ok, mason = pcall(require, 'mason')
