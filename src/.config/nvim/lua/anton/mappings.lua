@@ -86,12 +86,6 @@ keymap("n", "<C-a>", "gg<S-v>G")
 keymap("n", "ss", ":split<Return>", opts)
 keymap("n", "sv", ":vsplit<Return>", opts)
 
--- Move window
-keymap("n", "sh", "<C-w>h")
-keymap("n", "sk", "<C-w>k")
-keymap("n", "sj", "<C-w>j")
-keymap("n", "sl", "<C-w>l")
-
 -- Resize window
 keymap("n", "<C-w><left>", "<C-w><")
 keymap("n", "<C-w><right>", "<C-w>>")
