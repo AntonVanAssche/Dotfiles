@@ -178,6 +178,13 @@ gnome_install_packages:
   - conky
 
 gnome_default_terminal: alacritty
+gnome_amount_of_workspaces: 5
+gnome_workspace_names:
+  - "www"
+  - "code"
+  - "music"
+  - "virt"
+  - "misc"
 
 gnome_color_scheme: "prefer-dark" # Light mode: "default"
 gnome_gtk_theme: adw-gtk3-dark
