@@ -5,6 +5,8 @@ gnome_specified_wallpaper: ""
 gnome_copr_repos: []
 gnome_install_packages: []
 gnome_default_terminal: ""
+gnome_amount_of_workspaces: []
+gnome_workspace_names: ""
 gnome_color_scheme: ""
 gnome_gtk_theme: ""
 gnome_icon_theme: ""
