@@ -11,6 +11,7 @@ base_repositories_repo:
   - "https://download.opensuse.org/repositories/network:/im:/signal/Fedora_38/network:im:signal.repo"
   - "https://negativo17.org/repos/fedora-spotify.repo"
   - "https://rpm.releases.hashicorp.com/fedora/hashicorp.repo"
+  - "https://copr.fedorainfracloud.org/coprs/szpadel/spotifyd/repo/fedora-39/szpadel-spotifyd-fedora-39.repo"
 
 base_install_packages:
   - alacritty
@@ -37,6 +38,7 @@ base_install_packages:
   - signal-desktop
   - discord
   - spotify-client
+  - spotifyd
   - playerctl
   - '@Development tools'
   - '@Development Libraries'
