@@ -18,12 +18,6 @@ if [[ -d "${HOME}/.bashrc.d" ]]; then
      done
 fi
 
-# Show current time.
-# source "${HOME}/.local/bin/current-time"
-
-# Load pywal.
-# source "${HOME}/.local/bin/load-pywal"
-
 # Colored man pages.
 if command -v most &> /dev/null; then
      export PAGER="most"
