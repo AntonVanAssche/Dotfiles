@@ -26,3 +26,6 @@ fi
 # $PATH
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.spicetify"
+
+# Case-insensitive completion in Bash
+bind -s 'set completion-ignore-case on'
