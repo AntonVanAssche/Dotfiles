@@ -1,0 +1,9 @@
+import = [
+"~/.config/alacritty/colors.toml",
+"~/.config/alacritty/keybindings.toml",
+"~/.config/alacritty/font.toml",
+"~/.config/alacritty/window.toml",
+]
+
+[shell]
+program = "/bin/bash"
