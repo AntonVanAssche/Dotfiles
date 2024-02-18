@@ -91,3 +91,9 @@ keymap("n", "<C-w><left>", "<C-w><")
 keymap("n", "<C-w><right>", "<C-w>>")
 keymap("n", "<C-w><up>", "<C-w>+")
 keymap("n", "<C-w><down>", "<C-w>-")
+
+-- Terraform
+keymap("n", "<leader>ti", ":!terraform init<CR>", opts)
+keymap("n", "<leader>tv", ":!terraform validate<CR>", opts)
+keymap("n", "<leader>tp", ":!terraform plan<CR>", opts)
+keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", opts)

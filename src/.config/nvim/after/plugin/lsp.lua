@@ -221,6 +221,8 @@ local servers = {
     'tsserver',
     'cssls',
     'vimls',
+    'terraformls',
+    'tflint',
 }
 
 local settings = {
