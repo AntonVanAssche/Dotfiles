@@ -196,7 +196,7 @@ gnome_button_layout: ":minimize,maximize,close"
 
 gnome_firefox_theme_src: /home/anton/Projects/Dotfiles/src/firefox/userChrome.css
 gnome_firefox_theme_path: /home/anton/.mozilla/firefox/vp8fl0st.default/chrome
-gnome_firefox_theme_file_path: "{{ gnome_firefox_theme_path }}/UserChrome.css"
+gnome_firefox_theme_file_path: "{{ gnome_firefox_theme_path }}/userChrome.css"
 
 gnome_favorite_apps:
   - "org.gnome.Nautilus.desktop"
