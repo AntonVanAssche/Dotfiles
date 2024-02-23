@@ -164,7 +164,7 @@ base_fonts:
 
 gnome_wallpaper_dir: /home/anton/Pictures/Wallpapers
 gnome_wallpaper_src: /home/anton/Projects/Dotfiles/src/walls/
-gnome_specified_wallpaper: /home/anton/Pictures/Wallpapers/Tate-McRae.jpg
+gnome_specified_wallpaper: /home/anton/Pictures/Wallpapers/Tate-McRae-1.jpg
 
 gnome_install_packages:
   - gnome-tweaks
