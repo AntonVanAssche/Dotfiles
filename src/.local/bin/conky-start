@@ -11,4 +11,4 @@ while [[ ! "$DISPLAY" ]]; do
      sleep 1
 done
 
-~/.config/conky/now-clocking/start.sh
+~/.config/conky/start.sh
