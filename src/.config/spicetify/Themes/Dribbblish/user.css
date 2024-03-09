@@ -5,6 +5,7 @@
     --scrollbar-horizontal-size: 10px;
     --bar-height: 90px;
     --main-gap: 10px;
+    overflow-x: hidden;
 }
 
 @font-face {
