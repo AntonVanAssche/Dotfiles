@@ -20,9 +20,5 @@ local opts = { silent = true }
 keymap('n', '<leader>mdh', ':MarkdownHeaders<CR>', opts)
 keymap('n', '<leader>mdhc', ':MarkdownHeadersClosest<CR>', opts)
 
-do
-    vim.cmd [[
-        highlight! MarkdownHeadersTitle guifg=#61afef
-        highlight! MarkdownHeadersBorder guifg=#61afef
-    ]]
-end
+vim.api.nvim_set_hl(0, "MarkdownHeadersBorder", { fg = "#61afef" })
+vim.api.nvim_set_hl(0, "MarkdownHeadersTitle", { fg = "#61afef" })
