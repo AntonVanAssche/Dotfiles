@@ -1,47 +1,21 @@
 [[keyboard.bindings]]
 action = "Paste"
-key = "Paste"
+key = "V"
+mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "Copy"
-key = "Copy"
+key = "C"
+mods = "Control|Shift"
 
 [[keyboard.bindings]]
-action = "ClearLogNotice"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\f"
-key = "L"
-mode = "~Vi|~Search"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ScrollPageUp"
-key = "PageUp"
-mode = "~Alt"
-
-[[keyboard.bindings]]
-action = "ScrollPageDown"
-key = "PageDown"
-mode = "~Alt"
-
-[[keyboard.bindings]]
-action = "ScrollToTop"
-key = "Home"
-mode = "~Alt"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "ScrollToBottom"
-key = "End"
-mode = "~Alt"
+action = "PasteSelection"
+key = "Insert"
 mods = "Shift"
 
 [[keyboard.bindings]]
 action = "ResetFontSize"
-key = "Key0"
+key = "0"
 mods = "Control"
 
 [[keyboard.bindings]]
@@ -53,3 +27,32 @@ mods = "Control"
 action = "DecreaseFontSize"
 key = "Minus"
 mods = "Control"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+key = "PageUp"
+action = "ScrollPageUp"
+mods = "Control"
+mode = "~Alt"
+
+[[keyboard.bindings]]
+key = "PageDown"
+action = "ScrollPageDown"
+mods = "Control"
+mode = "~Alt"
+
+[[keyboard.bindings]]
+key = "Home"
+action = "ScrollToTop"
+mods = "Control"
+mode = "~Alt"
+
+[[keyboard.bindings]]
+key = "End"
+action = "ScrollToBottom"
+mods = "Control"
+mode = "~Alt"
