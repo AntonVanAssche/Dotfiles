@@ -29,3 +29,6 @@ export PATH="${PATH}:${HOME}/.spicetify"
 
 # Case-insensitive completion in Bash
 bind -s 'set completion-ignore-case on'
+
+# Clear
+bind '"\C-l":clear-screen'
