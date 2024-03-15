@@ -5,5 +5,8 @@ import = [
 "~/.config/alacritty/window.toml",
 ]
 
+[env]
+TERM="xterm-256color"
+
 [shell]
 program = "/bin/bash"
