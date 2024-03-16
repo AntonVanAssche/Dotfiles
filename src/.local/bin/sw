@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # sw: Switch Wallpapers
-# Example usage: keybind this script to a key combination to switch wallpaper (<Super-<Shift>-F).
-# This script will cycle through wallpapers in ~/Pictures/Wallpapers directory.
-# It will set the next wallpaper in the list as the current wallpaper.
+# Example usage: keybind this script to a key combination to switch wallpaper:
+# - "<Super>-;" for next
+# - "<Super>-<Shift>-;" for prev
 
 [[ -z "${DISPLAY}" ]] && echo "No display found" && exit 1
 
@@ -20,7 +20,11 @@ get_wallpaper() {
 
     for i in "${!wallpapers[@]}"; do
         if [[ "${wallpapers[$i]}" == "${current_wallpaper}" ]]; then
-            next_wallpaper="${wallpapers[$i+1]}"
+            if [[ "${1}" == "prev" ]]; then
+                next_wallpaper="${wallpapers[$i-1]}"
+            else
+                next_wallpaper="${wallpapers[$i+1]}"
+            fi
             break
         fi
     done
@@ -37,4 +41,4 @@ set_wallpaper() {
     gsettings set org.gnome.desktop.background picture-uri-dark "${1}"
 }
 
-set_wallpaper "$(get_wallpaper)"
+set_wallpaper "$(get_wallpaper "${1}")"
