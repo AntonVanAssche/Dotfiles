@@ -1,0 +1,8 @@
+log/
+undos/
+
+vaulted_vars.yml
+
+packer_compiled.lua
+
+vaulted_vars.yml
