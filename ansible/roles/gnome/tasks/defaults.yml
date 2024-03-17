@@ -1,0 +1,23 @@
+# roles/gnome/tasks/defaults.yml
+---
+- name: Defaults | Setting specified default terminal
+  dconf:
+    key: "/org/gnome/desktop/default-applications/terminal"
+    value: "'{{ gnome_default_terminal }}'"
+
+- name: Defaults | Setting fixed amount of workspaces to {{ gnome_amount_of_workspaces }}
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/num-workspaces"
+    value: "{{ gnome_amount_of_workspaces }}"
+
+- name: Defaults | Build gnome_workspace_names_string
+  set_fact:
+    gnome_favorite_apps_string: "[{% for name in gnome_workspace_names %}'{{ name }}', {% endfor %}]"
+  when: gnome_workspace_names != []
+  run_once: true
+
+- name: Defaults | Setting workspace names
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/workspace-names"
+    value: "{{ gnome_workspace_names_string }}"
+  when: gnome_workspace_names_string != []

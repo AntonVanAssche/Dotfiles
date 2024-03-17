@@ -1,0 +1,12 @@
+# roles/gnome/tasks/main.yml
+---
+
+- include_tasks: packages.yml
+- include_tasks: theme.yml
+- include_tasks: defaults.yml
+- include_tasks: privacy.yml
+- include_tasks: shortcuts.yml
+- include_tasks: favorites.yml
+- include_tasks: wallpaper.yml
+- include_tasks: firefox.yml
+- include_tasks: conky.yml

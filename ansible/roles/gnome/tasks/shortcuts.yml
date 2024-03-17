@@ -1,0 +1,32 @@
+# roles/gnome/tasks/shortcuts.yml
+---
+- name: Shortcuts | Build gnome_custom_keybindings_string
+  set_fact:
+    gnome_custom_keybindings_string: "[{% for keybind in gnome_custom_keybindings %}'{{ keybind }}', {% endfor %}]"
+  run_once: true
+
+- name: Shortcuts | Set custom keybindings
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+    value: "{{ gnome_custom_keybindings_string }}"
+  when: gnome_custom_keybindings_string != '[]'
+#
+# - name: Shortcuts| Set keybinding for Alacritty
+#   dconf:
+#     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybinding:{{ gnome_custom_keybindings[0] }}binding"
+#     value: '<Super>t'
+#   when: gnome_custom_keybindings_string != '[]'
+#
+# - name: Shortcut | Set command for Alacritty keybinding
+#   dconf:
+#     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybinding:{{ gnome_custom_keybindings[0] }}command"
+#     value: 'env -u WAYLAND_DISPLAY alacritty'
+#   when: gnome_custom_keybindings_string != '[]'
+#
+# - name: Shortcuts | Set name for Alacritty keybinding
+#   dconf:
+#     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybinding:{{ gnome_custom_keybindings[0] }}name"
+#     value: 'Launch Alacritty'
+#   when: gnome_custom_keybindings_string != '[]'
+
+# Additional keybindings can be added similarly for other commands
