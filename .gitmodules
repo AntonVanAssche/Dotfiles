@@ -1,7 +1,3 @@
-[submodule "tmux-resurrect"]
-    path = src/.config/tmux/plugins/tmux-resurrect
-    url = https://github.com/tmux-plugins/tmux-resurrect
-
 [submodule "tmux-continuum"]
     path = src/.config/tmux/plugins/tmux-continuum
     url = https://github.com/tmux-plugins/tmux-continuum
