@@ -1,0 +1,216 @@
+---
+base_repositories_rpm:
+  - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_distribution_major_version}}.noarch.rpm"
+  - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_distribution_major_version}}.noarch.rpm"
+
+base_repositories_rpm_keys:
+  - "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020"
+  - "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020"
+
+base_repositories_repo:
+  - "https://download.opensuse.org/repositories/network:/im:/signal/Fedora_38/network:im:signal.repo"
+  - "https://negativo17.org/repos/fedora-spotify.repo"
+  - "https://rpm.releases.hashicorp.com/fedora/hashicorp.repo"
+  - "https://copr.fedorainfracloud.org/coprs/szpadel/spotifyd/repo/fedora-39/szpadel-spotifyd-fedora-39.repo"
+
+base_install_packages:
+  - alacritty
+  - neovim
+  - tmux
+  - fzf
+  - htop
+  - wol
+  - wireguard-tools
+  - openresolv
+  - mpv
+  - mpv-libs
+  - python3-pip
+  - wget
+  - curl
+  - VirtualBox
+  - vagrant
+  - bat
+  - nodejs
+  - meson
+  - sassc
+  - transmission
+  - transmission-remote-gtk
+  - signal-desktop
+  - discord
+  - spotify-client
+  - spotifyd
+  - playerctl
+  - '@Development tools'
+  - '@Development Libraries'
+
+base_remove_packages:
+  - libreoffice-calc
+  - libreoffice-core
+  - libreoffice-draw
+  - libreoffice-data
+  - libreoffice-emailmerge
+  - libreoffice-impress
+  - libreoffice-filters
+  - libreoffice-graphicfilter
+  - libreoffice-gtk3
+  - libreoffice-help-en
+  - libreoffice-langpack-en
+  - libreoffice-ogltrans
+  - libreoffice-opensymbol-fonts
+  - libreoffice-pdfimport
+  - libreoffice-pyuno
+  - libreoffice-ure
+  - libreoffice-ure-common
+  - libreoffice-writer
+  - libreoffice-x11
+  - libreoffice-xsltfilter
+  - unoconv
+  - rhythmbox
+  - gnome-tour
+  - gnome-boxes
+  - gnome-photos
+  - gnome-connections
+  - gnome-terminal
+  - gedit
+  - mediawriter
+
+base_dotfiles_repo: git@github.com:AntonVanAssche/ansible-role-system-config.git
+base_dotfiles_dest: "{{ ansible_env.HOME }}/Projects/Dotfiles"
+
+base_dirs:
+  - "{{ ansible_env.HOME }}/Documents/"
+  - "{{ ansible_env.HOME }}/Downloads/"
+  - "{{ ansible_env.HOME }}/Downloads/Torrents/"
+  - "{{ ansible_env.HOME }}/Music/"
+  - "{{ ansible_env.HOME }}/Pictures/"
+  - "{{ ansible_env.HOME }}/Pictures/Screenshots/"
+  - "{{ ansible_env.HOME }}/Projects"
+  - "{{ ansible_env.HOME }}/Videos/"
+  - "{{ ansible_env.HOME }}/Videos/Screencasts/"
+  - "{{ ansible_env.HOME }}/isos"
+
+base_tmux_plugins:
+  - "https://github.com/tmux-plugins/tmux-resurrect.git"
+  - "https://github.com/tmux-plugins/tmux-continuum.git"
+
+# Update version to the latest: :%s/v3.1.0/<latest>/g
+base_fonts:
+  - https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/0xProto.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/3270.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Agave.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/AnonymousPro.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Arimo.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/AurulentSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/BigBlueTerminal.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/BitstreamVeraSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CascadiaCode.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CascadiaMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CodeNewRoman.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ComicShannsMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/CommitMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Cousine.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/D2Coding.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DaddyTimeMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DejaVuSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/DroidSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/EnvyCodeR.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FantasqueSansMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FiraCode.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FiraMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FontPatcher.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/GeistMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Go-Mono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Gohu.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hasklig.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/HeavyData.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hermit.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/iA-Writer.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IBMPlexMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Inconsolata.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/InconsolataGo.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/InconsolataLGC.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IntelOneMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Iosevka.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IosevkaTerm.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/IosevkaTermSlab.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/JetBrainsMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Lekton.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/LiberationMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Lilex.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/MartianMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Meslo.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monaspace.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monofur.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Monoid.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Mononoki.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/MPlus.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/NerdFontsSymbolsOnly.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Noto.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/OpenDyslexic.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Overpass.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ProFont.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ProggyClean.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/RobotoMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/ShareTechMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/SourceCodePro.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/SpaceMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Terminus.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Tinos.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Ubuntu.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/UbuntuMono.zip
+  # - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/VictorMono.zip
+
+gnome_wallpaper_dir: /home/anton/Pictures/Wallpapers
+gnome_wallpaper_src: /home/anton/Projects/Dotfiles/src/walls/
+gnome_specified_wallpaper: /home/anton/Pictures/Wallpapers/Tate-McRae-1.jpg
+
+gnome_install_packages:
+  - gnome-tweaks
+  - gnome-extensions-app
+  - numix-icon-theme-circle
+  - la-capitaine-cursor-theme
+  - glib2-devel
+  - ImageMagick
+  - nodejs-typescript
+  - gnome-shell-extension-pop-shell
+  - xprop
+  - dconf-editor
+  - conky
+
+gnome_default_terminal: alacritty
+gnome_amount_of_workspaces: 5
+gnome_workspace_names:
+  - "www"
+  - "code"
+  - "music"
+  - "virt"
+  - "misc"
+
+gnome_color_scheme: "prefer-dark" # Light mode: "default"
+gnome_gtk_theme: adw-gtk3-dark
+gnome_icon_theme: Numix-Circle
+gnome_cursor_theme: capitaine-cursors
+gnome_button_layout: ":minimize,maximize,close"
+
+gnome_firefox_theme_src: /home/anton/Projects/Dotfiles/src/firefox/userChrome.css
+gnome_firefox_theme_path: /home/anton/.mozilla/firefox/vp8fl0st.default/chrome
+gnome_firefox_theme_file_path: "{{ gnome_firefox_theme_path }}/userChrome.css"
+
+gnome_favorite_apps:
+  - "org.gnome.Nautilus.desktop"
+  - "firefox.desktop"
+  - "spotify.desktop"
+  - "signal-desktop.desktop"
+  - "discord.desktop"
+  - "transmission-gtk.desktop"
+  - "io.github.TransmissionRemoteGtk.desktop"
+
+gnome_custom_keybindings:
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+  - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
