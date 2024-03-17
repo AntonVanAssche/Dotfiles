@@ -1,0 +1,17 @@
+[bell]
+animation = "EaseOutExpo"
+color = "0xffffff"
+duration = 0
+
+[window]
+dynamic_padding = false
+opacity = 1
+startup_mode = "maximized"
+
+[window.padding]
+x = 10
+y = 10
+
+[scrolling]
+history = 10000
+multiplier = 3

@@ -1,0 +1,12 @@
+import = [
+"~/.config/alacritty/colors.toml",
+"~/.config/alacritty/keybindings.toml",
+"~/.config/alacritty/font.toml",
+"~/.config/alacritty/window.toml",
+]
+
+[env]
+TERM="xterm-256color"
+
+[shell]
+program = "/bin/bash"
