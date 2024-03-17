@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# es - Edit Source Code
+# Does the same as `${EDITOR} $(which mycommand)`
+# Usage:
+#    esc [command]
+
+filePath="$(command -v "${1}" 2> /dev/null)"
+
+if [[ -z "${filePath}" ]]; then
+    printf "Error: '%s' not found." "${1}"
+    printf "\n"
+    exit 1
+fi
+
+if [[ -z "${EDITOR}" ]]; then
+    printf "Error: \${EDITOR} not set." >&2
+    printf "\n"
+    exit 1
+fi
+${EDITOR} "${filePath}"
