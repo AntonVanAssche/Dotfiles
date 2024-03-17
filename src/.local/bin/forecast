@@ -1,0 +1,60 @@
+#!/bin/bash
+
+weatherreport="${XDG_CACHE_HOME:-${HOME}/.cache}/weatherreport"
+
+Usage() {
+    printf "%s [option] [location]\t- Basic command structure.
+
+Options:
+    --help    or -h\t\t- Show this information.
+    --brief   or -b\t\t- Show a brief summary of today's weather.
+    --full    or -f\t\t- Show the full forecast.
+    --refresh or -r\t\t- Download the latest forecast.
+
+Note:
+    When specifying a location, you'll have to refresh (\`-r\`) the downloaded forecast
+    in case you want to view the one of your default (\`see \${LOCATION}\`) loaction.
+    Otherwise, the forecast will remain the same when the command is run again until the next day.
+" "${0##*/}"
+}
+
+GetForecast() {
+    curl -sf "wttr.in/${LOCATION}" > "${weatherreport}" || exit 1
+}
+
+ShowWeatherBrief() {
+    printf "%s" "$(sed '16q;d' "${weatherreport}" |
+	grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')"
+    sed '13q;d' "${weatherreport}" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "  " $1 "°"," " $2 "°"}'
+}
+
+ShowWeatherFull() {
+    while read -r; do
+        printf "%s\n" "${REPLY}"
+    done < "${weatherreport}"
+}
+
+if [[ -n ${2} ]]; then
+    LOCATION="${2}"
+    GetForecast
+fi
+
+[[ "$(stat -c %y "${weatherreport}" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]] || GetForecast
+
+case ${1} in
+    -h| --help)
+        Usage
+        ;;
+    -b| --brief)
+        ShowWeatherBrief
+        ;;
+    -f| --full)
+        ShowWeatherFull
+        ;;
+    -r| --refresh)
+        GetForecast
+        ;;
+    *)
+        ShowWeatherBrief
+        ;;
+esac
