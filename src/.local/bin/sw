@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# sw: Switch Wallpapers
+# Example usage: keybind this script to a key combination to switch wallpaper:
+# - "<Super>-;" for next
+# - "<Super>-<Shift>-;" for prev
+
+[[ -z "${DISPLAY}" ]] && echo "No display found" && exit 1
+
+get_wallpaper() {
+    local current_wallpaper
+    local next_wallpaper
+    local -a wallpapers
+
+    current_wallpaper=$(gsettings get org.gnome.desktop.background picture-uri)
+    current_wallpaper=${current_wallpaper:1:-1}
+    for file in ~/Pictures/Wallpapers/*; do
+        wallpapers+=("${file}")
+    done
+
+    for i in "${!wallpapers[@]}"; do
+        if [[ "${wallpapers[$i]}" == "${current_wallpaper}" ]]; then
+            if [[ "${1}" == "prev" ]]; then
+                next_wallpaper="${wallpapers[$i-1]}"
+            else
+                next_wallpaper="${wallpapers[$i+1]}"
+            fi
+            break
+        fi
+    done
+
+    if [[ -z "${next_wallpaper}" ]]; then
+        next_wallpaper="${wallpapers[0]}"
+    fi
+
+    printf '%s' "${next_wallpaper}"
+}
+
+set_wallpaper() {
+    gsettings set org.gnome.desktop.background picture-uri "${1}"
+    gsettings set org.gnome.desktop.background picture-uri-dark "${1}"
+}
+
+set_wallpaper "$(get_wallpaper "${1}")"
