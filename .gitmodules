@@ -1,3 +1,0 @@
-[submodule "tmux-continuum"]
-    path = src/.config/tmux/plugins/tmux-continuum
-    url = https://github.com/tmux-plugins/tmux-continuum
