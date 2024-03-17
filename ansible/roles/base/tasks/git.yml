@@ -1,0 +1,6 @@
+# roles/base/tasks/git.yml
+---
+- name: Git | Copy .gitconfig
+  copy:
+    src: "{{ base_dotfiles_dest }}/src/.gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"

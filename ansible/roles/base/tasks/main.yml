@@ -1,0 +1,11 @@
+# roles/base/tasks/main.yml
+---
+
+- include_tasks: dotfiles.yml
+- include_tasks: admin.yml
+- include_tasks: install.yml
+- include_tasks: bash.yml
+- include_tasks: neovim.yml
+- include_tasks: tmux.yml
+- include_tasks: git.yml
+- include_tasks: fonts.yml
