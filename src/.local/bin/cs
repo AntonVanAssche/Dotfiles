@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# cs: Check Sudo
+# Script to check if the user has sudo access or not.
+
+oldIFS=${IFS}
+groupsFile="/etc/group"
+
+if [[ -f "${groupsFile}" ]] && [[ -r "${groupsFile}" ]]; then
+    while IFS=':' read group _ _ user;
+    do
+        case $group in
+            wheel|sudo)
+                IFS=','
+                for currentUser in $user;
+                do
+                    if [[ "${USER:-$(id -un)}" = "${currentUser}" ]]; then
+                        hasOrNot="has"
+                        break 2
+                    fi
+                done
+
+                hasOrNot="does not have"
+                break
+                ;;
+        esac
+    done < "${groupsFile}"
+
+    IFS=${oldIFS}
+    printf "User '%s' %s sudo acess." "${USER}" "${hasOrNot}"
+    printf "\n"
+else
+    printf "Error: file '%s' not found" "${groupsFile}" 1>&2
+    exit 1
+fi
