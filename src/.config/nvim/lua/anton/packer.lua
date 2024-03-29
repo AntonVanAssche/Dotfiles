@@ -87,7 +87,6 @@ return packer.startup(function(use)
             { 'hrsh7th/cmp-cmdline' },
             { 'onsails/lspkind.nvim' },
             { 'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp' },
-            -- { 'github/copilot.vim' },
 
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
@@ -119,10 +118,8 @@ return packer.startup(function(use)
 
     -- Self written plugins, GO CHECK THEM OUT!
     use { 'AntonVanAssche/date-time-inserter.nvim'}
-    -- use { '/home/anton/Projects/date-time-inserter.nvim'}
     use {
-    'AntonVanAssche/md-headers.nvim',
-    -- '/home/anton/Projects/md-headers.nvim',
+        'AntonVanAssche/md-headers.nvim',
         requires = {
             'nvim-lua/plenary.nvim'
         }
