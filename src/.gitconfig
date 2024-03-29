@@ -42,7 +42,7 @@
     untracked = red reverse
 
 [core]
-	editor = vim
+	editor = nvim
 
 [help]
     # If a command is mistyped, make Git automatically
