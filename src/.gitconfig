@@ -6,23 +6,35 @@
 [alias]
     g = log --graph --pretty=custom
     d = diff
+    f = fetch
     a = add
+    ap = add -p
     c = commit
+    ca = !git add --all && git commit
+    cam = commit --amend
     p = push
+    pl = pull
     s = status
     cl = clone
-
-    # Commit all changes.
-    ca = !git add --all && git commit
-
-    # Show custom text-based graphical log of the commit history.
+    r = reset
     l = log --pretty=custom
-
-    # Show custom log of the commit history.
-    l = log --pretty=custom
-
-    # List contributors.
     lc = shortlog --email --numbered --summary
+    sh = show
+    co = checkout
+    b = branch
+    bd = branch
+    bdr = !sh -c 'git push origin --delete ${1} && git bd ${1}' -
+    r    = rebase
+    ra   = rebase --abort
+    rc   = rebase --continue
+    ri   = rebase --interactive
+    rs   = rebase --skip
+    sp   = stash show -p
+    nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
+    forget="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+    forgetlist="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}'"
+    uncommit = reset --soft HEAD~1
+    uc = reset --soft HEAD~1
 
 [color "status"]
     added = green reverse
