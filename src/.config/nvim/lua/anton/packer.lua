@@ -51,10 +51,6 @@ return packer.startup(function(use)
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'nvim-tree/nvim-tree.lua' }
     use { 'lukas-reineke/indent-blankline.nvim' }
-    use { 'prettier/vim-prettier',
-        run = 'npm install --frozen-lockfile --production',
-        ft = { 'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html' }
-    }
 
     -- Better undo
     use { 'mbbill/undotree' }
