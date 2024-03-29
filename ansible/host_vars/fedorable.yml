@@ -89,10 +89,6 @@ base_dirs:
   - "{{ ansible_env.HOME }}/Videos/Screencasts/"
   - "{{ ansible_env.HOME }}/isos"
 
-base_tmux_plugins:
-  - "https://github.com/tmux-plugins/tmux-resurrect.git"
-  - "https://github.com/tmux-plugins/tmux-continuum.git"
-
 # Update version to the latest: :%s/v3.1.0/<latest>/g
 base_fonts:
   - https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip

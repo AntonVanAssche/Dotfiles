@@ -7,5 +7,4 @@ base_remove_packages: []
 base_dotfiles_repo: ""
 base_dotfiles_dest: ""
 base_dirs: []
-base_tmux_plugins: []
 base_fonts: []
