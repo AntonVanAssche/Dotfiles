@@ -107,9 +107,6 @@ return packer.startup(function(use)
     -- Git
     use { 'lewis6991/gitsigns.nvim' }
 
-    -- TODO shit
-    use { 'folke/todo-comments.nvim' }
-
     -- Markdown preview
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }
 
