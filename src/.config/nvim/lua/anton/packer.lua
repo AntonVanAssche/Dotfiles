@@ -56,15 +56,20 @@ return packer.startup(function(use)
     use { 'mbbill/undotree' }
 
     -- Appearance
+    use { 'navarasu/onedark.nvim' }
     use { 'nvim-lualine/lualine.nvim' }
     use { 'miyakogi/conoline.vim' }
     use { 'folke/zen-mode.nvim' }
+    use {
+        'folke/noice.nvim',
+        requires = {
+            'MunifTanjim/nui.nvim'
+        }
+    }
+
 
     -- Display colors
     use { 'norcalli/nvim-colorizer.lua' }
-
-    -- Colorschemes
-    use { 'navarasu/onedark.nvim' }
 
     -- LSP
     use {
