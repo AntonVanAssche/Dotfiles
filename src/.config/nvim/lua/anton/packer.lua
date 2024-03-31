@@ -110,6 +110,7 @@ return packer.startup(function(use)
 
     -- Git
     use { 'lewis6991/gitsigns.nvim' }
+    use { 'f-person/git-blame.nvim' }
 
     -- Markdown preview
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm instal' }

@@ -3,39 +3,12 @@ if not lualine_status_ok then
     return
 end
 
-local colors = {
-    blue   = '#61AFEF',
-    cyan   = '#56B6C2',
-    black  = '#282C34',
-    white  = '#FAFAFA',
-    red    = '#E06C75',
-    violet = '#98C379',
-    grey   = '#202020',
-    transparent = '#FFF',
-}
-
-local bubbles_theme = {
-    normal = {
-        a = { fg = colors.black, bg = colors.violet },
-        b = { fg = colors.white, bg = colors.grey },
-        c = { fg = colors.white, bg = colors.transparent},
-    },
-    insert = {
-        a = {fg = colors.black, bg = colors.blue}
-    },
-    visual = {
-        a = {fg = colors.black, bg = colors.cyan}
-    },
-    replace = {
-        a = {fg = colors.black, bg = colors.red}
-    },
-    inactive = {
-        a = {fg = colors.white, bg = colors.black},
-        b = {fg = colors.white, bg = colors.black},
-        c = {fg = colors.black, bg = colors.black},
-    },
-}
-
+local git_blame_status_ok, git_blame = pcall(require, "gitblame")
+if not git_blame_status_ok then
+    return
+end
+vim.g.gitblame_display_virtual_text = 0
+vim.g.gitblame_date_format = '%r'
 
 lualine.setup {
     options = {
@@ -47,7 +20,7 @@ lualine.setup {
         lualine_a = {
             { 'mode', separator = { left = '' }, right_padding = 2 },
         },
-        lualine_b = { 'filename', 'branch' },
+        lualine_b = { 'filename', 'branch', { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } },
         lualine_c = { 'fileformat' },
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
