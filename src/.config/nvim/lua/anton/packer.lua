@@ -109,6 +109,7 @@ return packer.startup(function(use)
 	use { 'nvim-treesitter/playground' }
 
     -- Git
+    use { 'tpope/vim-fugitive' }
     use { 'lewis6991/gitsigns.nvim' }
     use { 'f-person/git-blame.nvim' }
 
