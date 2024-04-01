@@ -12,10 +12,10 @@ notify.setup {
     background_colour = "#202020",
     minimum_width = 10,
     icons = {
-        ERROR = '',
-        WARN = '',
+        ERROR = '',
+        WARN = '',
         INFO = '',
-        DEBUG = '',
+        DEBUG = '',
         TRACE = '',
     },
 }
