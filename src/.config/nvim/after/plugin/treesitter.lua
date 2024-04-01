@@ -6,15 +6,9 @@ end
 treesitter.setup {
     -- A list of parser names, or "all"
     ensure_installed = {
-        "arduino",
         "bash",
-        "c",
-        "cpp",
         "diff",
-        "css",
         "csv",
-        "html",
-        "javascript",
         "json",
         "latex",
         "lua",
@@ -22,7 +16,6 @@ treesitter.setup {
         "vimdoc",
         "yaml",
         "xml",
-        "yang",
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
