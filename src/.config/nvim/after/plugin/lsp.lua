@@ -237,27 +237,32 @@ local settings = {
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
     ensure_installed = {
-        "ansiblels",
-        "arduino_language_server",
-        "bashls",
+        "ansible-lint",
+        "bash-language-server",
         "clangd",
-        "cssls",
-        "dockerls",
-        "eslint",
-        "html",
-        "jsonls",
-        "tsserver",
-        "ltex",
-        "lua_ls",
+        "docker-compose-language-service",
+        "dockerfile-language-server",
+        "hclfmt",
+        "jq",
+        "lua-language-server",
+        "markdownlint",
         "marksman",
-        "powershell_es",
-        "pyright",
-        "sqlls",
-        "lemminx",
-        "yamlls",
+        "pylint",
+        "shellcheck",
+        "stylua",
+        "terraform-ls",
+        "tflint",
+        "vim-language-server",
+        "yamllint",
     },
     automatic_installation = false,
 }
+
+vim.api.nvim_create_user_command("MasonInstallAll", function()
+    if settings.ensure_installed and #settings.ensure_installed > 0 then
+      vim.cmd("MasonInstall " .. table.concat(settings.ensure_installed, " "))
+    end
+end, {})
 
 local mason_status_ok, mason = pcall(require, 'mason')
 if mason_status_ok then
