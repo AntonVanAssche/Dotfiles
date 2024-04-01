@@ -44,7 +44,7 @@ prompt_git() {
 }
 
 PS1="\n"; # Inserts a blank line between shell prompts.
-PS1+="\[\e[95m\]  "; # Pacman symbol.
+PS1+="\[\e[95m\]󰊠  "; # Pacman symbol.
 PS1+="\W"; # Display current working directory (directory name only).
 PS1+="\$(prompt_git \"\[\e[37m\] on \[\e[95m\]\" \"\[\e[94m\]\")"; # Git repository details.
 PS1+=" \[\e[92m\]❯\[\e[94m\]❯\[\e[93m\]❯\[\e[0m\]  " || PS1="$ " # When PS1 is not set, use '$ ' as the prompt symbol.
