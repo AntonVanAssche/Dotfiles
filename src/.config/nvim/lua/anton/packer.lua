@@ -49,7 +49,6 @@ return packer.startup(function(use)
     use { 'wbthomason/packer.nvim' }
     use { 'numToStr/Comment.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
-    use { 'nvim-tree/nvim-tree.lua' }
     use { 'lukas-reineke/indent-blankline.nvim' }
 
     -- Better undo
