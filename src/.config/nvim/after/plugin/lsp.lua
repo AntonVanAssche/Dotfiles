@@ -10,13 +10,13 @@ end
 
 lspkind.init({
     symbol_map = {
-        Text = "",
-        Method = "",
-        Function = "",
+        Text = "",
+        Method = "",
+        Function = "󰊕",
         Constructor = "",
         Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
+        Variable = "󰫧",
+        Class = "",
         Interface = "",
         Module = "",
         Property = "ﰠ",
@@ -169,10 +169,10 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
     local signs = {
-        { name = 'DiagnosticSignError', text = '' },
-        { name = 'DiagnosticSignWarn', text = '' },
+        { name = 'DiagnosticSignError', text = '' },
+        { name = 'DiagnosticSignWarn', text = '' },
         { name = 'DiagnosticSignInfo', text = '' },
-        { name = 'DiagnosticSignHint', text = '' },
+        { name = 'DiagnosticSignHint', text = '' },
     }
 
     for _, sign in ipairs(signs) do
