@@ -1,1 +1,2 @@
-require("anton")
+require("anton.core")
+require("anton.lazy")
