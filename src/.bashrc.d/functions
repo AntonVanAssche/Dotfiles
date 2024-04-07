@@ -1,33 +1,17 @@
 #!/bin/bash
 
-Err(){
-	printf '\e[91mErr\e[0m: %s\n' "${1}" 1>&2
-	return 1
-}
-
 history() {
-    builtin history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+    builtin history | \
+        awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | \
+        grep -v "./" | \
+        column -c3 -s " " -t | \
+        sort -nr | \
+        nl | \
+        head -n10
 }
 
 cd() {
     builtin cd "${1}" && ls -a
-}
-
-mcd() {
-    mkdir -p "${1}" && cd "${1}" || Err "${1}"
-}
-
-hackerman() {
-    < /dev/urandom hexdump -C | grep "ca fe"
-}
-
-remember() {
-	local len=${#1}
-	if (( len <= 80 )); then
-		printf '%s\n' "${1}" > ~/.reminder
-	else
-		Err "String length of ${len} exceeds limit of 80."
-	fi
 }
 
 maketar() {
@@ -42,7 +26,9 @@ swap() {
      local TMPFILE=tmp.$$
 
      [[ $# -ne 2 ]] && printf 'swap: 2 arguments needed\n' && return 1
+    # shellcheck disable=SC2016
      [[ ! -e "${1}" ]] && printf 'swap: ${1} does not exist\n' && return 1
+    # shellcheck disable=SC2016
      [[ ! -e "${2}" ]] && printf 'swap: ${2} does not exist\n' && return 1
 
      mv "${1}" "${TMPFILE}"
@@ -51,5 +37,5 @@ swap() {
 }
 
 path() {
-     printf "${PATH//:/\\n}"
+     printf '%s\n' "${PATH//:/\\n}"
 }

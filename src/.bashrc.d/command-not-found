@@ -78,52 +78,17 @@ print_message () {
 
     # Print a randomly selected message, but only about half the time to annoy the user a
     # little bit less.
-    if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
+    if [[ $((RANDOM % 2)) -lt 1 ]]; then
         message=${messages[${RANDOM} % ${#messages[@]}]}
         printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
     fi
 }
 
 function_exists () {
-    # Zsh returns 0 even on non existing functions with -F so use -f
     declare -f "${1}" > /dev/null
     return $?
 }
 
-#
-# The idea below is to copy any existing handlers to another function
-# name and insert the message in front of the old handler in the
-# new handler. By default, neither bash or zsh has has a handler function
-# defined, so the default behaviour is replicated.
-#
-# Also, ensure the handler is only copied once. If we do not ensure this
-# the handler would add itself recursively if this file happens to be
-# sourced multiple times in the same shell, resulting in a neverending
-# stream of messages.
-#
-
-#
-# Zsh
-#
-if function_exists command_not_found_handler; then
-    if ! function_exists orig_command_not_found_handler; then
-        eval "orig_$(declare -f command_not_found_handler)"
-    fi
-else
-    orig_command_not_found_handler () {
-        printf "zsh: command not found: %s\\n" "$1" >&2
-        return 127
-    }
-fi
-
-command_not_found_handler () {
-    print_message
-    orig_command_not_found_handler "$@"
-}
-
-#
-# Bash
-#
 if function_exists command_not_found_handle; then
     if ! function_exists orig_command_not_found_handle; then
         eval "orig_$(declare -f command_not_found_handle)"

@@ -39,9 +39,6 @@ alias h='builtin history | less'
 alias hg='builtin history | grep'
 alias open='xdg-open'
 
-# info
-alias meminfo='free -mlth'
-
 # git
 alias g='git'
 
@@ -51,10 +48,8 @@ alias vim=nvim # Use nvim instead of `vim`
 alias vi=vim
 alias svi="sudo -E vim"
 alias vis='vim "+set si"'
-alias edit=vim
 
 # net
-alias ports='netstat -tulanp'
 alias wget='wget -c'
 alias ping='ping -c 5'
 
@@ -81,12 +76,3 @@ alias u='sudo dnf upgrade'
 
 # SSH without adding the target host to ~/.ssh/known_hosts
 alias sshh='ssh -o UserKnownHostsFile=/dev/null '
-
-# Source: Luciano Quercia
-# https://dev.to/djviolin/what-are-your-unix-pipeline-commands-that-saved-you-from-lot-of-codingtime-7ok/comments/185j
-# Usage examples:
-#   some_command | ctrlc
-#   ctrlv | some_other_command
-#   ctrlv >> some_file
-alias ctrlc='xclip -selection clipboard -i'
-alias ctrlv='xclip -selection clipboard -o'
