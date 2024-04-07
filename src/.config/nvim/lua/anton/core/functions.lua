@@ -36,7 +36,7 @@ end
 -- SCC: Show ColorColumn
 SCC = function()
     local value = vim.api.nvim_get_option_value("colorcolumn", {})
-    if value == "0" then
+    if value ~= "100" then
         vim.api.nvim_set_option_value("colorcolumn", "100", {})
         vim.cmd [[highlight colorcolumn guibg=#E06C75]]
     else
