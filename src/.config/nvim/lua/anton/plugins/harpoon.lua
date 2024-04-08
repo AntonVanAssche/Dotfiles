@@ -8,7 +8,7 @@ return {
 
     harpoon.setup()
 
-    keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+    keymap.set("n", "<leader>a", function() harpoon:list():add() end)
     keymap.set("n", "<leader>d", function() harpoon:list():remove() end)
     keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
