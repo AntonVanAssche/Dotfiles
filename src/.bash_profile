@@ -9,6 +9,7 @@ fi;
 
 # Make nvim the default editor.
 export EDITOR='nvim';
+export GIT_EDITOR="${EDITOR}";
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='500';
