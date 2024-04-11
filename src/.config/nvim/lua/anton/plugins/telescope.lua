@@ -58,5 +58,6 @@ return {
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
     keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Find undo history" })
+    keymap.set('n', '<Leader>fp', '<cmd>Telescope prosession<CR>', { desc = 'Find sessions' })
   end,
 }
