@@ -114,7 +114,7 @@ return {
         },
       })
 
-      vim.api.nvim_set_hl(0, "NoiceCmdlinePopupTitle",  { fg = "#61afef" })
+      vim.api.nvim_set_hl(0, "NoiceCmdlinePopupTitle",  { fg = "#e06c75" })
       vim.api.nvim_set_hl(0, "NoiceCmdlineIconCmdline", { fg = "#61afef" })
       vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#61afef" })
     end,
