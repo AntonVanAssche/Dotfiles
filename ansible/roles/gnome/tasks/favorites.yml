@@ -1,6 +1,6 @@
 # roles/gnome/tasks/favorites.yml
 ---
-- name: Favorites | Build gnome_favorite_apps_string
+- name: Favorites | Set fact gnome_favorite_apps_string
   set_fact:
     gnome_favorite_apps_string: "[{% for app in gnome_favorite_apps %}'{{ app }}', {% endfor %}]"
   when: gnome_favorite_apps != []

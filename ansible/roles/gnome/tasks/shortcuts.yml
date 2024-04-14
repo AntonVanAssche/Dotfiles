@@ -1,6 +1,6 @@
 # roles/gnome/tasks/shortcuts.yml
 ---
-- name: Shortcuts | Build gnome_custom_keybindings_string
+- name: Shortcuts | Set fact gnome_custom_keybindings_string
   set_fact:
     gnome_custom_keybindings_string: "[{% for keybind in gnome_custom_keybindings %}'{{ keybind }}', {% endfor %}]"
   run_once: true

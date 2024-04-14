@@ -10,7 +10,7 @@
     key: "/org/gnome/desktop/wm/preferences/num-workspaces"
     value: "{{ gnome_amount_of_workspaces }}"
 
-- name: Defaults | Build gnome_workspace_names_string
+- name: Defaults | Set fact gnome_workspace_names_string
   set_fact:
     gnome_favorite_apps_string: "[{% for name in gnome_workspace_names %}'{{ name }}', {% endfor %}]"
   when: gnome_workspace_names != []
