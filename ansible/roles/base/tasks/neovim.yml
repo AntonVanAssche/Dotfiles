@@ -7,11 +7,6 @@
     state: link
     force: yes
 
-- name: Neovim | Installing Packer
-  git:
-    repo: "{{ packer_repo }}"
-    dest: "{{ ansible_env.HOME }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-
 - name: Neovim | Installing pynvim
   pip:
     name: pynvim
