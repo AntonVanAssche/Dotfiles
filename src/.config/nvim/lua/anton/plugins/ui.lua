@@ -165,5 +165,11 @@ return {
   },
   {
     "AntonVanAssche/cyclist.vim",
-  }
+  },
+  {
+    "letieu/btw.nvim",
+    config = function()
+      require('btw').setup()
+    end,
+  },
 }
