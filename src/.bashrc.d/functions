@@ -11,7 +11,10 @@ history() {
 }
 
 cd() {
-    builtin cd "${1}" && ls -a
+    [[ -z "${1}" ]] && builtin cd "${HOME}" && ls && return
+    [[ "${1}" == "-" ]] && builtin cd "${OLDPWD}" && ls && return
+    [[ -d "${1}" ]] && builtin cd "${1}" && ls && return
+    [[ -f "${1}" ]] && builtin cd "${1%/*}" && ls && return
 }
 
 maketar() {
