@@ -35,9 +35,15 @@ alias projects='cd $HOME/Projects/'
 # shorts
 alias c='clear'
 alias q='exit'
+alias :q='exit'
+alias :wq='exit'
+alias :x='exit'
 alias h='builtin history | less'
 alias hg='builtin history | grep'
 alias open='xdg-open'
+
+# Cat
+alias cat='bat'
 
 # git
 alias g='git'
@@ -48,6 +54,9 @@ alias vim=nvim # Use nvim instead of `vim`
 alias vi=vim
 alias svi="sudo -E vim"
 alias vis='vim "+set si"'
+
+# Python
+alias py='python'
 
 # net
 alias wget='wget -c'
