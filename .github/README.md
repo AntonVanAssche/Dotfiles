@@ -11,6 +11,7 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
 
 ```console
 $ base-bootstrap.sh
+$ gnome-bootstrap.sh
 ```
 
 ## Updating

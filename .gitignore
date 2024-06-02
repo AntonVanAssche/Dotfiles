@@ -42,6 +42,7 @@
 !/.local/bin/tmux-cheatsheet
 !/.local/bin/tmux-sessionizer
 !/.local/bin/base-bootstrap.sh
+!/.local/bin/gnome-bootstrap.sh
 
 /etc/*
 !/etc/dnf.conf
