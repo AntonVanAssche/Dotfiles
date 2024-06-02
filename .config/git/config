@@ -1,7 +1,7 @@
 [user]
 	email = vanasscheanton@gmail.com
 	name = Anton
-    signingKey = XXXXXXXX
+    signingKey = 27683E3E
 
 [alias]
     g = log --graph --pretty=custom
