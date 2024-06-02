@@ -7,7 +7,7 @@
 !/.bashrc.d/
 /.cache/
 
-!/walls/
+!/walls/*
 
 /.config/*
 !/.config/alacritty/
