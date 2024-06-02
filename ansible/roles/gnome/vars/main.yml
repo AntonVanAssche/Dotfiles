@@ -1,6 +1,0 @@
----
-gnome_now_clocking_repo: https://github.com/AntonVanAssche/now-clocking.git
-gnome_now_clocking_dest: "{{ ansible_env.HOME }}/.config/conky/"
-gnome_adw_gtk3_repo: https://github.com/lassekongo83/adw-gtk3.git
-gnome_role_dependencies_pip:
-  - psutil

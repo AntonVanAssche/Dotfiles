@@ -36,8 +36,6 @@ export XDG_VIDEOS_DIR="$HOME/Videos";
 export LOCATION="";
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
-export PATH=$PATH:/home/anton/.spicetify
-
 if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
     export WAYLAND_DISPLAY="$XDG_SESSION_TYPE-0"
 fi

@@ -1,9 +1,0 @@
-servers:
-  vars:
-    ansible_user: anton
-    ansible_become: true
-  hosts:
-    fedorable:
-      ansible_host: 192.168.0.26 # Change when needed.
-      ansible_become_pass: "{{ fedorable_become_pass }}" # Variable will be defined in vaulted_vars.yml
-      ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/fedorable/"
