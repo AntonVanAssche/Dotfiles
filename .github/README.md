@@ -10,7 +10,7 @@ They are specifically created to function seamlessly on Fedora Linux, but can be
 ## Installation
 
 ```console
-$ bootstrap.sh
+$ base-bootstrap.sh
 ```
 
 ## Updating
