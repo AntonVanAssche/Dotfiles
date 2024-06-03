@@ -19,6 +19,8 @@
 !/.config/nvim/
 /.config/nvim/undos
 !/.config/spicetify/
+/.config/spicetify/Extracted
+/.config/spicetify/Backup
 !/.config/tmux/
 !/.config/wget/
 
