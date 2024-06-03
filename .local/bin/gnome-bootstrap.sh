@@ -23,7 +23,10 @@ array_to_string() {
 
 DOTFILES_DIR="${HOME}/Projects/Dotfiles"
 mkdir -p "${HOME}/Pictures/"
-ln -sfv "${DOTFILES_DIR}/walls" "${HOME}/Pictures/Wallpapers"
+if [[ ! -h "${HOME}/Pictures/Wallpapers" ]]; then
+    [[ -d "${HOME}/Pictures/Wallpapers" ]] || rm -rf "${HOME}/Pictures/Wallpapers/"
+    ln -sfv "${DOTFILES_DIR}/walls" "${HOME}/Pictures/Wallpapers"
+fi
 
 declare -a DNF=(dnf --assumeyes)
 declare -a PKGS_TO_INSTALL=(
