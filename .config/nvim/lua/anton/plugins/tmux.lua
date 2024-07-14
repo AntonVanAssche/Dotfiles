@@ -1,17 +1,47 @@
 return {
   "alexghergh/nvim-tmux-navigation",
-  config = function()
-    local tmux = require("nvim-tmux-navigation")
-    tmux.setup({
-      disable_when_zoomed = true -- defaults to false
-    })
-
-    local keymap = vim.keymap
-    keymap.set('n', "<C-h>", tmux.NvimTmuxNavigateLeft)
-    keymap.set('n', "<C-j>", tmux.NvimTmuxNavigateDown)
-    keymap.set('n', "<C-k>", tmux.NvimTmuxNavigateUp)
-    keymap.set('n', "<C-l>", tmux.NvimTmuxNavigateRight)
-    keymap.set('n', "<C-\\>", tmux.NvimTmuxNavigateLastActive)
-    keymap.set('n', "<C-Space>", tmux.NvimTmuxNavigateNext)
-  end,
+  opts = {
+    disable_when_zoomed = true, -- defaults to false
+  },
+  lazy = true,
+  cmd = {
+    "NvimTmuxNavigateLeft",
+    "NvimTmuxNavigateDown",
+    "NvimTmuxNavigateUp",
+    "NvimTmuxNavigateRight",
+    "NvimTmuxNavigateLastActive",
+    "NvimTmuxNavigateNext",
+  },
+  keys = {
+    {
+      "<C-h>",
+      "<cmd>NvimTmuxNavigateLeft<cr>",
+      desc = "Move one nvim/tmux pane to the left",
+    },
+    {
+      "<C-j>",
+      "<cmd>NvimTmuxNavigateDown<cr>",
+      desc = "Move one nvim/tmux pane down",
+    },
+    {
+      "<C-k>",
+      "<cmd>NvimTmuxNavigateUp<cr>",
+      desc = "Move one nvim/tmux pane up",
+    },
+    {
+      "<C-l>",
+      "<cmd>NvimTmuxNavigateRight<cr>",
+      desc = "Move one nvim/tmux pane to the right",
+    },
+    {
+      "<C-\\>",
+      "<cmd>NvimTmuxNavigateLastActive<cr>",
+      desc = "Move to the last active nvim/tmux pane",
+    },
+    {
+      "<C-Space>",
+      "<cmd>NvimTmuxNavigateNext<cr>",
+      desc = "Move to the next nvim/tmux pane",
+    },
+  },
 }
