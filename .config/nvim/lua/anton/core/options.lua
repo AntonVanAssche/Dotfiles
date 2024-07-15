@@ -45,17 +45,6 @@ opt.smartindent = true
 opt.autoindent = true
 opt.scrolloff = 999
 
--- Reference of the values:
---   Ps = 0  -> blinking block.
---   Ps = 1  -> blinking block (default).
---   Ps = 2  -> steady block.
---   Ps = 3  -> blinking underline.
---   Ps = 4  -> steady underline.
---   Ps = 5  -> blinking bar.
---   Ps = 6  -> steady bar.
-vim.api.nvim_set_option('t_SI', '\\e[5 q')
-vim.api.nvim_set_option('t_EI', '\\e[2 q')
--- opt.ruled = true
 opt.cursorline = true
 opt.signcolumn = 'yes'
 
