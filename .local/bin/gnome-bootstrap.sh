@@ -118,11 +118,11 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[0]}" command 'env -u WAYLAND_DISPLAY alacritty'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[0]}" name 'Launch Alacritty'
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[1]}" binding '<Super>;'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[1]}" binding '<Super>semicolon'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[1]}" command 'sw next'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[1]}" name 'Set next wallpaper'
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[2]}" binding '<Shift:<Super>;'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[2]}" binding '<Shift><Super>semicolon'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[2]}" command 'sw prev'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:"${KEYBINDING_PATHS[2]}" name 'Set previous wallpaper'
 
