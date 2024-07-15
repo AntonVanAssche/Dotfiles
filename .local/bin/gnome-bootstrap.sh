@@ -209,7 +209,7 @@ for font in "${FONTS[@]}"; do
     font_name="${font_name%.*}"
 
     mkdir -p "/tmp/fonts/${font_name}"
-    wget --directory-prefix="/tmp/fonts/${font_name}" "${font}"
+    wget --directory-prefix="/tmp/fonts/" "${font}"
 
     [[ "${font}" =~ .*\.zip ]] && unzip -d /tmp/fonts/ "/tmp/fonts/${font##*/}"
     [[ "${font}" =~ .*\.tar ]] && tar -C /tmp/fonts/ -xvf "/tmp/fonts/${font##*/}"
