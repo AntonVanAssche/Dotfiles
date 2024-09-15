@@ -29,11 +29,6 @@ key = "Minus"
 mods = "Control"
 
 [[keyboard.bindings]]
-action = "ClearLogNotice"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
 key = "PageUp"
 action = "ScrollPageUp"
 mods = "Control"
