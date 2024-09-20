@@ -41,12 +41,13 @@ return {
 
     require("mason-lspconfig").setup({
       ensure_installed = {
+        "bashls",
         "lua_ls",
         "puppet",
         "rubocop",
+        "shellcheck",
         "terraformls",
         "tflint",
-        "shellcheck",
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -82,6 +83,14 @@ return {
                 },
               },
             },
+          })
+        end,
+
+        ["bashls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.bashls.setup({
+            capabilities = capabilities,
+            cmd = { "bash-language-server", "start" },
           })
         end,
       },
