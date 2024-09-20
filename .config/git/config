@@ -36,6 +36,7 @@
     fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
     uncommit = reset --soft HEAD~1
     uc = reset --soft HEAD~1
+    dt = describe --always --tags --abbrev=0
 
 [color "status"]
     added = green reverse
