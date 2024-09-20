@@ -12,9 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "anton.plugins" },
-  { import = "anton.plugins.lsp" },
-}, {
-  install = { colorscheme = { "onedark" } },
+  spec = "anton.plugins",
   change_detection = { notify = false },
 })

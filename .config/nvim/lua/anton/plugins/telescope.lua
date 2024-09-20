@@ -1,63 +1,72 @@
 return {
   "nvim-telescope/telescope.nvim",
+  tag = "0.1.5",
   dependencies = {
-    "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "nvim-tree/nvim-web-devicons",
     "debugloop/telescope-undo.nvim",
-    "nvim-telescope/telescope-media-files.nvim",
-    "tpope/vim-obsession",
+    "nvim-lua/plenary.nvim",
+    "xiyaowong/telescope-emoji.nvim",
     "dhruvasagar/vim-prosession",
   },
   config = function()
-    local telescope = require("telescope")
+    local open_with_trouble = require("trouble.sources.telescope").open
+    local builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
 
-    telescope.setup({
+    require("telescope").setup({
       defaults = {
         layout_strategy = "vertical",
-        path_display = { "truncate " },
-        file_ignore_patterns = { "node_modules", "__pycache__" },
-        layout_config = {
-          width = 0.75,
-        },
+        layout_config = { width = 0.8 },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
+            ["<c-t>"] = open_with_trouble,
           },
-        },
-      },
-      extensions = {
-        undo = {
-          use_delta = true,
-          side_by_side = false,
-          vim_diff_opts = { ctxlen = 999 },
-          entry_format = "state #$ID, $STAT, $TIME",
-          time_format = "",
-          mappings = {
-            i = {
-              ["<cr>"] = require("telescope-undo.actions").yank_additions,
-              ["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-              ["<C-cr>"] = require("telescope-undo.actions").restore,
-            },
-          },
+          n = { ["<c-t>"] = open_with_trouble },
         },
       },
     })
 
-    telescope.load_extension("fzf")
-    telescope.load_extension("undo")
-    telescope.load_extension("media_files")
-    telescope.load_extension("prosession")
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("undo")
+    require("telescope").load_extension("prosession")
 
-    local keymap = vim.keymap
-
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files in cwd" })
-    keymap.set("n", "<leader>fa", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Find files including hidden files"})
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
-    keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Find undo history" })
-    keymap.set('n', '<Leader>fp', '<cmd>Telescope prosession<CR>', { desc = 'Find sessions' })
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+    vim.keymap.set(
+      "n",
+      "<leader>fa",
+      "<cmd>Telescope find_files hidden=true<cr>",
+      { desc = "Find files including hidden files" }
+    )
+    vim.keymap.set("n", "<leader><leader>", builtin.git_files, {})
+    vim.keymap.set("n", "<leader>fp", "<cmd>Telescope prosession<CR>", { desc = "Load session" })
+    vim.keymap.set("n", "<leader>fe", "<cmd>Telescope emoji<CR>", { desc = "Insert Emoji" })
+    vim.keymap.set("n", "<leader>fw", function()
+      local word = vim.fn.expand("<cword>")
+      builtin.grep_string({ search = word })
+    end)
+    vim.keymap.set("n", "<leader>fW", function()
+      local word = vim.fn.expand("<cWORD>")
+      builtin.grep_string({ search = word })
+    end)
+    vim.keymap.set("n", "<leader>fP", function()
+      local word = vim.fn.getreg("''")
+      builtin.grep_string({ search = word })
+    end)
+    vim.keymap.set("n", "<leader>fg", function()
+      builtin.grep_string({ search = vim.fn.input("Grep > ") })
+    end)
+    vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+    vim.keymap.set("n", "<leader>fc", builtin.command_history, {})
+    vim.keymap.set("n", "<leader>fC", builtin.commands, {})
+    vim.keymap.set("n", "<leader>fS", builtin.search_history, {})
+    vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
+    vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+    vim.keymap.set("n", "<leader>fa", builtin.builtin, {})
+    vim.keymap.set("n", "<leader>fl", builtin.current_buffer_fuzzy_find, {})
+    vim.keymap.set("n", "<leader>fr", builtin.registers, {})
   end,
 }

@@ -1,87 +1,75 @@
 local opt = vim.opt
 
-opt.fileencoding = 'utf-8'
-opt.encoding = 'utf-8'
+opt.number = true
+opt.relativenumber = true
 
-vim.cmd [[ syntax enable ]]
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+
+vim.cmd([[ syntax enable ]])
 opt.termguicolors = true
-opt.background = 'dark'
+opt.background = "dark"
+
+opt.mouse = "a"
+opt.mousemodel = "extend"
+
+opt.conceallevel = 2
+
+opt.smartindent = true
+
+opt.wrap = false
+
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
+opt.undolevels = 9999
+
+opt.hlsearch = false
+opt.incsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+
+opt.termguicolors = true
 
 opt.pumheight = 10
 opt.cmdheight = 1
 
-opt.mouse = 'a'
-opt.mousemodel = 'extend'
+opt.scrolloff = 999
+opt.signcolumn = "yes"
+opt.isfname:append("@-@")
 
 opt.updatetime = 300
 
-opt.wrap = false
-opt.number = true
-opt.relativenumber = true
+opt.colorcolumn = "100"
+
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldmethod = "expr"
+opt.foldenable = false
+
 opt.splitright = true
 opt.splitbelow = true
-opt.showmode = false
-opt.timeoutlen = 500
-opt.wildmode = {'longest', 'list', 'full'}
 
-opt.hidden = true
-opt.history = 10000
-opt.undolevels = 3000
-opt.swapfile = false
-opt.backup = false
-
-local home_dir = os.getenv( "HOME" )
-if home_dir then
-    opt.undodir = home_dir .. '/.config/nvim/undos'
-end
-
-opt.undofile = true
-
-opt.softtabstop = 4
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
-opt.smartindent = true
-opt.autoindent = true
-opt.scrolloff = 999
-
-opt.cursorline = true
-opt.signcolumn = 'yes'
-
-
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-opt.hlsearch = true
+vim.g.tzvt_vim_include_path = "bash"
+vim.g.tzvt_vim_path_before = 0
+vim.g.tzvt_vim_force_tmux_title_change = 1
 
 -- Remeber the last cursor position. Neovim doesn't remember the cursor
 -- position when you close a buffer. This is a workaround.
-vim.cmd [[ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
+vim.cmd([[ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]])
 
 -- Clipboard support on Wayland
 vim.g.clipboard = {
-    name = 'myClipboard',
-    copy = {
-        ['+'] = 'wl-copy',
-        ['*'] = 'wl-copy',
-    },
-    paste = {
-        ['+'] = 'wl-paste',
-        ['*'] = 'wl-paste',
-    },
-    cache_enabled = 1,
+	name = "myClipboard",
+	copy = {
+		["+"] = "wl-copy",
+		["*"] = "wl-copy",
+	},
+	paste = {
+		["+"] = "wl-paste",
+		["*"] = "wl-paste",
+	},
+	cache_enabled = 1,
 }
-
--- Clipboard support on X11
--- vim.g.clipboard = {
---     name = 'myClipboard',
---     copy = {
---         ['+'] = 'xsel',
---         ['*'] = 'xsel',
---     },
---     paste = {
---         ['+'] = 'xsel',
---         ['*'] = 'xsel',
---     },
---     cache_enabled = 1,
--- }
