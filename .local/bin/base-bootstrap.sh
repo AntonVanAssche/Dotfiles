@@ -84,6 +84,7 @@ declare -a PKGS_TO_INSTALL=(
     'curl'
     'VirtualBox'
     'vagrant'
+    'terraform'
     'bat'
     'nodejs'
     'meson'
