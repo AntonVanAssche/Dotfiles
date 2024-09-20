@@ -25,7 +25,7 @@ if [[ -f /etc/dnf.conf ]]; then
     sudo mv -v /etc/dnf.conf /etc/dnf.conf.bak
 fi
 
-sudo install -vCDZ -m 0440 -o root -g root ./etc/dnf.conf /etc/dnf.conf
+sudo install -vCDZ -m 0644 -o root -g root ./etc/dnf.conf /etc/dnf.conf
 
 ############
 # Packages #
