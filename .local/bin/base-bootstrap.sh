@@ -98,6 +98,21 @@ declare -a PKGS_TO_INSTALL=(
     '@Development tools'
     '@Development Libraries'
 )
+declare -a NPM_PKGS=(
+    "neovim"
+    "@fsouza/prettierd"
+    "markdownlint-cli2"
+)
+declare -a PIP_PKGS=(
+    "neovim"
+    "pynvim"
+    "yamlfix"
+)
+declare -a GEMS=(
+    "puppet-lint"
+    "puppet-editor-services"
+    "rubocop"
+)
 
 for repo in "${REPOS_TO_ADD[@]}"; do
     sudo "${DNF[@]}" config-manager --add-repo "${repo}"
@@ -112,8 +127,9 @@ sudo "${DNF[@]}" update
 sudo "${DNF[@]}" remove "${PKGS_TO_REMOVE[@]}"
 sudo "${DNF[@]}" install "${PKGS_TO_INSTALL[@]}"
 
-sudo npm install --global neovim
-pip3 install --user pynvim
+sudo npm install --global "${NPM_PKGS[@]}"
+pip3 install --user "${PIP_PKGS[@]}"
+gem install "${GEMS[@]}"
 
 ####################
 # Base directories #

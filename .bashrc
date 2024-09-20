@@ -24,8 +24,7 @@ if command -v most &> /dev/null; then
 fi
 
 # $PATH
-export PATH="${HOME}/.local/bin:${PATH}"
-export PATH="${PATH}:${HOME}/.spicetify"
+export PATH="${HOME}/.local/bin:${HOME}/bin:${PATH}:${HOME}/.spicetify"
 
 # Case-insensitive completion in Bash
 bind -s 'set completion-ignore-case on'
