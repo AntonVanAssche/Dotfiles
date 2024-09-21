@@ -22,7 +22,6 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },
       javascript = { { "prettierd", "prettier" } },
-      yaml = { "yamlfix" },
       terraform = { "terraform_fmt" },
     },
     -- Set up format-on-save
