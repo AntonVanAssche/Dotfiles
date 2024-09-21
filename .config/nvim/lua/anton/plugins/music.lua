@@ -1,6 +1,7 @@
 return {
-	"AntonVanAssche/music-controls.nvim",
-	opts = {
-		default_player = "spotify",
-	},
+  "AntonVanAssche/music-controls.nvim",
+  branch = "refactor",
+  opts = {
+    default_player = "spotify",
+  },
 }
