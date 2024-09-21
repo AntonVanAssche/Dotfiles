@@ -104,6 +104,7 @@ declare -a NPM_PKGS=(
     "markdownlint-cli2"
 )
 declare -a PIP_PKGS=(
+    "ansible-lint"
     "black"
     "isort"
     "neovim"

@@ -40,6 +40,7 @@ return {
     g.ale_lint_on_insert_leave = 1
 
     local servers = {
+      "ansiblels",
       "bashls",
       "lua_ls",
       "puppet",
@@ -99,6 +100,34 @@ return {
           lspconfig.bashls.setup({
             capabilities = capabilities,
             cmd = { "bash-language-server", "start" },
+          })
+        end,
+
+        ["ansiblels"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.ansiblels.setup({
+            capabilities = capabilities,
+            settings = {
+              ansible = {
+                ansible = {
+                  path = "ansible",
+                },
+                executionEnvironment = {
+                  enabled = false,
+                },
+                python = {
+                  interpreterPath = "python",
+                  validation = {},
+                  enabled = true,
+                  lint = {
+                    enabled = true,
+                    path = "ansible-lint",
+                  },
+                },
+              },
+            },
+            cmd = { "ansible-language-server", "--stdio" },
+            filetypes = { "yaml", "ansible" },
           })
         end,
       },
