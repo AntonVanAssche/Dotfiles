@@ -39,16 +39,24 @@ return {
 
     g.ale_lint_on_insert_leave = 1
 
+    local servers = {
+      "bashls",
+      "lua_ls",
+      "puppet",
+      "rubocop",
+      "shellcheck",
+      "terraformls",
+      "tflint",
+    }
+
+    vim.api.nvim_create_user_command("MasonInstallAll", function()
+      if servers and #servers > 0 then
+        vim.cmd("MasonInstall " .. table.concat(servers, " "))
+      end
+    end, {})
+
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        "bashls",
-        "lua_ls",
-        "puppet",
-        "rubocop",
-        "shellcheck",
-        "terraformls",
-        "tflint",
-      },
+      ensure_installed = servers,
       handlers = {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
