@@ -69,3 +69,8 @@ keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }
 
 keymap.set("n", "<C-n>", ":cnext<CR>", { desc = "Move to next file within the quickfix list" })
 keymap.set("n", "<C-p>", ":cprev<CR>", { desc = "Move to previous file within the quickfix list" })
+
+keymap.set("n", "<M-L>", ":vertical resize -5<CR>", { desc = "Resize window left", silent = true })
+keymap.set("n", "<M-J>", ":resize +5<CR>", { desc = "Resize window down", silent = true })
+keymap.set("n", "<M-K>", ":resize -5<CR>", { desc = "Resize window up", silent = true })
+keymap.set("n", "<M-H>", ":vertical resize +5<CR>", { desc = "Resize window right", silent = true })
