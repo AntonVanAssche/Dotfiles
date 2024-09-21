@@ -42,6 +42,7 @@ return {
     local servers = {
       "ansiblels",
       "bashls",
+      "dockerls",
       "lua_ls",
       "puppet",
       "rubocop",
@@ -128,6 +129,25 @@ return {
             },
             cmd = { "ansible-language-server", "--stdio" },
             filetypes = { "yaml", "ansible" },
+          })
+        end,
+
+        ["dockerls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.dockerls.setup({
+            capabilities = capabilities,
+            settings = {
+              docker = {
+                languageserver = {
+                  formatter = {
+                    ignoreMultilineInstructions = true,
+                  },
+                },
+              },
+            },
+            cmd = { "docker-langserver", "--stdio" },
+            filetypes = { "Dockerfile", "dockerfile" },
+            root_dir = lspconfig.util.root_pattern("Dockerfile", "Containerfile"),
           })
         end,
       },
