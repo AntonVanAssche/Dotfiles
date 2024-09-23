@@ -68,5 +68,6 @@ return {
     vim.keymap.set("n", "<leader>fa", builtin.builtin, {})
     vim.keymap.set("n", "<leader>fl", builtin.current_buffer_fuzzy_find, {})
     vim.keymap.set("n", "<leader>fr", builtin.registers, {})
+    vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find TODOs" })
   end,
 }
