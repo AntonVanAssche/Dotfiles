@@ -36,7 +36,7 @@
   "mini.surround": { "branch": "main", "commit": "3cb5b509ad34f2402df4b977be607a614c8c7524" },
   "mini.trailspace": { "branch": "main", "commit": "f43e2dff55a07e0a84c01ba4b25ed976a12eea44" },
   "minimal-narrow-region.nvim": { "branch": "main", "commit": "43a46bec5afc37a96bddc08d1a0772dfa26986fb" },
-  "music-controls.nvim": { "branch": "refactor", "commit": "d435c5436815350558a8126125b89e656c187c0c" },
+  "music-controls.nvim": { "branch": "master", "commit": "2c8f15b633daa9895e2114aacdff42ffc24534cb" },
   "noice.nvim": { "branch": "main", "commit": "c1ba80ccf6b3bd8c7fc88fe2e61085131d44ad65" },
   "nui.nvim": { "branch": "main", "commit": "b58e2bfda5cea347c9d58b7f11cf3012c7b3953f" },
   "nvim-autopairs": { "branch": "master", "commit": "f158dcb865c36f72c92358f87787dab2c272eaf3" },
