@@ -3,17 +3,18 @@
 !/.github/
 
 !/.bash_*
-/.bash_history*
 !/.bashrc.d/
+/.bash_history*
 /.cache/
 
 !/walls/*
 
 /.config/*
 !/.config/alacritty/
-!/.config/autostart/
+!/.config/autostart/conky.desktop
 !/.config/bat/
 !/.config/conky/
+!/.config/dunst/
 !/.config/git/
 !/.config/htop/
 !/.config/hyprland/
@@ -29,6 +30,7 @@
 
 /.local/bin/*
 !/.local/bin/base-bootstrap.sh
+!/.local/bin/dnd.sh
 !/.local/bin/cloc
 !/.local/bin/conky-start
 !/.local/bin/convert-to-gif
