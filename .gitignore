@@ -18,6 +18,7 @@
 !/.config/git/
 !/.config/htop/
 !/.config/hyprland/
+!/.config/kitty/
 !/.config/nvim/
 !/.config/spicetify/
 !/.config/tmux/scripts/
