@@ -16,6 +16,7 @@
 !/.config/conky/
 !/.config/git/
 !/.config/htop/
+!/.config/hyprland/
 !/.config/nvim/
 /.config/nvim/undos
 !/.config/spicetify/
