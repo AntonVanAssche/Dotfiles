@@ -1,0 +1,20 @@
+--- color.ini	2024-09-23 23:36:45.140246274 +0200
++++ ../../../../color.ini	2024-09-23 23:36:15.351234661 +0200
+@@ -147,7 +147,7 @@
+ # Spicetify
+ text               = cdd6f4
+ subtext            = CDD6F4
+-main               = 1E1E2E
++main               = 11111B
+ main-elevated      = 313244
+ highlight          = 313344
+ highlight-elevated = 45475a
+@@ -168,7 +168,7 @@
+ # Catppuccin
+ crust              = 11111B
+ mantle             = 181825
+-base               = 1E1E2E
++base               = 11111B
+ surface0           = 313244
+ surface1           = 45475A
+ surface2	       = 585b70

@@ -60,3 +60,5 @@
 
 /firefox/*
 !/firefox/userChrome.css
+
+!/patches/
