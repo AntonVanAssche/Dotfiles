@@ -25,6 +25,7 @@
 !/.config/tmux/tmux.conf
 !/.config/waybar/
 !/.config/wget/
+!/.config/zathura/
 /.config/nvim/undos
 /.config/spicetify/Backup
 /.config/spicetify/Extracted
