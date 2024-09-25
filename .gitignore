@@ -21,6 +21,7 @@
 !/.config/kitty/
 !/.config/neofetch/
 !/.config/nvim/
+!/.config/rofi/
 !/.config/spicetify/
 !/.config/tmux/scripts/
 !/.config/tmux/tmux.conf
