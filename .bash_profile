@@ -37,5 +37,5 @@ export LOCATION="";
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
-    export WAYLAND_DISPLAY="$XDG_SESSION_TYPE-0"
+    export WAYLAND_DISPLAY="$XDG_SESSION_TYPE-1"
 fi
