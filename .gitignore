@@ -48,6 +48,7 @@
 !/.local/bin/qs
 !/.local/bin/radio
 !/.local/bin/rs
+!/.local/bin/spotify-update.sh
 !/.local/bin/ssled
 !/.local/bin/sw
 !/.local/bin/tbv
