@@ -16,7 +16,12 @@ return {
         lualine_b = { "filename", "branch" },
         lualine_c = { "fileformat" },
         lualine_x = {},
-        lualine_y = { "filetype", "progress" },
+        lualine_y = {
+          require("recorder").displaySlots,
+          require("recorder").recordingStatus,
+          "filetype",
+          "progress",
+        },
         lualine_z = {
           { "location", separator = { right = "" }, left_padding = 2 },
         },
