@@ -44,6 +44,7 @@
 !/.local/bin/fetch
 !/.local/bin/forecast
 !/.local/bin/gnome-bootstrap.sh
+!/.local/bin/hypr-bootstrap.sh
 !/.local/bin/launchspt
 !/.local/bin/qs
 !/.local/bin/radio
