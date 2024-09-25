@@ -32,14 +32,13 @@ return {
     require("telescope").load_extension("undo")
     require("telescope").load_extension("prosession")
 
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
     vim.keymap.set(
       "n",
       "<leader>fa",
       "<cmd>Telescope find_files hidden=true<cr>",
       { desc = "Find files including hidden files" }
     )
-    vim.keymap.set("n", "<leader><leader>", builtin.git_files, {})
+    vim.keymap.set("n", "<leader>ff", builtin.git_files, {})
     vim.keymap.set("n", "<leader>fp", "<cmd>Telescope prosession<CR>", { desc = "Load session" })
     vim.keymap.set("n", "<leader>fe", "<cmd>Telescope emoji<CR>", { desc = "Insert Emoji" })
     vim.keymap.set("n", "<leader>fw", function()
@@ -65,7 +64,7 @@ return {
     vim.keymap.set("n", "<leader>fS", builtin.search_history, {})
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
     vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
-    vim.keymap.set("n", "<leader>fa", builtin.builtin, {})
+    vim.keymap.set("n", "<leader>fA", builtin.builtin, {})
     vim.keymap.set("n", "<leader>fl", builtin.current_buffer_fuzzy_find, {})
     vim.keymap.set("n", "<leader>fr", builtin.registers, {})
     vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find TODOs" })
