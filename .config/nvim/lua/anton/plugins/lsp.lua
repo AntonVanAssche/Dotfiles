@@ -46,7 +46,6 @@ return {
       "lua_ls",
       "puppet",
       "rubocop",
-      "shellcheck",
       "terraformls",
       "tflint",
     }
