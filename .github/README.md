@@ -1,11 +1,22 @@
 <div align="center">
-   <img src="/.github/assets/dotfiles.png" alt="Banner" width="50%">
-   <h5>A bunch of files that start with `.` and makes linux more awesome!</h5>
+  <h1>Dotfiles: Lunar Rice</h1>
 </div>
 
-The files in this repository are the configuration settings for the tools I use regularly.
-They are specifically created to function seamlessly on Fedora Linux, but can be
-conveniently customized to suit other distributions.
+![Lunar Rice Preview](/.github/assets/Lunar.jpg)
+
+- **OS**: [Fedora Linux](https://getfedora.org/)
+- **WM** : [Hyprland](https://hyprland.org/)
+- **Bar**: [Waybar](https://github.com/Alexays/Waybar)
+- **Launcher**: [Rofi (Wayland)](https://github.com/A417ya/rofi-wayland)
+- **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/)
+- **Shell** : [Bash](https://www.gnu.org/software/bash/)
+- **Editor**: [Neovim](https://github.com/neovim/neovim)
+- **Font**: [Fira Code](https://github.com/tonsky/FiraCode)
+- **Notification Daemon**: [Dunst](https://dunst-project.org/)
+- **Color Scheme**: [Catppuccin (Mocha)](https://catppuccin.com/) (Custom background `#11111b`)
+  - **GTK Theme**: [Catppuccin GTK](https://github.com/AntonVanAssche/Catppuccin-GTK-Theme) (Fork)
+  - **Icon Theme**: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
+  - **Mouse Cursor**: [Capitane Cursors](https://www.gnome-look.org/p/1148692/)
 
 ## Installation
 
@@ -13,7 +24,7 @@ conveniently customized to suit other distributions.
 mkdir -p ~/Projects
 git clone git@github.com:AntonVanAssche/Dotfiles.git ~/Projects/Dotfiles
 base-bootstrap.sh
-gnome-bootstrap.sh
+hypr-bootstrap.sh
 ```
 
 ## Updating
@@ -25,32 +36,3 @@ changes from this repository.
 ```console
 git pull origin master
 ```
-
-## Setup Info
-
-<img src="/.github/assets/TateMcRaePreview.png" alt="preview" align="right" width="400px" style="padding: 30px;">
-
-Here are some details about my setup:
-
-- **OS**: [Fedora Linux](https://getfedora.org/)
-- **DE** : [Gnome](https://gitlab.gnome.org/GNOME/gnome-shell)
-- **Shell Theme**: Default
-- **GTK Theme**: [Adw-gtk3-dark](https://github.com/lassekongo83/adw-gtk3)
-- **Icon Theme**: [Numix Circle](https://github.com/numixproject/numix-icon-theme-circle)
-- **Wallpaper**: [Tate McRae](/walls/Tate-McRae-1.jpg)
-- **Terminal**: [Alacritty](https://github.com/alacritty)
-- **Editor**: [Neovim](https://github.com/neovim/neovim)
-- **Shell** : [Bash](https://www.gnu.org/software/bash/)
-- **Web Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- **Music**: [Spotify](https://www.spotify.com/)
-- **Conky widget**: [Now Clocking](https://github.com/AntonVanAssche/now-clocking)
-
-- **Gnome-shell extensions**:
-  - [Alpabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)
-  - [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator)
-  - [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
-  - [Just Perfection](https://gitlab.gnome.org/jrahmatzadeh/just-perfection)
-  - [Pop-Shell](https://github.com/pop-os/shell)
-  - [Rounded Window Corners](https://github.com/yilozt/rounded-window-corners)
-  - [Space Bar](https://github.com/christopher-l/space-bar)
-    - Make sure you have a fixed amount of 5 workspaces set.
