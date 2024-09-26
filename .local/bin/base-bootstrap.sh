@@ -161,15 +161,25 @@ DOTFILES_DIR="${HOME}/Projects/Dotfiles"
 CONFIG_DIR=".config"
 LOCAL_BIN_DIR=".local/bin"
 declare -r CONFIG_DIR LOCAL_BIN_DIR
+declare -a CONFIG_DIRS_TO_LINK=()
+declare -a LOCAL_BIN_FILES_TO_LINK=()
+
+while IFS='' read -r dir; do
+    CONFIG_DIRS_TO_LINK+=("${dir}")
+done < <(find "${DOTFILES_DIR}/${CONFIG_DIR}" -mindepth 1 -maxdepth 1 -type d)
+
+while IFS='' read -r bin; do
+    LOCAL_BIN_FILES_TO_LINK+=("${bin}")
+done < <(find "${DOTFILES_DIR}/${LOCAL_BIN_DIR}" -mindepth 1 -maxdepth 1 -type f)
 
 mkdir -p "${HOME}/${CONFIG_DIR}"
-for file in "${DOTFILES_DIR}/${CONFIG_DIR}"/*; do
-    ln -sfv "${file}" "${HOME}/${CONFIG_DIR}"
+for dir in "${CONFIG_DIRS_TO_LINK[@]}"; do
+    ln -sfv "${dir}" "${HOME}/${CONFIG_DIR}/${dir##*/}"
 done
 
 mkdir -p "${HOME}/${LOCAL_BIN_DIR}"
-for file in "${DOTFILES_DIR}/${LOCAL_BIN_DIR}"/*; do
-    ln -sfv "${file}" "${HOME}/${LOCAL_BIN_DIR}/${file##*/}"
+for bin in "${LOCAL_BIN_FILES_TO_LINK[@]}"; do
+    ln -sfv "${bin}" "${HOME}/${LOCAL_BIN_DIR}/${bin##*/}"
 done
 
 ln -sfv "${DOTFILES_DIR}/.bashrc" "${HOME}/.bashrc"
