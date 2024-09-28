@@ -46,6 +46,7 @@
 !/.local/bin/gnome-bootstrap.sh
 !/.local/bin/hypr-bootstrap.sh
 !/.local/bin/launchspt
+!/.local/bin/lock.sh
 !/.local/bin/qs
 !/.local/bin/radio
 !/.local/bin/rs

@@ -8,8 +8,8 @@ if [[ "$DIR" == "powermenus" ]]; then
     shutdown="⏻"
     reboot=""
     lock=""
-    suspend=""
-    logout=""
+    suspend="󰒲"
+    logout="󰗽"
     ddir="$HOME/.config/rofi/config"
 else
 
@@ -74,38 +74,14 @@ case $chosen in
         fi
         ;;
     $lock)
-        swaylock \
-            -e -f -i ~/Pictures/Wallpapers/Mila-Kunis-2-Catppuccin.jpg \
-            --ring-color b3befe \
-            --ring-ver-color b3befe \
-            --key-hl-color -000001 \
-            --inside-color b3befe \
-            --inside-ver-color b3befe \
-            --inside-clear-color a5e3a1 \
-            --ring-clear-color a5e3a1 \
-            --ring-wrong-color f37ba8 \
-            --inside-wrong-color f37ba8 \
-            --bs-hl-color f37ba8 \
-            --text-caps-lock-color 000000
+        "${HOME}/.local/bin/lock.sh"
         ;;
     $suspend)
         ans=$(rdialog &)
         if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
             mpc -q pause
             amixer set Master mute
-            swaylock \
-                -e -f -i ~/Pictures/Wallpapers/Mila-Kunis-2-Catppuccin.jpg \
-                --ring-color b3befe \
-                --ring-ver-color b3befe \
-                --key-hl-color -000001 \
-                --inside-color b3befe \
-                --inside-ver-color b3befe \
-                --inside-clear-color a5e3a1 \
-                --ring-clear-color a5e3a1 \
-                --ring-wrong-color f37ba8 \
-                --inside-wrong-color f37ba8 \
-                --bs-hl-color f37ba8 \
-                --text-caps-lock-color 000000
+            "${HOME}/.local/bin/lock.sh"
             systemctl suspend
         elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
             exit
